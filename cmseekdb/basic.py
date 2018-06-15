@@ -55,8 +55,10 @@ def banner (txt): # The sexy banner!!!
 ## basic stuffs
 
 def clearscreen():
-    if sys.platform == "Windows":
-        os.system('cln')
+    if os.name == 'nt':
+        os.system('cls')
+ 
+    # for mac and linux(here, os.name is 'posix')
     else:
         os.system('clear')
 
