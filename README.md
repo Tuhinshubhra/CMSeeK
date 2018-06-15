@@ -15,19 +15,19 @@
   - Detects Users (3 Detection Methods)
   - Looks for Version Vulnerabilities and much more!
 - Modular bruteforce system
-  - Use pre made bruteforce module or create your own and integrate with it
+  - Use pre made bruteforce modules or create your own and integrate with it
 
 ## Requirements and Compatibility:
-CMSeeK is built using **python3**, you will need python3 to run this tool and the tool is compitable with **unix based systems** as of now windows support will be added later.
+CMSeeK is built using **python3**, you will need python3 to run this tool and is compitable with **unix based systems** as of now. Windows support will be added later.
 
 ## Installation and Usage:
-It is fairly easy to use CMSeeK, just make sure you have python3 and git (just for cloning the repo) installed and use the following command:
+It is fairly easy to use CMSeeK, just make sure you have python3 and git (just for cloning the repo) installed and use the following commands:
 
 - git clone `https://github.com/Tuhinshubhra/CMSeeK`
 - cd CMSeeK
 - python3 cmseek.py
 
-and the rest should be pretty self explanotory
+The rest should be pretty self explanotory.
 
 ## Detection Methods:
 CMSeek uses mainly 2 things for detection:
@@ -35,7 +35,7 @@ CMSeek uses mainly 2 things for detection:
 - Page Source Code
 
 ## Supported CMSs:
-CMSeeK currently can detect **22** CMSs you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **22** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {
@@ -47,7 +47,7 @@ All the cmss are stored in the following way:
 ```
 
 ## Scan Result:
-All of your scan results are stored in a json file, you can find the logs inside the `Result` directory, and as of the bruteforce results they're stored in a txt file under the site's result directory as well.
+All of your scan results are stored in a json file named `cms.json`, you can find the logs inside the `Result\<Target Site>` directory, and as of the bruteforce results they're stored in a txt file under the site's result directory as well.
 
 Here is an example of the json report log:
 
@@ -62,16 +62,16 @@ CMSeek has a modular bruteforce system meaning you can add your custom made brut
 
 3. Copy and paste the module in the `brutecms` directory under CMSeeK's directory
 
-4. Open CMSeeK and Rebuild Cache using `U` as the input in the first menu input.
+4. Open CMSeeK and Rebuild Cache using `U` as the input in the first menu.
 
-5. If everything is done right you'll see something like this (refer to below screenshot) and your module listed in bruteforce menu the next time you open CMSeeK.
+5. If everything is done right you'll see something like this (refer to screenshot below) and your module will be listed in bruteforce menu the next time you open CMSeeK.
 
 <p align='center'>
   <img alt="Cache Rebuild Screenshot" width="400px" src="https://i.imgur.com/2Brl7pl.png" />
 </p>
 
 ## Need More Reasons To Use CMSeeK?
-If not anything you can always enjoy exiting CMSeeK *(please don't)*, it will wish you goodbye in a random goodbye message in various languages.
+If not anything you can always enjoy exiting CMSeeK *(please don't)*, it will bid you goodbye in a random goodbye message in various languages.
 
 Also you can try reading comments in the code those are pretty random and weird!!!
 
