@@ -97,5 +97,10 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## License:
 CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE)
 
-## Follow Me:
-[Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)    ||    [Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
+## Follow Me @r3dhax0r:
+[Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)   
+
+## About The Team:
+We are the only purple team operating from India.
+This is a purple team project, more projects to come in future.
+[Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
