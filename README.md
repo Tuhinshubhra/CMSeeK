@@ -93,4 +93,4 @@ Usage of CMSeeK for testing or exploiting websites without prior mutual consiste
 CMSeeK is licensed under [MIT License](https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE)
 
 ## Follow Me:
-[Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)    ||    [Team : Virtually Unvoid Defensive (VUD](https://twitter.com/virtuallyunvoid)
+[Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)    ||    [Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
