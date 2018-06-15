@@ -4,7 +4,6 @@ import sys
 import os
 import json
 import importlib
-from datetime import datetime
 
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
