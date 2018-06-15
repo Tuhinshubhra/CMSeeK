@@ -16,7 +16,7 @@
   - Looks for Version Vulnerabilities and much more!
 - Modular bruteforce system
   - Use pre made bruteforce module or create your own and integrate with it
- 
+
 ## Requirements and Compatibility:
 CMSeeK is built using **python3**, you will need python3 to run this tool and the tool is compitable with **unix based systems** as of now windows support will be added later.
 
@@ -71,7 +71,7 @@ CMSeek has a modular bruteforce system meaning you can add your custom made brut
 </p>
 
 ## Need More Reasons To Use CMSeeK?
-If not anything you can always enjoy exiting CMSeeK *(please don't)*, it will wish you goodbye in a random goodbye message in various languages. 
+If not anything you can always enjoy exiting CMSeeK *(please don't)*, it will wish you goodbye in a random goodbye message in various languages.
 
 Also you can try reading comments in the code those are pretty random and weird!!!
 
@@ -90,7 +90,7 @@ Also you can try reading comments in the code those are pretty random and weird!
 Usage of CMSeeK for testing or exploiting websites without prior mutual consistency can be considered as an illegal activity. It is the final user's responsibility to obey all applicable local, state and federal laws. Authors assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ## License:
-CMSeeK is licensed under [MIT License](https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE)
+CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE)
 
 ## Follow Me:
 [Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)    ||    [Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
