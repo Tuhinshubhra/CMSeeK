@@ -41,7 +41,7 @@ def banner (txt): # The sexy banner!!!
     print(fgreen + bold + """
  _____ _____ _____         _____
 |     |     |   __|___ ___|  |  | twitter.com/r3dhax0r
-|   --| | | |__   | -_| -_|    -| 
+|   --| | | |__   | -_| -_|    -|
 |_____|_|_|_|_____|___|___|__|__| %sVersion 1.0 [BETA]
 """ % yellow)
     if txt != "":
@@ -188,7 +188,9 @@ def handle_quit(end_prog = True):
     # print(log_file)
     global log
     f = open(log_file,"w+")
-    f.write(str(log))
+    json_l = json.loads(log)
+    log_to_write = json.dumps(json_l, sort_keys=True, indent=4)
+    f.write(log_to_write)
     # print('written: ' + log)
     f.close()
     print('\n')
