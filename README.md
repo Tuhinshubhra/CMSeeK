@@ -8,6 +8,11 @@
 ## What is a CMS?
 > A content management system (CMS) manages the creation and modification of digital content. It typically supports multiple users in a collaborative environment. Some noteable examples are: *WordPress, Joomla, Drupal etc*.
 
+## Release History
+```
+- Version 1.0.0 [15-06-2018]
+```
+
 ## Functions Of CMSeek:
 - Basic CMS Detection of over 20 CMS
 - Advanced Wordpress Scans
