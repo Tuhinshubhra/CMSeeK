@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src="https://i.imgur.com/NG51F9o.png" alt="Logo"> <br>
+  <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
   <img src="https://img.shields.io/badge/Version-1.0%20Beta-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/packagist/l/doctrine/orm.svg?style=style=flat-square" alt="License">
