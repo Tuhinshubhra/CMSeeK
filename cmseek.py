@@ -73,7 +73,7 @@ elif selone == '2':
                 print('\n')
                 cmseek.warning('Invalid URL: ' + cmseek.bold + s + cmseek.cln + ' Skipping to next')
         print('\n')
-        cmseek.result('Finished Scanning all targets.. result has been saved in the Result directory under respective target directories','')
+        cmseek.result('Finished Scanning all targets.. result has been saved under respective target directories','')
     else:
         cmseek.error("No url provided... CMSeeK is exiting")
     cmseek.bye()
