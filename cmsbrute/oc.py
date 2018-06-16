@@ -71,6 +71,7 @@ def start():
 
             for user in ocbruteusers:
                 if user != '':
+                    passfound = '0'
                     print('\n')
                     cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                     pwd_file = open("wordlist/passwords.txt", "r")

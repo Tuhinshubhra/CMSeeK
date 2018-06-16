@@ -57,6 +57,7 @@ def start():
             wpbruteusers = set(wpparamuser)
 
             for user in wpbruteusers:
+                passfound = '0'
                 print('\n')
                 cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                 pwd_file = open("wordlist/passwords.txt", "r")

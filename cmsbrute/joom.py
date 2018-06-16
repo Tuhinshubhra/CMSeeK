@@ -103,6 +103,7 @@ def start():
                 joomparamuser.append(rusr)
             joombruteusers = set(joomparamuser) ## Strip duplicate usernames in case any smartass didn't read the full thing and entered admin as well
             for user in joombruteusers:
+                passfound = '0'
                 print('\n')
                 cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                 pwd_file = open("wordlist/passwords.txt", "r")
