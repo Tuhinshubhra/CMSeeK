@@ -34,6 +34,7 @@ def deep(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User A
     if id == "wp":
         cmseek.statement('Starting WordPress DeepScan')
         # Version detection
+        version = '0'
         cmseek.statement('Detecting Version and vulnerabilities')
         if ga == '1' or ga == '2' or ga == '3': ## something good was going to happen but my sleep messed it up TODO: will fix it later
             cmseek.statement('Generator Tag Available... Trying version detection using generator meta tag')
