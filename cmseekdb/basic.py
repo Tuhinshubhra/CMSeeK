@@ -58,13 +58,13 @@ def banner (txt): # The sexy banner!!!
 def clearscreen():
     if os.name == 'nt':
         os.system('cls')
- 
+
     # for mac and linux(here, os.name is 'posix')
     else:
         os.system('clear')
 
 def bye():
-    bye_dict = ["adiós","adieu","addio","adeus","aloha","arrivederci","auf Wiedersehen","au revoir","sayonara","shalom","totsiens","vale","zàijiàn","Aabar dekha hobey","Fir milenge","Annyeong", "Jā mata ne", "До Встречи"]
+    bye_dict = ["adios","adieu","addio","adeus","aloha","arrivederci","auf Wiedersehen","au revoir","sayonara","shalom","totsiens","vale","zaijian","Aabar dekha hobey","Fir milenge","Annyeong", "Ja mata ne", "До Встречи"]
     this_time = random.choice(bye_dict)
     print('\n\n' + bold + red + '  _/\_  ' + this_time + " ~~ CMSeeK " + cln)
     quit()
