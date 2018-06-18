@@ -67,7 +67,7 @@ def deep(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User A
                                 version = '0'
 
             ## Check for minor stuffs like licesnse readme and some open directory checks
-            cmseek.statement("Initiationg  open directory and files check")
+            cmseek.statement("Initiating open directory and files check")
 
             ## Readme.html
             readmesrc = cmseek.getsource(url + '/readme.html', ua)
@@ -158,6 +158,7 @@ def deep(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User A
             ## Version Vulnerability Detection
             if version == "0":
                 cmseek.warning("Skipping version vulnerability scan as WordPress Version wasn't detected")
+                wpvdbres = '0' # fix for issue #3
             else: ## So we have a version let's scan for vulnerabilities
                 cmseek.info("Checking version vulnerabilities [props to wpvulndb for their awesome api ;)]")
                 vfc = version.replace('.','') # NOT IMPORTANT: vfc = version for check well we have to kill all the .s in the version for looking it up on wpvulndb.. kinda weird if you ask me
@@ -199,7 +200,7 @@ def deep(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User A
             cmseek.result("Usernames Harvested: ",'')
             wpunames = ""
             for u in usernames:
-                wpunames = wpunames + u + "," 
+                wpunames = wpunames + u + ","
                 cmseek.success(cmseek.bold + u + cmseek.cln)
             print('\n')
             cmseek.update_log('wp_users', wpunames)
