@@ -34,6 +34,10 @@ It is fairly easy to use CMSeeK, just make sure you have python3 and git (just f
 
 The rest should be pretty self explanotory.
 
+## Checking For Update:
+You can check for update either from the main menu or use `python3 cmseek.py --update` to check for update and apply auto update.
+P.S: Please make sure you have `git` installed, CMSeeK uses git to apply auto update.
+
 ## Detection Methods:
 CMSeek uses mainly 2 things for detection:
 - HTTP Headers
@@ -83,13 +87,21 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## Screenshots:
 
 <p align="center">
-  <img alt="Main Menu" width="600px" src="https://i.imgur.com/mif49PN.png" />
+  <img alt="Main Menu" width="600px" src="https://i.imgur.com/1MV4cTg.png" />
   <br><em>Main Menu</em><br>
   <img alt="Scan Result" width="600px" src="https://i.imgur.com/C8SKQ1D.png" />
   <br><em>Scan Result</em><br>
   <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/6xWU7W1.png" />
   <br><em>WordPress Scan Result</em><br>
 </p>
+
+## Opening issue:
+Please make sure you have the following info attached when opening a new issue:
+- Target
+- Exact copy of error or screenshot of error
+- Your operating system
+
+**Issues without these informations might not be answered!**
 
 ## Disclaimer:
 **Usage of CMSeeK for testing or exploiting websites without prior mutual consistency can be considered as an illegal activity. It is the final user's responsibility to obey all applicable local, state and federal laws. Authors assume no liability and are not responsible for any misuse or damage caused by this program.**

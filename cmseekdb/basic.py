@@ -2,11 +2,23 @@ import errno
 import sys
 import os
 import random
+import subprocess
 import urllib.request
 from http.cookiejar import CookieJar
 import json
 from datetime import datetime
 import re
+
+# GitHub repo link
+GIT_URL = 'https://github.com/Tuhinshubhra/CMSeeK'
+
+# Version thingy
+try:
+    rv = open('current_version', 'r')
+    cver = rv.read().replace('\n','')
+    cmseek_version = cver
+except:
+    cmseek_version = '1.0.1' # Failsafe measure i guess
 
 # well the log containing variable
 log = '{"url":"","last_scanned":"","detection_param":"","cms_id":"","cms_name":"","cms_url":""}'
@@ -32,28 +44,54 @@ greenbg = "\033[42m"
 lgreenbg = "\033[102m"
 yellowbg = "\033[43m"
 lyellowbg = "\033[103m"
-
+violetbg = "\033[48;5;129m"
 redbg = "\033[101m";
 grey = "\033[37m";
 cyan = "\033[36m";
 bold   = "\033[1m";
 
-def banner (txt): # The sexy banner!!!
+def banner (txt):
+    # The sexy banner!!!
+    global cmseek_version
     print(fgreen + bold + """
  _____ _____ _____         _____
-|     |     |   __|___ ___|  |  | twitter.com/r3dhax0r
+|     |     |   __|___ ___|  |  | {0}twitter.com/{4}r3dhax0r{1}
 |   --| | | |__   | -_| -_|    -|
-|_____|_|_|_|_____|___|___|__|__| %sVersion 1.0 [BETA]
-""" % yellow)
+|_____|_|_|_|_____|___|___|__|__|{2} Version {3}
+""".format(lblue, fgreen, yellow, cmseek_version, red))
     if txt != "":
         print(whitebg + black + bold)
         print(" [+]  " + txt + "  [+] " + cln)
     else:
-        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r || Team VUD @virtuallyunvoid" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra " + cln + '\n')
+        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + bold + violetbg + white + " Group : " + cln + bold + " Virtual Unvoid Defensive @virtuallyunvoid" + cln + '\n')
     print(cln + "\n")
     return
 
-## basic stuffs
+## CRAZY banner : remove comments (''') to use and don't forget to comment ^ that one
+'''
+def banner (txt): # The sexy banner!!!
+    global cmseek_version
+    print(white + bold + """
+                        ,  /\{14}  .{15}
+                       //`-||{16}-'\\\\{17}
+                      (| -=||{18}=- |){19}
+                       \\\\,-||{20}-.//{21}
+                        `  ||  {22}'{5}
+  _____ _____ _____        {6}||{7}_____
+ |     |     |   __|___ ___{8}||{9}  |  | {0}twitter.com/r3dhax0r{1}
+ |   --| | | |__   | -_| -_{10}||{11}    -|
+ |_____|_|_|_|_____|___|___{12}||{13}__|__|{2} Version {3}{4}
+                           ||
+                           ()
+""".format(lblue, fgreen, yellow, cmseek_version, white, fgreen, white, fgreen, white, fgreen, white, fgreen, white, fgreen, red, white, red, white, red, white, red, white, red))
+    if txt != "":
+        print(whitebg + black + bold)
+        print(" [+]  " + txt + "  [+] " + cln)
+    else:
+        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + bold + violetbg + white + " Group : " + cln + bold + " Virtual Unvoid Defensive @virtuallyunvoid" + cln + '\n')
+    print(cln + "\n")
+    return
+'''
 
 def clearscreen():
     if os.name == 'nt':
@@ -86,6 +124,65 @@ def success(msg):
 
 def result(stm, msg):
     print(bold + fgreen + "[✔] " + stm + cln + msg)
+
+def update():
+    # Check For Update
+    clearscreen()
+    banner("Update Menu")
+    global cmseek_version
+    my_version = int(cmseek_version.replace('.',''))
+    info("Checking for updates")
+    get_version = getsource('https://raw.githubusercontent.com/Tuhinshubhra/CMSeeK/master/current_version',randomua('generate'))
+    if get_version[0] != '1':
+        error('Could not get latest version, Error: ' + get_version[1])
+        bye()
+    else:
+        latest_version = get_version[1].replace('\n','')
+        serv_version = int(latest_version.replace('.',''))
+        info("CMSeeK Version: " + cmseek_version)
+        success("Latest Version: " + latest_version)
+        if my_version > serv_version:
+            print('\n')
+            error("Either you or me (The Developer) messed things up.\n" + cln + "[↓] Download the proper version from: " + fgreen + bold + GIT_URL)
+        elif my_version == serv_version:
+            print('\n')
+            result("CMSeeK is up to date, Thanks for checking update tho.. It's a good practise",'')
+        else:
+            print('\n')
+            #success("Update available!")
+            success("Update available!")
+            update_me = input("[#] Do you want to update now? (y/n): ")
+            if update_me.lower() == 'y':
+                print(bold + fgreen + "[↓]" + cln + " Downloading Update...")
+                succes = False
+                try:
+                    lock_file = os.getcwd() + "/.git/index.lock"
+                    if os.path.isfile(lock_file):
+                        statement("Removing index.lock file from .git directory")
+                        # Solve the index.lock issue
+                        os.remove(lock_file)
+                    subprocess.run(("git checkout . && git pull %s HEAD") % GIT_URL, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    #os.system("git checkout . && git pull %s HEAD" % GIT_URL)
+                    vt = open('current_version', 'r')
+                    v_test = int(vt.read().replace('\n','').replace('.',''))
+                    # print(v_test)
+                    # print(serv_version)
+                    if v_test == serv_version:
+                        # Check if update successful
+                        succes = True
+                except:
+                    print("Unexpected error:", sys.exc_info()[0])
+                    raise
+                    error("Automatic Update Failed! Pleae download manually from: " + cln + GIT_URL)
+                if succes == True:
+                    result("CMSeeK Updated To Latest Version! Enjoy", "")
+                else:
+                    warning(bold + orange + "Update might be not successful.. Download manually from: " + cln + GIT_URL)
+            else:
+                print('\n')
+                warning("Automatic Update Terminated!")
+                info("Update Manually from: " + fgreen + bold + GIT_URL + cln)
+        bye()
 
 def process_url(target):
     # Used to format the url for multiple site scan

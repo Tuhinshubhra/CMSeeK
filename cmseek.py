@@ -2,7 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import sys
+
+## for people who don't bother reading the readme :/
+if sys.version_info[0] < 3:
+    print("\nPython3 is needed to run CMSeeK, Try \"python3 cmseek.py\" instead\n")
+    sys.exit(2)
+
 import os
+import getopt
 import json
 import importlib
 
@@ -10,12 +17,20 @@ import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
 
 
-### Operating System detection
+### Version
+try:
+    opts, args = getopt.getopt(sys.argv[1:], ":v", ["version","update"])
+except getopt.GetoptError as err:
+    print(err)
+    sys.exit(2)
 
-if sys.platform == "Windows":
-    cos = "win"
-else:
-    cos = "nwin"
+for o, a in opts:
+    if o in ("-v", "--version"):
+        print('\n\n')
+        cmseek.info("CMSeeK Version: " + cmseek.cmseek_version)
+        cmseek.bye()
+    if o in ('--update'):
+        cmseek.update()
 
 
 ################################
@@ -28,12 +43,15 @@ print ("=======  ==============================")
 print ("  [1]    CMS detection and Deep scan")
 print ("  [2]    Scan Multiple Sites")
 print ("  [3]    Bruteforce CMSs")
-print ("  [U]    Update Cache (in case you added any modules!)")
+print ("  [U]    Update CMSeeK")
+print ("  [R]    Rebuild Cache (Use only when you add any custom module)")
 print ("  [0]    Exit CMSeeK :( \n")
 
 selone = input("Enter Your Desired Option: ").lower()
-if selone == 'u' or selone == 'U':
+if selone == 'r':
     cmseek.update_brute_cache()
+elif selone == 'u':
+    cmseek.update()
 elif selone == '0':
     cmseek.bye()
 elif selone == "1":
