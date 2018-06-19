@@ -87,7 +87,7 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## Screenshots:
 
 <p align="center">
-  <img alt="Main Menu" width="600px" src="https://i.imgur.com/1MV4cTg.png" />
+  <img alt="Main Menu" width="600px" src="https://i.imgur.com/wqOOwx0.png" />
   <br><em>Main Menu</em><br>
   <img alt="Scan Result" width="600px" src="https://i.imgur.com/C8SKQ1D.png" />
   <br><em>Scan Result</em><br>
