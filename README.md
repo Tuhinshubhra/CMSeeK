@@ -10,8 +10,10 @@
 
 ## Release History
 ```
+- Version 1.0.1 [19-06-2018]
 - Version 1.0.0 [15-06-2018]
 ```
+[Changelog File](https://github.com/Tuhinshubhra/CMSeeK/blob/master/CHANGELOG)
 
 ## Functions Of CMSeek:
 - Basic CMS Detection of over 20 CMS
@@ -23,7 +25,7 @@
   - Use pre made bruteforce modules or create your own and integrate with it
 
 ## Requirements and Compatibility:
-CMSeeK is built using **python3**, you will need python3 to run this tool and is compitable with **unix based systems** as of now. Windows support will be added later.
+CMSeeK is built using **python3**, you will need python3 to run this tool and is compitable with **unix based systems** as of now. Windows support will be added later. CMSeeK relies on **git** for auto-update so make sure git is installed.
 
 ## Installation and Usage:
 It is fairly easy to use CMSeeK, just make sure you have python3 and git (just for cloning the repo) installed and use the following commands:
@@ -36,6 +38,7 @@ The rest should be pretty self explanotory.
 
 ## Checking For Update:
 You can check for update either from the main menu or use `python3 cmseek.py --update` to check for update and apply auto update.
+
 P.S: Please make sure you have `git` installed, CMSeeK uses git to apply auto update.
 
 ## Detection Methods:
