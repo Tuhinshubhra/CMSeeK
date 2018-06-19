@@ -114,6 +114,7 @@ elif selone == "3":
         brute_list = []
         for c in cache:
             brute_list.append(c)
+        brute_list = sorted(brute_list)
         for i,x in enumerate(brute_list):
             n = x
             mod = "cmsbrute." + x
