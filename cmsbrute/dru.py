@@ -7,7 +7,6 @@
 import cmseekdb.basic as cmseek # I don't feel like commenting
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
-import cmseekdb.dnv as advanced # Deep scan and Version Detection functions
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys

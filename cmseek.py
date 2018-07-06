@@ -26,9 +26,11 @@ parser.add_argument("--update", help="Update CMSeeK", action="store_true")
 parser.add_argument("--random-agent", help="Use a random user agent", action="store_true")
 parser.add_argument('--user-agent', help='Specify custom user agent')
 parser.add_argument('-u', '--url', help='Target Url')
-
+parser.add_argument('--clear-result', action='store_true')
 args = parser.parse_args()
 
+if args.clear_result:
+    cmseek.clear_log()
 if args.help:
     cmseek.help()
 if args.verbose:

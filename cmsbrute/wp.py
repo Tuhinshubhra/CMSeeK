@@ -5,7 +5,7 @@
 import cmseekdb.basic as cmseek
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
-import cmseekdb.dnv as advanced # Deep scan and Version Detection functions
+import deepscans.wp.userenum as wp_user_enum
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys
@@ -40,13 +40,9 @@ def start():
         if wploginsrc[0] == '1' and '<form' in wploginsrc[1]:
             cmseek.success("Login form found.. Detecting Username For Bruteforce")
             wpparamuser = []
-            usrrange = range(31)
-            pool = multiprocessing.Pool()
-            prepareenum = partial(advanced.wpauthorenum, cmseek.randomua('ilovechickenaswell'), url)
-            res  = pool.map(prepareenum,usrrange)
-            for r in res:
-                if r != None:
-                    wpparamuser.append(r)
+            uenum = wp_user_enum.start('wp', url, cmseek.randomua('r'), '0', bsrc[1])
+            usernamesgen = uenum[0]
+            wpparamuser = uenum[1]
 
             if wpparamuser == []:
                 customuser = input("[~] CMSeek could not enumerate usernames, enter username if you know any: ")
