@@ -2,12 +2,16 @@ import errno
 import sys
 import os
 import random
+import signal
 import subprocess
 import urllib.request
 from http.cookiejar import CookieJar
 import json
 from datetime import datetime
 import re
+
+# Verbose
+verbose = False
 
 # GitHub repo link
 GIT_URL = 'https://github.com/Tuhinshubhra/CMSeeK'
@@ -55,7 +59,7 @@ def banner (txt):
     global cmseek_version
     print(fgreen + bold + """
  _____ _____ _____         _____
-|     |     |   __|___ ___|  |  | {0}twitter.com/{4}r3dhax0r{1}
+|     |     |   __|___ ___|  |  | {0}by {4}@r3dhax0r{1}
 |   --| | | |__   | -_| -_|    -|
 |_____|_|_|_|_____|___|___|__|__|{2} Version {3}
 """.format(lblue, fgreen, yellow, cmseek_version, red))
@@ -92,11 +96,36 @@ def banner (txt): # The sexy banner!!!
     print(cln + "\n")
     return
 '''
+def help():
+    # The help screen
+    print(
+    """
+    CMSeeK Version {0}
+    Coded By: @r3dhax0r
+
+    Usage: cmseek.py (for a guided scanning) OR cmseek.py -u <target_url> [...]
+
+    Arguments:
+
+          -h, --help                   Show this help message and exit
+          -v, --verbose                Increase output verbosity
+          --version                    Show CMSeeK version and exit
+          --update                     Update CMSeeK (Requires git)
+          --random-agent               Use a random user agent
+          --user-agent USER_AGENT      Specify custom user agent
+          -u URL, --url URL            Target Url
+    """.format(cmseek_version))
+    bye()
+
+def signal_handler(signal, frame):
+    # Handle Ctrl+c
+    handle_quit()
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def clearscreen():
     if os.name == 'nt':
         os.system('cls')
-
     # for mac and linux(here, os.name is 'posix')
     else:
         os.system('clear')
@@ -108,7 +137,10 @@ def bye():
     quit()
 
 def statement(msg):
-    print("[+] "  + msg)
+    # Print only if verbose
+    global verbose
+    if verbose == True:
+        print("[+] "  + msg)
 
 def error(msg):
     print(bold + red + "[❌] " + msg)
@@ -190,15 +222,15 @@ def process_url(target):
     if target == "":
         return '0'
     elif "://" in target and "http" in target:
-        if target.endswith('/'):
-            target = list(target)
-            target[-1] = ""
-            target = "".join(target)
-        init_result_dir(target)
-        update_log('url', str(target))
-        return target
+        if not target.endswith('/'):
+            target = target + '/'
     else:
-        return '0'
+        target = 'http://' + target
+        if not target.endswith('/'):
+            target = target + '/'
+    init_result_dir(target)
+    update_log('url', str(target))
+    return target
 
 
 def targetinp(iserr):
@@ -284,17 +316,18 @@ def update_log(key,value):
 def handle_quit(end_prog = True):
     # in case of unwanted exit this function should take care of writing the json log
     global log_dir
-    log_file = log_dir + "/cms.json"
-    # print(log_file)
-    global log
-    f = open(log_file,"w+")
-    json_l = json.loads(log)
-    log_to_write = json.dumps(json_l, sort_keys=True, indent=4)
-    f.write(log_to_write)
-    # print('written: ' + log)
-    f.close()
-    print('\n')
-    info('Log saved in: ' + fgreen + bold + log_file + cln)
+    if log_dir is not "":
+        log_file = log_dir + "/cms.json"
+        # print(log_file)
+        global log
+        f = open(log_file,"w+")
+        json_l = json.loads(log)
+        log_to_write = json.dumps(json_l, sort_keys=True, indent=4)
+        f.write(log_to_write)
+        # print('written: ' + log)
+        f.close()
+        print('\n')
+        info('Log saved in: ' + fgreen + bold + log_file + cln)
     if end_prog == True:
         bye()
     else:

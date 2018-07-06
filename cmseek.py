@@ -9,7 +9,7 @@ if sys.version_info[0] < 3:
     sys.exit(2)
 
 import os
-import getopt
+import argparse
 import json
 import importlib
 
@@ -17,21 +17,42 @@ import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
 
 
-### Version
-try:
-    opts, args = getopt.getopt(sys.argv[1:], ":v", ["version","update"])
-except getopt.GetoptError as err:
-    print(err)
-    sys.exit(2)
+parser = argparse.ArgumentParser(prog='cmseek.py',add_help=False)
 
-for o, a in opts:
-    if o in ("-v", "--version"):
-        print('\n\n')
-        cmseek.info("CMSeeK Version: " + cmseek.cmseek_version)
-        cmseek.bye()
-    if o in ('--update'):
-        cmseek.update()
+parser.add_argument('-h', '--help', action="store_true")
+parser.add_argument('-v', '--verbose', help="increase output verbosity", action="store_true")
+parser.add_argument("--version", help="Show CMSeeK version", action="store_true")
+parser.add_argument("--update", help="Update CMSeeK", action="store_true")
+parser.add_argument("--random-agent", help="Use a random user agent", action="store_true")
+parser.add_argument('--user-agent', help='Specify custom user agent')
+parser.add_argument('-u', '--url', help='Target Url')
 
+args = parser.parse_args()
+
+if args.help:
+    cmseek.help()
+if args.verbose:
+    cmseek.verbose = True
+if args.update:
+    cmseek.update()
+if args.version:
+    print('\n\n')
+    cmseek.info("CMSeeK Version: " + cmseek.cmseek_version)
+    cmseek.bye()
+if args.user_agent is not None:
+    cua = args.user_agent
+elif args.random_agent is not None:
+    cua = cmseek.randomua('random')
+else:
+    cua = None
+if args.url is not None:
+    s = args.url
+    target = cmseek.process_url(s)
+    if target != '0':
+        if cua == None:
+            cua = cmseek.randomua()
+        core.main_proc(target,cua)
+        cmseek.handle_quit()
 
 ################################
 ###      THE MAIN MENU       ###
@@ -59,7 +80,8 @@ elif selone == "1":
     cmseek.clearscreen()
     cmseek.banner("CMS Detection And Deep Scan")
     site = cmseek.targetinp("") # Get The User input
-    cua = cmseek.randomua()
+    if cua == None:
+        cua = cmseek.randomua()
     core.main_proc(site,cua)
     cmseek.handle_quit()
 
@@ -81,7 +103,8 @@ elif selone == '2':
         cmseek.info('Treating input as URL list')
         sites_list = sites.split(',')
     if sites_list != []:
-        cua = cmseek.randomua()
+        if cua == None:
+            cua = cmseek.randomua()
         for s in sites_list:
             target = cmseek.process_url(s)
             if target != '0':

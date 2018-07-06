@@ -1,3 +1,10 @@
+Version 1.0.2 [07-07-2018]
+  - WordPress passive theme detection added
+  - WordPress passive plugins enumeration added
+  - Added Verbose, url, random-agnet, user-agent, help arguments
+  - Deep scan updated
+  - Version detect updated
+  - Minor code updates and bug fixes
 Version 1.0.1 [19-06-2018]
   - Added Update option
   - Added version switch

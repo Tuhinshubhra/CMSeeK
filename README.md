@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0%20Beta-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.0.2%20Beta-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.2 [07-07-2018]
 - Version 1.0.1 [19-06-2018]
 - Version 1.0.0 [15-06-2018]
 ```
@@ -32,7 +33,10 @@ It is fairly easy to use CMSeeK, just make sure you have python3 and git (just f
 
 - git clone `https://github.com/Tuhinshubhra/CMSeeK`
 - cd CMSeeK
+For guided scanning:
 - python3 cmseek.py
+Else:
+- python3 cmseek.py -u <target_url> [...]
 
 The rest should be pretty self explanotory.
 
@@ -115,7 +119,5 @@ CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tu
 ## Follow Me @r3dhax0r:
 [Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)   
 
-## About The Team:
-We are the only purple team operating from India.
-This is a purple team project, more projects to come in future.
+## Team:
 [Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)

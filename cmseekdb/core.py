@@ -6,7 +6,7 @@ import json
 import importlib
 from datetime import datetime
 
-import cmseekdb.dnv as advanced # Deep scan and Version Detection functions
+import deepscans.core as advanced # Deep scan and Version Detection functions
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
@@ -18,23 +18,18 @@ def main_proc(site,cua):
     cmseek.info("Scanning Site: " + site)
     cmseek.statement("User Agent: " + cua)
     cmseek.statement("Collecting Headers and Page Source for Analysis")
-    try:
-        ckreq = urllib.request.Request(
-        site,
-        data=None,
-        headers={
-            'User-Agent': cua
-        }
-        )
-        with urllib.request.urlopen(ckreq) as response:
-            scode = response.read().decode()
-            headers = str(response.info())
-    except Exception as e:
-        e = str(e)
-        cmseek.error("Aborting CMSeek! Couldn't connect to site \n    Error: %s" % e) #TODO: remove the error msg later if possible
+    init_source = cmseek.getsource(site, cua)
+    if init_source[0] != '1':
+        cmseek.error("Aborting CMSeek! Couldn't connect to site \n    Error: %s" % init_source[1])
         return
-    # TODO: The source code enumartion > save to site directory > print done
-
+    else:
+        scode = init_source[1]
+        headers = init_source[2]
+        if site != init_source[3] and site + '/' != init_source[3]:
+            cmseek.info('Target redirected to: ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
+            follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
+            if follow_redir.lower() == 'y':
+                site = init_source[3]
     cmseek.statement("Detection Started")
     cmseek.statement("Using headers to detect CMS (Stage 1 of 2)")
     c1 = header.check(headers)
@@ -61,7 +56,7 @@ def main_proc(site,cua):
                 cmseek.update_log('cms_url',cka['url']) # update log
             # return
         else:
-            advanced.deep(c1[1], site, cua, '2', scode) ## The 2 suggests that generator check has not been performed
+            advanced.start(c1[1], site, cua, '2', scode) ## The 2 suggests that generator check has not been performed
     else:
         cmseek.warning('No luck with headers... Continuing with source code')
         cmseek.statement("Checking for generator meta tag in source code")
@@ -91,7 +86,7 @@ def main_proc(site,cua):
                         cmseek.update_log('cms_url',cka['url']) # update log
                     # return
                 else:
-                    advanced.deep(c21[1], site, cua, '1', scode)
+                    advanced.start(c21[1], site, cua, '1', scode)
             elif c21[0] == '2': # Empty Source code
                 cmseek.error("Source code was empty... exiting CMSeek")
                 # return
@@ -120,7 +115,7 @@ def main_proc(site,cua):
                             cmseek.update_log('cms_url',cka['url']) # update log
                         return
                     else:
-                        advanced.deep(c22[1], site, cua, '1', scode)
+                        advanced.start(c22[1], site, cua, '1', scode)
                 elif c22[0] == '2': # Empty Source code
                     cmseek.error("Source code was empty... exiting CMSeek")
                     return
@@ -153,7 +148,7 @@ def main_proc(site,cua):
                         cmseek.update_log('cms_url',cka['url']) # update log
                     return
                 else:
-                    advanced.deep(c22[1], site, cua, '0', scode)
+                    advanced.start(c22[1], site, cua, '0', scode)
             elif c22[0] == '2': # Empty Source code
                 cmseek.error("Source code was empty... exiting CMSeek")
                 return
