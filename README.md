@@ -33,9 +33,13 @@ It is fairly easy to use CMSeeK, just make sure you have python3 and git (just f
 
 - git clone `https://github.com/Tuhinshubhra/CMSeeK`
 - cd CMSeeK
+
 For guided scanning:
+
 - python3 cmseek.py
+
 Else:
+
 - python3 cmseek.py -u <target_url> [...]
 
 The rest should be pretty self explanotory.
