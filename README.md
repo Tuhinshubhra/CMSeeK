@@ -94,11 +94,11 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## Screenshots:
 
 <p align="center">
-  <img alt="Main Menu" width="600px" src="https://i.imgur.com/wqOOwx0.png" />
+  <img alt="Main Menu" width="600px" src="https://i.imgur.com/KdRSYzP.png" />
   <br><em>Main Menu</em><br>
   <img alt="Scan Result" width="600px" src="https://i.imgur.com/C8SKQ1D.png" />
   <br><em>Scan Result</em><br>
-  <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/6xWU7W1.png" />
+  <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/CK4O1Yd.png" />
   <br><em>WordPress Scan Result</em><br>
 </p>
 
