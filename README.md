@@ -10,7 +10,7 @@
 
 ## Release History
 ```
-- Version 1.0.2 [07-07-2018]
+- Version 1.0.2 [06-07-2018]
 - Version 1.0.1 [19-06-2018]
 - Version 1.0.0 [15-06-2018]
 ```
