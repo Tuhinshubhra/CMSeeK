@@ -68,7 +68,7 @@ def banner (txt):
         print(whitebg + black + bold)
         print(" [+]  " + txt + "  [+] " + cln)
     else:
-        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + bold + violetbg + white + " Group : " + cln + bold + " Virtual Unvoid Defensive @virtuallyunvoid" + cln + '\n')
+        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + '\n')
     print(cln + "\n")
     return
 
@@ -102,22 +102,22 @@ def help():
     # The help screen
     print(
     """
-    CMSeeK Version {0}
-    Coded By: @r3dhax0r
+CMSeeK Version {0}
+Coded By:{1} @r3dhax0r {2}
 
-    Usage: cmseek.py (for a guided scanning) OR cmseek.py -u <target_url> [...]
+Usage: cmseek.py (for a guided scanning) OR cmseek.py -u <target_url> [...]
 
-    Arguments:
+Arguments:
 
-          -u URL, --url URL            Target Url
-          -h, --help                   Show this help message and exit
-          -v, --verbose                Increase output verbosity
-          --version                    Show CMSeeK version and exit
-          --update                     Update CMSeeK (Requires git)
-          --random-agent               Use a random user agent
-          --user-agent USER_AGENT      Specify custom user agent
-          --clear-result               Delete all the scan result
-    """.format(cmseek_version))
+      -u URL, --url URL            Target Url
+      -h, --help                   Show this help message and exit
+      -v, --verbose                Increase output verbosity
+      --version                    Show CMSeeK version and exit
+      --update                     Update CMSeeK (Requires git)
+      -r, --random-agent           Use a random user agent
+      --user-agent USER_AGENT      Specify custom user agent
+      --clear-result               Delete all the scan result
+    """.format(cmseek_version,red, cln))
     bye()
 
 def signal_handler(signal, frame):
@@ -146,7 +146,7 @@ def statement(msg):
         print("[+] "  + msg)
 
 def error(msg):
-    print(bold + red + "[❌] " + msg)
+    print(bold + red + "[x] " + msg) # switched to x from ❌ ..
 
 def warning(msg):
     print(bold + yellow + "[!] " + cln + msg)
@@ -433,7 +433,7 @@ def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source 
         )
         cj = CookieJar()
         opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-        with opener.open(ckreq, timeout=4) as response:
+        with opener.open(ckreq, timeout=8) as response:
             scode = response.read().decode()
             headers = str(response.info())
             rurl = response.geturl()
@@ -443,6 +443,16 @@ def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source 
         e = str(e)
         r = ['2', e, '', ''] ## 'error code', 'error message', 'empty'
         return r
+
+def check_url(url,ua):
+    request = urllib.request.Request(url)
+    request.add_header('User-Agent', ua)
+    request.get_method = lambda: 'HEAD'
+    try:
+        urllib.request.urlopen(request)
+        return '1'
+    except urllib.request.HTTPError:
+        return '0'
 
 def wpbrutesrc(url, user, pwd):
     redirecto = url + '/wp-admin/'

@@ -153,8 +153,8 @@ tpc = {
 joom = {
     'name':'Joomla',
     'url':'https://joomla.org',
-    'vd':'0',
-    'deeps':'0'
+    'vd':'1',
+    'deeps':'1'
 }
 oc = {
     'name':'OpenCart',

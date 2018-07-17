@@ -1,35 +1,11 @@
 ### All WordPress DeepScan stuffs goes here
 
 import cmseekdb.basic as cmseek ## Good old module
-import re ## Comes in handy while detecting version
-import json ## For parsing the wpvulndb result
-import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
-from functools import partial ## needed somewhere :/
-
 import VersionDetect.wp as wordpress_version_detect
 import deepscans.wp.userenum as wp_user_enum
 import deepscans.wp.vuln as wp_vuln_scan
 import deepscans.wp.pluginsdetect as wp_plugins_enum
 import deepscans.wp.themedetect as wp_theme_enum
-
-def wpauthorenum(ua, url, param):
-    ## WordPress function for Collecting usernames from author Parameter
-    ## Had to create a different function to avoid some pickle issues
-    param = param + 1
-    i = str(param)
-    # cmseek.statement('Checking for ?author=' + i) # Looks Ugly.. enable if you want over verbose result
-    authorsrc = cmseek.getsource(url + '/?author=' + i, ua)
-    if authorsrc[0] == '1' and '/author/' in authorsrc[3]: ## Detection using the url redirection
-        author = re.findall(r'/author/(.*?)/', str(authorsrc[3]))
-        if author != []:
-            cmseek.success('Found user from redirection: ' + cmseek.bold + author[0] + cmseek.cln)
-            return author[0]
-    elif authorsrc[0] == '1' and '/author/' in authorsrc[1]:
-        author = re.findall(r'/author/(.*?)/', str(authorsrc[1]))
-        if author != []:
-            cmseek.success('Found user from source code: ' + cmseek.bold + author[0] + cmseek.cln)
-            return author[0]
-
 
 def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User Agent}, {is Generator Meta tag available [0/1]}, {Source code})
     ## Do shits later [update from later: i forgot what shit i had to do ;___;]
@@ -88,7 +64,7 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
         plugins_found = plug_enum[0]
         plugins = plug_enum[1]
 
-        ## Plugins Enumeration
+        ## Themes Enumeration
         theme_enum = wp_theme_enum.start(source)
         themes_found = theme_enum[0]
         themes = theme_enum[1]

@@ -6,6 +6,7 @@ import json
 import importlib
 from datetime import datetime
 
+import VersionDetect.detect as version_detect # Version detection
 import deepscans.core as advanced # Deep scan and Version Detection functions
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.sc as source # Contains function to detect cms from source code
@@ -49,9 +50,13 @@ def main_proc(site,cua):
             else:
                 cmseek.statement("CMS Version is detectable, detecting CMS Version")
                 ### Detect version
+                cms_version = version_detect.start(c1[1], site, cua, '1', scode)
                 print('\n')
                 cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
                 cmseek.update_log('cms_name',cka['name']) # update log
+                if cms_version != '0':
+                    cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
+                    cmseek.update_log('cms_version',cms_version) # update log
                 cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                 cmseek.update_log('cms_url',cka['url']) # update log
             # return
@@ -79,9 +84,13 @@ def main_proc(site,cua):
                     else:
                         cmseek.statement("CMS Version is detectable, detecting CMS Version")
                         ### Detect version
+                        cms_version = version_detect.start(c21[1], site, cua, '1', scode)
                         print('\n')
                         cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
                         cmseek.update_log('cms_name',cka['name']) # update log
+                        if cms_version != '0':
+                            cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
+                            cmseek.update_log('cms_version',cms_version) # update log
                         cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                         cmseek.update_log('cms_url',cka['url']) # update log
                     # return
@@ -107,10 +116,14 @@ def main_proc(site,cua):
                             cmseek.update_log('cms_url',cka['url']) # update log
                         else:
                             cmseek.statement("CMS Version is detectable, detecting CMS Version")
+                            cms_version = version_detect.start(c22[1], site, cua, '1', scode)
                             ### Detect version
                             print('\n')
                             cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
                             cmseek.update_log('cms_name',cka['name']) # update log
+                            if cms_version != '0':
+                                cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
+                                cmseek.update_log('cms_version',cms_version) # update log
                             cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                             cmseek.update_log('cms_url',cka['url']) # update log
                         return
@@ -139,11 +152,15 @@ def main_proc(site,cua):
                         cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                         cmseek.update_log('cms_url',cka['url']) # update log
                     else:
+                        cms_version = version_detect.start(c22[1], site, cua, '0', scode)
                         cmseek.statement("CMS Version is detectable, detecting CMS Version")
                         ### Detect version
                         print('\n')
                         cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
                         cmseek.update_log('cms_name',cka['name']) # update log
+                        if cms_version != '0':
+                            cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
+                            cmseek.update_log('cms_version',cms_version) # update log
                         cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                         cmseek.update_log('cms_url',cka['url']) # update log
                     return

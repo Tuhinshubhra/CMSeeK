@@ -1,3 +1,6 @@
+## WordPress version detection
+## Rev 1
+
 import cmseekdb.basic as cmseek
 import re
 

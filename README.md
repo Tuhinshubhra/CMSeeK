@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0.2%20Beta-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.0.4-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.4 [17-07-2018]
 - Version 1.0.3 [06-07-2018]
 - Version 1.0.2 [06-07-2018]
 - Version 1.0.1 [19-06-2018]
@@ -23,6 +24,7 @@
   - Detects Version
   - Detects Users (3 Detection Methods)
   - Looks for Version Vulnerabilities and much more!
+- Advance Joomla Scans
 - Modular bruteforce system
   - Use pre made bruteforce modules or create your own and integrate with it
 

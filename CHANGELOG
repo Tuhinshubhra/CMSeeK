@@ -1,3 +1,7 @@
+Version 1.0.4 [17-07-2018]
+  - added joomla deep scan and version detection
+  - minor core update
+  - removed some junk code from wordpress deepscan
 Version 1.0.3 [06-07-2018]
   - clear-result argument added
   - fixed all bruteforce modules

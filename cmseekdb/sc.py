@@ -78,7 +78,7 @@ def generator(s): ## CMS Check using generator meta tags
             # Ametys CMS
             r = ['1','amcms']
             return r
-        elif '<meta name="generator" content="Joomla! - Open Source Content Management' in hstring:
+        elif '<meta name="generator" content="Joomla! - Open Source Content Management' in hstring or '<meta name="description" content="Joomla! - the dynamic portal engine and content management system"' in hstring:
             # Joomla
             r = ['1', 'joom']
             return r
