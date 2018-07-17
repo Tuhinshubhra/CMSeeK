@@ -22,9 +22,19 @@
 - Basic CMS Detection of over 20 CMS
 - Advanced Wordpress Scans
   - Detects Version
+  - User Enumeration
+  - Plugins Enumeration
+  - Theme Enumeration
   - Detects Users (3 Detection Methods)
   - Looks for Version Vulnerabilities and much more!
-- Advance Joomla Scans
+- Advanced Joomla Scans
+  - Version detection
+  - Backup files finder
+  - Admin page finder
+  - Core vulnerability detection
+  - Directory listing check
+  - Config leak detection
+  - Various other checks
 - Modular bruteforce system
   - Use pre made bruteforce modules or create your own and integrate with it
 
