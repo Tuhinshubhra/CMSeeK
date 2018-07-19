@@ -115,7 +115,7 @@ Also you can try reading comments in the code those are pretty random and weird!
 <p align="center">
   <img alt="Main Menu" width="600px" src="https://i.imgur.com/KdRSYzP.png" />
   <br><em>Main Menu</em><br>
-  <img alt="Scan Result" width="600px" src="https://i.imgur.com/C8SKQ1D.png" />
+  <img alt="Scan Result" width="600px" src="https://i.imgur.com/yiKQoZw.png" />
   <br><em>Scan Result</em><br>
   <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/CK4O1Yd.png" />
   <br><em>WordPress Scan Result</em><br>
