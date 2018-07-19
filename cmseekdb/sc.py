@@ -140,10 +140,10 @@ def check(s, site): ## Check if no generator meta tag available
             r = ['1', 'dru']
             return r
 
-        elif 'Joomla' in hstring: # Lamest one possible
-            # Obvious Joomla
-            r = ['1','joom']
-            return r
+        # elif 'Joomla' in hstring: # Lamest one possible
+        #     # Obvious Joomla
+        #     r = ['1','joom']
+        #     return r
 
         elif 'Powered By <a href="http://www.opencart.com">OpenCart' in hstring or "catalog/view/javascript/jquery/swiper/css/opencart.css" in hstring or 'index.php?route=' in hstring:
             # OpenCart

@@ -2,6 +2,8 @@ Version 1.0.5 [19-07-2018]
   - version detection for drupal added
   - fixed '/' error in url
   - added a detection method for drupal
+  - Core updated to make it smaller and faster
+  - removed multiprocessing with multithreading now cmseek runs on almost all devices
   - other minor fixes
 Version 1.0.4 [17-07-2018]
   - added joomla deep scan and version detection

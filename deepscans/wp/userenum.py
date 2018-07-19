@@ -1,12 +1,14 @@
 import cmseekdb.basic as cmseek ## Good old module
 import re ## Comes in handy while detecting version
 import json ## For parsing the wpvulndb result
-import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
-from functools import partial ## needed somewhere :/
+import threading
+
+wpparamuser = []
 
 def wpauthorenum(ua, url, param):
     ## WordPress function for Collecting usernames from author Parameter
     ## Had to create a different function to avoid some pickle issues
+    global wpparamuser
     param = param + 1
     i = str(param)
     # cmseek.statement('Checking for ?author=' + i) # Looks Ugly.. enable if you want over verbose result
@@ -15,12 +17,12 @@ def wpauthorenum(ua, url, param):
         author = re.findall(r'/author/(.*?)/', str(authorsrc[3]))
         if author != []:
             cmseek.success('Found user from redirection: ' + cmseek.fgreen + cmseek.bold + author[0] + cmseek.cln)
-            return author[0]
+            wpparamuser.append(author[0])
     elif authorsrc[0] == '1' and '/author/' in authorsrc[1]:
         author = re.findall(r'/author/(.*?)/', str(authorsrc[1]))
         if author != []:
             cmseek.success('Found user from source code: ' + cmseek.fgreen + cmseek.bold + author[0] + cmseek.cln)
-            return author[0]
+            wpparamuser.append(author[0])
 
 def start(id, url, ua, ga, source):
     cmseek.info("Starting Username Harvest")
@@ -53,15 +55,13 @@ def start(id, url, ua, ga, source):
 
     # the regular way of checking vua user Parameter -- For now just check upto 20 ids
     cmseek.info('Harvesting usernames from wordpress author Parameter')
-    wpparamuser = []
     usrrange = range(31)
-    pool = multiprocessing.Pool()
-    prepareenum = partial(wpauthorenum, ua, url)
-    res  = pool.map(prepareenum,usrrange)
-    for r in res:
-        if r != None:
-            wpparamuser.append(r)
-
+    threads = [threading.Thread(target=wpauthorenum, args=(ua,url,r)) for r in usrrange]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    global wpparamuser
     # Combine all the usernames that we collected
     usernames = set(wpjsonuser+jpapiuser+wpparamuser)
     if len(usernames) > 0:

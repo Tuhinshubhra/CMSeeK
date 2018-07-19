@@ -1,3 +1,5 @@
+## Core Rev 2, small and sexy
+
 import sys
 import os
 import http.client
@@ -31,144 +33,91 @@ def main_proc(site,cua):
             follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
             if follow_redir.lower() == 'y':
                 site = init_source[3]
+    if scode == '':
+        # silly little check thought it'd come handy
+        cmseek.error('Aborting detection, source code empty')
+        return
+
     cmseek.statement("Detection Started")
-    cmseek.statement("Using headers to detect CMS (Stage 1 of 2)")
-    c1 = header.check(headers)
-    if c1[0] == "1":
-        # Do this shit later
-        cmseek.success("CMS Detected, CMS ID: \"%s\" - looking up database for CMS information" % c1[1])
-        cmseek.update_log('detection_param','header') # update log
-        cmseek.update_log('cms_id',c1[1]) # update log
-        cka = getattr(cmsdb, c1[1])
-        if cka['deeps'] != '1': # Deep Scan
-            if cka['vd'] != '1': # Version Detection not available for the cms show basic stuff
-                print('\n')
-                cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                cmseek.update_log('cms_name',cka['name']) # update log
-                cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                cmseek.update_log('cms_url',cka['url']) # update log
-            else:
-                cmseek.statement("CMS Version is detectable, detecting CMS Version")
-                ### Detect version
-                cms_version = version_detect.start(c1[1], site, cua, '1', scode)
-                print('\n')
-                cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                cmseek.update_log('cms_name',cka['name']) # update log
-                if cms_version != '0':
-                    cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
-                    cmseek.update_log('cms_version',cms_version) # update log
-                cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                cmseek.update_log('cms_url',cka['url']) # update log
-            # return
-        else:
-            advanced.start(c1[1], site, cua, '2', scode) ## The 2 suggests that generator check has not been performed
+
+    ## init variables
+    cms = '' # the cms id if detected
+    cms_detected = '0' # self explanotory
+    detection_method = '' # ^
+    ga = '0' # is generator available
+    if 'generator' in scode or 'Generator' in scode:
+        ga = '1'
+
+    cmseek.statement("Using headers to detect CMS (Stage 1 of 3)")
+    header_detection = header.check(headers)
+    if header_detection[0] == '1':
+        detection_method = 'header'
+        cms = header_detection[1]
+        cms_detected = '1'
+    if cms_detected == '0' and ga == '1':
+        # cms detection via generator
+        cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 3)")
+        gen_detection = source.generator(scode)
+        if gen_detection[0] == '1':
+            detection_method = 'generator'
+            cms = gen_detection[1]
+            cms_detected = '1'
     else:
-        cmseek.warning('No luck with headers... Continuing with source code')
-        cmseek.statement("Checking for generator meta tag in source code")
-        if 'Generator' in scode or 'generator' in scode:
-            cmseek.success("Generator meta tag found.. Continuing with detection (2.1 of 2.2)")
-            ga = "1" ## Generator tag found .. this will come in handy later to save us some milliseconds ;)
-            c21 = source.generator(scode)
-            if c21[0] == '1':
-                cmseek.success("CMS Detected, CMS ID: \"%s\" - looking up database for CMS information" % c21[1])
-                cmseek.update_log('detection_param','generator') # update log
-                cmseek.update_log('cms_id',c21[1]) # update log
-                cka = getattr(cmsdb, c21[1])
-                if cka['deeps'] != '1': # Deep Scan not available
-                    if cka['vd'] != '1': # Version Detection not available for the cms show basic stuff
-                        print('\n')
-                        cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                        cmseek.update_log('cms_name',cka['name']) # update log
-                        cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                        cmseek.update_log('cms_url',cka['url']) # update log
-                    else:
-                        cmseek.statement("CMS Version is detectable, detecting CMS Version")
-                        ### Detect version
-                        cms_version = version_detect.start(c21[1], site, cua, '1', scode)
-                        print('\n')
-                        cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                        cmseek.update_log('cms_name',cka['name']) # update log
-                        if cms_version != '0':
-                            cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
-                            cmseek.update_log('cms_version',cms_version) # update log
-                        cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                        cmseek.update_log('cms_url',cka['url']) # update log
-                    # return
-                else:
-                    advanced.start(c21[1], site, cua, '1', scode)
-            elif c21[0] == '2': # Empty Source code
-                cmseek.error("Source code was empty... exiting CMSeek")
-                # return
-            else: ## CMS Detection unsuccessful via generator meta tag
-                cmseek.warning('Could not detect CMS from the generator meta tag, (Procceeding with scan 2.2 of 2.2)')
-                c22 = source.check(scode, site)
-                if c22[0] == '1':
-                    cmseek.success("CMS Detected, CMS ID: \"%s\" - looking up database for CMS information" % c22[1])
-                    cmseek.update_log('detection_param','source') # update log
-                    cmseek.update_log('cms_id',c22[1]) # update log
-                    cka = getattr(cmsdb, c22[1])
-                    if cka['deeps'] != '1': # Deep Scan not available
-                        if cka['vd'] != '1': # Version Detection not available for the cms show basic stuff
-                            print('\n')
-                            cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                            cmseek.update_log('cms_name',cka['name']) # update log
-                            cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                            cmseek.update_log('cms_url',cka['url']) # update log
-                        else:
-                            cmseek.statement("CMS Version is detectable, detecting CMS Version")
-                            cms_version = version_detect.start(c22[1], site, cua, '1', scode)
-                            ### Detect version
-                            print('\n')
-                            cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                            cmseek.update_log('cms_name',cka['name']) # update log
-                            if cms_version != '0':
-                                cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
-                                cmseek.update_log('cms_version',cms_version) # update log
-                            cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                            cmseek.update_log('cms_url',cka['url']) # update log
-                        return
-                    else:
-                        advanced.start(c22[1], site, cua, '1', scode)
-                elif c22[0] == '2': # Empty Source code
-                    cmseek.error("Source code was empty... exiting CMSeek")
-                    return
-                else:
-                    cmseek.error("Couldn't detect cms... :( \n    Sorry master didn't mean to dissapoint but bye for now \n    Can't handle this much disappintment \n\n")
-                    return
+        # Check cms using source code
+        cmseek.statement("Using source code to detect CMS (Stage 3 of 3)")
+        source_check = source.check(scode, site)
+        if source_check[0] == '1':
+            detection_method = 'source'
+            cms = source_check[1]
+            cms_detected = '1'
+
+    if cms_detected == '1':
+        cmseek.success('CMS Detected, CMS ID: ' + cmseek.bold + cms + cmseek.cln + ', Detection method: ' + cmseek.bold + detection_method + cmseek.cln)
+        cmseek.update_log('detection_param', detection_method)
+        cmseek.update_log('cms_id', cms) # update log
+        cmseek.statement('Getting CMS info from databse')
+        cms_info = getattr(cmsdb, cms)
+        if cms_info['deeps'] == '1':
+            # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
+            advanced.start(cms, site, cua, ga, scode)
+            return
+        elif cms_info['vd'] == '1':
+            cmseek.success('Version detection available')
+            cms_version = version_detect.start(cms, site, cua, ga, scode)
+            cmseek.clearscreen()
+            cmseek.banner("CMS Scan Results")
+            cmseek.result('Target: ', site)
+            cmseek.result("Detected CMS: ", cms_info['name'])
+            cmseek.update_log('cms_name', cms_info['name']) # update log
+            if cms_version != '0':
+                cmseek.result("CMS Version: ", cms_version)
+                cmseek.update_log('cms_version', cms_version) # update log
+            cmseek.result("CMS URL: ", cms_info['url'])
+            cmseek.update_log('cms_url', cms_info['url']) # update log
+            return
         else:
-            cmseek.warning("Generator meta tag not found! (Procceeding with scan 2.2 of 2.2)")
-            ga = '0' ## Generator meta tag not found as i freakin said earlier this will come in handy later
-            c22 = source.check(scode, site)
-            if c22[0] == '1':
-                cmseek.success("CMS Detected, CMS ID: \"%s\" - looking up database for CMS information" % c22[1])
-                cmseek.update_log('detection_param','source') # update log
-                cmseek.update_log('cms_id',c22[1]) # update log
-                cka = getattr(cmsdb, c22[1])
-                if cka['deeps'] != '1': # Deep Scan not available
-                    if cka['vd'] != '1': # Version Detection not available for the cms show basic stuff
-                        print('\n')
-                        cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                        cmseek.update_log('cms_name',cka['name']) # update log
-                        cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                        cmseek.update_log('cms_url',cka['url']) # update log
-                    else:
-                        cmseek.statement("CMS Version is detectable, detecting CMS Version")
-                        cms_version = version_detect.start(c22[1], site, cua, '0', scode)
-                        ### Detect version
-                        print('\n')
-                        cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
-                        cmseek.update_log('cms_name',cka['name']) # update log
-                        if cms_version != '0':
-                            cmseek.result('',"CMS Version: " + cmseek.bold + cmseek.fgreen + cms_version + cmseek.cln)
-                            cmseek.update_log('cms_version',cms_version) # update log
-                        cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
-                        cmseek.update_log('cms_url',cka['url']) # update log
-                    return
-                else:
-                    advanced.start(c22[1], site, cua, '0', scode)
-            elif c22[0] == '2': # Empty Source code
-                cmseek.error("Source code was empty... exiting CMSeek")
-                return
-            else:
-                cmseek.error("Couldn't detect cms... :( \n    Sorry master didn't mean to dissapoint but bye for now \n    Can't handle this much disappintment \n\n")
-                return
+            # nor version detect neither DeepScan available
+            cmseek.clearscreen()
+            cmseek.banner("CMS Scan Results")
+            cmseek.result('Target: ', site)
+            cmseek.result("Detected CMS: ", cms_info['name'])
+            cmseek.update_log('cms_name', cms_info['name']) # update log
+            cmseek.result("CMS URL: ", cms_info['url'])
+            cmseek.update_log('cms_url', cms_info['url']) # update log
+            return
+    else:
+        print('\n')
+        cmseek.error('CMS Detection failed, if you know the cms please help me improve CMSeeK by reporting the cms along with the target by creating an issue')
+        print('''
+{2}Create issue:{3} https://github.com/Tuhinshubhra/CMSeeK/issues/new
+
+{4}Title:{5} [SUGGESTION] CMS detction failed!
+{6}Content:{7}
+    - CMSeeK Version: {0}
+    - Target: {1}
+    - Probable CMS: <name and/or cms url>
+
+N.B: Create issue only if you are sure, please avoid spamming!
+        '''.format(cmseek.cmseek_version, site, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln))
+        return
+    return
