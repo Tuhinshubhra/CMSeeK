@@ -96,8 +96,8 @@ def start(id, url, ua, ga, source):
         cmseek.result('Admin URL: ', url + admin[1][0])
         admin_log = ''
         for adm in admin[1]:
-            admin_log += url+ adm + ','
-            # print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url+ adm)
+            admin_log += url + '/' + adm + ','
+            # print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url + '/' + adm)
         cmseek.update_log('joomla_backup_files', admin_log)
         print('\n')
 
@@ -106,7 +106,7 @@ def start(id, url, ua, ga, source):
         cmseek.success('Open directory url: ')
         dirs = ''
         for dir in directories[1]:
-            dirs += url + dir + ','
+            dirs += url + '/' + dir + ','
             print(cmseek.bold + cmseek.fgreen + "   [>] " + cmseek.cln + url + dir)
         cmseek.update_log('directory_listing', dirs)
         print('\n')
@@ -116,8 +116,8 @@ def start(id, url, ua, ga, source):
         cmseek.success('Backup URLs: ')
         bkup_log = ''
         for backup in backups[1]:
-            bkup_log += url+ backup + ','
-            print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url+ backup)
+            bkup_log += url + '/' + backup + ','
+            print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url + '/' + backup)
         cmseek.update_log('joomla_backup_files', bkup_log)
         print('\n')
 
@@ -126,8 +126,8 @@ def start(id, url, ua, ga, source):
         cmseek.success('Config URLs: ')
         conf_log = ''
         for config in configs[1]:
-            conf_log += url+ config + ','
-            print(cmseek.bold + cmseek.fgreen + "   [c] " + cmseek.cln + url+ config)
+            conf_log += url + '/' + config + ','
+            print(cmseek.bold + cmseek.fgreen + "   [c] " + cmseek.cln + url + '/' + config)
         cmseek.update_log('joomla_config_files', conf_log)
         print('\n')
 

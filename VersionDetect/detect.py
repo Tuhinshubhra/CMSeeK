@@ -8,3 +8,7 @@ def start(id, url, ua, ga, source):
         import VersionDetect.joom as joomverdetect
         joomver = joomverdetect.start(id, url, ua, ga, source)
         return joomver
+    elif id == 'dru':
+        import VersionDetect.dru as druverdetect
+        druver = druverdetect.start(id, url, ua, ga, source)
+        return druver

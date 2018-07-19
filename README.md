@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0.4-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.0.5-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.5 [19-07-2018]
 - Version 1.0.4 [17-07-2018]
 - Version 1.0.3 [06-07-2018]
 - Version 1.0.2 [06-07-2018]
@@ -20,6 +21,7 @@
 
 ## Functions Of CMSeek:
 - Basic CMS Detection of over 20 CMS
+- Drupal version detection
 - Advanced Wordpress Scans
   - Detects Version
   - User Enumeration

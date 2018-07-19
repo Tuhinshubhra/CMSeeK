@@ -135,6 +135,11 @@ def check(s, site): ## Check if no generator meta tag available
             r = ['1','abc']
             return r
 
+        elif 'src="/misc/drupal.js"' in hstring:
+            # Drupal
+            r = ['1', 'dru']
+            return r
+
         elif 'Joomla' in hstring: # Lamest one possible
             # Obvious Joomla
             r = ['1','joom']

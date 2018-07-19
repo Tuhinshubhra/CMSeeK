@@ -146,7 +146,7 @@ def statement(msg):
         print("[+] "  + msg)
 
 def error(msg):
-    print(bold + red + "[x] " + msg) # switched to x from ❌ ..
+    print(bold + red + "[x] " + msg + cln) # switched to x from ❌ ..
 
 def warning(msg):
     print(bold + yellow + "[!] " + cln + msg)
@@ -243,10 +243,8 @@ def targetinp(iserr):
     else:
         target = input("Enter target site (https://example.tld): ").lower()
     if "://" in target and "http" in target:
-        if target.endswith('/'):
-            target = list(target)
-            target[-1] = ""
-            target = "".join(target)
+        if not target.endswith('/'):
+            target = target + '/'
         init_result_dir(target)
         update_log('url', str(target))
         return target

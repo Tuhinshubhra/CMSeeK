@@ -76,7 +76,7 @@ asciid = {
 dru = {
     'name':'Drupal',
     'url':'https://drupal.org',
-    'vd':'0',
+    'vd':'1',
     'deeps':'0'
 }
 

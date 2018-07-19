@@ -152,8 +152,8 @@ def main_proc(site,cua):
                         cmseek.result('',"CMS Link: " + cmseek.bold + cmseek.fgreen + cka['url'] + cmseek.cln)
                         cmseek.update_log('cms_url',cka['url']) # update log
                     else:
-                        cms_version = version_detect.start(c22[1], site, cua, '0', scode)
                         cmseek.statement("CMS Version is detectable, detecting CMS Version")
+                        cms_version = version_detect.start(c22[1], site, cua, '0', scode)
                         ### Detect version
                         print('\n')
                         cmseek.result('',"CMS Name: " + cmseek.bold + cmseek.fgreen + cka['name'] + cmseek.cln)
