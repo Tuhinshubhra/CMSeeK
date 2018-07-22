@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+
 import cmseekdb.basic as cmseek
 # I know there is no reason at all to create a separate module for this.. there's something that's going to be added here so.. trust me!
 def start(source):

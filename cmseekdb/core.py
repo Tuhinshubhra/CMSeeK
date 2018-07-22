@@ -1,4 +1,8 @@
-## Core Rev 2, small and sexy
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+
+## Core Rev 3, stable and strong
 
 import sys
 import os
@@ -14,6 +18,8 @@ import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
 import cmseekdb.cmss as cmsdb # Contains basic info about the CMSs
+import cmseekdb.robots as robots
+import cmseekdb.generator as generator
 
 def main_proc(site,cua):
     cmseek.clearscreen()
@@ -45,10 +51,14 @@ def main_proc(site,cua):
     cms_detected = '0' # self explanotory
     detection_method = '' # ^
     ga = '0' # is generator available
-    if 'generator' in scode or 'Generator' in scode:
-        ga = '1'
+    ga_content = '' # Generator content
 
-    cmseek.statement("Using headers to detect CMS (Stage 1 of 3)")
+    ## Parse generator meta tag
+    parse_generator = generator.parse(scode)
+    ga = parse_generator[0]
+    ga_content = parse_generator[1]
+
+    cmseek.statement("Using headers to detect CMS (Stage 1 of 4)")
     header_detection = header.check(headers)
     if header_detection[0] == '1':
         detection_method = 'header'
@@ -56,34 +66,42 @@ def main_proc(site,cua):
         cms_detected = '1'
     if cms_detected == '0' and ga == '1':
         # cms detection via generator
-        cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 3)")
-        gen_detection = source.generator(scode)
+        cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 4)")
+        gen_detection = generator.scan(ga_content)
         if gen_detection[0] == '1':
             detection_method = 'generator'
             cms = gen_detection[1]
             cms_detected = '1'
-    else:
+    if cms_detected == '0':
         # Check cms using source code
-        cmseek.statement("Using source code to detect CMS (Stage 3 of 3)")
+        cmseek.statement("Using source code to detect CMS (Stage 3 of 4)")
         source_check = source.check(scode, site)
         if source_check[0] == '1':
             detection_method = 'source'
             cms = source_check[1]
+            cms_detected = '1'
+    if cms_detected == '0':
+        # Check cms using robots.txt
+        cmseek.statement("Using robots.txt to detect CMS (Stage 4 of 4)")
+        robots_check = robots.check(site, cua)
+        if robots_check[0] == '1':
+            detection_method = 'robots'
+            cms = robots_check[1]
             cms_detected = '1'
 
     if cms_detected == '1':
         cmseek.success('CMS Detected, CMS ID: ' + cmseek.bold + cms + cmseek.cln + ', Detection method: ' + cmseek.bold + detection_method + cmseek.cln)
         cmseek.update_log('detection_param', detection_method)
         cmseek.update_log('cms_id', cms) # update log
-        cmseek.statement('Getting CMS info from databse')
+        cmseek.statement('Getting CMS info from database') # freaking typo
         cms_info = getattr(cmsdb, cms)
         if cms_info['deeps'] == '1':
             # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
-            advanced.start(cms, site, cua, ga, scode)
+            advanced.start(cms, site, cua, ga, scode, ga_content)
             return
         elif cms_info['vd'] == '1':
-            cmseek.success('Version detection available')
-            cms_version = version_detect.start(cms, site, cua, ga, scode)
+            cmseek.success('Starting version detection')
+            cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content)
             cmseek.clearscreen()
             cmseek.banner("CMS Scan Results")
             cmseek.result('Target: ', site)

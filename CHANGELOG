@@ -1,3 +1,28 @@
+Version 1.0.6 [23-07-2018]
+  - added new CMSs:
+      - XOOPS
+      - Wolf CMS
+      - Wix.com
+      - WebGUI
+      - UMI.CMS
+      - ushahidi
+      - Tiki Wiki CMS Groupware
+      - WebsiteBaker CMS
+  - New detection methods added for:
+      - typ03
+      - WordPress
+      - Drupal
+      - Joomla
+  - Version detection added for
+      - XpressEngine
+      - WebGUI
+      - UMI.CMS
+  - added cms detection via robots.txt
+  - CMS detection via generator meta tag improved
+  - fixed all bruteforce modules (yet again)
+  - brutefocer now adds username to the list of passwords to try [issue #14]
+  - added (-l, --list) argument for scanning sites from file
+  - Other minor fixes and tweaks
 Version 1.0.5 [19-07-2018]
   - version detection for drupal added
   - fixed '/' error in url

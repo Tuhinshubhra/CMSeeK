@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
 
 # This file contains the list of cmss supported by CMSeeK in the following structure
 # ExampleCMS = {
@@ -132,7 +134,7 @@ csim = {
 xe = {
     'name':'XpressEngine',
     'url':'https://xpressengine.com',
-    'vd':'0',
+    'vd':'1',
     'deeps':'0'
 }
 
@@ -160,5 +162,53 @@ oc = {
     'name':'OpenCart',
     'url':'https://www.opencart.com',
     'vd':'0',
+    'deeps':'0'
+}
+xoops = {
+    'name':'XOOPS',
+    'url':'http://xoops.org',
+    'vd':'0',
+    'deeps':'0'
+}
+ushahidi = {
+    'name':'Ushahidi',
+    'url':'http://www.ushahidi.com',
+    'vd':'0',
+    'deeps':'0'
+}
+umi = {
+    'name':'UMI.CMS',
+    'url':'https://www.umi-cms.ru',
+    'vd':'1',
+    'deeps':'0'
+}
+tiki = {
+    'name':'Tiki Wiki CMS Groupware',
+    'url':'http://tiki.org',
+    'vd':'0',
+    'deeps':'0'
+}
+wolf = {
+    'name':'Wolf CMS',
+    'url':'http://www.wolfcms.org',
+    'vd':'0',
+    'deeps':'0'
+}
+wix = {
+    'name':'WIX Website Builder',
+    'url':'http://wix.com',
+    'vd':'0',
+    'deeps':'0'
+}
+wb = {
+    'name':'WebsiteBaker CMS',
+    'url':'https://websitebaker.org/',
+    'vd':'0',
+    'deeps':'0'
+}
+wgui = {
+    'name':'WebGUI',
+    'url':'http://www.webgui.org',
+    'vd':'1',
     'deeps':'0'
 }

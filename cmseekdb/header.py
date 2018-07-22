@@ -1,5 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
 # This file contains all the methods of detecting cms via http Headers
-# This is a part of CMSeeK project
 # Version: 1.0.0
 # Return a list with ['1'/'0','ID of CMS'/'na'] 1 = detected 0 = not detected
 def check(h):
@@ -24,7 +26,15 @@ def check(h):
             ## This is the only weird but common header i noticed in joomla Sites
             r = ['1', 'joom']
 
-            
+        elif 'X-Wix-' in hstring:
+            r = ['1', 'wix']
+
+        elif 'Set-Cookie: ushahidi' in hstring:
+            r = ['1', 'ushahidi']
+
+        elif 'X-Generated-By: UMI.CMS' in hstring:
+            r = ['1', 'umi']
+
         else:
             r = ['0', 'na']
         return r

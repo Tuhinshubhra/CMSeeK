@@ -26,6 +26,7 @@ parser.add_argument("--update", help="Update CMSeeK", action="store_true")
 parser.add_argument('-r', "--random-agent", help="Use a random user agent", action="store_true")
 parser.add_argument('--user-agent', help='Specify custom user agent')
 parser.add_argument('-u', '--url', help='Target Url')
+parser.add_argument('-l', '--list', help='path of the file containing list of sites for scan (comma separated)')
 parser.add_argument('--clear-result', action='store_true')
 args = parser.parse_args()
 
@@ -55,6 +56,35 @@ if args.url is not None:
             cua = cmseek.randomua()
         core.main_proc(target,cua)
         cmseek.handle_quit()
+elif args.list is not None:
+    sites = args.list
+    cmseek.clearscreen()
+    cmseek.banner("CMS Detection And Deep Scan")
+    sites_list = []
+    try:
+        ot = open(sites, 'r')
+        file_contents = ot.read().replace('\n','')
+        sites_list = file_contents.split(',')
+    except FileNotFoundError:
+        cmseek.error('Invalid path! CMSeeK is quitting')
+        cmseek.bye()
+    if sites_list != []:
+        if cua == None:
+            cua = cmseek.randomua()
+        for s in sites_list:
+            target = cmseek.process_url(s)
+            if target != '0':
+                core.main_proc(target,cua)
+                cmseek.handle_quit(False)
+                input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
+            else:
+                print('\n')
+                cmseek.warning('Invalid URL: ' + cmseek.bold + s + cmseek.cln + ' Skipping to next')
+        print('\n')
+        cmseek.result('Finished Scanning all targets.. result has been saved under respective target directories','')
+    else:
+        cmseek.error("No url provided... CMSeeK is exiting")
+    cmseek.bye()
 
 ################################
 ###      THE MAIN MENU       ###
@@ -112,6 +142,7 @@ elif selone == '2':
             if target != '0':
                 core.main_proc(target,cua)
                 cmseek.handle_quit(False)
+                input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
             else:
                 print('\n')
                 cmseek.warning('Invalid URL: ' + cmseek.bold + s + cmseek.cln + ' Skipping to next')

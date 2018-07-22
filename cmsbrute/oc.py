@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
 ### OpenCart Bruteforce module
 ### Version 1.0
 ### cmseekbruteforcemodule <- make sure you include this comment in any custom modules you create so that cmseek can recognize it as a part of it's module
@@ -45,7 +48,12 @@ def start():
         cmseek.error("Could not get target source, CMSeek is quitting")
         cmseek.handle_quit()
     else:
-        try1 = source.generator(bsrc[1])
+        ## Parse generator meta tag
+        parse_generator = generator.parse(bsrc[1])
+        ga = parse_generator[0]
+        ga_content = parse_generator[1]
+
+        try1 = generator.scan(ga_content)
         if try1[0] == '1' and try1[1] == 'oc':
             occnf = '1'
         else:
@@ -75,6 +83,7 @@ def start():
                     cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                     pwd_file = open("wordlist/passwords.txt", "r")
                     passwords = pwd_file.read().split('\n')
+                    passwords.insert(0, user)
                     for password in passwords:
                         if password != '' and password != '\n':
                             sys.stdout.write('[*] Testing Password: ')

@@ -1,4 +1,8 @@
-def start(id, url, ua, ga, source):
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+
+def start(id, url, ua, ga, source, ga_content):
     if id == "wp":
         # trust me more will be added soon
         import VersionDetect.wp as wpverdetect
@@ -12,3 +16,15 @@ def start(id, url, ua, ga, source):
         import VersionDetect.dru as druverdetect
         druver = druverdetect.start(id, url, ua, ga, source)
         return druver
+    elif id == 'xe':
+        import VersionDetect.xe as xeverdetect
+        xever = xeverdetect.start(ga_content)
+        return xever
+    elif id == 'wgui':
+        import VersionDetect.wgui as wguiverdetect
+        wguiver = wguiverdetect.start(ga_content)
+        return wguiver
+    elif id == 'umi':
+        import VersionDetect.umi as umiverdetect
+        umiver = umiverdetect.start(url, ua)
+        return umiver

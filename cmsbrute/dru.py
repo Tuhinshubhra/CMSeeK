@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
 ### Drupal Bruteforce module
 ### Version 1.0
 ### Honestly this is kinda useless as drupal blocks an account for some time after 5 failed attempt (maybe this is one fix in the next version!)
@@ -38,7 +41,12 @@ def start():
         cmseek.error("Could not get target source, CMSeek is quitting")
         cmseek.handle_quit()
     else:
-        try1 = source.generator(bsrc[1]) # Confirming Drupal using generator
+        ## Parse generator meta tag
+        parse_generator = generator.parse(bsrc[1])
+        ga = parse_generator[0]
+        ga_content = parse_generator[1]
+
+        try1 = generator.scan(ga_content)
         if try1[0] == '1' and try1[1] == 'dru':
             drucnf = '1'
         else:
@@ -78,6 +86,7 @@ def start():
                     cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                     pwd_file = open("wordlist/passwords.txt", "r")
                     passwords = pwd_file.read().split('\n')
+                    passwords.insert(0, user)
                     passfound = '0'
                     for password in passwords:
                         if password != '' and password != '\n':

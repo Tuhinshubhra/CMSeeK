@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+
 # Joomla DeepScan
 # Rev 1
 # Props to joomscan.. big time! https://github.com/rezasp/joomscan

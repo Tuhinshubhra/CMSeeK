@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.6 [23-07-2018]
 - Version 1.0.5 [19-07-2018]
 - Version 1.0.4 [17-07-2018]
 - Version 1.0.3 [06-07-2018]
@@ -20,7 +21,7 @@
 [Changelog File](https://github.com/Tuhinshubhra/CMSeeK/blob/master/CHANGELOG)
 
 ## Functions Of CMSeek:
-- Basic CMS Detection of over 20 CMS
+- Basic CMS Detection of over 30 CMS
 - Drupal version detection
 - Advanced Wordpress Scans
   - Detects Version
@@ -65,12 +66,14 @@ You can check for update either from the main menu or use `python3 cmseek.py --u
 P.S: Please make sure you have `git` installed, CMSeeK uses git to apply auto update.
 
 ## Detection Methods:
-CMSeek uses mainly 2 things for detection:
+CMSeek detects CMS via the following:
 - HTTP Headers
-- Page Source Code
+- Generator meta tag
+- Page source code
+- robots.txt
 
 ## Supported CMSs:
-CMSeeK currently can detect **22** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **30** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {

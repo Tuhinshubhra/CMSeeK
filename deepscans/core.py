@@ -1,4 +1,8 @@
-def start(id, url, ua, ga, source):
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+
+def start(id, url, ua, ga, source, ga_content):
     if id == "wp":
         # for now this is the only cms... but not for long!
         import deepscans.wp.init as wpscan

