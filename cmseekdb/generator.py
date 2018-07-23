@@ -28,7 +28,6 @@ def parse(source):
     ga_content = ''
     parser = MyHTMLParser()
     parser.feed(source)
-    global ga, ga_content
     return [ga, ga_content]
 
 def scan(content):
