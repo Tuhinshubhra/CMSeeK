@@ -58,7 +58,40 @@ Else:
 
 - python3 cmseek.py -u <target_url> [...]
 
-The rest should be pretty self explanotory.
+Help menu from the program:
+
+```
+USAGE:
+       python3 cmseek.py (for a guided scanning) OR
+       python3 cmseek.py [OPTIONS] <Target Specification>
+
+SPECIFING TARGET:
+      -u URL, --url URL            Target Url
+      -l LIST, -list LIST          path of the file containing list of sites
+                                   for multi-site scan (comma separated)
+
+USER AGENT:
+      -r, --random-agent           Use a random user agent
+      --user-agent USER_AGENT      Specify custom user agent
+
+OUTPUT:
+      -v, --verbose                Increase output verbosity
+
+VERSION & UPDATING:
+      --update                     Update CMSeeK (Requires git)
+      --version                    Show CMSeeK version and exit
+
+HELP & MISCELLANEOUS:
+      -h, --help                   Show this help message and exit
+      --clear-result               Delete all the scan result
+
+EXAMPLE USAGE:
+      python3 cmseek.py -u example.com                           # Scan example.com
+      python3 cmseek.py -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
+      python3 cmseek.py -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
+      python3 cmseek.py -u example.com --random-agent            # Scan example.com using a random user-Agent
+      python3 cmseek.py -v -u example.com                        # enabling verbose output while scanning example.com
+```
 
 ## Checking For Update:
 You can check for update either from the main menu or use `python3 cmseek.py --update` to check for update and apply auto update.
