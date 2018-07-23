@@ -91,7 +91,7 @@ def scan(content):
         r = ['1','xe']
         return r
 
-    if 'typO3 cms' in content:
+    if 'typo3 cms' in content:
         # TYPO3 CMS
         r = ['1','tp3']
         return r
