@@ -11,6 +11,8 @@ import deepscans.wp.userenum as wp_user_enum
 import deepscans.wp.vuln as wp_vuln_scan
 import deepscans.wp.pluginsdetect as wp_plugins_enum
 import deepscans.wp.themedetect as wp_theme_enum
+import deepscans.wp.pathdisc as path_disclosure
+import deepscans.wp.check_reg as check_reg
 
 def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User Agent}, {is Generator Meta tag available [0/1]}, {Source code})
     ## Do shits later [update from later: i forgot what shit i had to do ;___;]
@@ -64,13 +66,24 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
         else:
             xmlrpc = '2'
 
+        ## Path disclosure
+        cmseek.statement('Looking for potential path disclosure')
+        path = path_disclosure.start(url, ua)
+        if path != "":
+            cmseek.success('Path disclosure detected, path: ' + cmseek.bold + path + cmseek.cln)
+
+        ## Check for user registration
+        usereg = check_reg.start(url,ua)
+        reg_found = usereg[0]
+        reg_url = usereg[1]
+
         ## Plugins Enumeration
         plug_enum = wp_plugins_enum.start(source)
         plugins_found = plug_enum[0]
         plugins = plug_enum[1]
 
         ## Themes Enumeration
-        theme_enum = wp_theme_enum.start(source)
+        theme_enum = wp_theme_enum.start(source,url,ua)
         themes_found = theme_enum[0]
         themes = theme_enum[1]
 
@@ -98,6 +111,12 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
         if wpvdbres == '1':
             cmseek.result("Changelog URL: " , str(result['changelog_url']))
             cmseek.update_log('wp_changelog_file',str(result['changelog_url']))
+        if reg_found == '1':
+            cmseek.result('User registration enabled: ', reg_url)
+            cmseek.update_log('user_registration', reg_url)
+        if path != "":
+            cmseek.result('Path disclosure: ', path)
+            cmseek.update_log('path', path)
         if readmefile == '1':
             cmseek.result("Readme file found: ", url + '/readme.html')
             cmseek.update_log('wp_readme_file',url + '/readme.html')
@@ -126,10 +145,13 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
             wpthms = ""
             for theme in themes:
                 thm = theme.split(':')
-                wpthms = wpthms + thm[0] + ' Version ' + thm[1] + ','
-                cmseek.success(cmseek.bold + thm[0] + ' Version ' + thm[1] + cmseek.cln)
+                thmz = thm[1].split('|')
+                wpthms = wpthms + thm[0] + ' Version ' + thmz[0] + ','
+                cmseek.success(cmseek.bold + thm[0] + ' Version ' + thmz[0] + cmseek.cln)
                 cmseek.result('Theme URL: ', url + '/wp-content/themes/' + thm[0] + '/')
-            cmseek.update_log('wp_plugins', wpthms)
+                if thmz[1] != '':
+                    cmseek.result('Theme Zip URL: ', url + thmz[1])
+            cmseek.update_log('wp_themes', wpthms)
         if usernamesgen == '1':
             print('\n')
             cmseek.result("Usernames Harvested: ",'')

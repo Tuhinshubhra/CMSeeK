@@ -6,7 +6,7 @@
 import cmseekdb.basic as cmseek
 import re
 
-def start(source):
+def start(source,url,ua):
     cmseek.info('Starting passive theme enumeration')
     ## plug_file = open('database/themes.json', 'r')
     ## plug_data = plug_file.read()
@@ -21,7 +21,14 @@ def start(source):
         nc = name + ":"
         if nc not in str(themes):
             version = result[1]
-            each_theme = name + ":" + version
+            each_theme = name + ":" + version + "|"
+            # look if theme zip available
+            cmseek.statement('Looking for theme zip file!')
+            theme_zip = url + '/wp-content/themes/' + name + '.zip'
+            zip_status = cmseek.check_url(theme_zip, ua)
+            if zip_status == '1':
+                cmseek.success('Current theme can be downloaded, URL: ' + cmseek.bold + theme_zip + cmseek.cln)
+                each_theme += '/wp-content/themes/' + name + '.zip'
             themes.append(each_theme)
     themes = set(themes)
     found = len(themes)

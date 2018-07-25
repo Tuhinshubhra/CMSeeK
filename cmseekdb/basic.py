@@ -19,6 +19,8 @@ import re
 from cmseekdb.getsource import *
 from cmseekdb.config import *
 
+cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('/cmseekdb','')
+
 # all the color codes goes here
 white = "\033[97m"
 black = "\033[30m\033[1m"
@@ -195,7 +197,8 @@ def init_result_dir(url):
         url = url.replace(r, '_')
 
     ## check if the log directory exist
-    result_dir = os.getcwd() + "/Result/" + url
+    global cmseek_dir
+    result_dir = cmseek_dir + "/Result/" + url
     json_log = result_dir + '/cms.json'
     if not os.path.isdir(result_dir):
         try:
@@ -240,7 +243,8 @@ def update_log(key,value):
 
 def clear_log():
     # Clear Result directory
-    resdir = os.getcwd() + '/Result'
+    global cmseek_dir
+    resdir = cmseek_dir + '/Result'
     if os.path.isdir(resdir):
         shutil.rmtree(resdir)
         os.makedirs(resdir)
@@ -273,7 +277,8 @@ def handle_quit(end_prog = True):
 def update_brute_cache():
     clearscreen()
     banner("Updating Bruteforce Cache")
-    brute_dir = os.getcwd() + "/cmsbrute"
+    global cmseek_dir
+    brute_dir = cmseek_dir + "/cmsbrute"
     brute_cache = brute_dir + '/cache.json'
     cache_json = {}
     if not os.path.isdir(brute_dir):
@@ -346,7 +351,8 @@ def update():
                 print(bold + fgreen + "[↓]" + cln + " Downloading Update...")
                 succes = False
                 try:
-                    lock_file = os.getcwd() + "/.git/index.lock"
+                    global cmseek_dir
+                    lock_file = cmseek_dir + "/.git/index.lock"
                     if os.path.isfile(lock_file):
                         statement("Removing index.lock file from .git directory")
                         # Solve the index.lock issue
