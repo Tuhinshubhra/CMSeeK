@@ -36,6 +36,9 @@ def check(h):
         elif 'X-Generated-By: UMI.CMS' in hstring:
             r = ['1', 'umi']
 
+        elif 'x-generator: Sulu' in hstring:
+            r = ['1', 'sulu']
+
         else:
             r = ['0', 'na']
         return r

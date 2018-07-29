@@ -26,6 +26,9 @@ def check(url, ua):
         if 'Disallow: /kernel/' in robotstr and 'Disallow: /language/' in robotstr and 'Disallow: /templates_c/' in robotstr:
             return ['1', 'xoops']
 
+        if 'Disallow: /textpattern' in robotstr:
+            return ['1', 'tpc']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']

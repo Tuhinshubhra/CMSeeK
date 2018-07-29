@@ -33,3 +33,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.tidw as tidwverdetect
         tidwver = tidwverdetect.start(source)
         return tidwver
+    elif id == 'sulu':
+        import VersionDetect.sulu as suluverdetect
+        suluver = suluverdetect.start(url, ua)
+        return suluver

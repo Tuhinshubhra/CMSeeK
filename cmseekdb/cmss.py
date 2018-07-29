@@ -219,3 +219,9 @@ tidw = {
     'vd':'1',
     'deeps':'0'
 }
+sulu = {
+    'name':'SULU',
+    'url':'https://sulu.io/',
+    'vd':'1',
+    'deeps':'0'
+}
