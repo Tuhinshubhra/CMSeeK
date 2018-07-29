@@ -127,6 +127,10 @@ def scan(content):
         # WebGUI
         return ['1', 'wgui']
 
+    if 'subrion cms' in content:
+        # Subrion CMS
+        return ['1', 'subcms']
+
     if 'tiki wiki cms groupware' in content or 'http://tiki.org' in content:
         # Tiki Wiki CMS Groupware
         return ['1', 'tiki']

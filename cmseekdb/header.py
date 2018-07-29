@@ -39,6 +39,12 @@ def check(h):
         elif 'x-generator: Sulu' in hstring:
             r = ['1', 'sulu']
 
+        elif 'X-Powered-CMS: Subrion CMS' in hstring:
+            r = ['1', 'subcms']
+
+        elif 'Set-Cookie: SQ_SYSTEM_SESSION' in hstring or 'squizedge.net' in hstring:
+            r = ['1', 'sqm']
+
         else:
             r = ['0', 'na']
         return r

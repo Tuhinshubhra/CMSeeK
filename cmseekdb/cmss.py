@@ -225,3 +225,15 @@ sulu = {
     'vd':'1',
     'deeps':'0'
 }
+subcms = {
+    'name':'Subrion CMS',
+    'url':'https://subrion.org/',
+    'vd':'1',
+    'deeps':'0'
+}
+sqm = {
+    'name':'Squiz Matrix',
+    'url':'https://www.squiz.net/technology/cms',
+    'vd':'0',
+    'deeps':'0'
+}

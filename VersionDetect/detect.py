@@ -37,3 +37,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.sulu as suluverdetect
         suluver = suluverdetect.start(url, ua)
         return suluver
+    elif id == 'subcms':
+        import VersionDetect.subcms as subcmsverdetect
+        subcmsver = subcmsverdetect.start(ga_content)
+        return subcmsver

@@ -77,6 +77,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Tiddly Wiki
             return ['1','tidw']
 
+        elif 'Running Squiz Matrix' in hstring:
+            # Squiz Matrix
+            return ['1', 'sqm']
+
         else:
             # Failure
             return ['0', 'na']

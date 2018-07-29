@@ -2,9 +2,11 @@ Version 1.0.7 []
   - Added new CMS:
     - TiddlyWiki
     - SULU
+    - Subrion CMS
   - Version detection added for:
     - TiddlyWiki
     - SULU
+    - Subrion CMS
   - New detection method added for:
     - Textpattern CMS
   - WordPress DeepScan Updated:
