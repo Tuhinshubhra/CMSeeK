@@ -29,3 +29,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.umi as umiverdetect
         umiver = umiverdetect.start(url, ua)
         return umiver
+    elif id == 'tidw':
+        import VersionDetect.tidw as tidwverdetect
+        tidwver = tidwverdetect.start(source)
+        return tidwver

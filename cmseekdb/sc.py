@@ -73,6 +73,10 @@ def check(s, site): ## Check if no generator meta tag available
             # WebGUI
             return ['1', 'wgui']
 
+        elif 'title: "TiddlyWiki"' in hstring or 'TiddlyWiki created by Jeremy Ruston,' in hstring:
+            # Tiddly Wiki
+            return ['1','tidw']
+
         else:
             # Failure
             return ['0', 'na']

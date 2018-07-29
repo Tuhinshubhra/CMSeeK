@@ -213,3 +213,9 @@ wgui = {
     'vd':'1',
     'deeps':'0'
 }
+tidw = {
+    'name':'TiddlyWiki',
+    'url':'https://tiddlywiki.com/',
+    'vd':'1',
+    'deeps':'0'
+}

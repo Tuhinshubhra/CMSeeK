@@ -108,7 +108,7 @@ def main_proc(site,cua):
             cmseek.result('Target: ', site)
             cmseek.result("Detected CMS: ", cms_info['name'])
             cmseek.update_log('cms_name', cms_info['name']) # update log
-            if cms_version != '0':
+            if cms_version != '0' and cms_version != None:
                 cmseek.result("CMS Version: ", cms_version)
                 cmseek.update_log('cms_version', cms_version) # update log
             cmseek.result("CMS URL: ", cms_info['url'])

@@ -1,9 +1,14 @@
 Version 1.0.7 []
+  - Added new CMS:
+    - TiddlyWiki
+  - Version detection added for:
+    - TiddlyWiki
   - WordPress DeepScan Updated:
     - added path disclosure scan
     - added theme zip check
     - added check for user registration
   - fixed some issues with directory
+  - fixed url handler function
 Version 1.0.6 [23-07-2018]
   - added new CMSs:
       - XOOPS
