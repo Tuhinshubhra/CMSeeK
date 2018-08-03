@@ -14,6 +14,7 @@ import cmseekdb.generator as generator
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys
+import cmseekdb.generator as generator
 import re
 import urllib.request, urllib.error, urllib.parse
 import http.cookiejar

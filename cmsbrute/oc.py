@@ -12,6 +12,7 @@ import cmseekdb.header as header # Contains function to detect CMS from gathered
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys
+import cmseekdb.generator as generator
 import urllib.request
 
 

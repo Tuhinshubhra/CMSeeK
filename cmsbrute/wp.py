@@ -13,6 +13,7 @@ import deepscans.wp.userenum as wp_user_enum
 import multiprocessing ## Let's speed things up a lil bit (actually a hell lot faster) shell we?
 from functools import partial ## needed somewhere :/
 import sys
+import cmseekdb.generator as generator
 
 def start():
     cmseek.clearscreen()

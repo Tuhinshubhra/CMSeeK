@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# This is a part of CMSeeK, check the LICENSE file for more information 
+# This is a part of CMSeeK, check the LICENSE file for more information
 # Copyright (c) 2018 Tuhinshubhra
 ### Drupal Bruteforce module
 ### Version 1.0
@@ -16,6 +16,7 @@ from functools import partial ## needed somewhere :/
 import sys
 import requests
 import re
+import cmseekdb.generator as generator
 
 
 def testlogin(url,user,passw,formid):
