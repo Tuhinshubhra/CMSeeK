@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0.6-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.0.7-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
