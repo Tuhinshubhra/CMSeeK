@@ -54,6 +54,9 @@ def check(h):
         elif 'SC_ANALYTICS_GLOBAL_COOKIE' in hstring:
             r = ['1', 'score']
 
+        elif 'Expires: Thu, 19 Nov 1981 08:52:00 GMT' in hstring:
+            r = ['1', 'sim']
+
         else:
             r = ['0', 'na']
         return r

@@ -96,6 +96,10 @@ def check(s, site): ## Check if no generator meta tag available
         elif '/api/sitecore/' in hstring:
             # sitecore
             return ['1', 'score']
+            
+        elif 'simsite/' in hstring:
+            # SIMsite
+            return ['1', 'sim']
         else:
             # Failure
             return ['0', 'na']

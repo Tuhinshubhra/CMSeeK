@@ -261,3 +261,9 @@ score = {
     'vd':'0',
     'deeps':'0'
 }
+sim = {
+    'name':'SIMsite',
+    'url':'https://simgroep.nl/',
+    'vd':'0',
+    'deeps':'0'
+}
