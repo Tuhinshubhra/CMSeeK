@@ -45,6 +45,12 @@ def check(h):
         elif 'Set-Cookie: SQ_SYSTEM_SESSION' in hstring or 'squizedge.net' in hstring:
             r = ['1', 'sqm']
 
+        elif 'spincms' in hstring:
+            r = ['1', 'spin']
+
+        elif 'solodev_session' in hstring:
+            r = ['1', 'sdev']
+
         else:
             r = ['0', 'na']
         return r

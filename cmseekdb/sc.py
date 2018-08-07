@@ -81,6 +81,14 @@ def check(s, site): ## Check if no generator meta tag available
             # Squiz Matrix
             return ['1', 'sqm']
 
+        elif 'assets.spin-cdn.com' in hstring:
+            # Spin CMS
+            return ['1', 'spin']
+
+        elif 'content="Solodev" name="author"' in hstring:
+            # solodev
+            return ['1', 'sdev']
+
         else:
             # Failure
             return ['0', 'na']

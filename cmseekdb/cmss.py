@@ -237,3 +237,15 @@ sqm = {
     'vd':'0',
     'deeps':'0'
 }
+spin = {
+    'name':'Spin CMS',
+    'url':'https://www.spin.cw/',
+    'vd':'0',
+    'deeps':'0'
+}
+sdev = {
+    'name':'solodev',
+    'url':'https://www.solodev.com/',
+    'vd':'0',
+    'deeps':'0'
+}
