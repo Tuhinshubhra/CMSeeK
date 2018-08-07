@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.7 [07-08-2018]
 - Version 1.0.6 [23-07-2018]
 - Version 1.0.5 [19-07-2018]
 - Version 1.0.4 [17-07-2018]
@@ -106,7 +107,7 @@ CMSeek detects CMS via the following:
 - robots.txt
 
 ## Supported CMSs:
-CMSeeK currently can detect **30** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **40** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {
