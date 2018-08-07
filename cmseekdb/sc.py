@@ -96,10 +96,14 @@ def check(s, site): ## Check if no generator meta tag available
         elif '/api/sitecore/' in hstring:
             # sitecore
             return ['1', 'score']
-            
+
         elif 'simsite/' in hstring:
             # SIMsite
             return ['1', 'sim']
+
+        elif '"beacon":"bam.nr-data.net"' in hstring or 'simplebo.net/' in hstring  or '"pswp__' in hstring:
+            # Simplebo
+            return ['1', 'spb']
         else:
             # Failure
             return ['0', 'na']

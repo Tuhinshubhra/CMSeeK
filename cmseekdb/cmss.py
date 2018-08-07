@@ -267,3 +267,9 @@ sim = {
     'vd':'0',
     'deeps':'0'
 }
+spb = {
+    'name':'Simplébo',
+    'url':'https://www.simplebo.fr',
+    'vd':'0',
+    'deeps':'0'
+}
