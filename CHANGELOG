@@ -6,7 +6,9 @@ Version 1.0.7 []
     - Squiz Matrix
     - Spin CMS
     - solodev
+    - sNews
   - Version detection added for:
+    - sNews
     - TiddlyWiki
     - SULU
     - Subrion CMS

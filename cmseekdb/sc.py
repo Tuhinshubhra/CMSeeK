@@ -89,6 +89,9 @@ def check(s, site): ## Check if no generator meta tag available
             # solodev
             return ['1', 'sdev']
 
+        elif 'content="sNews' in hstring:
+            # sNews
+            return ['1', 'snews']
         else:
             # Failure
             return ['0', 'na']

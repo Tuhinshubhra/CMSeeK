@@ -41,3 +41,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.subcms as subcmsverdetect
         subcmsver = subcmsverdetect.start(ga_content)
         return subcmsver
+    elif id == 'snews':
+        import VersionDetect.snews as snewsverdetect
+        snewsver = snewsverdetect.start(ga_content, source)
+        return snewsver

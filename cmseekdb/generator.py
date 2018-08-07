@@ -135,4 +135,8 @@ def scan(content):
         # Tiki Wiki CMS Groupware
         return ['1', 'tiki']
 
+    if 'snews' in content:
+        # sNews
+        return ['1', 'snews']
+
     return ['0', '']

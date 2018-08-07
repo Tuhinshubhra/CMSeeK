@@ -249,3 +249,9 @@ sdev = {
     'vd':'0',
     'deeps':'0'
 }
+snews = {
+    'name':'sNews',
+    'url':'https://snewscms.com/',
+    'vd':'1',
+    'deeps':'0'
+}
