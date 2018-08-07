@@ -51,6 +51,9 @@ def check(h):
         elif 'solodev_session' in hstring:
             r = ['1', 'sdev']
 
+        elif 'SC_ANALYTICS_GLOBAL_COOKIE' in hstring:
+            r = ['1', 'score']
+
         else:
             r = ['0', 'na']
         return r

@@ -255,3 +255,9 @@ snews = {
     'vd':'1',
     'deeps':'0'
 }
+score = {
+    'name':'Sitecore',
+    'url':'https://www.sitecore.com/',
+    'vd':'0',
+    'deeps':'0'
+}

@@ -29,6 +29,9 @@ def check(url, ua):
         if 'Disallow: /textpattern' in robotstr:
             return ['1', 'tpc']
 
+        if 'Disallow: /sitecore' in robotstr or 'Disallow: /sitecore_files' in robotstr or 'Disallow: /sitecore modules' in robotstr:
+            return ['1', 'score']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']
