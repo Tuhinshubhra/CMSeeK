@@ -167,4 +167,8 @@ def scan(content):
         # RiteCMS
         return ['1', 'rite']
 
+    if content == 'rcms':
+        # RCMS
+        return ['1', 'rcms']
+
     return ['0', '']

@@ -121,6 +121,10 @@ def check(s, site): ## Check if no generator meta tag available
             # RockRMS
             return ['1', 'rock']
 
+        elif '/rcms-f-production.' in hstring:
+            # RCMS
+            return ['1', 'rcms']
+
         else:
             # Failure
             return ['0', 'na']

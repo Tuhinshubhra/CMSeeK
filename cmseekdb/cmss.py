@@ -315,3 +315,9 @@ rite = {
     'vd':'1',
     'deeps':'0'
 }
+rcms = {
+    'name':'RCMS',
+    'url':'https://www.reallycms.fi/',
+    'vd':'0',
+    'deeps':'0'
+}

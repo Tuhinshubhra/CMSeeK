@@ -54,9 +54,6 @@ def check(h):
         elif 'SC_ANALYTICS_GLOBAL_COOKIE' in hstring:
             r = ['1', 'score']
 
-        # elif 'Expires: Thu, 19 Nov 1981 08:52:00 GMT' in hstring:
-        #    r = ['1', 'sim']
-
         elif 'X-ServedBy: simplebo' in hstring or '_simplebo_tool_session' in hstring:
             r = ['1', 'spb']
 
