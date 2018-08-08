@@ -60,6 +60,9 @@ def check(h):
         elif 'X-ServedBy: simplebo' in hstring or '_simplebo_tool_session' in hstring:
             r = ['1', 'spb']
 
+        elif 'X-Blog: Serendipity' in hstring or 'Set-Cookie: serendipity[' in hstring or 'Set-Cookie: s9y_' in hstring:
+            r = ['1', 'spity']
+
         else:
             r = ['0', 'na']
         return r

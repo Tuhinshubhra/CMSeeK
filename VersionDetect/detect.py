@@ -45,3 +45,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.snews as snewsverdetect
         snewsver = snewsverdetect.start(ga_content, source)
         return snewsver
+    elif id == 'spity':
+        import VersionDetect.spity as spityverdetect
+        spityver = spityverdetect.start(ga_content)
+        return spityver

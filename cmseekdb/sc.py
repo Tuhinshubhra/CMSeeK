@@ -108,6 +108,10 @@ def check(s, site): ## Check if no generator meta tag available
         elif '/silvatheme' in hstring:
             # Silva CMS
             return ['1', 'silva']
+
+        elif 'serendipityQuickSearchTermField' in hstring  or '"serendipity_' in hstring or 'serendipity[' in hstring:
+            # Serendipity
+            return ['1', 'spity']
         else:
             # Failure
             return ['0', 'na']

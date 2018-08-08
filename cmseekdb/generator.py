@@ -147,4 +147,8 @@ def scan(content):
         # Silva CMS
         return ['1', 'silva']
 
+    if 'serendipity' in content:
+        # Serendipity
+        return ['1', 'spity']
+
     return ['0', '']

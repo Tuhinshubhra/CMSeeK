@@ -285,3 +285,9 @@ silva = {
     'vd':'0',
     'deeps':'0'
 }
+spity = {
+    'name':'Serendipity',
+    'url':'https://docs.s9y.org/',
+    'vd':'1',
+    'deeps':'0'
+}
