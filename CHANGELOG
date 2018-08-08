@@ -6,10 +6,12 @@ Version 1.0.8 []
     - SeamlessCMS
     - Rock RMS
     - Roadiz CMS
+    - RiteCMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
     - Rock RMS
+    - RiteCMS
     - Roadiz CMS
 Version 1.0.7 [1.0.7]
   - Added new CMS:

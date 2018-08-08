@@ -309,3 +309,9 @@ roadz = {
     'vd':'1',
     'deeps':'0'
 }
+rite = {
+    'name':'RiteCMS',
+    'url':'http://ritecms.com/',
+    'vd':'1',
+    'deeps':'0'
+}

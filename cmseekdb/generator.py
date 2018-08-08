@@ -163,4 +163,8 @@ def scan(content):
         # Roadiz CMS
         return ['1', 'roadz']
 
+    if 'ritecms' in content:
+        # RiteCMS
+        return ['1', 'rite']
+
     return ['0', '']

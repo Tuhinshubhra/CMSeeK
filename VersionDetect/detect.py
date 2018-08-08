@@ -61,3 +61,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.roadz as roadzverdetect
         roadzver = roadzverdetect.start(ga_content)
         return roadzver
+    elif id == 'rite':
+        import VersionDetect.rite as riteverdetect
+        ritever = riteverdetect.start(ga_content)
+        return ritever
