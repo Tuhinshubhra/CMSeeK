@@ -171,4 +171,8 @@ def scan(content):
         # RCMS
         return ['1', 'rcms']
 
+    if 'quick.cms' in content:
+        # Quick.Cms
+        return ['1', 'quick']
+
     return ['0', '']

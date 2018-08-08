@@ -65,3 +65,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.rite as riteverdetect
         ritever = riteverdetect.start(ga_content)
         return ritever
+    elif id == 'quick':
+        import VersionDetect.quick as quickverdetect
+        quickver = quickverdetect.start(ga_content)
+        return quickver

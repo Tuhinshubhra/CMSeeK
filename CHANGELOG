@@ -8,12 +8,14 @@ Version 1.0.8 []
     - Roadiz CMS
     - RiteCMS
     - RCMS
+    - Quick.Cms
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
     - Rock RMS
     - RiteCMS
     - Roadiz CMS
+    - Quick.Cms
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki

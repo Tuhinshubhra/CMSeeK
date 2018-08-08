@@ -321,3 +321,9 @@ rcms = {
     'vd':'0',
     'deeps':'0'
 }
+quick = {
+    'name':'Quick.Cms',
+    'url':'https://opensolution.org/cms-system-quick-cms.html',
+    'vd':'1',
+    'deeps':'0'
+}

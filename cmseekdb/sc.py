@@ -125,6 +125,10 @@ def check(s, site): ## Check if no generator meta tag available
             # RCMS
             return ['1', 'rcms']
 
+        elif 'CMS by Quick.Cms' in hstring or 'read license: www.opensolution.org/license.html' in hstring:
+            # Quick.Cms
+            return ['1', 'quick']
+
         else:
             # Failure
             return ['0', 'na']
