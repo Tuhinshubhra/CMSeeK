@@ -139,4 +139,8 @@ def scan(content):
         # sNews
         return ['1', 'snews']
 
+    if 'silverstripe' in content:
+        # SilverStripe
+        return ['1', 'sst']
+
     return ['0', '']

@@ -273,3 +273,9 @@ spb = {
     'vd':'0',
     'deeps':'0'
 }
+sst = {
+    'name':'SilverStripe',
+    'url':'https://www.silverstripe.org/',
+    'vd':'0',
+    'deeps':'0'
+}
