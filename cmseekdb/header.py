@@ -66,6 +66,9 @@ def check(h):
         elif 'Set-Cookie: SEAMLESS_IDENTIFIER' in hstring:
             r = ['1', 'slcms']
 
+        elif 'X-Powered-By: Roadiz CMS' in hstring:
+            r = ['1', 'roadz']
+
         else:
             r = ['0', 'na']
         return r

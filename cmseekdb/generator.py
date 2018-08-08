@@ -159,4 +159,8 @@ def scan(content):
         # RockRMS
         return ['1', 'rock']
 
+    if 'roadiz' in content:
+        # Roadiz CMS
+        return ['1', 'roadz']
+
     return ['0', '']

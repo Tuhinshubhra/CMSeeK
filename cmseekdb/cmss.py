@@ -303,3 +303,9 @@ rock = {
     'vd':'1',
     'deeps':'0'
 }
+roadz = {
+    'name':'Roadiz CMS',
+    'url':'https://www.roadiz.io/',
+    'vd':'1',
+    'deeps':'0'
+}

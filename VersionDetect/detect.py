@@ -57,3 +57,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.rock as rockverdetect
         rockver = rockverdetect.start(ga_content)
         return rockver
+    elif id == 'roadz':
+        import VersionDetect.roadz as roadzverdetect
+        roadzver = roadzverdetect.start(ga_content)
+        return roadzver
