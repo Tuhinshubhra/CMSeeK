@@ -116,6 +116,11 @@ def check(s, site): ## Check if no generator meta tag available
         elif 'Published by Seamless.CMS.WebUI' in hstring:
             # SeamlessCMS
             return ['1', 'slcms']
+
+        elif 'rock-config-trigger' in hstring or 'rock-config-cancel-trigger' in hstring:
+            # RockRMS
+            return ['1', 'rock']
+
         else:
             # Failure
             return ['0', 'na']

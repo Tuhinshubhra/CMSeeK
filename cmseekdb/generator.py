@@ -155,4 +155,8 @@ def scan(content):
         # SeamlessCMS
         return ['1', 'slcms']
 
+    if 'rock' in content:
+        # RockRMS
+        return ['1', 'rock']
+
     return ['0', '']

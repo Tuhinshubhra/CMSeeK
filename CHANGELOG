@@ -4,9 +4,11 @@ Version 1.0.8 []
     - Silva CMS
     - Serendipity
     - SeamlessCMS
+    - Rock RMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
+    - Rock RMS
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki

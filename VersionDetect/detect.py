@@ -53,3 +53,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.slcms as slcmsverdetect
         slcmsver = slcmsverdetect.start(source)
         return slcmsver
+    elif id == 'rock':
+        import VersionDetect.rock as rockverdetect
+        rockver = rockverdetect.start(ga_content)
+        return rockver

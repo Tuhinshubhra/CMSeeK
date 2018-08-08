@@ -297,3 +297,9 @@ slcms = {
     'vd':'1',
     'deeps':'0'
 }
+rock = {
+    'name':'Rock RMS',
+    'url':'https://www.rockrms.com/',
+    'vd':'1',
+    'deeps':'0'
+}
