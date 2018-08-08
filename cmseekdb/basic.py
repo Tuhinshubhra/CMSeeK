@@ -144,7 +144,9 @@ def success(msg):
     print(bold + fgreen + "[*] " + cln + msg)
 
 def result(stm, msg):
-    print(bold + fgreen + "[✔] " + stm + cln + msg)
+    try: print(bold + fgreen + "[✔] " + stm + cln + msg)
+    except UnicodeEncodeError:
+        print(bold + fgreen + "[>] " + stm + cln + msg)
 
 def process_url(target):
     # Used to format the url for multiple site scan
