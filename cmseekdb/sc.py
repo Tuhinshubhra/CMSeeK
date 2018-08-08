@@ -112,6 +112,10 @@ def check(s, site): ## Check if no generator meta tag available
         elif 'serendipityQuickSearchTermField' in hstring  or '"serendipity_' in hstring or 'serendipity[' in hstring:
             # Serendipity
             return ['1', 'spity']
+
+        elif 'Published by Seamless.CMS.WebUI' in hstring:
+            # SeamlessCMS
+            return ['1', 'slcms']
         else:
             # Failure
             return ['0', 'na']

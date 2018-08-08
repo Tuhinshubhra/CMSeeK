@@ -151,4 +151,8 @@ def scan(content):
         # Serendipity
         return ['1', 'spity']
 
+    if 'seamless.cms.webgui' in content:
+        # SeamlessCMS
+        return ['1', 'slcms']
+
     return ['0', '']

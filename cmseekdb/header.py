@@ -63,6 +63,9 @@ def check(h):
         elif 'X-Blog: Serendipity' in hstring or 'Set-Cookie: serendipity[' in hstring or 'Set-Cookie: s9y_' in hstring:
             r = ['1', 'spity']
 
+        elif 'Set-Cookie: SEAMLESS_IDENTIFIER' in hstring:
+            r = ['1', 'slcms']
+
         else:
             r = ['0', 'na']
         return r

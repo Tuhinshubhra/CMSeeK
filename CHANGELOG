@@ -3,8 +3,10 @@ Version 1.0.8 []
     - SilverStripe
     - Silva CMS
     - Serendipity
+    - SeamlessCMS
   - Version detection added for:
     - Serendipity
+    - SeamlessCMS
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki

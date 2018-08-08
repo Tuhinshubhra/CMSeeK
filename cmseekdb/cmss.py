@@ -291,3 +291,9 @@ spity = {
     'vd':'1',
     'deeps':'0'
 }
+slcms = {
+    'name':'SeamlessCMS',
+    'url':'https://www.seamlesscms.com/',
+    'vd':'1',
+    'deeps':'0'
+}

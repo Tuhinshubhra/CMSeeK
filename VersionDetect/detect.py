@@ -49,3 +49,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.spity as spityverdetect
         spityver = spityverdetect.start(ga_content)
         return spityver
+    elif id == 'slcms':
+        import VersionDetect.slcms as slcmsverdetect
+        slcmsver = slcmsverdetect.start(source)
+        return slcmsver
