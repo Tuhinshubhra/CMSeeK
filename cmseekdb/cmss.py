@@ -279,3 +279,9 @@ sst = {
     'vd':'0',
     'deeps':'0'
 }
+silva = {
+    'name':'Silva CMS',
+    'url':'http://infrae.com/products/silva',
+    'vd':'0',
+    'deeps':'0'
+}

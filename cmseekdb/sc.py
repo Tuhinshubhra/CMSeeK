@@ -104,6 +104,10 @@ def check(s, site): ## Check if no generator meta tag available
         elif '"beacon":"bam.nr-data.net"' in hstring or 'simplebo.net/' in hstring  or '"pswp__' in hstring:
             # Simplebo
             return ['1', 'spb']
+
+        elif '/silvatheme' in hstring:
+            # Silva CMS
+            return ['1', 'silva']
         else:
             # Failure
             return ['0', 'na']

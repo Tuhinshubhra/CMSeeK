@@ -143,4 +143,8 @@ def scan(content):
         # SilverStripe
         return ['1', 'sst']
 
+    if 'silva' in content:
+        # Silva CMS
+        return ['1', 'silva']
+
     return ['0', '']
