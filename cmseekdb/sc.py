@@ -143,6 +143,10 @@ def check(s, site): ## Check if no generator meta tag available
             # PencilBlue
             return ['1', 'pblue']
 
+        elif '/libraries/ophal.js?' in hstring:
+            # Ophal
+            return ['1', 'ophal']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

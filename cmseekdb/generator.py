@@ -183,4 +183,8 @@ def scan(content):
         # Percussion CMS
         return ['1', 'percms']
 
+    if 'ophal' in content or 'ophal.org' in content:
+        # Ophal
+        return ['1', 'ophal']
+
     return ['0', '']

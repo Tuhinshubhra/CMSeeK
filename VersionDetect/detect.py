@@ -73,3 +73,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.pwind as pwindverdetect
         pwindver = pwindverdetect.start(ga_content)
         return pwindver
+    elif id == 'ophal':
+        import VersionDetect.ophal as ophalverdetect
+        ophalver = ophalverdetect.start(ga_content, url, ua)
+        return ophalver

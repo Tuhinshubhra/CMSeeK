@@ -72,6 +72,9 @@ def check(h):
         elif 'x-powered-by: PencilBlue' in hstring:
             r = ['1', 'pblue']
 
+        elif 'x-powered-by: Ophal' in hstring:
+            r = ['1', 'ophal']
+
         else:
             r = ['0', 'na']
         return r

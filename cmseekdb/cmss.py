@@ -357,3 +357,9 @@ pblue = {
     'vd':'0',
     'deeps':'0' 
 }
+ophal =  {
+    'name':'Ophal',
+    'url':'http://ophal.org',
+    'vd':'1',
+    'deeps':'0' 
+}
