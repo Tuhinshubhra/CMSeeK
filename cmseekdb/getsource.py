@@ -26,7 +26,7 @@ def getrawsource(url, ua):
         cj = CookieJar()
         opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
         with opener.open(ckreq, timeout=8) as response:
-            scode = response.read().decode()
+            scode = response.read().decode("utf-8", 'ignore')
             headers = str(response.info())
             rurl = response.geturl()
             r = ['1', scode, headers, rurl] ## 'success code', 'source code', 'http headers', 'redirect url'
