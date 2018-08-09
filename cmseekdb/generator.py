@@ -175,4 +175,8 @@ def scan(content):
         # Quick.Cms
         return ['1', 'quick']
 
+    if 'phpwind' in content:
+        # phpWind
+        return ['1', 'pwind']
+
     return ['0', '']

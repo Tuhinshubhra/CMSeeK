@@ -10,12 +10,14 @@ Version 1.0.8 []
     - RCMS
     - Quick.Cms
     - Pimcore
+    - phpWind
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
     - Rock RMS
     - RiteCMS
     - Roadiz CMS
+    - phpWind
     - Quick.Cms
 Version 1.0.7 [1.0.7]
   - Added new CMS:

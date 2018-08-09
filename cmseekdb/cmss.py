@@ -333,3 +333,9 @@ pcore = {
     'vd':'0',
     'deeps':'0'
 }
+pwind = {
+    'name':'phpWind',
+    'url':'https://www.phpwind.com/',
+    'vd':'1',
+    'deeps':'0' 
+}

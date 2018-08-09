@@ -69,3 +69,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.quick as quickverdetect
         quickver = quickverdetect.start(ga_content)
         return quickver
+    elif id == 'pwind':
+        import VersionDetect.pwind as pwindverdetect
+        pwindver = pwindverdetect.start(ga_content)
+        return pwindver
