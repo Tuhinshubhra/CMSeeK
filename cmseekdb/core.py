@@ -91,7 +91,7 @@ def main_proc(site,cua):
             cms_detected = '1'
 
     if cms_detected == '1':
-        cmseek.success('CMS Detected, CMS ID: ' + cmseek.bold + cms + cmseek.cln + ', Detection method: ' + cmseek.bold + detection_method + cmseek.cln)
+        cmseek.success('CMS Detected, CMS ID: ' + cmseek.bold + cmseek.fgreen + cms + cmseek.cln + ', Detection method: ' + cmseek.bold + cmseek.lblue + detection_method + cmseek.cln)
         cmseek.update_log('detection_param', detection_method)
         cmseek.update_log('cms_id', cms) # update log
         cmseek.statement('Getting CMS info from database') # freaking typo

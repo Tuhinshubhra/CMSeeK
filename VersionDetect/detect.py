@@ -77,3 +77,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.ophal as ophalverdetect
         ophalver = ophalverdetect.start(ga_content, url, ua)
         return ophalver
+    elif id == 'sfy':
+        import VersionDetect.sfy as sfyverdetect
+        sfyver = sfyverdetect.start(ga_content)
+        return sfyver

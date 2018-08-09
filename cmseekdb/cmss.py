@@ -363,3 +363,9 @@ ophal =  {
     'vd':'1',
     'deeps':'0' 
 }
+sfy =  {
+    'name':'Sitefinity',
+    'url':'https://www.sitefinity.com/',
+    'vd':'1',
+    'deeps':'0' 
+}

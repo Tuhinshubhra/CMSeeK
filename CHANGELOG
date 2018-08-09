@@ -15,6 +15,7 @@ Version 1.0.8 []
     - phpCMS
     - PencilBlue
     - Ophal
+    - Sitefinity
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -24,6 +25,7 @@ Version 1.0.8 []
     - phpWind
     - Quick.Cms
     - Ophal
+    - Sitefinity
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki

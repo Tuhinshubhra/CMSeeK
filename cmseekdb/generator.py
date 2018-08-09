@@ -187,4 +187,8 @@ def scan(content):
         # Ophal
         return ['1', 'ophal']
 
+    if 'sitefinity' in content:
+        # Sitefinity
+        return ['1', 'sfy']
+
     return ['0', '']
