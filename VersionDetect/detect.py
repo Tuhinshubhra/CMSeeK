@@ -85,3 +85,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.otwsm as otwsmverdetect
         otwsmver = otwsmverdetect.start(source)
         return otwsmver
+    elif id == 'ocms':
+        import VersionDetect.ocms as ocmsverdetect
+        ocmsver = ocmsverdetect.start(url, ua)
+        return ocmsver

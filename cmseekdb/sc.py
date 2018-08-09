@@ -155,6 +155,10 @@ def check(s, site): ## Check if no generator meta tag available
             # OpenText WSM
             return ['1', 'otwsm']
 
+        elif '/opencms/export/' in hstring:
+            # OpenCms
+            return ['1', 'ocms']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

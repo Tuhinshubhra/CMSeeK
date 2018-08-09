@@ -75,6 +75,9 @@ def check(h):
         elif 'x-powered-by: Ophal' in hstring:
             r = ['1', 'ophal']
 
+        elif 'Server: OpenCms' in hstring:
+            r = ['1', 'ocms']
+
         else:
             r = ['0', 'na']
         return r

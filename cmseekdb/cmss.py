@@ -375,3 +375,9 @@ otwsm = {
     'vd':'1',
     'deeps':'0'  
 }
+ocms = {
+    'name':'OpenCms',
+    'url':'http://www.opencms.org/',
+    'vd':'1',
+    'deeps':'0' 
+}
