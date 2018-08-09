@@ -10,6 +10,7 @@ import cmseekdb.basic as cmseek
 def check(url, ua):
     robots = url + '/robots.txt'
     robots_source = cmseek.getsource(robots, ua)
+    # print(robots_source[1])
     if robots_source[0] == '1' and robots_source[1] != '':
         # Check begins here
         robotstr = robots_source[1]
@@ -31,6 +32,9 @@ def check(url, ua):
 
         if 'Disallow: /sitecore' in robotstr or 'Disallow: /sitecore_files' in robotstr or 'Disallow: /sitecore modules' in robotstr:
             return ['1', 'score']
+
+        if 'Disallow: /phpcms' in robotstr or 'robots.txt for PHPCMS' in robotstr:
+            return ['1', 'phpc']
 
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:

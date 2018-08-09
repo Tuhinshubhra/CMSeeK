@@ -7,6 +7,8 @@
 # Version: 1.0.0
 # Return a list with ['1'/'0','ID of CMS'/'na'] 1 = detected 0 = not detected 2 = No Sourcecode Provided
 
+import re
+
 def check(s, site): ## Check if no generator meta tag available
     if s == "": ## No source code provided kinda shitty check but oh well
         return ['2', 'na']
@@ -132,6 +134,11 @@ def check(s, site): ## Check if no generator meta tag available
         elif '"pimcore_' in hstring:
             # Pimcore
             return ['1', 'pcore']
+
+        phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
+        if phpc_regex != None:
+            # phpCMS
+            return ['1', 'phpc']
 
         else:
             # Failure

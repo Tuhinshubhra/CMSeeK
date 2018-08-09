@@ -339,3 +339,9 @@ pwind = {
     'vd':'1',
     'deeps':'0' 
 }
+phpc = {
+    'name':'phpCMS',
+    'url':'http://www.phpcms.cn/',
+    'vd':'0',
+    'deeps':'0' 
+}
