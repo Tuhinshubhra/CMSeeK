@@ -135,6 +135,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Pimcore
             return ['1', 'pcore']
 
+        elif 'xmlns:perc' in hstring or 'cm/css/perc_decoration.css' in hstring:
+            # Percussion CMS
+            return ['1', 'percms']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

@@ -179,4 +179,8 @@ def scan(content):
         # phpWind
         return ['1', 'pwind']
 
+    if 'percussion' in content:
+        # Percussion CMS
+        return ['1', 'percms']
+
     return ['0', '']

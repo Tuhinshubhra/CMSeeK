@@ -10,6 +10,7 @@ Version 1.0.8 []
     - RCMS
     - Quick.Cms
     - Pimcore
+    - Percussion CMS
     - phpWind
     - phpCMS
   - Version detection added for:
