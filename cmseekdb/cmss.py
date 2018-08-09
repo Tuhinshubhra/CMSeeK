@@ -369,3 +369,9 @@ sfy =  {
     'vd':'1',
     'deeps':'0' 
 }
+otwsm = {
+    'name':'OpenText WSM',
+    'url':'http://www.opentext.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

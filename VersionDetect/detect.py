@@ -81,3 +81,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.sfy as sfyverdetect
         sfyver = sfyverdetect.start(ga_content)
         return sfyver
+    elif id == 'otwsm':
+        import VersionDetect.otwsm as otwsmverdetect
+        otwsmver = otwsmverdetect.start(source)
+        return otwsmver

@@ -151,6 +151,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Sitefinity
             return ['1', 'sfy']
 
+        elif 'published by Open Text Web Solutions' in hstring:
+            # OpenText WSM
+            return ['1', 'otwsm']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

@@ -16,6 +16,7 @@ Version 1.0.8 []
     - PencilBlue
     - Ophal
     - Sitefinity
+    - OpenText WSM
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -26,6 +27,7 @@ Version 1.0.8 []
     - Quick.Cms
     - Ophal
     - Sitefinity
+    - OpenText WSM
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki
