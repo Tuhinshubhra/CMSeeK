@@ -9,6 +9,7 @@ Version 1.0.8 []
     - RiteCMS
     - RCMS
     - Quick.Cms
+    - Pimcore
   - Version detection added for:
     - Serendipity
     - SeamlessCMS

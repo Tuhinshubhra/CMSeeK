@@ -327,3 +327,9 @@ quick = {
     'vd':'1',
     'deeps':'0'
 }
+pcore = {
+    'name':'Pimcore',
+    'url':'https://pimcore.com/',
+    'vd':'0',
+    'deeps':'0'
+}

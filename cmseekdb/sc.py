@@ -129,6 +129,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Quick.Cms
             return ['1', 'quick']
 
+        elif '"pimcore_' in hstring:
+            # Pimcore
+            return ['1', 'pcore']
+
         else:
             # Failure
             return ['0', 'na']

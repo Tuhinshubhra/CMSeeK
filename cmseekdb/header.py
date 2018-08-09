@@ -66,6 +66,9 @@ def check(h):
         elif 'X-Powered-By: Roadiz CMS' in hstring:
             r = ['1', 'roadz']
 
+        elif 'X-Powered-By: pimcore' in hstring:
+            r = ['1', 'pcore']
+
         else:
             r = ['0', 'na']
         return r
