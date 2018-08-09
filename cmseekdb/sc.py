@@ -139,6 +139,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Percussion CMS
             return ['1', 'percms']
 
+        elif 'PencilBlueController' in hstring or '"pencilblueApp"' in hstring:
+            # PencilBlue
+            return ['1', 'pblue']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

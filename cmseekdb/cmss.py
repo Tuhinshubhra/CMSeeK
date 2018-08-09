@@ -351,3 +351,9 @@ percms = {
     'vd':'0',
     'deeps':'0' 
 }
+pblue = {
+    'name':'PencilBlue',
+    'url':'http://pencilblue.org',
+    'vd':'0',
+    'deeps':'0' 
+}
