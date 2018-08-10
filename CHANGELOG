@@ -19,6 +19,7 @@ Version 1.0.8 []
     - OpenText WSM
     - OpenCms
     - Odoo
+    - Microsoft SharePoint
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -31,6 +32,7 @@ Version 1.0.8 []
     - Sitefinity
     - OpenText WSM
     - OpenCms
+    - Microsoft SharePoint
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki
