@@ -84,6 +84,9 @@ def check(h):
         elif 'X-SharePointHealthScore' in hstring or 'SPIisLatency' in hstring or 'SPRequestGuid' in hstring or 'MicrosoftSharePointTeamServices' in hstring or 'SPRequestDuration' in hstring:
             r = ['1', 'share']
 
+        elif 'october_session' in hstring:
+            r = ['1', 'octcms']
+
         else:
             r = ['0', 'na']
         return r

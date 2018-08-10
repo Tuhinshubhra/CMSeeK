@@ -167,6 +167,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Microsoft SharePoint
             return ['1', 'share']
 
+        elif '/storage/app/media/' in hstring:
+            # October CMS
+            return ['1', 'octcms']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

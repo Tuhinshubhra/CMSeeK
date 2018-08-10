@@ -393,3 +393,9 @@ share = {
     'vd':'1',
     'deeps':'0' 
 }
+octcms = {
+    'name':'October CMS',
+    'url':'https://octobercms.com/',
+    'vd':'0',
+    'deeps':'0' 
+}

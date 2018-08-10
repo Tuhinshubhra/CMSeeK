@@ -20,6 +20,7 @@ Version 1.0.8 []
     - OpenCms
     - Odoo
     - Microsoft SharePoint
+    - October CMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
