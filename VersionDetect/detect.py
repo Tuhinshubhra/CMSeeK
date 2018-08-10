@@ -89,3 +89,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.ocms as ocmsverdetect
         ocmsver = ocmsverdetect.start(url, ua)
         return ocmsver
+    elif id == 'share':
+        import VersionDetect.share as shareverdetect
+        sharever = shareverdetect.start(url, ua)
+        return sharever

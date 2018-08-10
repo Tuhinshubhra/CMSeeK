@@ -387,3 +387,9 @@ odoo = {
     'vd':'0',
     'deeps':'0' 
 }
+share = {
+    'name':'Microsoft Sharepoint',
+    'url':'https://sharepoint.com',
+    'vd':'1',
+    'deeps':'0' 
+}

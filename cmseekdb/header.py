@@ -81,6 +81,9 @@ def check(h):
         elif 'X-Odoo-' in hstring:
             r = ['1', 'odoo']
 
+        elif 'X-SharePointHealthScore' in hstring or 'SPIisLatency' in hstring or 'SPRequestGuid' in hstring or 'MicrosoftSharePointTeamServices' in hstring or 'SPRequestDuration' in hstring:
+            r = ['1', 'share']
+
         else:
             r = ['0', 'na']
         return r

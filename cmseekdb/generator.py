@@ -195,4 +195,8 @@ def scan(content):
         # Sitefinity
         return ['1', 'sfy']
 
+    if 'microsoft sharePoint' in content:
+        # Microsoft SharePoint
+        return ['1', 'share']
+
     return ['0', '']
