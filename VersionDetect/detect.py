@@ -93,3 +93,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.share as shareverdetect
         sharever = shareverdetect.start(url, ua)
         return sharever
+    elif id == 'mura':
+        import VersionDetect.mura as muraverdetect
+        muraver = muraverdetect.start(ga_content)
+        return muraver

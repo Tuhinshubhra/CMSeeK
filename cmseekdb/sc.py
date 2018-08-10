@@ -171,6 +171,10 @@ def check(s, site): ## Check if no generator meta tag available
             # October CMS
             return ['1', 'octcms']
 
+        elif 'mura.min.css' in hstring or '/plugins/Mura' in hstring:
+            # Mura CMS
+            return ['1', 'mura']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

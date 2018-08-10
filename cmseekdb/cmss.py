@@ -399,3 +399,9 @@ octcms = {
     'vd':'0',
     'deeps':'0' 
 }
+mura = {
+    'name':'Mura CMS',
+    'url':'http://www.getmura.com/',
+    'vd':'1',
+    'deeps':'0' 
+}

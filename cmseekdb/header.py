@@ -87,6 +87,9 @@ def check(h):
         elif 'october_session' in hstring:
             r = ['1', 'octcms']
 
+        elif 'Generator: Mura CMS' in hstring:
+            r = ['1', 'mura']
+            
         else:
             r = ['0', 'na']
         return r

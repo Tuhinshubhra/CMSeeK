@@ -199,4 +199,8 @@ def scan(content):
         # Microsoft SharePoint
         return ['1', 'share']
 
+    if 'mura cms' in content:
+        # Mura CMS
+        return ['1', 'mura']
+
     return ['0', '']

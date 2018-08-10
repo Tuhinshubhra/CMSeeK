@@ -21,6 +21,7 @@ Version 1.0.8 []
     - Odoo
     - Microsoft SharePoint
     - October CMS
+    - Mura CMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -34,6 +35,7 @@ Version 1.0.8 []
     - OpenText WSM
     - OpenCms
     - Microsoft SharePoint
+    - Mura CMS
 Version 1.0.7 [1.0.7]
   - Added new CMS:
     - TiddlyWiki
