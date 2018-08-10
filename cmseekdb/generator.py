@@ -187,6 +187,10 @@ def scan(content):
         # Ophal
         return ['1', 'ophal']
 
+    if content == 'odoo':
+        # Odoo
+        return ['1', 'odoo']
+
     if 'sitefinity' in content:
         # Sitefinity
         return ['1', 'sfy']

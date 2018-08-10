@@ -78,6 +78,9 @@ def check(h):
         elif 'Server: OpenCms' in hstring:
             r = ['1', 'ocms']
 
+        elif 'X-Odoo-' in hstring:
+            r = ['1', 'odoo']
+
         else:
             r = ['0', 'na']
         return r

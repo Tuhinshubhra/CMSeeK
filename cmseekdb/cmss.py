@@ -381,3 +381,9 @@ ocms = {
     'vd':'1',
     'deeps':'0' 
 }
+odoo = {
+    'name':'Odoo',
+    'url':'https://www.odoo.com/',
+    'vd':'0',
+    'deeps':'0' 
+}
