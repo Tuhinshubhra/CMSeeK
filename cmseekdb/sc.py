@@ -187,6 +187,10 @@ def check(s, site): ## Check if no generator meta tag available
             # MODX
             return ['1', 'modx']
 
+        elif "siteCMS:'methode'" in hstring or "contentOriginatingCMS='Methode'" in hstring or 'Methode tags version' in hstring or '/r/PortalConfig/common/assets/' in hstring:
+            # Methode
+            return ['1', 'methd']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

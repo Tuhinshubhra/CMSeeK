@@ -423,3 +423,9 @@ modx = {
     'vd':'0',
     'deeps':'0' 
 }
+methd = {
+    'name':'Methode',
+    'url':'https://www.eidosmedia.com',
+    'vd':'0',
+    'deeps':'0'   
+}
