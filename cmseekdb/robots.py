@@ -36,7 +36,7 @@ def check(url, ua):
         if 'Disallow: /phpcms' in robotstr or 'robots.txt for PHPCMS' in robotstr:
             return ['1', 'phpc']
 
-        if 'Disallow: /*mt-content*' in robotstr or 'Disallow: /mt-includes/' in hstring:
+        if 'Disallow: /*mt-content*' in robotstr or 'Disallow: /mt-includes/' in robotstr:
             return ['1', 'moto']
 
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
