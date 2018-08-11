@@ -429,3 +429,9 @@ methd = {
     'vd':'0',
     'deeps':'0'   
 }
+mambo = {
+    'name':'Mambo',
+    'url':'http://mambo-foundation.org',
+    'vd':'0',
+    'deeps':'0'   
+}

@@ -203,4 +203,8 @@ def scan(content):
         # Mura CMS
         return ['1', 'mura']
 
+    if 'mambo' in content:
+        # Mambo
+        return ['1', 'mambo']
+
     return ['0', '']
