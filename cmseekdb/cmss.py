@@ -417,3 +417,9 @@ mnet = {
     'vd':'0',
     'deeps':'0' 
 }
+modx = {
+    'name':'MODX',
+    'url':'https://modx.com/',
+    'vd':'0',
+    'deeps':'0' 
+}

@@ -89,6 +89,9 @@ def check(h):
 
         elif 'Generator: Mura CMS' in hstring:
             r = ['1', 'mura']
+
+        elif 'X-Powered-By: MODX' in hstring:
+            r = ['1', 'modx']
             
         else:
             r = ['0', 'na']
