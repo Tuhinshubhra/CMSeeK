@@ -411,3 +411,9 @@ moto = {
     'vd':'0',
     'deeps':'0' 
 }
+mnet = {
+    'name':'Mono.net',
+    'url':'https://mono.net',
+    'vd':'0',
+    'deeps':'0' 
+}

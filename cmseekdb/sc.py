@@ -179,6 +179,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Moto CMS
             return ['1', 'moto']
 
+        elif 'mono_donottrack' in hstring or 'monotracker.js' in hstring  or '_monoTracker' in hstring:
+            # Mono.net
+            return ['1', 'mnet']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS
