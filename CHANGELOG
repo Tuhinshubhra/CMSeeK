@@ -22,6 +22,7 @@ Version 1.0.8 []
     - Microsoft SharePoint
     - October CMS
     - Mura CMS
+    - Moto CMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -36,7 +37,7 @@ Version 1.0.8 []
     - OpenCms
     - Microsoft SharePoint
     - Mura CMS
-Version 1.0.7 [1.0.7]
+Version 1.0.7 [07-08-2018]
   - Added new CMS:
     - TiddlyWiki
     - SULU

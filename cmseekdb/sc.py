@@ -175,6 +175,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Mura CMS
             return ['1', 'mura']
 
+        elif 'mt-content/' in hstring or 'moto-website-style' in hstring:
+            # Moto CMS
+            return ['1', 'moto']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

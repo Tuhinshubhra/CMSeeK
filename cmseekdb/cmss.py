@@ -405,3 +405,9 @@ mura = {
     'vd':'1',
     'deeps':'0' 
 }
+moto = {
+    'name':'Moto CMS',
+    'url':'https://www.motocms.com/',
+    'vd':'0',
+    'deeps':'0' 
+}
