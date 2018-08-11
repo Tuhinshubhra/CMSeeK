@@ -103,7 +103,7 @@ def check(s, site): ## Check if no generator meta tag available
             # SIMsite
             return ['1', 'sim']
 
-        elif '"beacon":"bam.nr-data.net"' in hstring or 'simplebo.net/' in hstring  or '"pswp__' in hstring:
+        elif 'simplebo.net/' in hstring  or '"pswp__' in hstring:
             # Simplebo
             return ['1', 'spb']
 
