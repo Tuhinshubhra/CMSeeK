@@ -435,3 +435,9 @@ mambo = {
     'vd':'0',
     'deeps':'0'   
 }
+lscms = {
+    'name':'LiveStreet CMS',
+    'url':'http://livestreetcms.com/',
+    'vd':'0',
+    'deeps':'0'    
+}
