@@ -465,3 +465,9 @@ jimdo = {
     'vd':'0',
     'deeps':'0'  
 }
+ibit = {
+    'name':'Indexhibit',
+    'url':'http://www.indexhibit.org/',
+    'vd':'0',
+    'deeps':'0'  
+}

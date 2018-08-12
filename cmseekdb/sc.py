@@ -203,6 +203,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Jimdo
             return ['1', 'jimdo']
 
+        elif '<!-- you must provide a link to Indexhibit' in hstring or "Built with <a href='http://www.indexhibit.org/'>Indexhibit" in hstring or 'ndxz-studio/site' in hstring:
+            # IndexHibit
+            return ['1', 'ibit']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS
