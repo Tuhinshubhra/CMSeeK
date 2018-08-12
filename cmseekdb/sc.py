@@ -207,6 +207,10 @@ def check(s, site): ## Check if no generator meta tag available
             # IndexHibit
             return ['1', 'ibit']
 
+        elif '<!-- webflow css -->' in hstring or 'css/webflow.css' in hstring or 'js/webflow.js' in hstring:
+            # Webflow CMS
+            return ['1', 'wflow']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

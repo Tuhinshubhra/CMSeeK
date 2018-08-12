@@ -471,3 +471,9 @@ ibit = {
     'vd':'0',
     'deeps':'0'  
 }
+wflow = {
+    'name':'Webflow CMS',
+    'url':'https://webflow.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

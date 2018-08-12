@@ -215,4 +215,8 @@ def scan(content):
         # Indexhibit
         return ['1', 'ibit']
 
+    if 'webflow' in content:
+        # Webflow CMS
+        return ['1', 'wflow']
+
     return ['0', '']
