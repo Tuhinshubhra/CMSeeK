@@ -5,6 +5,7 @@
 # This file contains all the methods of detecting cms via http Headers
 # Version: 1.0.0
 # Return a list with ['1'/'0','ID of CMS'/'na'] 1 = detected 0 = not detected
+import re
 def check(h):
     if h == "":
         r = ['0', 'na']
@@ -92,7 +93,11 @@ def check(h):
 
         elif 'X-Powered-By: MODX' in hstring:
             r = ['1', 'modx']
-            
+
+        lep_regex = re.search(r'lep(.*?)sessionid', hstring)
+        if lep_regex != None:
+            r = ['1', 'lepton']
+
         else:
             r = ['0', 'na']
         return r

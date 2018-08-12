@@ -40,6 +40,10 @@ def main_proc(site,cua):
             follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
             if follow_redir.lower() == 'y':
                 site = init_source[3]
+                cmseek.statement("Reinitiating Headers and Page Source for Analysis")
+                tmp_req = cmseek.getsource(site, cua)
+                scode = tmp_req[1]
+                headers = tmp_req[2]
     if scode == '':
         # silly little check thought it'd come handy
         cmseek.error('Aborting detection, source code empty')

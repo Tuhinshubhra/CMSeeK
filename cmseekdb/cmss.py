@@ -441,3 +441,9 @@ lscms = {
     'vd':'0',
     'deeps':'0'    
 }
+lepton = {
+    'name':'LEPTON CMS',
+    'url':'https://lepton-cms.org/',
+    'vd':'0',
+    'deeps':'0'    
+}
