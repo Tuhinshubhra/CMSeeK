@@ -203,7 +203,7 @@ def check(s, site): ## Check if no generator meta tag available
             # Jimdo
             return ['1', 'jimdo']
 
-        elif '<!-- you must provide a link to Indexhibit' in hstring or "Built with <a href='http://www.indexhibit.org/'>Indexhibit" in hstring or 'ndxz-studio/site' in hstring:
+        elif '<!-- you must provide a link to Indexhibit' in hstring or "Built with <a href='http://www.indexhibit.org/'>Indexhibit" in hstring or 'ndxz-studio/site' in hstring or 'ndxzsite/' in hstring:
             # IndexHibit
             return ['1', 'ibit']
 
