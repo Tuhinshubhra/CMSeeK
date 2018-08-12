@@ -211,4 +211,8 @@ def scan(content):
         # Koken
         return ['1', 'koken']
 
+    if 'indexhibit' in content:
+        # Indexhibit
+        return ['1', 'ibit']
+
     return ['0', '']

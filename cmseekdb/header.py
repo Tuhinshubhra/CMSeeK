@@ -99,6 +99,9 @@ def check(h):
         elif 'X-Jimdo-' in hstring:
             return ['1', 'jimdo']
 
+        elif 'Set-Cookie: ndxz_' in hstring:
+            return ['1', 'ibit']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']
