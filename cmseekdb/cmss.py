@@ -447,3 +447,9 @@ lepton = {
     'vd':'0',
     'deeps':'0'    
 }
+kbcms = {
+    'name':'Kooboo CMS',
+    'url':'https://www.kooboo.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

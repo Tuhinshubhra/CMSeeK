@@ -97,3 +97,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.mura as muraverdetect
         muraver = muraverdetect.start(ga_content)
         return muraver
+    elif id == 'kbcms':
+        import VersionDetect.kbcms as kbcmsverdetect
+        kbcmsver = kbcmsverdetect.start(url, ua)
+        return kbcmsver
