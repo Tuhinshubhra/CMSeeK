@@ -101,3 +101,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.kbcms as kbcmsverdetect
         kbcmsver = kbcmsverdetect.start(url, ua)
         return kbcmsver
+    elif id == 'koken':
+        import VersionDetect.koken as kokenverdetect
+        kokenver = kokenverdetect.start(ga_content)
+        return kokenver

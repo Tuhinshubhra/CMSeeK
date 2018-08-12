@@ -207,4 +207,8 @@ def scan(content):
         # Mambo
         return ['1', 'mambo']
 
+    if 'koken' in content:
+        # Koken
+        return ['1', 'koken']
+
     return ['0', '']

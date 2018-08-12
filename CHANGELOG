@@ -30,6 +30,7 @@ Version 1.0.8 []
     - LiveStreet CMS
     - LEPTON CMS
     - Kooboo CMS
+    - Koken
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -45,6 +46,7 @@ Version 1.0.8 []
     - Microsoft SharePoint
     - Mura CMS
     - Kooboo CMS
+    - Koken
 Version 1.0.7 [07-08-2018]
   - Added new CMS:
     - TiddlyWiki

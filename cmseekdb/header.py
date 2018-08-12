@@ -11,7 +11,7 @@ def check(h):
         return ['0', 'na']
     else:
         hstring = h
-        harray = h.split("\n")
+        # harray = h.split("\n") # will use whenever necessary 
 
         #### START DETECTION FROM HERE
 

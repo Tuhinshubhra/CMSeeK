@@ -453,3 +453,9 @@ kbcms = {
     'vd':'1',
     'deeps':'0'  
 }
+koken = {
+    'name':'Koken',
+    'url':'http://koken.me',
+    'vd':'1',
+    'deeps':'0'  
+}
