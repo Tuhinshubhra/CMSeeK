@@ -459,3 +459,9 @@ koken = {
     'vd':'1',
     'deeps':'0'  
 }
+jimdo = {
+    'name':'Jimdo',
+    'url':'https://www.jimdo.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

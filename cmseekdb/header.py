@@ -96,6 +96,9 @@ def check(h):
         elif 'X-KoobooCMS-Version' in hstring:
             return ['1', 'kbcms']
 
+        elif 'X-Jimdo-' in hstring:
+            return ['1', 'jimdo']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']
