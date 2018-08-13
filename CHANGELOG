@@ -29,6 +29,7 @@ Version 1.0.8 []
     - Mambo
     - LiveStreet CMS
     - LEPTON CMS
+    - HIPPO CMS
     - Kooboo CMS
     - Koken
     - IndexHibit
@@ -54,6 +55,7 @@ Version 1.0.8 []
     - Koken
     - Jimdo
     - ImpressPages CMS
+  - New browser validation bypass added
 Version 1.0.7 [07-08-2018]
   - Added new CMS:
     - TiddlyWiki

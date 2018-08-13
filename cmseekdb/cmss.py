@@ -501,3 +501,9 @@ hotaru = {
     'vd':'0',
     'deeps':'0'  
 }
+hippo = {
+    'name':'HIPPO CMS',
+    'url':'https://www.onehippo.org/',
+    'vd':'0',
+    'deeps':'0'  
+}

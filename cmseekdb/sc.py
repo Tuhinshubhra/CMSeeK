@@ -223,6 +223,15 @@ def check(s, site): ## Check if no generator meta tag available
             # Hotaru CMS
             return ['1', 'hotaru']
 
+        elif 'binaries/content/gallery/' in hstring:
+            # Hippo CMS
+            return ['1', 'hippo']
+
+        hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
+        if hippo_regex != None:
+            # Hippo CMS
+            return ['1', 'hippo']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS
