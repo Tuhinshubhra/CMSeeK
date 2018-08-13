@@ -227,4 +227,8 @@ def scan(content):
         # ImpressPages CMS
         return ['1', 'impage']
 
+    if 'hotaru cms' in content:
+        # Hotaru CMS
+        return ['1', 'hotaru']
+
     return ['0', '']

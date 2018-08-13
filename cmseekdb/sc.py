@@ -219,6 +219,10 @@ def check(s, site): ## Check if no generator meta tag available
             # ImpressPages CMS
             return ['1', 'impage']
 
+        elif '/css_js_cache/hotaru_css' in hstring or 'hotaruFooterImg' in hstring or '/css_js_cache/hotaru_js' in hstring:
+            # Hotaru CMS
+            return ['1', 'hotaru']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

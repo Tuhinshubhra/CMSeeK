@@ -495,3 +495,9 @@ impage = {
     'vd':'1',
     'deeps':'0'  
 }
+hotaru = {
+    'name':'Hotaru CMS',
+    'url':'http://hotarucms.org/',
+    'vd':'0',
+    'deeps':'0'  
+}
