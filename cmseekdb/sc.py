@@ -211,6 +211,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Webflow CMS
             return ['1', 'wflow']
 
+        elif 'css/jalios/core/' in hstring or 'js/jalios/core/' in hstring or 'jalios:ready' in hstring:
+            # jalios JCMS
+            return ['1', 'jcms']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS
