@@ -507,3 +507,9 @@ hippo = {
     'vd':'0',
     'deeps':'0'  
 }
+grav = {
+    'name':'GravCMS',
+    'url':'https://getgrav.org/',
+    'vd':'0',
+    'deeps':'0'  
+}

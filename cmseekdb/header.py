@@ -105,6 +105,9 @@ def check(h):
         elif 'X-Jcms-Ajax-Id' in hstring:
             return ['1', 'jcms']
 
+        elif 'Set-Cookie: grav-site-' in hstring:
+            return ['1', 'grav']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']

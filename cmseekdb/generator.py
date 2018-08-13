@@ -231,4 +231,8 @@ def scan(content):
         # Hotaru CMS
         return ['1', 'hotaru']
 
+    if 'gravcms' in content:
+        # GravCMS
+        return ['1', 'grav']
+
     return ['0', '']
