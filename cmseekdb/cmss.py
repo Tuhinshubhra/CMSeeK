@@ -513,3 +513,9 @@ grav = {
     'vd':'0',
     'deeps':'0'  
 }
+gsimp = {
+    'name':'GetSimple CMS',
+    'url':'http://get-simple.info/',
+    'vd':'0',
+    'deeps':'0'  
+}

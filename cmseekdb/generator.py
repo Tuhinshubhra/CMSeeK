@@ -235,4 +235,8 @@ def scan(content):
         # GravCMS
         return ['1', 'grav']
 
+    if 'getsimple' in content:
+        # GetSimple CMS
+        return ['1', 'gsimp']
+
     return ['0', '']
