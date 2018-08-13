@@ -415,16 +415,29 @@ def savebrute(url,adminurl,username,password):
 def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source code/error}, {empty/http headers/empty})
     raw_source = getrawsource(url, ua)
     if 'Please prove that you are human' in raw_source[1] or '?ckattempt=' in raw_source[1]:
-        warning('Firewall detected.. trying to evade firewall...')
+        warning('Browser validation detected.. trying to evade...')
         ## This can be evaded by using googlebot as user agent so let's do that
         raw_source = getrawsource(url, 'Googlebot/2.1 (+http://www.google.com/bot.html)')
         ## final check..
         if '?ckattempt=' in raw_source[1]:
-            error('Failed to evade firewall, detection results might not be accurate!')
+            error('Failed to evade Browser validation, detection results might not be accurate!')
             return raw_source
         else:
-            success('Firewall successfully evaded.. happy hunting')
+            success('Browser validation successfully evaded..')
             return raw_source
+
+    if 'src="/aes.js"' in raw_source[1] and '?i=1' in raw_source[1]:
+        warning('Browser validation detected.. trying to evade...')
+        ## This can be evaded by using googlebot as user agent so let's do that
+        raw_source = getrawsource(url, 'Googlebot/2.1 (+http://www.google.com/bot.html)')
+        ## final check..
+        if '?i=' in raw_source[1] and 'src="/aes.js"' in raw_source[1]:
+            error('Failed to evade Browser validation, detection results might not be accurate!')
+            return raw_source
+        else:
+            success('Browser validation successfully evaded..')
+            return raw_source
+
     return raw_source
 
 def check_url(url,ua):
