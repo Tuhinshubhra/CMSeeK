@@ -239,4 +239,8 @@ def scan(content):
         # GetSimple CMS
         return ['1', 'gsimp']
 
+    if 'fork cms' in content:
+        # Fork CMS
+        return ['1', 'fork']
+
     return ['0', '']

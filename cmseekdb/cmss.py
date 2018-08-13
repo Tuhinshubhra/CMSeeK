@@ -519,3 +519,9 @@ gsimp = {
     'vd':'0',
     'deeps':'0'  
 }
+fork = {
+    'name':'Fork CMS',
+    'url':'https://www.fork-cms.com/',
+    'vd':'0',
+    'deeps':'0'  
+}
