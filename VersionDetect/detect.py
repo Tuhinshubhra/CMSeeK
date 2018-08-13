@@ -105,3 +105,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.koken as kokenverdetect
         kokenver = kokenverdetect.start(ga_content)
         return kokenver
+    elif id == 'impage':
+        import VersionDetect.impage as impageverdetect
+        impagever = impageverdetect.start(ga_content)
+        return impagever

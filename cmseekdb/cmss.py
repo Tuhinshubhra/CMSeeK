@@ -489,3 +489,9 @@ jcms = {
     'vd':'0',
     'deeps':'0'  
 }
+impage = {
+    'name':'ImpressPages CMS',
+    'url':'https://www.impresspages.org/',
+    'vd':'1',
+    'deeps':'0'  
+}

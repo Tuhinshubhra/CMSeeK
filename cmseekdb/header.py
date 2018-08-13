@@ -109,5 +109,9 @@ def check(h):
         if lep_regex != None:
             return ['1', 'lepton']
 
+        ses_regex = re.search(r'Set-Cookie: ses(\d+)=', hstring)
+        if ses_regex != None:
+            return ['1', 'impage']
+
         else:
             return ['0', 'na']

@@ -215,6 +215,10 @@ def check(s, site): ## Check if no generator meta tag available
             # jalios JCMS
             return ['1', 'jcms']
 
+        elif 'ip_themes/' in hstring or 'ip_libs/' in hstring or 'ip_cms/' in hstring:
+            # ImpressPages CMS
+            return ['1', 'impage']
+
         phpc_regex = re.search(r'.php\?m=(.*?)&c=(.*?)&a=(.*?)&catid=', hstring)
         if phpc_regex != None:
             # phpCMS

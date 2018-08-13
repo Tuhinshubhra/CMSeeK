@@ -223,4 +223,8 @@ def scan(content):
         # Jalios JCMS
         return ['1', 'jcms']
 
+    if 'impresspages cms' in content:
+        # ImpressPages CMS
+        return ['1', 'impage']
+
     return ['0', '']

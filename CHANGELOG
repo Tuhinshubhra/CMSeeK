@@ -34,6 +34,7 @@ Version 1.0.8 []
     - IndexHibit
     - Webflow CMS
     - Jalios JCMS
+    - ImpressPages CMS
   - Version detection added for:
     - Serendipity
     - SeamlessCMS
@@ -51,6 +52,7 @@ Version 1.0.8 []
     - Kooboo CMS
     - Koken
     - Jimdo
+    - ImpressPages CMS
 Version 1.0.7 [07-08-2018]
   - Added new CMS:
     - TiddlyWiki
