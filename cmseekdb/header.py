@@ -11,7 +11,7 @@ def check(h):
         return ['0', 'na']
     else:
         hstring = h
-        # harray = h.split("\n") # will use whenever necessary 
+        # harray = h.split("\n") # will use whenever necessary
 
         #### START DETECTION FROM HERE
 
@@ -101,6 +101,9 @@ def check(h):
 
         elif 'Set-Cookie: ndxz_' in hstring:
             return ['1', 'ibit']
+
+        elif 'X-Jcms-Ajax-Id' in hstring:
+            return ['1', 'jcms']
 
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:

@@ -219,4 +219,8 @@ def scan(content):
         # Webflow CMS
         return ['1', 'wflow']
 
+    if 'jalios jcms' in content:
+        # Jalios JCMS
+        return ['1', 'jcms']
+
     return ['0', '']

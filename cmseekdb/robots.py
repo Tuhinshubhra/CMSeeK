@@ -39,6 +39,9 @@ def check(url, ua):
         if 'Disallow: /*mt-content*' in robotstr or 'Disallow: /mt-includes/' in robotstr:
             return ['1', 'moto']
 
+        if 'Disallow: /jcmsplugin/' in robotstr:
+            return ['1', 'jcms']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']

@@ -477,3 +477,15 @@ wflow = {
     'vd':'0',
     'deeps':'0'  
 }
+wflow = {
+    'name':'Webflow CMS',
+    'url':'https://webflow.com/',
+    'vd':'0',
+    'deeps':'0'  
+}
+jcms = {
+    'name':'Jalios JCMS',
+    'url':'http://www.jalios.com/',
+    'vd':'0',
+    'deeps':'0'  
+}
