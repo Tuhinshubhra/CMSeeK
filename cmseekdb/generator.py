@@ -255,4 +255,8 @@ def scan(content):
         # eZ Publish
         return ['1', 'ezpu']
 
+    if 'episerver' in content:
+        # EPiServer
+        return ['1', 'epis']
+
     return ['0', '']

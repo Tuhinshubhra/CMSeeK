@@ -117,6 +117,10 @@ def check(h):
         elif 'Set-Cookie: exp_tracker' in hstring or 'Set-Cookie: exp_last_activity' in hstring or 'Set-Cookie: exp_last_visit' in hstring or 'Set-Cookie: exp_csrf_token=' in hstring:
             return ['1', 'exen']
 
+        epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
+        if epis_regex != None:
+            return ['1', 'epis']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']
