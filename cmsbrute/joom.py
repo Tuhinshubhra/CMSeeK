@@ -72,6 +72,7 @@ def start():
     url = cmseek.targetinp("") # input('Enter Url: ')
     cmseek.info("Checking for Joomla")
     bsrc = cmseek.getsource(url, cmseek.randomua('foodislove'))
+    joomcnf = '0'
     if bsrc[0] != '1':
         cmseek.error("Could not get target source, CMSeek is quitting")
         cmseek.handle_quit()
