@@ -227,6 +227,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Hippo CMS
             return ['1', 'hippo']
 
+        elif 'PHP-Nuke Copyright ©' in hstring or 'PHP-Nuke theme by' in hstring:
+            # PHP Nuke
+            return ['1', 'phpn']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

@@ -243,4 +243,8 @@ def scan(content):
         # Fork CMS
         return ['1', 'fork']
 
+    if 'php-nuke' in content:
+        # PHP Nuke
+        return ['1', 'phpn']
+
     return ['0', '']

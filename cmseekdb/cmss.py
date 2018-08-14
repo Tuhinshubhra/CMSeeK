@@ -525,3 +525,9 @@ fork = {
     'vd':'0',
     'deeps':'0'  
 }
+phpn = {
+    'name':'PHP Nuke',
+    'url':'https://www.phpnuke.org/',
+    'vd':'0',
+    'deeps':'0'  
+}
