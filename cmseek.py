@@ -15,7 +15,8 @@ import importlib
 
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
-
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 parser = argparse.ArgumentParser(prog='cmseek.py',add_help=False)
 
