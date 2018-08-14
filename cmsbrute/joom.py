@@ -92,9 +92,9 @@ def start():
             else:
                 try3 = header.check(bsrc[2]) # Headers Check!
                 if try3[0] == '1' and try3[1] == 'joom':
-                    drucnf = '1'
+                    joomcnf = '1'
                 else:
-                    drucnf = '0'
+                    joomcnf = '0'
     if joomcnf != '1':
         cmseek.error('Could not confirm Joomla... CMSeek is quitting')
         cmseek.handle_quit()
