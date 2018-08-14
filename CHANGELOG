@@ -2,6 +2,7 @@ Version 1.0.9 []
   - Added new CMS:
     - PHP Nuke
     - FlexCMP
+    - eZ Publish
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)

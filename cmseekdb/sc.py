@@ -235,6 +235,10 @@ def check(s, site): ## Check if no generator meta tag available
             # FlexCMP
             return ['1', 'flex']
 
+        elif 'copyright" content="eZ Systems"' in hstring or 'ezcontentnavigationpart' in hstring or 'ezinfo/copyright' in hstring:
+            # eZ Publish
+            return ['1', 'ezpu']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

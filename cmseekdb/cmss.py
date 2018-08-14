@@ -537,3 +537,9 @@ flex = {
     'vd':'1',
     'deeps':'0'  
 }
+ezpu = {
+    'name':'eZ Publish',
+    'url':'https://ez.no/',
+    'vd':'0',
+    'deeps':'0'  
+}

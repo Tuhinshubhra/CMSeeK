@@ -251,4 +251,8 @@ def scan(content):
         # FlexCMP
         return ['1', 'flex']
 
+    if 'ez publish' in content:
+        # eZ Publish
+        return ['1', 'ezpu']
+
     return ['0', '']

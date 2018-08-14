@@ -111,6 +111,9 @@ def check(h):
         elif 'X-Powered-By: FlexCMP' in hstring or 'X-Flex-Tag:' in hstring or 'X-Flex-Lang:' in hstring or 'X-Flex-Lastmod:' in hstring or 'X-Flex-Community:' in hstring or 'X-Flex-Evstart' in hstring:
             return ['1', 'flex']
 
+        elif 'X-Powered-By: eZ Publish' in hstring or 'Set-Cookie: eZSESSID' in hstring:
+            return ['1', 'ezpu']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']
