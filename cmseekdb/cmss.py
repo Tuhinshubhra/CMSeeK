@@ -531,3 +531,9 @@ phpn = {
     'vd':'0',
     'deeps':'0'  
 }
+flex = {
+    'name':'FlexCMP',
+    'url':'https://www.flexcmp.com',
+    'vd':'1',
+    'deeps':'0'  
+}

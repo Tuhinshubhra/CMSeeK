@@ -231,6 +231,10 @@ def check(s, site): ## Check if no generator meta tag available
             # PHP Nuke
             return ['1', 'phpn']
 
+        elif 'FlexCMP - CMS per Siti Accessibili' in hstring or '/flex/TemplatesUSR/' in hstring or 'FlexCMP - Digital Experience Platform (DXP)' in hstring:
+            # FlexCMP
+            return ['1', 'flex']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

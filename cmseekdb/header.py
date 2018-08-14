@@ -108,6 +108,9 @@ def check(h):
         elif 'Set-Cookie: grav-site-' in hstring:
             return ['1', 'grav']
 
+        elif 'X-Powered-By: FlexCMP' in hstring or 'X-Flex-Tag:' in hstring or 'X-Flex-Lang:' in hstring or 'X-Flex-Lastmod:' in hstring or 'X-Flex-Community:' in hstring or 'X-Flex-Evstart' in hstring:
+            return ['1', 'flex']
+
         lep_regex = re.search(r'lep(.*?)sessionid', hstring)
         if lep_regex != None:
             return ['1', 'lepton']

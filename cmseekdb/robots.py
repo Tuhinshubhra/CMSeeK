@@ -45,6 +45,9 @@ def check(url, ua):
         if 'Disallow: /ip_cms/' in robotstr or 'ip_backend_frames.php' in robotstr or 'ip_backend_worker.php' in robotstr:
             return ['1', 'impage']
 
+        if 'Disallow: /flex/tmp/' in robotstr or 'flex/Logs/' in robotstr:
+            return ['1', 'flex']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']

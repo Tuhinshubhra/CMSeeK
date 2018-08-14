@@ -109,3 +109,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.impage as impageverdetect
         impagever = impageverdetect.start(ga_content)
         return impagever
+    elif id == 'flex':
+        import VersionDetect.flex as flexverdetect
+        flexver = flexverdetect.start(source, url, ua)
+        return flexver

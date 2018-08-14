@@ -247,4 +247,8 @@ def scan(content):
         # PHP Nuke
         return ['1', 'phpn']
 
+    if 'flexcmp' in content:
+        # FlexCMP
+        return ['1', 'flex']
+
     return ['0', '']

@@ -1,6 +1,9 @@
 Version 1.0.9 []
   - Added new CMS:
     - PHP Nuke
+    - FlexCMP
+  - Version detection added for:
+    - FlexCMP
   - Ignore certificate error (#20)
 Version 1.0.8 [14-08-2018]
   - Added new CMS:
