@@ -3,6 +3,7 @@ Version 1.0.9 []
     - PHP Nuke
     - FlexCMP
     - eZ Publish
+    - ExpressionEngine
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)
