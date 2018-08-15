@@ -5,6 +5,7 @@ Version 1.0.9 []
     - eZ Publish
     - ExpressionEngine
     - EPiServer
+    - e107
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)

@@ -117,6 +117,9 @@ def check(h):
         elif 'Set-Cookie: exp_tracker' in hstring or 'Set-Cookie: exp_last_activity' in hstring or 'Set-Cookie: exp_last_visit' in hstring or 'Set-Cookie: exp_csrf_token=' in hstring:
             return ['1', 'exen']
 
+        elif 'X-Powered-By: e107' in hstring or 'Set-Cookie: SESSE107COOKIE' in hstring:
+            return ['1', 'e107']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']

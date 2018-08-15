@@ -48,6 +48,9 @@ def check(url, ua):
         if 'Disallow: /flex/tmp/' in robotstr or 'flex/Logs/' in robotstr:
             return ['1', 'flex']
 
+        if 'Disallow: /e107_admin/' in robotstr or 'e107_handlers' in robotstr or 'e107_files/cache' in robotstr:
+            return ['1', 'e107']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']

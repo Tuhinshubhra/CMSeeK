@@ -239,6 +239,10 @@ def check(s, site): ## Check if no generator meta tag available
             # eZ Publish
             return ['1', 'ezpu']
 
+        elif 'e107_files/e107.js' in hstring or 'e107_themes/' in hstring or 'e107_plugins/' in hstring:
+            # e107
+            return ['1', 'e107']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
