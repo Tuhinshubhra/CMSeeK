@@ -9,6 +9,7 @@ Version 1.0.9 []
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)
+  - UA validation evasion added
 Version 1.0.8 [14-08-2018]
   - Added new CMS:
     - SilverStripe

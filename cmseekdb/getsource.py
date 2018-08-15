@@ -32,6 +32,12 @@ def getrawsource(url, ua):
             r = ['1', scode, headers, rurl] ## 'success code', 'source code', 'http headers', 'redirect url'
             return r
     except Exception as e:
-        e = str(e)
-        r = ['2', e, '', ''] ## 'error code', 'error message', 'empty'
-        return r
+        ef = str(e)
+        try:
+            ecode = str(e.code)
+            ehed = str(e.info())
+            r = ['2', ef, ecode, ehed] ## will come in handy evading good guys
+            return r
+        except Exception as f:
+            r = ['2', ef, '', ''] ## 'error code', 'error message', 'empty'
+            return r

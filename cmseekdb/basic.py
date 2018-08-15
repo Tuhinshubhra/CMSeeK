@@ -437,6 +437,16 @@ def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source 
         else:
             success('Browser validation successfully evaded..')
             return raw_source
+    if raw_source[2] == '403':
+        if 'Abuse: Your connection is not welcome due to: Bot UA' in raw_source[3] or 'Warning: 199' in raw_source[3]:
+            warning('UA validation detected.. trying to evade...')
+            raw_source = getrawsource(url, 'Googlebot/2.1 (+http://www.google.com/bot.html)')
+            if 'Bot UA' in raw_source[2] and 'Warning: 199' in raw_source[2]:
+                error('Failed to evade UA validation, detection results might not be accurate!')
+                return raw_source
+            else:
+                success('UA validation successfully evaded..')
+                return raw_source
 
     return raw_source
 
