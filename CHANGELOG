@@ -6,6 +6,7 @@ Version 1.0.9 []
     - ExpressionEngine
     - EPiServer
     - e107
+    - DNN Platform
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)

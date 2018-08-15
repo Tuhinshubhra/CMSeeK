@@ -259,4 +259,8 @@ def scan(content):
         # EPiServer
         return ['1', 'epis']
 
+    if 'dotnetnuke' in content:
+        # DNN Platform
+        return ['1', 'dnn']
+
     return ['0', '']

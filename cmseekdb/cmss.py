@@ -561,3 +561,9 @@ e107 = {
     'vd':'0',
     'deeps':'0'  
 }
+dnn = {
+    'name':'DNN Platform',
+    'url':'http://www.dnnsoftware.com',
+    'vd':'0',
+    'deeps':'0'  
+}

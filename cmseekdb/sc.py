@@ -243,6 +243,10 @@ def check(s, site): ## Check if no generator meta tag available
             # e107
             return ['1', 'e107']
 
+        elif '<!-- DNN Platform' in hstring or ' by DNN Corporation -->' in hstring or 'DNNROBOTS' in hstring or 'js/dnncore.js?' in hstring or 'dnn_ContentPane' in hstring or 'js/dnn.js?' in hstring:
+            # DNN Platform
+            return['1', 'dnn']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

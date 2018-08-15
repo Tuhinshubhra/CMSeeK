@@ -120,6 +120,9 @@ def check(h):
         elif 'X-Powered-By: e107' in hstring or 'Set-Cookie: SESSE107COOKIE' in hstring:
             return ['1', 'e107']
 
+        elif 'Set-Cookie: dnn_IsMobile' in hstring or 'DNNOutputCache' in hstring or 'DotNetNuke' in hstring:
+            return ['1', 'dnn']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']
