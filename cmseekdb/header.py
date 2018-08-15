@@ -131,6 +131,10 @@ def check(h):
         if lep_regex != None:
             return ['1', 'lepton']
 
+        pb_regex = re.search(r'Set-Cookie: phpbb(.*?)=', hstring)
+        if pb_regex != None:
+            return ['1', 'phpbb']
+
         ses_regex = re.search(r'Set-Cookie: ses(\d+)=', hstring)
         if ses_regex != None:
             return ['1', 'impage']

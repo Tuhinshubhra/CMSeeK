@@ -567,3 +567,9 @@ dnn = {
     'vd':'0',
     'deeps':'0'  
 }
+phpbb = {
+    'name':'phpBB',
+    'url':'http://phpbb.com',
+    'vd':'0',
+    'deeps':'0'  
+}

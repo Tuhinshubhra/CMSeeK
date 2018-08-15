@@ -39,9 +39,9 @@ def check(s, site): ## Check if no generator meta tag available
             # Apostrophe CMS
             return ['1','apos']
 
-        elif 'WebFontConfig = ' in hstring:
-            # Bubble CMS
-            return ['1','bubble']
+        # elif 'WebFontConfig = ' in hstring:
+        #    # Bubble CMS
+        #    return ['1','bubble']
 
         elif 'href="/CatalystStyles/' in hstring:
             # Adobe Business Catalyst
@@ -247,6 +247,10 @@ def check(s, site): ## Check if no generator meta tag available
             # DNN Platform
             return['1', 'dnn']
 
+        elif 'phpBBstyle' in hstring or 'phpBBMobileStyle' in hstring or 'style_cookie_settings' in hstring:
+            # phpBB
+            return ['1', 'phpbb']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
@@ -256,6 +260,16 @@ def check(s, site): ## Check if no generator meta tag available
         if phpc_regex != None:
             # phpCMS
             return ['1', 'phpc']
+
+        pb_regex = re.search(r'Powered by (.*?)phpBB', hstring)
+        if pb_regex != None:
+            # phpBB
+            return ['1', 'phpbb']
+
+        pb_regex = re.search(r'copyright(.*?)phpBB Group', hstring)
+        if pb_regex != None:
+            # phpBB
+            return ['1', 'phpbb']
 
         else:
             # Failure
