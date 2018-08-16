@@ -113,3 +113,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.flex as flexverdetect
         flexver = flexverdetect.start(source, url, ua)
         return flexver
+    elif id == 'dncms':
+        import VersionDetect.dncms as dncmsverdetect
+        dncmsver = dncmsverdetect.start(url, ua)
+        return dncmsver

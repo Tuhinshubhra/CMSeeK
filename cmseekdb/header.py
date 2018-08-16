@@ -123,6 +123,9 @@ def check(h):
         elif 'Set-Cookie: dnn_IsMobile' in hstring or 'DNNOutputCache' in hstring or 'DotNetNuke' in hstring:
             return ['1', 'dnn']
 
+        elif 'X-Powered-By: CMS Danneo' in hstring:
+            return ['1', 'dncms']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']

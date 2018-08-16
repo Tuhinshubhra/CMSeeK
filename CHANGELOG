@@ -9,8 +9,10 @@ Version 1.0.9 []
     - DNN Platform
     - phpBB
     - DEDE CMS
+    - Danneo CMS
   - Version detection added for:
     - FlexCMP
+    - Danneo CMS
   - Ignore certificate error (#20)
   - UA validation evasion added
 Version 1.0.8 [14-08-2018]

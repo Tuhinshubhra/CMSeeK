@@ -579,3 +579,9 @@ dede = {
     'vd':'0',
     'deeps':'0'  
 }
+dncms = {
+    'name':'Danneo CMS',
+    'url':'http://danneo.ru/',
+    'vd':'1',
+    'deeps':'0'  
+}
