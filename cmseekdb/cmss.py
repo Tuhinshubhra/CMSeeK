@@ -573,3 +573,9 @@ phpbb = {
     'vd':'0',
     'deeps':'0'  
 }
+dede = {
+    'name':'DEDE CMS',
+    'url':'http://dedecms.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

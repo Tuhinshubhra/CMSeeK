@@ -8,6 +8,7 @@ Version 1.0.9 []
     - e107
     - DNN Platform
     - phpBB
+    - DEDE CMS
   - Version detection added for:
     - FlexCMP
   - Ignore certificate error (#20)

@@ -251,6 +251,10 @@ def check(s, site): ## Check if no generator meta tag available
             # phpBB
             return ['1', 'phpbb']
 
+        elif 'dede_fields' in hstring or 'dede_fieldshash' in hstring or 'DedeAjax' in hstring or 'DedeXHTTP' in hstring or 'include/dedeajax2.js' in hstring or 'css/dedecms.css' in hstring:
+            # DEDE CMS
+            return ['1', 'dede']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
