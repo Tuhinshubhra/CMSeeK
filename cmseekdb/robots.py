@@ -51,6 +51,9 @@ def check(url, ua):
         if 'Disallow: /e107_admin/' in robotstr or 'e107_handlers' in robotstr or 'e107_files/cache' in robotstr:
             return ['1', 'e107']
 
+        if 'Disallow: /plus/ad_js.php' in robotstr or 'Disallow: /plus/erraddsave.php' in robotstr or 'Disallow: /plus/posttocar.php' in robotstr or 'Disallow: /plus/disdls.php' in robotstr or 'Disallow: /plus/mytag_js.php' in robotstr or 'Disallow: /plus/stow.php' in robotstr:
+            return ['1', 'dede']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']
