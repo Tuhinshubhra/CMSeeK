@@ -39,10 +39,12 @@ def start(id, url, ua, ga, source):
     if wpjsonsrc[0] != "1" or 'slug' not in wpjsonsrc[1]:
         cmseek.warning("Json api method failed trying with next")
     else:
-        for user in json.loads(wpjsonsrc[1]):
-            wpjsonuser.append(user['slug'])
-            cmseek.success("Found user from wp-json : " + cmseek.fgreen + cmseek.bold + user['slug'] + cmseek.cln)
-
+        try:
+            for user in json.loads(wpjsonsrc[1]):
+                wpjsonuser.append(user['slug'])
+                cmseek.success("Found user from wp-json : " + cmseek.fgreen + cmseek.bold + user['slug'] + cmseek.cln)
+        except:
+            cmseek.warning("Failed to parse json")
     # user enumertion vua jetpack api
     cmseek.info('Harvesting usernames from jetpack public api')
     jpapiuser = []
