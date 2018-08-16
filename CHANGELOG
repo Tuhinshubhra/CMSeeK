@@ -10,6 +10,7 @@ Version 1.0.9 []
     - phpBB
     - DEDE CMS
     - Danneo CMS
+    - Craft CMS
   - Version detection added for:
     - FlexCMP
     - Danneo CMS

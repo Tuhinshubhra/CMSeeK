@@ -54,6 +54,10 @@ def check(url, ua):
         if 'Disallow: /plus/ad_js.php' in robotstr or 'Disallow: /plus/erraddsave.php' in robotstr or 'Disallow: /plus/posttocar.php' in robotstr or 'Disallow: /plus/disdls.php' in robotstr or 'Disallow: /plus/mytag_js.php' in robotstr or 'Disallow: /plus/stow.php' in robotstr:
             return ['1', 'dede']
 
+        if 'Disallow: /craft/' in robotstr:
+            # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
+            return ['1', 'craft']
+
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:
             return ['1', 'tp3']

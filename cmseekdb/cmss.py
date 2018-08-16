@@ -585,3 +585,9 @@ dncms = {
     'vd':'1',
     'deeps':'0'  
 }
+craft = {
+    'name':'Craft CMS',
+    'url':'https://craftcms.com/',
+    'vd':'0',
+    'deeps':'0'  
+}
