@@ -597,3 +597,9 @@ dragon = {
     'vd':'0',
     'deeps':'0'  
 }
+coton = {
+    'name':'Cotonti',
+    'url':'https://www.cotonti.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

@@ -271,4 +271,9 @@ def scan(content):
         # CPG Dragonfly
         return['1', 'dragon']
 
+    if 'cotonti' in content:
+        # Cotonti
+        return ['1', 'coton']
+
+
     return ['0', '']

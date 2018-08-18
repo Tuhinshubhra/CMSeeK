@@ -275,6 +275,11 @@ def check(s, site): ## Check if no generator meta tag available
             # phpBB
             return ['1', 'phpbb']
 
+        coton_regex = re.search(r'Powered by(.*?)Cotonti', hstring)
+        if coton_regex != None:
+            # Cotonti
+            return ['1', 'coton']
+
         else:
             # Failure
             return ['0', 'na']
