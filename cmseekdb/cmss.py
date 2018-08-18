@@ -591,3 +591,9 @@ craft = {
     'vd':'0',
     'deeps':'0'  
 }
+dragon = {
+    'name':'CPG Dragonfly',
+    'url':'https://dragonflycms.org/',
+    'vd':'0',
+    'deeps':'0'  
+}

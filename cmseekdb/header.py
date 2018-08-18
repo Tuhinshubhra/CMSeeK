@@ -129,6 +129,9 @@ def check(h):
         elif 'X-Powered-By: Craft CMS' in hstring or 'Set-Cookie: CraftSessionId' in hstring:
             return ['1', 'craft']
 
+        elif 'X-Powered-By: Dragonfly CMS' in hstring:
+            return ['1', 'dragon']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']

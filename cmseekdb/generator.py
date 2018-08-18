@@ -263,8 +263,12 @@ def scan(content):
         # DNN Platform
         return ['1', 'dnn']
 
-    if 'SEOmatic' in content:
+    if 'seomatic' in content:
         # SEOmatic is a Craft CMS plugin so..
         return ['1', 'craft']
+
+    if 'cpg dragonfly cms' in content:
+        # CPG Dragonfly
+        return['1', 'dragon']
 
     return ['0', '']
