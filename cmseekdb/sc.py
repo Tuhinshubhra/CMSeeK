@@ -255,6 +255,10 @@ def check(s, site): ## Check if no generator meta tag available
             # DEDE CMS
             return ['1', 'dede']
 
+        elif '/Orchard.jQuery/' in hstring or 'orchard.themes' in hstring or 'orchard-layouts-root' in hstring:
+            # Orchard CMS
+            return ['1', 'orchard']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

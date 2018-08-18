@@ -603,3 +603,9 @@ coton = {
     'vd':'0',
     'deeps':'0'  
 }
+orchd = {
+    'name':'Orchard CMS',
+    'url':'https://orchardproject.net/',
+    'vd':'0',
+    'deeps':'0'  
+}

@@ -275,5 +275,9 @@ def scan(content):
         # Cotonti
         return ['1', 'coton']
 
+    if 'orchard' in content:
+        # Orchard CMS
+        return ['1', 'orchd']
+
 
     return ['0', '']

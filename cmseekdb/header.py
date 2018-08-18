@@ -132,6 +132,9 @@ def check(h):
         elif 'X-Powered-By: Dragonfly CMS' in hstring:
             return ['1', 'dragon']
 
+        elif 'X-Generator: Orchard' in hstring:
+            return ['1', 'orchard']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']
