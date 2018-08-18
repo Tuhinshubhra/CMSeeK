@@ -133,7 +133,7 @@ def check(h):
             return ['1', 'dragon']
 
         elif 'X-Generator: Orchard' in hstring:
-            return ['1', 'orchard']
+            return ['1', 'orchd']
 
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:

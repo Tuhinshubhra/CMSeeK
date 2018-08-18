@@ -257,7 +257,7 @@ def check(s, site): ## Check if no generator meta tag available
 
         elif '/Orchard.jQuery/' in hstring or 'orchard.themes' in hstring or 'orchard-layouts-root' in hstring:
             # Orchard CMS
-            return ['1', 'orchard']
+            return ['1', 'orchd']
 
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
