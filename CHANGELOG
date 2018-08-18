@@ -15,6 +15,7 @@ Version 1.0.9 []
     - Cotonti
     - Orchard CMS
     - ContentBox
+    - Contentful
   - Version detection added for:
     - FlexCMP
     - Danneo CMS

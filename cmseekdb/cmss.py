@@ -615,3 +615,9 @@ cbox = {
     'vd':'0',
     'deeps':'0' 
 }
+conful = {
+    'name':'Contentful',
+    'url':'https://www.contentful.com/',
+    'vd':'0',
+    'deeps':'0' 
+}

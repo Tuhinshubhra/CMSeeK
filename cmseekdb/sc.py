@@ -263,6 +263,10 @@ def check(s, site): ## Check if no generator meta tag available
             # ContentBox
             return ['1', 'cbox']
 
+        elif 'data-contentful' in hstring or '.contentful.com/' in hstring or '.ctfassets.net/' in hstring:
+            # Contentful
+            return ['1', 'conful']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
