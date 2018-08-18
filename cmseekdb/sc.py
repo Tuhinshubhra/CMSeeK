@@ -267,6 +267,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Contentful
             return ['1', 'conful']
 
+        elif 'Contensis.current' in hstring or 'ContensisSubmitFromTextbox' in hstring or 'ContensisTextOnly' in hstring:
+            # Contensis
+            return ['1', 'contensis']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

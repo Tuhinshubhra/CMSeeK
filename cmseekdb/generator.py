@@ -283,5 +283,9 @@ def scan(content):
         # ContentBox
         return ['1', 'cbox']
 
+    if 'contensis cms' in content:
+        # Contensis CMS
+        return ['1', 'cntsis']
+
 
     return ['0', '']

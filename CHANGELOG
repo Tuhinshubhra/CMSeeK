@@ -16,9 +16,11 @@ Version 1.0.9 []
     - Orchard CMS
     - ContentBox
     - Contentful
+    - Contensis CMS
   - Version detection added for:
     - FlexCMP
     - Danneo CMS
+    - Contensis CMS
   - Ignore certificate error (#20)
   - UA validation evasion added
 Version 1.0.8 [14-08-2018]

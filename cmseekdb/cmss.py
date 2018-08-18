@@ -621,3 +621,9 @@ conful = {
     'vd':'0',
     'deeps':'0' 
 }
+cntsis = {
+    'name':'Contensis CMS',
+    'url':'https://zengenti.com/',
+    'vd':'1',
+    'deeps':'0' 
+}

@@ -117,3 +117,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.dncms as dncmsverdetect
         dncmsver = dncmsverdetect.start(url, ua)
         return dncmsver
+    elif id == 'cntsis':
+        import VersionDetect.cntsis as cntsisverdetect
+        cntsisver = cntsisverdetect.start(ga_content)
+        return cntsisver
