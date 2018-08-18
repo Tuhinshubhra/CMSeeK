@@ -259,6 +259,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Orchard CMS
             return ['1', 'orchd']
 
+        elif 'modules/contentbox/themes/' in hstring:
+            # ContentBox
+            return ['1', 'cbox']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

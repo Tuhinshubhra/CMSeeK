@@ -279,5 +279,9 @@ def scan(content):
         # Orchard CMS
         return ['1', 'orchd']
 
+    if 'contentbox' in content:
+        # ContentBox
+        return ['1', 'cbox']
+
 
     return ['0', '']

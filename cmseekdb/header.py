@@ -135,6 +135,9 @@ def check(h):
         elif 'X-Generator: Orchard' in hstring:
             return ['1', 'orchd']
 
+        elif 'X-Powered-By: ContentBox' in hstring or 'Set-Cookie: LIGHTBOXSESSION' in hstring:
+            return ['1', 'cbox']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']

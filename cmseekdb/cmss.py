@@ -609,3 +609,9 @@ orchd = {
     'vd':'0',
     'deeps':'0'  
 }
+cbox = {
+    'name':'ContentBox',
+    'url':'https://www.contentboxcms.org/',
+    'vd':'0',
+    'deeps':'0' 
+}
