@@ -287,5 +287,8 @@ def scan(content):
         # Contensis CMS
         return ['1', 'cntsis']
 
+    if 'contenido' in content:
+        # CMS Contenido 
+        return ['1', 'cnido']
 
     return ['0', '']

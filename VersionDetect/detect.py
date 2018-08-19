@@ -121,3 +121,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.cntsis as cntsisverdetect
         cntsisver = cntsisverdetect.start(ga_content)
         return cntsisver
+    elif id == 'cnido':
+        import VersionDetect.cnido as cnidoverdetect
+        cnidover = cnidoverdetect.start(ga_content)
+        return cnidover

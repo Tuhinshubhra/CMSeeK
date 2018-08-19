@@ -17,10 +17,12 @@ Version 1.0.9 []
     - ContentBox
     - Contentful
     - Contensis CMS
+    - CMS CONTENIDO
   - Version detection added for:
     - FlexCMP
     - Danneo CMS
     - Contensis CMS
+    - CMS CONTENIDO
   - Ignore certificate error (#20)
   - UA validation evasion added
 Version 1.0.8 [14-08-2018]

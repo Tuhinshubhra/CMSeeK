@@ -627,3 +627,9 @@ cntsis = {
     'vd':'1',
     'deeps':'0' 
 }
+cnido = {
+    'name':'CMS CONTENIDO',
+    'url':'https://www.contenido.org/',
+    'vd':'1',
+    'deeps':'0' 
+}
