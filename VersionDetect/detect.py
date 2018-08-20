@@ -129,3 +129,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.con5 as con5verdetect
         con5ver = con5verdetect.start(ga_content)
         return con5ver
+    elif id == 'csim':
+        import VersionDetect.csim as csimverdetect
+        csimver = csimverdetect.start(ga_content)
+        return csimver

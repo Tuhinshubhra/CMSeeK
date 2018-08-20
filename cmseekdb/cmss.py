@@ -128,7 +128,7 @@ cmds = {
 csim = {
     'name':'CMSimple',
     'url':'https://cmssimple.org',
-    'vd':'0',
+    'vd':'1',
     'deeps':'0'
 }
 
