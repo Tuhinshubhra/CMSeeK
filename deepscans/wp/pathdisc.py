@@ -11,7 +11,7 @@ def start(url,ua):
     rss_file = url + '/wp-includes/rss.php'
     rss_source = cmseek.getsource(rss_file, ua)
     if rss_source[0] == '1' and 'on line' in rss_source[1]:
-        path = re.findall(r'<b>(.*?)wp-includes/rss.php</b>', rss_source[1])
+        path = re.findall(r'<b>/(.*?)wp-includes/rss.php</b>', rss_source[1])
         if path != []:
             return path[0]
 
@@ -36,5 +36,4 @@ def start(url,ua):
         if path != []:
             return path[0]
 
-            
     return ""

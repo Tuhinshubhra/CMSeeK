@@ -13,6 +13,8 @@ import deepscans.wp.pluginsdetect as wp_plugins_enum
 import deepscans.wp.themedetect as wp_theme_enum
 import deepscans.wp.pathdisc as path_disclosure
 import deepscans.wp.check_reg as check_reg
+import cmseekdb.result as sresult
+import time
 
 def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User Agent}, {is Generator Meta tag available [0/1]}, {Source code})
     ## Do shits later [update from later: i forgot what shit i had to do ;___;]
@@ -96,114 +98,246 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
         version_vuln = wp_vuln_scan.start(version, ua)
         wpvdbres = version_vuln[0]
         result = version_vuln[1]
+        vulnss = len(result['vulnerabilities'])
         vfc = version_vuln[2]
 
         ### Deep Scan Results comes here
+        comptime = round(time.time() - cmseek.cstart, 2)
+        log_dir = cmseek.log_dir
+        if log_dir is not "":
+            log_file = log_dir + "/cms.json"
         cmseek.clearscreen()
         cmseek.banner("Deep Scan Results")
-        cmseek.result("Detected CMS: ", 'WordPress')
+        sresult.target(url)
+        sresult.cms('WordPress', version, 'https://wordpress.org')
+        #cmseek.result("Detected CMS: ", 'WordPress')
         cmseek.update_log('cms_name','WordPress') # update log
-        cmseek.result("CMS URL: ", "https://wordpress.org")
+        #cmseek.result("CMS URL: ", "https://wordpress.org")
         cmseek.update_log('cms_url', "https://wordpress.org") # update log
-        if version != '0':
-            cmseek.result("Version: ", version)
-            cmseek.update_log('wp_version', version)
-        if wpvdbres == '1':
-            cmseek.result("Changelog URL: " , str(result['changelog_url']))
-            cmseek.update_log('wp_changelog_file',str(result['changelog_url']))
-        if reg_found == '1':
-            cmseek.result('User registration enabled: ', reg_url)
-            cmseek.update_log('user_registration', reg_url)
-        if path != "":
-            cmseek.result('Path disclosure: ', path)
-            cmseek.update_log('path', path)
+
+        sresult.menu('[WordPress Deepscan]')
+        item_initiated = False
+        item_ended = False
+
+
         if readmefile == '1':
-            cmseek.result("Readme file found: ", url + '/readme.html')
+            sresult.init_item("Readme file found: " + cmseek.fgreen + url + '/readme.html' + cmseek.cln)
             cmseek.update_log('wp_readme_file',url + '/readme.html')
+            item_initiated = True
+
+
         if licfile == '1':
-            cmseek.result("License file found: ", url + '/license.txt')
+            cmseek.update_log('wp_license', url + '/license.txt')
+            if item_initiated == False:
+                sresult.init_item("License file: " + cmseek.fgreen + url + '/license.txt' + cmseek.cln)
+            else:
+                sresult.item("License file: " + cmseek.fgreen + url + '/license.txt' + cmseek.cln)
+
+        if wpvdbres == '1':
+            if item_initiated == False:
+                sresult.init_item('Changelog: ' + cmseek.fgreen + str(result['changelog_url']) + cmseek.cln)
+            else:
+                sresult.item('Changelog: ' + cmseek.fgreen + str(result['changelog_url']) + cmseek.cln)
+            cmseek.update_log('wp_changelog_file',str(result['changelog_url']))
+
         if wpupdir == '1':
-            cmseek.result("Uploads directory has listing enabled: ", url + '/wp-content/uploads')
             cmseek.update_log('wp_uploads_directory',url + '/wp-content/uploads')
+            if item_initiated == False:
+                sresult.init_item("Uploads directory has listing enabled: " + cmseek.fgreen + url + '/wp-content/uploads' + cmseek.cln)
+            else:
+                sresult.item("Uploads directory has listing enabled: " + cmseek.fgreen + url + '/wp-content/uploads' + cmseek.cln)
+
+
         if xmlrpc == '1':
-            cmseek.result("XML-RPC interface available: ", url + '/xmlrpc.php')
-            cmseek.update_log('wp_uploads_directory', url + '/xmlrpc.php')
+            cmseek.update_log('xmlrpc', url + '/xmlrpc.php')
+            if item_initiated == False:
+                sresult.init_item("XML-RPC interface: "+ cmseek.fgreen + url + '/xmlrpc.php' + cmseek.cln)
+            else:
+                sresult.item("XML-RPC interface: " + cmseek.fgreen + url + '/xmlrpc.php' + cmseek.cln)
+
+
+        if reg_found == '1':
+            sresult.item('User registration enabled: ' + cmseek.bold + cmseek.fgreen + reg_url + cmseek.cln)
+            cmseek.update_log('user_registration', reg_url)
+
+
+        if path != "":
+            sresult.item('Path disclosure: ' + cmseek.bold + cmseek.orange + path + cmseek.cln)
+            cmseek.update_log('path', path)
+
+
         if plugins_found != 0:
-            print('\n')
-            cmseek.result("Plugins Enumerated: ", '')
-            print(" |")
+            plugs_count = len(plugins)
+            sresult.init_item("Plugins Enumerated: " + cmseek.bold + cmseek.fgreen + str(plugs_count) + cmseek.cln)
             wpplugs = ""
-            for plugin in plugins:
+            for i, plugin in enumerate(plugins):
                 plug = plugin.split(':')
                 wpplugs = wpplugs + plug[0] + ' Version ' + plug[1] + ','
-                cmseek.success(cmseek.bold + plug[0] + ' Version ' + plug[1] + cmseek.cln)
+                if i == 0 and i != plugs_count - 1:
+                    sresult.init_sub('Plugin: ' + cmseek.bold + cmseek.fgreen + plug[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln)
+                elif i == plugs_count - 1:
+                    sresult.end_sub('Plugin: ' + cmseek.bold + cmseek.fgreen + plug[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln, True, False)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln, True, False)
+                else:
+                    sresult.sub_item('Plugin: ' + cmseek.bold + cmseek.fgreen + plug[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln)
             cmseek.update_log('wp_plugins', wpplugs)
+            sresult.empty_item()
+
         if themes_found != 0:
-            print('\n')
-            cmseek.result("themes Enumerated: ", '')
-            print(" |")
+            thms_count = len(themes)
+            sresult.init_item("Themes Enumerated: " + cmseek.bold + cmseek.fgreen + str(thms_count) + cmseek.cln)
             wpthms = ""
-            for theme in themes:
+            for i,theme in enumerate(themes):
                 thm = theme.split(':')
                 thmz = thm[1].split('|')
                 wpthms = wpthms + thm[0] + ' Version ' + thmz[0] + ','
-                cmseek.success(cmseek.bold + thm[0] + ' Version ' + thmz[0] + cmseek.cln)
-                cmseek.result('Theme URL: ', url + '/wp-content/themes/' + thm[0] + '/')
-                if thmz[1] != '':
-                    cmseek.result('Theme Zip URL: ', url + thmz[1])
+                if i == 0 and i != thms_count - 1:
+                    sresult.init_sub('Theme: ' + cmseek.bold + cmseek.fgreen + thm[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + thmz[0] + cmseek.cln)
+                    if thmz[1] != '':
+                        sresult.subsub('Theme Zip: ' + cmseek.bold + cmseek.fgreen + url + thmz[1] + cmseek.cln)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/themes/' + thm[0] + cmseek.cln)
+                elif i == thms_count - 1:
+                    sresult.empty_sub(True)
+                    sresult.end_sub('Theme: ' + cmseek.bold + cmseek.fgreen + thm[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + thmz[0] + cmseek.cln, True, False)
+                    if thmz[1] != '':
+                        sresult.subsub('Theme Zip: ' + cmseek.bold + cmseek.fgreen + url + thmz[1] + cmseek.cln, True, False)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/themes/' + thm[0] + cmseek.cln, True, False)
+                else:
+                    sresult.sub_item('Theme: ' + cmseek.bold + cmseek.fgreen + thm[0] + cmseek.cln)
+                    sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + thmz[0] + cmseek.cln)
+                    if thmz[1] != '':
+                        sresult.subsub('Theme Zip: ' + cmseek.bold + cmseek.fgreen + url + thmz[1] + cmseek.cln)
+                    sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/themes/' + thm[0] + cmseek.cln)
             cmseek.update_log('wp_themes', wpthms)
+            sresult.empty_item()
+
+
         if usernamesgen == '1':
-            print('\n')
-            cmseek.result("Usernames Harvested: ",'')
-            print(" |")
+            user_count = len(usernames)
+            sresult.init_item("Usernames harvested: " + cmseek.bold + cmseek.fgreen + str(user_count) + cmseek.cln)
             wpunames = ""
-            for u in usernames:
+            for i,u in enumerate(usernames):
                 wpunames = wpunames + u + ","
-                cmseek.success(cmseek.bold + u + cmseek.cln)
-            print('\n')
+                if i == 0 and i != user_count - 1:
+                    sresult.init_sub(cmseek.bold + cmseek.fgreen + u + cmseek.cln)
+                elif i == user_count - 1:
+                    sresult.end_sub(cmseek.bold + cmseek.fgreen + u + cmseek.cln)
+                else:
+                    sresult.sub_item(cmseek.bold + cmseek.fgreen + u + cmseek.cln)
             cmseek.update_log('wp_users', wpunames)
-        if wpvdbres == '1':
-            cmseek.result("Vulnerability Count: " , str(len(result['vulnerabilities'])))
-            cmseek.update_log('wp_vuln_count', str(len(result['vulnerabilities'])))
-            cmseek.update_log('wpvulndb_url', "https://wpvulndb.com/api/v2/wordpresses/" + vfc)
-            if len(result['vulnerabilities']) > 0:
-                cmseek.success("Displaying all the vulnerabilities")
-                for vuln in result['vulnerabilities']:
-                    print("\n")
-                    cmseek.result("Title: " , str(vuln['title']))
-                    cmseek.result("Type: " , str(vuln['vuln_type']))
-                    cmseek.result("Fixed In Version: " , str(vuln['fixed_in']))
-                    cmseek.result("Link: " , "http://wpvulndb.com/vulnerabilities/" + str(vuln['id']))
-                    strvuln = str(vuln)
-                    if 'cve' in strvuln:
-                        for ref in vuln['references']['cve']:
-                            cmseek.result("CVE: ",  "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-" + str(ref))
+            sresult.empty_item()
 
-                    if 'exploitdb' in strvuln:
-                        for ref in vuln['references']['exploitdb']:
-                            cmseek.result("ExploitDB Link: ",  "http://www.exploit-db.com/exploits/" + str(ref))
+        if version != '0':
+            # cmseek.result("Version: ", version)
+            cmseek.update_log('wp_version', version)
+            if wpvdbres == '1':
+                sresult.end_item('Version vulnerabilities: ' + cmseek.bold + cmseek.fgreen + str(vulnss) + cmseek.cln)
+                cmseek.update_log('wp_vuln_count', str(vulnss))
+                if vulnss > 0:
+                    for i,vuln in enumerate(result['vulnerabilities']):
+                        if i == 0 and i != vulnss - 1:
+                            sresult.empty_sub(False)
+                            sresult.init_sub(cmseek.bold + cmseek.fgreen + str(vuln['title']) + cmseek.cln, False)
+                            sresult.init_subsub("Type: " + cmseek.bold + cmseek.fgreen + str(vuln['vuln_type']) + cmseek.cln, False, True)
+                            sresult.subsub("Link: " + cmseek.bold + cmseek.fgreen + "http://wpvulndb.com/vulnerabilities/" + str(vuln['id']) + cmseek.cln, False, True)
+                            strvuln = str(vuln)
+                            if 'cve' in strvuln:
+                                for ref in vuln['references']['cve']:
+                                    sresult.subsub("CVE: " + cmseek.fgreen + "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-" + str(ref) + cmseek.cln, False, True)
 
-                    if 'metasploit' in strvuln:
-                        for ref in vuln['references']['metasploit']:
-                            cmseek.result("Metasploit Module: ",  "http://www.metasploit.com/modules/" + str(ref))
+                            if 'exploitdb' in strvuln:
+                                for ref in vuln['references']['exploitdb']:
+                                    sresult.subsub("ExploitDB Link: " + cmseek.fgreen + "http://www.exploit-db.com/exploits/" + str(ref) + cmseek.cln, False, True)
 
-                    if 'osvdb' in strvuln:
-                        for ref in vuln['references']['osvdb']:
-                            cmseek.result("OSVDB Link: ",  "http://osvdb.org/" + str(ref))
+                            if 'metasploit' in strvuln:
+                                for ref in vuln['references']['metasploit']:
+                                    sresult.subsub("Metasploit Module: " + cmseek.fgreen + "http://www.metasploit.com/modules/" + str(ref) + cmseek.cln, False, True)
 
-                    if 'secunia' in strvuln:
-                        for ref in vuln['references']['secunia']:
-                            cmseek.result("Secunia Advisory: ",  "http://secunia.com/advisories/" + str(ref))
+                            if 'osvdb' in strvuln:
+                                for ref in vuln['references']['osvdb']:
+                                    sresult.subsub("OSVDB Link: " + cmseek.fgreen + "http://osvdb.org/" + str(ref) + cmseek.cln, False, True)
 
-                    if 'url' in strvuln:
-                        for ref in vuln['references']['url']:
-                            cmseek.result("Reference: ", str(ref))
-            else:
-                cmseek.warning('No vulnerabilities discovered in this version yet!')
-            return
-        else:
-            cmseek.error("Could not look up version vulnerabilities")
-            return
+                            if 'secunia' in strvuln:
+                                for ref in vuln['references']['secunia']:
+                                    sresult.subsub("Secunia Advisory: " + cmseek.fgreen + "http://secunia.com/advisories/" + str(ref) + cmseek.cln, False, True)
+
+                            if 'url' in strvuln:
+                                for ref in vuln['references']['url']:
+                                    sresult.subsub("Reference: " + cmseek.fgreen + str(ref) + cmseek.cln, False, True)
+
+                            sresult.end_subsub("Fixed In Version: " + cmseek.bold + cmseek.fgreen + str(vuln['fixed_in']) + cmseek.cln, False, True)
+
+                        elif i == vulnss - 1:
+                            sresult.empty_sub(False)
+                            sresult.end_sub(cmseek.bold + cmseek.fgreen + str(vuln['title']) + cmseek.cln, False)
+                            sresult.init_subsub("Type: " + cmseek.bold + cmseek.fgreen + str(vuln['vuln_type']) + cmseek.cln, False, False)
+                            sresult.subsub("Link: " + cmseek.bold + cmseek.fgreen + "http://wpvulndb.com/vulnerabilities/" + str(vuln['id']) + cmseek.cln, False, False)
+                            strvuln = str(vuln)
+                            if 'cve' in strvuln:
+                                for ref in vuln['references']['cve']:
+                                    sresult.subsub("CVE: " + cmseek.fgreen + "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-" + str(ref) + cmseek.cln, False, False)
+
+                            if 'exploitdb' in strvuln:
+                                for ref in vuln['references']['exploitdb']:
+                                    sresult.subsub("ExploitDB Link: " + cmseek.fgreen + "http://www.exploit-db.com/exploits/" + str(ref) + cmseek.cln, False, False)
+
+                            if 'metasploit' in strvuln:
+                                for ref in vuln['references']['metasploit']:
+                                    sresult.subsub("Metasploit Module: " + cmseek.fgreen + "http://www.metasploit.com/modules/" + str(ref) + cmseek.cln, False, False)
+
+                            if 'osvdb' in strvuln:
+                                for ref in vuln['references']['osvdb']:
+                                    sresult.subsub("OSVDB Link: " + cmseek.fgreen + "http://osvdb.org/" + str(ref) + cmseek.cln, False, False)
+
+                            if 'secunia' in strvuln:
+                                for ref in vuln['references']['secunia']:
+                                    sresult.subsub("Secunia Advisory: " + cmseek.fgreen + "http://secunia.com/advisories/" + str(ref) + cmseek.cln, False, False)
+
+                            if 'url' in strvuln:
+                                for ref in vuln['references']['url']:
+                                    sresult.subsub("Reference: " + cmseek.fgreen + str(ref) + cmseek.cln, False, False)
+
+                            sresult.end_subsub("Fixed In Version: " + cmseek.bold + cmseek.fgreen + str(vuln['fixed_in']) + cmseek.cln, False, False)
+                        else:
+                            sresult.empty_sub(False)
+                            sresult.sub_item(cmseek.bold + cmseek.fgreen + str(vuln['title']) + cmseek.cln, False)
+                            sresult.init_subsub("Type: " + cmseek.bold + cmseek.fgreen + str(vuln['vuln_type']) + cmseek.cln, False, True)
+                            sresult.subsub("Link: " + cmseek.bold + cmseek.fgreen + "http://wpvulndb.com/vulnerabilities/" + str(vuln['id']) + cmseek.cln, False, True)
+                            strvuln = str(vuln)
+                            if 'cve' in strvuln:
+                                for ref in vuln['references']['cve']:
+                                    sresult.subsub("CVE: " + cmseek.fgreen + "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-" + str(ref) + cmseek.cln, False, True)
+
+                            if 'exploitdb' in strvuln:
+                                for ref in vuln['references']['exploitdb']:
+                                    sresult.subsub("ExploitDB Link: " + cmseek.fgreen + "http://www.exploit-db.com/exploits/" + str(ref) + cmseek.cln, False, True)
+
+                            if 'metasploit' in strvuln:
+                                for ref in vuln['references']['metasploit']:
+                                    sresult.subsub("Metasploit Module: " + cmseek.fgreen + "http://www.metasploit.com/modules/" + str(ref) + cmseek.cln, False, True)
+
+                            if 'osvdb' in strvuln:
+                                for ref in vuln['references']['osvdb']:
+                                    sresult.subsub("OSVDB Link: " + cmseek.fgreen + "http://osvdb.org/" + str(ref) + cmseek.cln, False, True)
+
+                            if 'secunia' in strvuln:
+                                for ref in vuln['references']['secunia']:
+                                    sresult.subsub("Secunia Advisory: " + cmseek.fgreen + "http://secunia.com/advisories/" + str(ref) + cmseek.cln, False, True)
+
+                            if 'url' in strvuln:
+                                for ref in vuln['references']['url']:
+                                    sresult.subsub("Reference: " + cmseek.fgreen + str(ref) + cmseek.cln, False, True)
+
+                            sresult.end_subsub("Fixed In Version: " + cmseek.bold + cmseek.fgreen + str(vuln['fixed_in']) + cmseek.cln, False, True)
+        sresult.end(str(cmseek.total_requests), str(comptime), log_file)
+        return
 
 
     return

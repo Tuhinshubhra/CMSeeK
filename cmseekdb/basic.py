@@ -15,11 +15,14 @@ import urllib.request
 from http.cookiejar import CookieJar
 import json
 from datetime import datetime
+import time
 import re
 from cmseekdb.getsource import *
 from cmseekdb.config import *
 
 cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('/cmseekdb','')
+total_requests = 0
+cstart = time.time()
 
 # all the color codes goes here
 white = "\033[97m"
@@ -122,7 +125,7 @@ def clearscreen():
 def bye():
     bye_dict = ["adios","adieu","addio","adeus","aloha","arrivederci","auf Wiedersehen","au revoir","sayonara","shalom","totsiens","vale","zaijian","Aabar dekha hobey","Fir milenge","Annyeong", "Ja mata ne", "До Встречи"]
     this_time = random.choice(bye_dict)
-    print('\n\n' + bold + red + '  _/\_  ' + this_time + " ~~ CMSeeK " + cln)
+    print('\n' + bold + red + ' CMSeeK says ~ ' + this_time + cln)
     quit()
 
 def statement(msg):
@@ -276,7 +279,7 @@ def handle_quit(end_prog = True):
         # print('written: ' + log)
         f.close()
         print('\n')
-        info('Log saved in: ' + fgreen + bold + log_file + cln)
+        # info('Log saved in: ' + fgreen + bold + log_file + cln)
     if end_prog == True:
         bye()
     else:
@@ -414,6 +417,8 @@ def savebrute(url,adminurl,username,password):
 
 def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source code/error}, {empty/http headers/empty})
     raw_source = getrawsource(url, ua)
+    global total_requests
+    total_requests += 1
     if 'Please prove that you are human' in raw_source[1] or '?ckattempt=' in raw_source[1]:
         warning('Browser validation detected.. trying to evade...')
         ## This can be evaded by using googlebot as user agent so let's do that
@@ -451,6 +456,8 @@ def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source 
     return raw_source
 
 def check_url(url,ua):
+    global total_requests
+    total_requests += 1
     request = urllib.request.Request(url)
     request.add_header('User-Agent', ua)
     request.get_method = lambda: 'HEAD'

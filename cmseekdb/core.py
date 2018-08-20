@@ -12,6 +12,7 @@ import urllib.request
 import json
 import importlib
 from datetime import datetime
+import time
 
 import VersionDetect.detect as version_detect # Version detection
 import deepscans.core as advanced # Deep scan and Version Detection functions
@@ -21,6 +22,7 @@ import cmseekdb.header as header # Contains function to detect CMS from gathered
 import cmseekdb.cmss as cmsdb # Contains basic info about the CMSs
 import cmseekdb.robots as robots
 import cmseekdb.generator as generator
+import cmseekdb.result as result
 
 def main_proc(site,cua):
     cmseek.clearscreen()
@@ -109,6 +111,14 @@ def main_proc(site,cua):
             cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content)
             cmseek.clearscreen()
             cmseek.banner("CMS Scan Results")
+            result.target(site)
+            result.cms(cms_info['name'],cms_version,cms_info['url'])
+            comptime = round(time.time() - cmseek.cstart, 2)
+            log_dir = cmseek.log_dir
+            if log_dir is not "":
+                log_file = log_dir + "/cms.json"
+            result.end(str(cmseek.total_requests), str(comptime), log_file)
+            '''
             cmseek.result('Target: ', site)
             cmseek.result("Detected CMS: ", cms_info['name'])
             cmseek.update_log('cms_name', cms_info['name']) # update log
@@ -117,16 +127,26 @@ def main_proc(site,cua):
                 cmseek.update_log('cms_version', cms_version) # update log
             cmseek.result("CMS URL: ", cms_info['url'])
             cmseek.update_log('cms_url', cms_info['url']) # update log
+            '''
             return
         else:
             # nor version detect neither DeepScan available
             cmseek.clearscreen()
             cmseek.banner("CMS Scan Results")
+            result.target(site)
+            result.cms(cms_info['name'],'0',cms_info['url'])
+            comptime = round(time.time() - cmseek.cstart, 2)
+            log_dir = cmseek.log_dir
+            if log_dir is not "":
+                log_file = log_dir + "/cms.json"
+            result.end(str(cmseek.total_requests), str(comptime), log_file)
+            '''
             cmseek.result('Target: ', site)
             cmseek.result("Detected CMS: ", cms_info['name'])
             cmseek.update_log('cms_name', cms_info['name']) # update log
             cmseek.result("CMS URL: ", cms_info['url'])
             cmseek.update_log('cms_url', cms_info['url']) # update log
+            '''
             return
     else:
         print('\n')
