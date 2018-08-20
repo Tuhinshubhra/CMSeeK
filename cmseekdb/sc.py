@@ -271,6 +271,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Contensis
             return ['1', 'contensis']
 
+        elif 'system/cron/cron.txt' in hstring:
+            # Contao
+            return ['1', 'contao']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS

@@ -291,4 +291,8 @@ def scan(content):
         # CMS Contenido 
         return ['1', 'cnido']
 
+    if 'contao' in content:
+        # Contao CMS
+        return ['1', 'contao']
+
     return ['0', '']

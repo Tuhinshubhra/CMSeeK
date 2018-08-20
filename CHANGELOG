@@ -18,6 +18,7 @@ Version 1.0.9 []
     - Contentful
     - Contensis CMS
     - CMS CONTENIDO
+    - Contao
   - Version detection added for:
     - FlexCMP
     - Danneo CMS

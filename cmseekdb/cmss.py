@@ -633,3 +633,9 @@ cnido = {
     'vd':'1',
     'deeps':'0' 
 }
+contao = {
+    'name':'Contao CMS',
+    'url':'https://contao.org/en/',
+    'vd':'0',
+    'deeps':'0' 
+}
