@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0.8-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.0.9-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
@@ -10,6 +10,7 @@
 
 ## Release History
 ```
+- Version 1.0.9 [21-08-2018]
 - Version 1.0.8 [14-08-2018]
 - Version 1.0.7 [07-08-2018]
 - Version 1.0.6 [23-07-2018]
@@ -108,7 +109,7 @@ CMSeek detects CMS via the following:
 - robots.txt
 
 ## Supported CMSs:
-CMSeeK currently can detect **82** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **102** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {

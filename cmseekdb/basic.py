@@ -56,7 +56,7 @@ def banner (txt):
     print(fgreen + bold + """
  _____ _____ _____         _____
 |     |     |   __|___ ___|  |  | {0}by {4}@r3dhax0r{1}
-|   --| | | |__   | -_| -_|    -|
+|   --| | | |__   | -_| -_|    -| {0}Release name:{4} Diablo Dragon {1}
 |_____|_|_|_|_____|___|___|__|__|{2} Version {3}
 """.format(lblue, fgreen, yellow, cmseek_version, red))
     if txt != "":

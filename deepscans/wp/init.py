@@ -178,10 +178,12 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
                     sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln)
                     sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln)
                 elif i == plugs_count - 1:
+                    sresult.empty_sub()
                     sresult.end_sub('Plugin: ' + cmseek.bold + cmseek.fgreen + plug[0] + cmseek.cln)
                     sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln, True, False)
                     sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln, True, False)
                 else:
+                    sresult.empty_sub()
                     sresult.sub_item('Plugin: ' + cmseek.bold + cmseek.fgreen + plug[0] + cmseek.cln)
                     sresult.init_subsub('Version: ' + cmseek.bold + cmseek.fgreen + plug[1] + cmseek.cln)
                     sresult.end_subsub('URL: ' + cmseek.fgreen + url + '/wp-content/plugins/' + plug[0] + cmseek.cln)
