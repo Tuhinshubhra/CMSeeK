@@ -639,3 +639,9 @@ contao = {
     'vd':'0',
     'deeps':'0' 
 }
+con5 = {
+    'name':'Concrete5 CMS',
+    'url':'https://www.concrete5.org/',
+    'vd':'1',
+    'deeps':'0' 
+}

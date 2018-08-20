@@ -60,6 +60,9 @@ def check(url, ua):
         if 'Disallow: /contao/' in robotstr:
             return ['1', 'contao']
 
+        if 'Disallow: /concrete' in robotstr:
+            return ['1', 'con5']
+
         if 'Disallow: /craft/' in robotstr:
             # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
             return ['1', 'craft']

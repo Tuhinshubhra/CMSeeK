@@ -295,4 +295,8 @@ def scan(content):
         # Contao CMS
         return ['1', 'contao']
 
+    if 'concrete5' in content:
+        # concrete5 CMS
+        return ['1', 'con5']
+
     return ['0', '']

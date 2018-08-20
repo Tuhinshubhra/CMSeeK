@@ -275,6 +275,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Contao
             return ['1', 'contao']
 
+        elif '/concrete/images' in hstring or '/concrete/css' in hstring or '/concrete/js' in hstring:
+            # Concrete5 CMS
+            return ['1', 'con5']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
@@ -299,6 +303,11 @@ def check(s, site): ## Check if no generator meta tag available
         if coton_regex != None:
             # Cotonti
             return ['1', 'coton']
+
+        con_regex = re.search(r'CCM_(.*?)(_|)(MODE|URL|PATH|FILENAME|REL|CID)', hstring)
+        if con_regex != None:
+            # Concrete5 CMS
+            return ['1', 'con5']
 
         else:
             # Failure

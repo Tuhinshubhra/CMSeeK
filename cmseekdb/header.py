@@ -138,6 +138,9 @@ def check(h):
         elif 'X-Powered-By: ContentBox' in hstring or 'Set-Cookie: LIGHTBOXSESSION' in hstring:
             return ['1', 'cbox']
 
+        elif 'Set-Cookie: CONCRETE5' in hstring:
+            return ['1', 'con5']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']
