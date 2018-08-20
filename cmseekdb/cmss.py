@@ -91,9 +91,9 @@ bolt = {
 }
 
 brcms = {
-    'name':'Browser CMS',
+    'name':'BrowserCMS',
     'url':'https://browsercms.com',
-    'vd':'0',
+    'vd':'1',
     'deeps':'0'
 }
 

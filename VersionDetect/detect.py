@@ -133,3 +133,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.csim as csimverdetect
         csimver = csimverdetect.start(ga_content)
         return csimver
+    elif id == 'brcms':
+        import VersionDetect.brcms as brcmsverdetect
+        brcmsver = brcmsverdetect.start(ga_content)
+        return brcmsver
