@@ -95,12 +95,13 @@ def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User 
         usernames = uenum[1]
 
         ## Version Vulnerability Detection
-        version_vuln = wp_vuln_scan.start(version, ua)
-        wpvdbres = version_vuln[0]
-        result = version_vuln[1]
-        if wpvdbres != 0 and version != 0:
-            vulnss = len(result['vulnerabilities'])
-        vfc = version_vuln[2]
+        if version != '0':
+            version_vuln = wp_vuln_scan.start(version, ua)
+            wpvdbres = version_vuln[0]
+            result = version_vuln[1]
+            if wpvdbres != '0' and version != '0':
+                vulnss = len(result['vulnerabilities'])
+            vfc = version_vuln[2]
 
         ### Deep Scan Results comes here
         comptime = round(time.time() - cmseek.cstart, 2)
