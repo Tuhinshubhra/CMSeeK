@@ -146,6 +146,6 @@ def start(id, url, ua, ga, source):
     elif vuln_detection == '2':
         cmseek.warning('Couldn\'t find core vulnerabilities, No VERSION detected')
     elif vuln_detection == '3':
-        cmseek.error('Core vulnerability databse not found!')
+        cmseek.error('Core vulnerability database not found!')
     else:
         cmseek.warning('No core vulnerabilities detected!')
