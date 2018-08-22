@@ -645,3 +645,9 @@ con5 = {
     'vd':'1',
     'deeps':'0' 
 }
+arc = {
+    'name':'Arc Forum',
+    'url':'http://arclanguage.org/',
+    'vd':'0',
+    'deeps':'0' 
+}

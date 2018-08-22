@@ -279,6 +279,11 @@ def check(s, site): ## Check if no generator meta tag available
             # Concrete5 CMS
             return ['1', 'con5']
 
+        arc_regex = re.search(r'ping.src = node\.href(.*?)</script>', hstring, re.DOTALL)
+        if arc_regex != None:
+            # Arc Forum
+            return ['1', 'arc']
+
         hippo_regex = re.search(r'binaries/(.*?)/content/gallery/', hstring)
         if hippo_regex != None:
             # Hippo CMS
