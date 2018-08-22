@@ -19,7 +19,7 @@ def end(requests, time, log_file):
 def cms(cms,version,url):
     ## CMS section
     print(' ┃\n ┠── CMS: ' + cmseek.bold + cmseek.fgreen + cms + cmseek.cln +'\n ┃    │')
-    if version != '0':
+    if version != '0' and version != None:
         print(' ┃    ├── Version: '+ cmseek.bold + cmseek.fgreen + version + cmseek.cln)
     print(' ┃    ╰── URL: ' + cmseek.fgreen + url + cmseek.cln)
 
