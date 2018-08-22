@@ -141,6 +141,9 @@ def check(h):
         elif 'Set-Cookie: CONCRETE5' in hstring:
             return ['1', 'con5']
 
+        elif 'X-Discourse-Route' in hstring:
+            return ['1', 'dscrs']
+
         bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
         if bb_regex != None:
             return ['1', 'bboard']

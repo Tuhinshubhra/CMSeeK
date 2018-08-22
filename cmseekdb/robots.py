@@ -63,6 +63,9 @@ def check(url, ua):
         if 'Disallow: /concrete' in robotstr:
             return ['1', 'con5']
 
+        if 'Disallow: /auth/cas' in robotstr and 'Disallow: /auth/cas/callback' in robotstr:
+            return ['1', 'dscrs']
+
         if 'Disallow: /craft/' in robotstr:
             # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
             return ['1', 'craft']

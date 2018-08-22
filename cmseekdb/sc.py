@@ -283,10 +283,19 @@ def check(s, site): ## Check if no generator meta tag available
             # Concrete5 CMS
             return ['1', 'con5']
 
+        elif 'discourse_theme_id' in hstring or 'discourse_current_homepage' in hstring:
+            # Discourse
+            return ['1', 'discrs']
+
         bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
         if bb_regex != None:
             # Burning Board
             return['1', 'bboard']
+
+        dsc_regex = re.search(r'Discourse\.(.*?)=(.*?)</script>', hstring, re.DOTALL)
+        if dsc_regex != None:
+            # Discourse
+            return ['1', 'dscrs']
 
         arc_regex = re.search(r'ping.src = node\.href(.*?)</script>', hstring, re.DOTALL)
         if arc_regex != None:

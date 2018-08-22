@@ -299,4 +299,8 @@ def scan(content):
         # concrete5 CMS
         return ['1', 'con5']
 
+    if 'discourse' in content:
+        # Discourse
+        return ['1', 'dscrs']
+
     return ['0', '']

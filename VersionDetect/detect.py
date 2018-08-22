@@ -141,3 +141,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.bboard as bboardverdetect
         bboardver = bboardverdetect.start(source)
         return bboardver
+    elif id == 'dscrs':
+        import VersionDetect.dscrs as dscrsverdetect
+        dscrsver = dscrsverdetect.start(ga_content)
+        return dscrsver

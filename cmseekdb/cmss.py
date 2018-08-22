@@ -657,3 +657,9 @@ bboard = {
     'vd':'1',
     'deeps':'0' 
 }
+dscrs = {
+    'name':'Discourse',
+    'url':'https://www.discourse.org/',
+    'vd':'1',
+    'deeps':'0' 
+}
