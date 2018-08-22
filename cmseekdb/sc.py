@@ -287,6 +287,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Discourse
             return ['1', 'discrs']
 
+        elif 'discuz_uid' in hstring or 'discuz_tips' in hstring or 'content="Discuz! Team and Comsenz UI Team"' in hstring:
+            # Discuz!
+            return ['1', 'discuz']
+
         bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
         if bb_regex != None:
             # Burning Board

@@ -663,3 +663,9 @@ dscrs = {
     'vd':'1',
     'deeps':'0' 
 }
+discuz = {
+    'name':'Discuz!',
+    'url':'http://www.discuz.net/',
+    'vd':'1',
+    'deeps':'0' 
+}

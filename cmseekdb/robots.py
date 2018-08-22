@@ -66,6 +66,9 @@ def check(url, ua):
         if 'Disallow: /auth/cas' in robotstr and 'Disallow: /auth/cas/callback' in robotstr:
             return ['1', 'dscrs']
 
+        if 'uc_client' in robotstr and 'uc_server' in robotstr and 'forum.php?mod=redirect*' in robotstr:
+            return ['1', 'discuz']
+
         if 'Disallow: /craft/' in robotstr:
             # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
             return ['1', 'craft']

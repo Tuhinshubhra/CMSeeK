@@ -303,4 +303,8 @@ def scan(content):
         # Discourse
         return ['1', 'dscrs']
 
+    if 'discuz!' in content:
+        # Discuz
+        return ['1', 'discuz']
+
     return ['0', '']

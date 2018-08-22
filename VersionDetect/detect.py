@@ -145,3 +145,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.dscrs as dscrsverdetect
         dscrsver = dscrsverdetect.start(ga_content)
         return dscrsver
+    elif id == 'discuz':
+        import VersionDetect.discuz as discuzverdetect
+        discuzver = discuzverdetect.start(ga_content)
+        return discuzver

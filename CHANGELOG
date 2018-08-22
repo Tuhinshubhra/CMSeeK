@@ -3,9 +3,11 @@ Version 1.1.0 []
     - Arc Forum
     - Burning Board
     - Discourse
+    - Discuz!
   - Version detection added for:
     - Burning Board
     - Discourse
+    - Discuz!
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke
