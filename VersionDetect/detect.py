@@ -137,3 +137,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.brcms as brcmsverdetect
         brcmsver = brcmsverdetect.start(ga_content)
         return brcmsver
+    elif id == 'bboard':
+        import VersionDetect.bboard as bboardverdetect
+        bboardver = bboardverdetect.start(source)
+        return bboardver

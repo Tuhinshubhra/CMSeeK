@@ -275,9 +275,18 @@ def check(s, site): ## Check if no generator meta tag available
             # Contao
             return ['1', 'contao']
 
+        elif '/burningBoard.css' in hstring or 'wcf/style/' in hstring:
+            # Burning Board
+            return ['1', 'bboard']
+
         elif '/concrete/images' in hstring or '/concrete/css' in hstring or '/concrete/js' in hstring:
             # Concrete5 CMS
             return ['1', 'con5']
+
+        bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
+        if bb_regex != None:
+            # Burning Board
+            return['1', 'bboard']
 
         arc_regex = re.search(r'ping.src = node\.href(.*?)</script>', hstring, re.DOTALL)
         if arc_regex != None:

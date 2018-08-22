@@ -651,3 +651,9 @@ arc = {
     'vd':'0',
     'deeps':'0' 
 }
+bboard = {
+    'name':'Burning Board',
+    'url':'https://www.woltlab.com/',
+    'vd':'1',
+    'deeps':'0' 
+}

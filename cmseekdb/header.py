@@ -141,6 +141,10 @@ def check(h):
         elif 'Set-Cookie: CONCRETE5' in hstring:
             return ['1', 'con5']
 
+        bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
+        if bb_regex != None:
+            return ['1', 'bboard']
+
         epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
         if epis_regex != None:
             return ['1', 'epis']
