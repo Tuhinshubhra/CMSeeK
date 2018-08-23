@@ -149,3 +149,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.discuz as discuzverdetect
         discuzver = discuzverdetect.start(ga_content)
         return discuzver
+    elif id == 'minibb':
+        import VersionDetect.minibb as minibbverdetect
+        minibbver = minibbverdetect.start(source)
+        return minibbver

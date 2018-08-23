@@ -687,3 +687,9 @@ ipb = {
     'vd':'0',
     'deeps':'0'  
 }
+minibb = {
+    'name':'miniBB',
+    'url':'http://www.minibb.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

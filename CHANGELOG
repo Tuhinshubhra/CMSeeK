@@ -7,10 +7,12 @@ Version 1.1.0 []
     - Flarum
     - FluxBB
     - IPB Forum
+    - miniBB
   - Version detection added for:
     - Burning Board
     - Discourse
     - Discuz!
+    - miniBB
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke

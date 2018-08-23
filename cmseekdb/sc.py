@@ -303,6 +303,15 @@ def check(s, site): ## Check if no generator meta tag available
             # IP Board
             return ['1', 'ipb']
 
+        elif 'bb_default_style.css' in hstring or 'name="URL" content="http://www.minibb.net/"' in hstring:
+            # miniBB
+            return ['1', 'minibb']
+
+        mb_regex = re.search(r'(powered by|http://www.miniBB.net)(.*?)(miniBB|miniBB forum software)', hstring)
+        if mb_regex != None:
+            # miniBB
+            return ['1', 'minibb']
+
         fbb_regex = re.search(r'Powered by(.*?)FluxBB', hstring)
         if fbb_regex != None:
             # FluxBB
