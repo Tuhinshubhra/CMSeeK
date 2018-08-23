@@ -675,3 +675,9 @@ flarum = {
     'vd':'0',
     'deeps':'0' 
 }
+fluxbb = {
+    'name':'FluxBB',
+    'url':'https://fluxbb.org/',
+    'vd':'0',
+    'deeps':'0'  
+}

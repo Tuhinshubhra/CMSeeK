@@ -5,6 +5,7 @@ Version 1.1.0 []
     - Discourse
     - Discuz!
     - Flarum
+    - FluxBB
   - Version detection added for:
     - Burning Board
     - Discourse

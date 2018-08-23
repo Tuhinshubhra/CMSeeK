@@ -295,6 +295,11 @@ def check(s, site): ## Check if no generator meta tag available
             # Flarum
             return ['1', 'flarum']
 
+        fbb_regex = re.search(r'Powered by(.*?)FluxBB', hstring)
+        if fbb_regex != None:
+            # FluxBB
+            return ['1', 'fluxbb']
+
         bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
         if bb_regex != None:
             # Burning Board
