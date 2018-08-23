@@ -150,6 +150,9 @@ def check(h):
         elif 'IPSSessionFront' in hstring or 'ipbWWLmodpids' in hstring or 'ipbWWLsession_id' in hstring:
             return ['1', 'ipb']
 
+        elif 'X-Powered-By: NodeBB' in hstring:
+            return ['1', 'nodebb']
+
         myb_regex = re.search(r'Set-Cookie: mybb\[(.*?)\]=', hstring)
         if myb_regex != None:
             return ['1', 'mybb']

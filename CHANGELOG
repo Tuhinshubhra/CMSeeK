@@ -9,12 +9,14 @@ Version 1.1.0 []
     - IPB Forum
     - miniBB
     - MyBB
+    - NodeBB
   - Version detection added for:
     - Burning Board
     - Discourse
     - Discuz!
     - miniBB
     - MyBB
+    - NodeBB
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke

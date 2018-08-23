@@ -699,3 +699,9 @@ mybb = {
     'vd':'1',
     'deeps':'0'  
 }
+nodebb = {
+    'name':'NodeBB',
+    'url':'https://nodebb.org/',
+    'vd':'1',
+    'deeps':'0'  
+}

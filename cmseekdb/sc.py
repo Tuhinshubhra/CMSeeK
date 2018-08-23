@@ -311,6 +311,15 @@ def check(s, site): ## Check if no generator meta tag available
             # MyBB
             return ['1', 'mybb']
 
+        elif '/assets/nodebb.min.js' in hstring or '/plugins/nodebb-' in hstring:
+            # NodeBB
+            return ['1', 'nodebb']
+
+        nb_regex = re.search(r'Powered by(.*?)NodeBB</a>', hstring)
+        if nb_regex != None:
+            # NodeBB
+            return['1', 'nodebb']
+
         myb_regex = re.search(r'(Powered By|href="https://www.mybb.com")(.*?)(MyBB|MyBB Group)</a>', hstring)
         if myb_regex != None:
             # MyBB

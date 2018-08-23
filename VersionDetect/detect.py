@@ -157,3 +157,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.mybb as mybbverdetect
         mybbver = mybbverdetect.start(source)
         return mybbver
+    elif id == 'nodebb':
+        import VersionDetect.nodebb as nodebbverdetect
+        nodebbver = nodebbverdetect.start(source)
+        return nodebbver
