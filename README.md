@@ -52,6 +52,7 @@ It is fairly easy to use CMSeeK, just make sure you have python3 and git (just f
 
 - git clone `https://github.com/Tuhinshubhra/CMSeeK`
 - cd CMSeeK
+- pip install -r requirements.txt
 
 For guided scanning:
 
