@@ -307,6 +307,12 @@ def check(s, site): ## Check if no generator meta tag available
             # miniBB
             return ['1', 'minibb']
 
+        elif 'var MyBBEditor' in hstring:
+            # MyBB
+            return ['1', 'mybb']
+
+        myb_regex = re.search(r'(Powered By|href="https://www.mybb.com")(.*?)(MyBB|MyBB Group)</a>', hstring)
+
         mb_regex = re.search(r'(powered by|http://www.miniBB.net)(.*?)(miniBB|miniBB forum software)', hstring)
         if mb_regex != None:
             # miniBB

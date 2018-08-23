@@ -153,3 +153,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.minibb as minibbverdetect
         minibbver = minibbverdetect.start(source)
         return minibbver
+    elif id == 'mybb':
+        import VersionDetect.mybb as mybbverdetect
+        mybbver = mybbverdetect.start(source)
+        return mybbver

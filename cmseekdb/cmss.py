@@ -693,3 +693,9 @@ minibb = {
     'vd':'1',
     'deeps':'0'  
 }
+mybb = {
+    'name':'MyBB',
+    'url':'https://mybb.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

@@ -150,6 +150,10 @@ def check(h):
         elif 'IPSSessionFront' in hstring or 'ipbWWLmodpids' in hstring or 'ipbWWLsession_id' in hstring:
             return ['1', 'ipb']
 
+        myb_regex = re.search(r'Set-Cookie: mybb\[(.*?)\]=', hstring)
+        if myb_regex != None:
+            return ['1', 'mybb']
+
         bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
         if bb_regex != None:
             return ['1', 'bboard']

@@ -8,11 +8,13 @@ Version 1.1.0 []
     - FluxBB
     - IPB Forum
     - miniBB
+    - MyBB
   - Version detection added for:
     - Burning Board
     - Discourse
     - Discuz!
     - miniBB
+    - MyBB
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke
