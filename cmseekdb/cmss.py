@@ -681,3 +681,9 @@ fluxbb = {
     'vd':'0',
     'deeps':'0'  
 }
+ipb = {
+    'name':'IP.Board community forum',
+    'url':'https://www.invisioncommunity.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

@@ -295,10 +295,28 @@ def check(s, site): ## Check if no generator meta tag available
             # Flarum
             return ['1', 'flarum']
 
+        elif '/* IP.Board' in hstring or 'js/ipb.js' in hstring or 'js/ipb.lang.js' in hstring:
+            # IP Board
+            return ['1', 'ipb']
+
+        elif 'ips_username' in hstring and 'ips_password' in hstring:
+            # IP Board
+            return ['1', 'ipb']
+
         fbb_regex = re.search(r'Powered by(.*?)FluxBB', hstring)
         if fbb_regex != None:
             # FluxBB
             return ['1', 'fluxbb']
+
+        ipb_regex = re.search(r'invisioncommunity.com(.*?)Powered by Invision Community', hstring)
+        if ipb_regex != None:
+            # IP Board
+            return['1', 'ipb']
+
+        ipb2_regex = re.search(r'ipb\.(vars|templates|lang)\[(.*?)=(.*?)</script>', hstring, re.DOTALL)
+        if ipb2_regex != None:
+            # IP Board
+            return['1', 'ipb']
 
         bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
         if bb_regex != None:

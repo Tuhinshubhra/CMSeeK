@@ -147,6 +147,9 @@ def check(h):
         elif 'Set-Cookie: flarum_session=' in hstring:
             return ['1', 'flarum']
 
+        elif 'IPSSessionFront' in hstring or 'ipbWWLmodpids' in hstring or 'ipbWWLsession_id' in hstring:
+            return ['1', 'ipb']
+
         bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
         if bb_regex != None:
             return ['1', 'bboard']
