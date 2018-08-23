@@ -75,7 +75,7 @@ SPECIFING TARGET:
 
 USER AGENT:
       -r, --random-agent           Use a random user agent
-      --user-agent USER_AGENT      Specify custom user agent
+      --user-agent USER_AGENT      Specify a custom user agent
 
 OUTPUT:
       -v, --verbose                Increase output verbosity
