@@ -291,6 +291,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Discuz!
             return ['1', 'discuz']
 
+        elif 'flarum-loading' in hstring or 'flarum/app' in hstring:
+            # Flarum
+            return ['1', 'flarum']
+
         bb_regex = re.search(r'(a href="http://www.woltlab.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)</strong>', hstring, re.DOTALL)
         if bb_regex != None:
             # Burning Board

@@ -144,6 +144,9 @@ def check(h):
         elif 'X-Discourse-Route' in hstring:
             return ['1', 'dscrs']
 
+        elif 'Set-Cookie: flarum_session=' in hstring:
+            return ['1', 'flarum']
+
         bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
         if bb_regex != None:
             return ['1', 'bboard']

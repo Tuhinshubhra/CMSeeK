@@ -669,3 +669,9 @@ discuz = {
     'vd':'1',
     'deeps':'0' 
 }
+flarum = {
+    'name':'Flarum!',
+    'url':'https://flarum.org/',
+    'vd':'0',
+    'deeps':'0' 
+}
