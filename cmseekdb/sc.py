@@ -319,6 +319,15 @@ def check(s, site): ## Check if no generator meta tag available
             # PunBB
             return ['1', 'punbb']
 
+        elif 'Powered by SMF' in hstring:
+            # SMF
+            return ['1', 'smf']
+
+        smf_regex = re.search(r'var smf_(theme_url|images_url|scripturl) =(.*?)</script>', hstring, re.DOTALL)
+        if smf_regex != None:
+            # SMF
+            return ['1', 'smf']
+
         pun_regex = re.search(r'Powered by(.*?)PunBB</a>', hstring)
         if pun_regex != None:
             # PunBB

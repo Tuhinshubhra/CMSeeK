@@ -711,3 +711,9 @@ punbb = {
     'vd':'1',
     'deeps':'0'  
 }
+smf = {
+    'name':'Simple Machines Forum',
+    'url':'http://simplemachines.org/',
+    'vd':'1',
+    'deeps':'0'  
+}

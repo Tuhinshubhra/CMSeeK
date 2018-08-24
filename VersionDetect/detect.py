@@ -165,3 +165,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.punbb as punbbverdetect
         punbbver = punbbverdetect.start(source)
         return punbbver
+    elif id == 'smf':
+        import VersionDetect.smf as smfverdetect
+        smfver = smfverdetect.start(source)
+        return smfver
