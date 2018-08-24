@@ -17,6 +17,8 @@ Version 1.1.0 []
     - miniBB
     - MyBB
     - NodeBB
+  - New detection methods added for:
+    - phpwind
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke

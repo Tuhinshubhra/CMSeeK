@@ -153,6 +153,10 @@ def check(h):
         elif 'X-Powered-By: NodeBB' in hstring:
             return ['1', 'nodebb']
 
+        wind_regex = re.search(r'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=', hstring)
+        if wind_regex != None:
+            return ['1', 'pwind']
+
         myb_regex = re.search(r'Set-Cookie: mybb\[(.*?)\]=', hstring)
         if myb_regex != None:
             return ['1', 'mybb']
