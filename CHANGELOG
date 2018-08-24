@@ -10,6 +10,7 @@ Version 1.1.0 []
     - miniBB
     - MyBB
     - NodeBB
+    - PunBB
   - Version detection added for:
     - Burning Board
     - Discourse
@@ -17,6 +18,7 @@ Version 1.1.0 []
     - miniBB
     - MyBB
     - NodeBB
+    - PunBB
   - New detection methods added for:
     - phpwind
 Version 1.0.9 [21-08-2018]

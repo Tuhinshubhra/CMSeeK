@@ -315,6 +315,15 @@ def check(s, site): ## Check if no generator meta tag available
             # NodeBB
             return ['1', 'nodebb']
 
+        elif 'PUNBB.env' in hstring or 'typeof PUNBB ===' in hstring:
+            # PunBB
+            return ['1', 'punbb']
+
+        pun_regex = re.search(r'Powered by(.*?)PunBB</a>', hstring)
+        if pun_regex != None:
+            # PunBB
+            return['1', 'punbb']
+
         nb_regex = re.search(r'Powered by(.*?)NodeBB</a>', hstring)
         if nb_regex != None:
             # NodeBB

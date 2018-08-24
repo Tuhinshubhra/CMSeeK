@@ -705,3 +705,9 @@ nodebb = {
     'vd':'1',
     'deeps':'0'  
 }
+punbb = {
+    'name':'PunBB',
+    'url':'http://punbb.informer.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

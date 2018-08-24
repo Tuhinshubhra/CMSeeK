@@ -161,3 +161,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.nodebb as nodebbverdetect
         nodebbver = nodebbverdetect.start(source)
         return nodebbver
+    elif id == 'punbb':
+        import VersionDetect.punbb as punbbverdetect
+        punbbver = punbbverdetect.start(source)
+        return punbbver
