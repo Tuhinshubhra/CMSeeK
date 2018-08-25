@@ -723,3 +723,9 @@ vanilla = {
     'vd':'1',
     'deeps':'0'  
 }
+uknva = {
+    'name':'uKnowva',
+    'url':'https://uknowva.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

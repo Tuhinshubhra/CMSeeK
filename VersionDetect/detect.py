@@ -173,3 +173,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.vanilla as vanillaverdetect
         vanillaver = vanillaverdetect.start(url, ua)
         return vanillaver
+    elif id == 'uknva':
+        import VersionDetect.uknva as uknvaverdetect
+        uknvaver = uknvaverdetect.start(ga_content)
+        return uknvaver

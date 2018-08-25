@@ -307,4 +307,8 @@ def scan(content):
         # Discuz
         return ['1', 'discuz']
 
+    if 'uknowva' in content:
+        # uKnowva
+        return ['1', 'uknva']
+
     return ['0', '']
