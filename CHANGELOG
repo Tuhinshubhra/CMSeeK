@@ -12,6 +12,7 @@ Version 1.1.0 []
     - NodeBB
     - PunBB
     - SMF
+    - Vanilla
   - Version detection added for:
     - Burning Board
     - Discourse
@@ -21,6 +22,7 @@ Version 1.1.0 []
     - NodeBB
     - PunBB
     - SMF
+    - Vanilla
   - New detection methods added for:
     - phpwind
 Version 1.0.9 [21-08-2018]

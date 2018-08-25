@@ -717,3 +717,9 @@ smf = {
     'vd':'1',
     'deeps':'0'  
 }
+vanilla = {
+    'name':'Vanilla Forums',
+    'url':'https://vanillaforums.com',
+    'vd':'1',
+    'deeps':'0'  
+}

@@ -169,3 +169,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.smf as smfverdetect
         smfver = smfverdetect.start(source)
         return smfver
+    elif id == 'vanilla':
+        import VersionDetect.vanilla as vanillaverdetect
+        vanillaver = vanillaverdetect.start(url, ua)
+        return vanillaver

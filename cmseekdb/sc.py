@@ -323,6 +323,20 @@ def check(s, site): ## Check if no generator meta tag available
             # SMF
             return ['1', 'smf']
 
+        elif 'vanilla_discussions_index' in hstring or 'vanilla_categories_index' in hstring:
+            # Vanilla
+            return ['1', 'vanilla']
+
+    
+        ####################################################
+        #         REGEX DETECTIONS STARTS FROM HERE        #
+        ####################################################
+        
+        van_regex = re.search(r'applications/vanilla/(.*?).js', hstring)
+        if van_regex != None:
+            # Vanilla
+            return ['1', 'vanilla']
+
         smf_regex = re.search(r'var smf_(theme_url|images_url|scripturl) =(.*?)</script>', hstring, re.DOTALL)
         if smf_regex != None:
             # SMF

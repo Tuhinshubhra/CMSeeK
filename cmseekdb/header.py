@@ -153,6 +153,14 @@ def check(h):
         elif 'X-Powered-By: NodeBB' in hstring:
             return ['1', 'nodebb']
 
+        elif 'X-Garden-Version: Vanilla' in hstring or 'Maybe you should be reading this instead: https://www.vanillaforums.com/en/careers' in hstring:
+            return ['1', 'vanilla']
+
+
+        ####################################################
+        #         REGEX DETECTIONS STARTS FROM HERE        #
+        ####################################################
+
         wind_regex = re.search(r'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=', hstring)
         if wind_regex != None:
             return ['1', 'pwind']
