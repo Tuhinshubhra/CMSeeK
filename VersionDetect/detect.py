@@ -177,3 +177,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.uknva as uknvaverdetect
         uknvaver = uknvaverdetect.start(ga_content)
         return uknvaver
+    elif id == 'xmb':
+        import VersionDetect.xmb as xmbverdetect
+        xmbver = xmbverdetect.start(source)
+        return xmbver

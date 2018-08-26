@@ -735,3 +735,9 @@ xf = {
     'vd':'0',
     'deeps':'0'  
 }
+xmb = {
+    'name':'XMB',
+    'url':'https://www.xmbforum.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

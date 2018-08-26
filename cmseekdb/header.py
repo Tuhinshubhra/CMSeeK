@@ -164,6 +164,10 @@ def check(h):
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        xmb_regex = re.search(r'Set-Cookie: xmblv(a|b)=(\d.*?)\n',hstring)
+        if xmb_regex != None:
+            return ['1', 'xmb']
+
         wind_regex = re.search(r'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=', hstring)
         if wind_regex != None:
             return ['1', 'pwind']

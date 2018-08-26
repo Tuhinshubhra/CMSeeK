@@ -331,6 +331,10 @@ def check(s, site): ## Check if no generator meta tag available
             # XenForo
             return ['1', 'xf']
 
+        elif '<!-- Powered by XMB' in hstring or '<!-- The XMB Group -->' in hstring or 'Powered by XMB' in hstring:
+            # XMB
+            return ['1', 'xmb']
+
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

@@ -15,6 +15,7 @@ Version 1.1.0 []
     - Vanilla
     - uKnowva
     - XenForo
+    - XMB
   - Version detection added for:
     - Burning Board
     - Discourse
@@ -26,6 +27,7 @@ Version 1.1.0 []
     - SMF
     - Vanilla
     - uKnowva
+    - XMB
   - New detection methods added for:
     - phpwind
 Version 1.0.9 [21-08-2018]
