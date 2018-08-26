@@ -164,6 +164,10 @@ def check(h):
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        ybb_regex = re.search(r'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=', hstring)
+        if ybb_regex != None:
+            return ['1', 'yabb']
+
         xmb_regex = re.search(r'Set-Cookie: xmblv(a|b)=(\d.*?)\n',hstring)
         if xmb_regex != None:
             return ['1', 'xmb']

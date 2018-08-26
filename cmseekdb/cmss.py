@@ -741,3 +741,9 @@ xmb = {
     'vd':'1',
     'deeps':'0'  
 }
+yabb = {
+    'name':'YaBB (Yet another Bulletin Board)',
+    'url':'http://www.yabbforum.com/',
+    'vd':'1',
+    'deeps':'0'  
+}

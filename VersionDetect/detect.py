@@ -181,3 +181,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.xmb as xmbverdetect
         xmbver = xmbverdetect.start(source)
         return xmbver
+    elif id == 'yabb':
+        import VersionDetect.yabb as yabbverdetect
+        yabbver = yabbverdetect.start(source)
+        return yabbver

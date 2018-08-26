@@ -335,6 +335,10 @@ def check(s, site): ## Check if no generator meta tag available
             # XMB
             return ['1', 'xmb']
 
+        elif 'yabbfiles/' in hstring:
+            # YaBB
+            return ['1', 'yabb']
+
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
