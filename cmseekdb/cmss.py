@@ -765,3 +765,9 @@ fudf = {
     'vd':'1',
     'deeps':'0'
 }
+phorum = {
+    'name':'Phorum',
+    'url':'https://www.phorum.org/',
+    'vd':'0',
+    'deeps':'0'
+}

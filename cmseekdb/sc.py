@@ -346,6 +346,10 @@ def check(s, site): ## Check if no generator meta tag available
         elif 'Powered by: FUDforum' in hstring:
             # FUDforum
             return ['1', 'fudf']
+
+        elif '<div id="phorum">' in hstring:
+            # Phorum
+            return ['1', 'phorum']
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
