@@ -162,6 +162,9 @@ def check(h):
         elif '[aefsid]' in hstring:
             return ['1', 'aef']
 
+        elif 'Set-Cookie: fud_session_' in hstring:
+            return ['1', 'fudf']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

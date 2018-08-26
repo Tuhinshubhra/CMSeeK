@@ -343,6 +343,9 @@ def check(s, site): ## Check if no generator meta tag available
             # Advanced Electron Forum
             return ['1', 'aef']
 
+        elif 'Powered by: FUDforum' in hstring:
+            # FUDforum
+            return ['1', 'fudf']
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

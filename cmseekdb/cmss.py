@@ -759,3 +759,9 @@ bhf = {
     'vd':'1',
     'deeps':'0'
 }
+fudf = {
+    'name':'FUDforum',
+    'url':'http://fudforum.org/forum/',
+    'vd':'1',
+    'deeps':'0'
+}

@@ -8,6 +8,7 @@ Version 1.1.0 []
     - Discuz!
     - Flarum
     - FluxBB
+    - FUDforum
     - IPB Forum
     - miniBB
     - MyBB
@@ -25,6 +26,7 @@ Version 1.1.0 []
     - Beehive Forum
     - Discourse
     - Discuz!
+    - FUDforum
     - miniBB
     - MyBB
     - NodeBB
