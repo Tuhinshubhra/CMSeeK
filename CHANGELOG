@@ -3,6 +3,7 @@ Version 1.1.0 []
     - Advanced Electron Forum
     - Arc Forum
     - Burning Board
+    - Beehive Forum
     - Discourse
     - Discuz!
     - Flarum
@@ -21,6 +22,7 @@ Version 1.1.0 []
   - Version detection added for:
     - Advanced Electron Forum
     - Burning Board
+    - Beehive Forum
     - Discourse
     - Discuz!
     - miniBB

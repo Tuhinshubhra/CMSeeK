@@ -753,3 +753,9 @@ aef = {
     'vd':'1',
     'deeps':'0'
 }
+bhf = {
+    'name':'Beehive Forum',
+    'url':'https://www.beehiveforum.co.uk/',
+    'vd':'1',
+    'deeps':'0'
+}

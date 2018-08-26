@@ -311,4 +311,8 @@ def scan(content):
         # uKnowva
         return ['1', 'uknva']
 
+    if 'beehive forum' in content:
+        # Beehive Forum
+        return ['1', 'bhf']
+
     return ['0', '']
