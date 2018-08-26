@@ -197,3 +197,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.fudf as fudfverdetect
         fudfver = fudfverdetect.start(source)
         return fudfver
+    elif id == 'yaf':
+        import VersionDetect.yaf as yafverdetect
+        yafver = yafverdetect.start(source)
+        return yafver

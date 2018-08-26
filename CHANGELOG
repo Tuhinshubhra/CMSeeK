@@ -21,6 +21,7 @@ Version 1.1.0 []
     - XenForo
     - XMB
     - YaBB
+    - YAF
   - Version detection added for:
     - Advanced Electron Forum
     - Burning Board
@@ -37,6 +38,7 @@ Version 1.1.0 []
     - uKnowva
     - XMB
     - YaBB
+    - YAF
   - New detection methods added for:
     - phpwind
 Version 1.0.9 [21-08-2018]

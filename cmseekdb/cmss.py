@@ -771,3 +771,9 @@ phorum = {
     'vd':'0',
     'deeps':'0'
 }
+yaf = {
+    'name':'Yet Another Forum (YAF)',
+    'url':'http://www.yetanotherforum.net',
+    'vd':'1',
+    'deeps':'0'
+}

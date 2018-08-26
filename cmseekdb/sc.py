@@ -350,10 +350,19 @@ def check(s, site): ## Check if no generator meta tag available
         elif '<div id="phorum">' in hstring:
             # Phorum
             return ['1', 'phorum']
+
+        elif '"YafHead' in hstring:
+            # Yet Another Forum
+            return ['1', 'yaf']
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
+
+        yaf_regex = re.search(r'>Powered by YAF.NET(.*?)</a>', hstring)
+        if yaf_regex != None:
+            # Yet Another Forum
+            return ['1', 'yaf']
 
         aef_regex = re.search(r'aefonload(.*?)</script>', hstring, re.DOTALL)
         if aef_regex != None:
