@@ -156,6 +156,9 @@ def check(h):
         elif 'X-Garden-Version: Vanilla' in hstring or 'Maybe you should be reading this instead: https://www.vanillaforums.com/en/careers' in hstring:
             return ['1', 'vanilla']
 
+        elif 'Set-Cookie: xf_session=' in hstring or 'Set-Cookie: xf_csrf=' in hstring:
+            return ['1', 'xf']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

@@ -729,3 +729,9 @@ uknva = {
     'vd':'1',
     'deeps':'0'  
 }
+xf = {
+    'name':'XenForo',
+    'url':'https://xenforo.com/',
+    'vd':'0',
+    'deeps':'0'  
+}

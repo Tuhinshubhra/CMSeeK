@@ -327,6 +327,10 @@ def check(s, site): ## Check if no generator meta tag available
             # Vanilla
             return ['1', 'vanilla']
 
+        elif 'Forum software by XenForo&trade;' in hstring or '<html id="XenForo"' in hstring or 'css.php?css=xenforo' in hstring: 
+            # XenForo
+            return ['1', 'xf']
+
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
