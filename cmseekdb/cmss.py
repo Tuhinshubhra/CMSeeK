@@ -747,3 +747,9 @@ yabb = {
     'vd':'1',
     'deeps':'0'  
 }
+aef = {
+    'name':'Advanced Electron Forum',
+    'url':'http://www.anelectron.com/',
+    'vd':'1',
+    'deeps':'0'
+}

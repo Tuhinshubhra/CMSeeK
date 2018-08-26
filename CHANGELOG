@@ -1,5 +1,6 @@
 Version 1.1.0 []
   - Added new CMS:
+    - Advanced Electron Forum
     - Arc Forum
     - Burning Board
     - Discourse
@@ -18,6 +19,7 @@ Version 1.1.0 []
     - XMB
     - YaBB
   - Version detection added for:
+    - Advanced Electron Forum
     - Burning Board
     - Discourse
     - Discuz!

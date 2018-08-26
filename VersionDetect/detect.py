@@ -185,3 +185,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.yabb as yabbverdetect
         yabbver = yabbverdetect.start(source)
         return yabbver
+    elif id == 'aef':
+        import VersionDetect.aef as aefverdetect
+        aefver = aefverdetect.start(source)
+        return aefver

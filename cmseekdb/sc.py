@@ -339,10 +339,19 @@ def check(s, site): ## Check if no generator meta tag available
             # YaBB
             return ['1', 'yabb']
 
+        elif 'Powered By AEF' in hstring:
+            # Advanced Electron Forum
+            return ['1', 'aef']
+
     
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
+
+        aef_regex = re.search(r'aefonload(.*?)</script>', hstring, re.DOTALL)
+        if aef_regex != None:
+            # AEF
+            return ['1', 'aef']
         
         van_regex = re.search(r'applications/vanilla/(.*?).js', hstring)
         if van_regex != None:
