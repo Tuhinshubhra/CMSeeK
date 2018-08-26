@@ -777,3 +777,9 @@ yaf = {
     'vd':'1',
     'deeps':'0'
 }
+yazd = {
+    'name':'Yazd',
+    'url':'http://www.forumsoftware.ca/',
+    'vd':'0',
+    'deeps':'0'
+}
