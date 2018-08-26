@@ -158,14 +158,14 @@ def process_url(target):
         return '0'
     elif "://" in target and "http" in target:
         if not target.endswith('/'):
-            if '.php' in target or '.html' in target or '.asp' in target or '.aspx' in target or '.htm' in target:
+            if '.php' in target or '.html' in target or '.asp' in target or '.aspx' in target or '.htm' in target or '.py' in target or '.pl' in target:
                 target = target
             else:
                 target = target + '/'
     else:
         target = 'http://' + target
         if not target.endswith('/'):
-            if '.php' in target or '.html' in target or '.asp' in target or '.aspx' in target or '.htm' in target:
+            if '.php' in target or '.html' in target or '.asp' in target or '.aspx' in target or '.htm' in target or '.py' in target or '.pl' in target:
                 target = target
             else:
                 target = target + '/'
