@@ -315,4 +315,8 @@ def scan(content):
         # Beehive Forum
         return ['1', 'bhf']
 
+    if 'ubb.threads' in content:
+        # UBB.threads
+        return ['1', 'ubbt']
+
     return ['0', '']

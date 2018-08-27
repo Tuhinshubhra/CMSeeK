@@ -359,6 +359,11 @@ def check(s, site): ## Check if no generator meta tag available
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        ubbt_regex = re.search(r'>Powered by UBB.threads(.*?)</a>', hstring)
+        if ubbt_regex != None:
+            # UBB.threads
+            return ['1', 'ubbt']
+
         yaf_regex = re.search(r'>Powered by YAF.NET(.*?)</a>', hstring)
         if yaf_regex != None:
             # Yet Another Forum

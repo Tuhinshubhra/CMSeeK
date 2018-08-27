@@ -783,3 +783,9 @@ yazd = {
     'vd':'0',
     'deeps':'0'
 }
+ubbt = {
+    'name':'UBB.threads',
+    'url':'http://www.ubbcentral.com/',
+    'vd':'1',
+    'deeps':'0'
+}

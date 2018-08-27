@@ -171,6 +171,9 @@ def check(h):
         elif 'Set-Cookie: yazdLastVisited=' in hstring:
             return ['1', 'yazd']
 
+        elif 'Set-Cookie: ubbt_' in hstring:
+            return ['1', 'ubbt']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

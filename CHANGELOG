@@ -16,6 +16,7 @@ Version 1.1.0 []
     - Phorum
     - PunBB
     - SMF
+    - UBB.threads
     - Vanilla
     - uKnowva
     - XenForo
@@ -35,6 +36,7 @@ Version 1.1.0 []
     - NodeBB
     - PunBB
     - SMF
+    - UBB.threads
     - Vanilla
     - uKnowva
     - XMB
