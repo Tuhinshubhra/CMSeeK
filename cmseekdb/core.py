@@ -114,6 +114,10 @@ def main_proc(site,cua):
             cmseek.banner("CMS Scan Results")
             result.target(site)
             result.cms(cms_info['name'],cms_version,cms_info['url'])
+            cmseek.update_log('cms_name', cms_info['name']) # update log
+            if cms_version != '0' and cms_version != None:
+                cmseek.update_log('cms_version', cms_version) # update log
+            cmseek.update_log('cms_url', cms_info['url']) # update log
             comptime = round(time.time() - cmseek.cstart, 2)
             log_dir = cmseek.log_dir
             if log_dir is not "":
