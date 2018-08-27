@@ -327,7 +327,7 @@ def check(s, site): ## Check if no generator meta tag available
             # Vanilla
             return ['1', 'vanilla']
 
-        elif 'Forum software by XenForo&trade;' in hstring or '<html id="XenForo"' in hstring or 'css.php?css=xenforo' in hstring: 
+        elif 'Forum software by XenForo&trade;' in hstring or '<html id="XenForo"' in hstring or 'css.php?css=xenforo' in hstring:
             # XenForo
             return ['1', 'xf']
 
@@ -354,7 +354,11 @@ def check(s, site): ## Check if no generator meta tag available
         elif '"YafHead' in hstring:
             # Yet Another Forum
             return ['1', 'yaf']
-    
+
+        elif '<!-- NoNonsense Forum' in hstring:
+            # NoNonsense Forum
+            return ['1', 'nnf']
+
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
@@ -363,6 +367,11 @@ def check(s, site): ## Check if no generator meta tag available
         if ubbt_regex != None:
             # UBB.threads
             return ['1', 'ubbt']
+
+        nnf_regex = re.search(r'Powered by(.*?)NoNonsense Forum</a>', hstring)
+        if nnf_regex != None:
+            # NoNonsense Forum
+            return ['1', 'nnf']
 
         yaf_regex = re.search(r'>Powered by YAF.NET(.*?)</a>', hstring)
         if yaf_regex != None:
@@ -373,7 +382,7 @@ def check(s, site): ## Check if no generator meta tag available
         if aef_regex != None:
             # AEF
             return ['1', 'aef']
-        
+
         van_regex = re.search(r'applications/vanilla/(.*?).js', hstring)
         if van_regex != None:
             # Vanilla

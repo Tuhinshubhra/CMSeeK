@@ -789,3 +789,9 @@ ubbt = {
     'vd':'1',
     'deeps':'0'
 }
+nnf = {
+    'name':'NoNonsense Forum',
+    'url':'http://camendesign.com/nononsense_forum',
+    'vd':'0',
+    'deeps':'0'
+}
