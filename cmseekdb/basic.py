@@ -53,12 +53,11 @@ bold   = "\033[1m";
 def banner (txt):
     # The sexy banner!!!
     global cmseek_version
-    print(fgreen + bold + """
- _____ _____ _____         _____
-|     |     |   __|___ ___|  |  | {0}by {4}@r3dhax0r{1}
-|   --| | | |__   | -_| -_|    -| {0}Release name:{4} Diablo Dragon {1}
-|_____|_|_|_|_____|___|___|__|__|{2} Version {3}
-""".format(lblue, fgreen, yellow, cmseek_version, red))
+    print(bold + fgreen + """
+{1}_{5}___ _  _ {1}__{5}__ ____ {1}____{5} _  {1}_{5}
+|    |{1}\/{5}| {1}[{5}__  {1}|{5}___ |{1}___{5} |{1}_{5}/  {0}by {4}@r3dhax0r{5}
+{1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} Diablo Dragon
+""".format(lblue, fgreen, yellow, cmseek_version, red, white))
     if txt != "":
         print(whitebg + black + bold)
         print(" [+]  " + txt + "  [+] " + cln)
