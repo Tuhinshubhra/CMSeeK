@@ -205,3 +205,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.ubbt as ubbtverdetect
         ubbtver = ubbtverdetect.start(source, ga_content)
         return ubbtver
+    elif id == 'myupb':
+        import VersionDetect.myupb as myupbverdetect
+        myupbver = myupbverdetect.start(source)
+        return myupbver

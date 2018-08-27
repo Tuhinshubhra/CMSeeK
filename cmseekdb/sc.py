@@ -363,6 +363,11 @@ def check(s, site): ## Check if no generator meta tag available
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        mupb_regex = re.search(r'Powered by myUPB(.*?)</a>', hstring)
+        if mupb_regex != None:
+            # myUPB
+            return ['1', 'myupb']
+
         ubbt_regex = re.search(r'>Powered by UBB.threads(.*?)</a>', hstring)
         if ubbt_regex != None:
             # UBB.threads

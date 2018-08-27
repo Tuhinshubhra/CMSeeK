@@ -795,3 +795,9 @@ nnf = {
     'vd':'0',
     'deeps':'0'
 }
+myupb = {
+    'name':'myUPB',
+    'url':'http://www.myupb.com',
+    'vd':'1',
+    'deeps':'0'
+}
