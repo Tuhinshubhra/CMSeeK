@@ -810,6 +810,12 @@ mvnf = {
 mwf = {
     'name':'mwForum',
     'url':'https://www.mwforum.org/',
-    'vd':'01',
+    'vd':'0',
+    'deeps':'0'
+}
+mcb = {
+    'name':'MercuryBoard',
+    'url':'http://www.mercuryboard.com/',
+    'vd':'1',
     'deeps':'0'
 }

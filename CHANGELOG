@@ -10,6 +10,7 @@ Version 1.1.0 []
     - FluxBB
     - FUDforum
     - IPB Forum
+    - MercuryBoard
     - miniBB
     - mvnForum
     - MyBB
@@ -35,6 +36,7 @@ Version 1.1.0 []
     - Discourse
     - Discuz!
     - FUDforum
+    - MercuryBoard
     - miniBB
     - mvnForum
     - MyBB

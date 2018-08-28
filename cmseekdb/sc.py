@@ -367,6 +367,11 @@ def check(s, site): ## Check if no generator meta tag available
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        mcb_regex = re.search(r'Powered by(.*?)MercuryBoard(.*?)</a>', hstring)
+        if mcb_regex != None:
+            # mwForum
+            return ['1', 'mcb']
+
         mwf_regex = re.search(r'Powered by(.*?)mwForum(.*?)Markus Wichitill', hstring)
         if mwf_regex != None:
             # mwForum
