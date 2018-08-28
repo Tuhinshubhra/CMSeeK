@@ -359,9 +359,18 @@ def check(s, site): ## Check if no generator meta tag available
             # NoNonsense Forum
             return ['1', 'nnf']
 
+        elif '/mvnplugin/mvnforum/' in hstring:
+            # mvnForum
+            return ['1', 'mvnf']
+
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
+
+        mvn_regex = re.search(r'Powered by(.*?)mvnForum(.*?)</a>', hstring)
+        if mvn_regex != None:
+            # mvnForum
+            return ['1', 'mvnf']
 
         mupb_regex = re.search(r'Powered by myUPB(.*?)</a>', hstring)
         if mupb_regex != None:

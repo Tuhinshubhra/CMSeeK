@@ -801,3 +801,9 @@ myupb = {
     'vd':'1',
     'deeps':'0'
 }
+mvnf = {
+    'name':'mvnForum',
+    'url':'https://sourceforge.net/projects/mvnforum/',
+    'vd':'1',
+    'deeps':'0'
+}

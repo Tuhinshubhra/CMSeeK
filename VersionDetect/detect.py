@@ -209,3 +209,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.myupb as myupbverdetect
         myupbver = myupbverdetect.start(source)
         return myupbver
+    elif id == 'mvnf':
+        import VersionDetect.mvnf as mvnfverdetect
+        mvnfver = mvnfverdetect.start(source)
+        return mvnfver
