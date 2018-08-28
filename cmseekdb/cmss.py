@@ -825,3 +825,9 @@ aspf = {
     'vd':'1',
     'deeps':'0'
 }
+jf ={
+    'name':'JForum',
+    'url':'http://www.jforum.net/',
+    'vd':'1',
+    'deeps':'0'
+}

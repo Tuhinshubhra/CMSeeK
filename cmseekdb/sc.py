@@ -367,9 +367,18 @@ def check(s, site): ## Check if no generator meta tag available
             # AspNetForum
             return ['1', 'aspf']
 
+        elif 'jforum/templates/' in hstring:
+            # JForum
+            return ['1', 'jf']
+
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
+
+        jf_regex = re.search(r'Powered by(.*?)JForum(.*?)</a>', hstring)
+        if jf_regex != None:
+            # JForum
+            return ['1', 'jf']
 
         aspf_regex = re.search(r'Powered by(.*?)AspNetForum(.*?)(</a>|</span>)', hstring)
         if aspf_regex != None:

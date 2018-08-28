@@ -11,6 +11,7 @@ Version 1.1.0 []
     - FluxBB
     - FUDforum
     - IPB Forum
+    - JForum
     - MercuryBoard
     - miniBB
     - mvnForum
@@ -38,6 +39,7 @@ Version 1.1.0 []
     - Discourse
     - Discuz!
     - FUDforum
+    - JForum
     - MercuryBoard
     - miniBB
     - mvnForum

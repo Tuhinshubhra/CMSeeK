@@ -221,3 +221,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.aspf as aspfverdetect
         aspfver = aspfverdetect.start(source)
         return aspfver
+    elif id == 'jf':
+        import VersionDetect.jf as jfverdetect
+        jfver = jfverdetect.start(source)
+        return jfver
