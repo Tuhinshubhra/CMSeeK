@@ -2,6 +2,7 @@ Version 1.1.0 []
   - Added new CMS:
     - Advanced Electron Forum
     - Arc Forum
+    - AspNetForum
     - Burning Board
     - Beehive Forum
     - Discourse
@@ -31,6 +32,7 @@ Version 1.1.0 []
     - Yazd
   - Version detection added for:
     - Advanced Electron Forum
+    - AspNetForum
     - Burning Board
     - Beehive Forum
     - Discourse

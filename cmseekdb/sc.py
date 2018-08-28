@@ -363,13 +363,22 @@ def check(s, site): ## Check if no generator meta tag available
             # mvnForum
             return ['1', 'mvnf']
 
+        elif 'aspnetforum.css"' in hstring elif '_AspNetForumContentPlaceHolder' in hstring:
+            # AspNetForum
+            return ['1', 'aspf']
+
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        aspf_regex = re.search(r'Powered by(.*?)AspNetForum(.*?)(</a>|</span>)', hstring)
+        if aspf_regex != None:
+            # AspNetForum
+            return ['1', 'aspf']
+
         mcb_regex = re.search(r'Powered by(.*?)MercuryBoard(.*?)</a>', hstring)
         if mcb_regex != None:
-            # mwForum
+            # MercuryBoard
             return ['1', 'mcb']
 
         mwf_regex = re.search(r'Powered by(.*?)mwForum(.*?)Markus Wichitill', hstring)

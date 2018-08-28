@@ -217,3 +217,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.mcb as mcbverdetect
         mcbver = mcbverdetect.start(source)
         return mcbver
+    elif id == 'aspf':
+        import VersionDetect.aspf as aspfverdetect
+        aspfver = aspfverdetect.start(source)
+        return aspfver
