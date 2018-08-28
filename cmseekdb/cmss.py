@@ -807,3 +807,9 @@ mvnf = {
     'vd':'1',
     'deeps':'0'
 }
+mwf = {
+    'name':'mwForum',
+    'url':'https://www.mwforum.org/',
+    'vd':'01',
+    'deeps':'0'
+}
