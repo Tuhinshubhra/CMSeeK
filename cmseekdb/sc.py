@@ -363,7 +363,7 @@ def check(s, site): ## Check if no generator meta tag available
             # mvnForum
             return ['1', 'mvnf']
 
-        elif 'aspnetforum.css"' in hstring elif '_AspNetForumContentPlaceHolder' in hstring:
+        elif 'aspnetforum.css"' in hstring or '_AspNetForumContentPlaceHolder' in hstring:
             # AspNetForum
             return ['1', 'aspf']
 
