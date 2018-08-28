@@ -15,7 +15,7 @@ try:
     cver = rv.read().replace('\n','')
     cmseek_version = cver
 except:
-    cmseek_version = '1.0.9' # Failsafe measure i guess
+    cmseek_version = '1.1.0' # Failsafe measure i guess
 
 # well the log containing variable
 log = '{"url":"","last_scanned":"","detection_param":"","cms_id":"","cms_name":"","cms_url":""}'

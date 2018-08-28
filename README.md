@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.0.9-brightgreen.svg?style=style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg?style=style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
   <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
 </p>
@@ -10,21 +10,17 @@
 
 ## Release History
 ```
+- Version 1.1.0 [28-08-2018]
 - Version 1.0.9 [21-08-2018]
 - Version 1.0.8 [14-08-2018]
 - Version 1.0.7 [07-08-2018]
 - Version 1.0.6 [23-07-2018]
-- Version 1.0.5 [19-07-2018]
-- Version 1.0.4 [17-07-2018]
-- Version 1.0.3 [06-07-2018]
-- Version 1.0.2 [06-07-2018]
-- Version 1.0.1 [19-06-2018]
-- Version 1.0.0 [15-06-2018]
+...
 ```
 [Changelog File](https://github.com/Tuhinshubhra/CMSeeK/blob/master/CHANGELOG)
 
 ## Functions Of CMSeek:
-- Basic CMS Detection of over 80 CMS
+- Basic CMS Detection of over 130 CMS
 - Drupal version detection
 - Advanced Wordpress Scans
   - Detects Version
@@ -110,7 +106,7 @@ CMSeek detects CMS via the following:
 - robots.txt
 
 ## Supported CMSs:
-CMSeeK currently can detect **102** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **133** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {
