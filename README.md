@@ -149,9 +149,9 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## Screenshots:
 
 <p align="center">
-  <img alt="Main Menu" width="600px" src="https://i.imgur.com/KdRSYzP.png" />
+  <img alt="Main Menu" width="600px" src="https://s8.postimg.cc/ha6754v6t/cmseek_-v_068.png" />
   <br><em>Main Menu</em><br>
-  <img alt="Scan Result" width="600px" src="https://i.imgur.com/yiKQoZw.png" />
+  <img alt="Scan Result" width="600px" src="https://s8.postimg.cc/f6vrxg0it/result.png" />
   <br><em>Scan Result</em><br>
   <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/CK4O1Yd.png" />
   <br><em>WordPress Scan Result</em><br>
