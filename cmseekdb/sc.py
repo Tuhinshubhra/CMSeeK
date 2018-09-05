@@ -100,7 +100,7 @@ def check(s, site): ## Check if no generator meta tag available
             r = ['1','wp']
             return r
 
-        elif '/skin/frontend/' in hstring:
+        elif '/skin/frontend/' or 'x-magento-init' in hstring:
             # Magento
             r = ['1','mg']
             return r
