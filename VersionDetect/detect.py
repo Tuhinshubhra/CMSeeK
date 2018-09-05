@@ -225,3 +225,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.jf as jfverdetect
         jfver = jfverdetect.start(source)
         return jfver
+    elif id == 'mg':
+        import VersionDetect.mg as mgverdetect
+        mgver = mgverdetect.start(url, ua)
+        return mgver
