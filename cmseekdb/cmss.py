@@ -20,7 +20,7 @@ wp = {
 mg = {
     'name':'Magento',
     'url':'https://magento.com',
-    'vd':'0',
+    'vd':'1',
     'deeps':'0'
 }
 
