@@ -1,4 +1,6 @@
 Version 1.1.1 []
+  - Version detection added for:
+    - Magento
 
 Version 1.1.0 [28-08-2018]
   - Added new CMS:
