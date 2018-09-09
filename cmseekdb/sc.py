@@ -375,6 +375,11 @@ def check(s, site): ## Check if no generator meta tag available
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
+        af_regex = re.search(r'=(\'|")https://afosto-cdn(.*?).afosto.com(.*?)(\'|")', hstring)
+        if af_regex != None:
+            # Afosto
+            return ['1', 'afsto']
+
         jf_regex = re.search(r'Powered by(.*?)JForum(.*?)</a>', hstring)
         if jf_regex != None:
             # JForum

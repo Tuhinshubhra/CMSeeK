@@ -174,6 +174,9 @@ def check(h):
         elif 'Set-Cookie: ubbt_' in hstring:
             return ['1', 'ubbt']
 
+        elif 'X-Powered-By: Afosto' in hstring or 'Link: <//afosto-cdn' in hstring:
+            return ['1', 'afsto']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

@@ -825,9 +825,15 @@ aspf = {
     'vd':'1',
     'deeps':'0'
 }
-jf ={
+jf = {
     'name':'JForum',
     'url':'http://www.jforum.net/',
     'vd':'1',
+    'deeps':'0'
+}
+afsto = {
+    'name':'Afosto',
+    'url':'https://afosto.com/',
+    'vd':'0',
     'deeps':'0'
 }
