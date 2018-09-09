@@ -837,3 +837,9 @@ afsto = {
     'vd':'0',
     'deeps':'0'
 }
+abuy = {
+    'name':'Afterbuy',
+    'url':'https://www.afterbuy.de',
+    'vd':'0',
+    'deeps':'0'
+}

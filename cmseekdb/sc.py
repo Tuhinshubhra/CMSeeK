@@ -371,6 +371,10 @@ def check(s, site): ## Check if no generator meta tag available
             # JForum
             return ['1', 'jf']
 
+        elif 'This OnlineStore is brought to you by ViA-Online GmbH Afterbuy.' in hstring:
+            # AfterBuy
+            return ['1', 'abuy']
+
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
