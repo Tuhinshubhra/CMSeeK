@@ -4,7 +4,7 @@ Version 1.1.1 []
     - Afterbuy
   - Version detection added for:
     - Magento
-
+  - Refactored code for detecting cms via source code
 Version 1.1.0 [28-08-2018]
   - Added new CMS:
     - Advanced Electron Forum
