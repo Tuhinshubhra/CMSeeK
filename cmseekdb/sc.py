@@ -157,8 +157,8 @@ def check(s, site): ## Check if no generator meta tag available
         'CCM_(.*?)(_|)(MODE|URL|PATH|FILENAME|REL|CID):-con5'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
-        # in the following lines you'll find some weird variable names those are characters from hxh
-        # thank you for reading this utterly useless comment.. now let's get back to work
+        # In the following lines you'll find some weird variable names, those are characters from hxh.
+        # Thank you for reading this utterly useless comment.. now let's get back to work!
         for hxh in rgxkeys:
             if ':-' in hxh:
                 hunter = hxh.split(':-')
