@@ -849,3 +849,9 @@ arstta = {
     'vd':'0',
     'deeps':'0'
 }
+bigc = {
+    'name':'BigCommerce',
+    'url':'https://www.bigcommerce.com/',
+    'vd':'0',
+    'deeps':'0'
+}

@@ -180,6 +180,9 @@ def check(h):
         elif 'X-Arastta' in hstring:
             return ['1', 'arstta']
 
+        elif 'set-cookie: fornax_anonymousId=' in hstring:
+            return ['1', 'bigc']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
