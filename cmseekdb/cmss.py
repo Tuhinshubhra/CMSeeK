@@ -855,3 +855,9 @@ bigc = {
     'vd':'0',
     'deeps':'0'
 }
+bigw = {
+    'name':'Bigware',
+    'url':'https://bigware.de',
+    'vd':'0',
+    'deeps':'0'
+}

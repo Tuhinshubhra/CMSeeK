@@ -156,7 +156,8 @@ def check(s, site): ## Check if no generator meta tag available
         'copyright(.*?)phpBB Group:-phpbb',
         'Powered by(.*?)Cotonti:-coton',
         'CCM_(.*?)(_|)(MODE|URL|PATH|FILENAME|REL|CID):-con5',
-        '\<link href\=(.*?)cdn(\d).bigcommerce\.com\/:-bigc'
+        '\<link href\=(.*?)cdn(\d).bigcommerce\.com\/:-bigc',
+        '\<a href\=(.*?)main_bigware_(\d)\.php:-bigw'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

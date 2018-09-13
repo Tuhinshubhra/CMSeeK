@@ -4,6 +4,7 @@ Version 1.1.1 []
     - Afterbuy
     - Arastta
     - BigCommerce
+    - Bigware
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code

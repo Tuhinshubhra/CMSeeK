@@ -181,7 +181,11 @@ def check(h):
             return ['1', 'arstta']
 
         elif 'set-cookie: fornax_anonymousId=' in hstring:
+            # there's a strong chance that this is false positive
             return ['1', 'bigc']
+
+        elif 'Set-Cookie: bigwareCsid' in hstring or 'Set-Cookie: bigWAdminID' in hstring:
+            return ['1', 'bigw']
 
 
         ####################################################
