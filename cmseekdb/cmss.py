@@ -867,3 +867,9 @@ bizw = {
     'vd':'0',
     'deeps':'0'
 }
+cexec = {
+    'name':'Clientexec',
+    'url':'https://www.clientexec.com/',
+    'vd':'0',
+    'deeps':'0'
+}

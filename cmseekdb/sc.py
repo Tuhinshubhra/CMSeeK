@@ -17,7 +17,7 @@ def check(s, site): ## Check if no generator meta tag available
         # harray = s.split("\n") ### Array conversion can use if needed later
 
         detkeys = [
-        "/wp-content/:-wp"
+        "/wp-content/:-wp",
         "/skin/frontend/||x-magento-init:-mg",
         "https://www.blogger.com/static/:-blg",
         "ic.pics.livejournal.com:-lj",
@@ -159,7 +159,8 @@ def check(s, site): ## Check if no generator meta tag available
         'CCM_(.*?)(_|)(MODE|URL|PATH|FILENAME|REL|CID):-con5',
         '\<link href\=(.*?)cdn(\d).bigcommerce\.com\/:-bigc',
         '\<a href\=(.*?)main_bigware_(\d)\.php:-bigw',
-        'var Bizweb \=(.*?)\</script\>:-bizw'
+        'var Bizweb \=(.*?)\</script\>:-bizw',
+        'var clientexec \=(.*?)\</script\>||Powered by(.*?)http\://www\.clientexec\.com\?source\=poweredby(.*?)\</a\>:-cexec',
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

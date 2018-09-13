@@ -6,6 +6,7 @@ Version 1.1.1 []
     - BigCommerce
     - Bigware
     - Bizweb
+    - Clientexec
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code and http headers
