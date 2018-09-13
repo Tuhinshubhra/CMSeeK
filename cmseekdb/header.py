@@ -15,178 +15,76 @@ def check(h):
 
         #### START DETECTION FROM HERE
 
-        if '/wp-json/' in hstring:
-            ## WordPress
-            return ['1','wp']
-
-        elif 'X-Drupal-' in hstring or '19 Nov 1978 05' in hstring:
-            ## Drupal [the date is interesting isn't it? just google for it ;) ]
-            return ['1', 'dru']
-
-        elif 'Expires: Wed, 17 Aug 2005 00:00:00 GMT' in hstring:
-            ## This is the only weird but common header i noticed in joomla Sites
-            return ['1', 'joom']
-
-        elif 'X-Wix-' in hstring:
-            return ['1', 'wix']
-
-        elif 'Set-Cookie: ushahidi' in hstring:
-            return ['1', 'ushahidi']
-
-        elif 'X-Generated-By: UMI.CMS' in hstring:
-            return ['1', 'umi']
-
-        elif 'x-generator: Sulu' in hstring:
-            return ['1', 'sulu']
-
-        elif 'X-Powered-CMS: Subrion CMS' in hstring:
-            return ['1', 'subcms']
-
-        elif 'Set-Cookie: SQ_SYSTEM_SESSION' in hstring or 'squizedge.net' in hstring:
-            return ['1', 'sqm']
-
-        elif 'spincms' in hstring:
-            return ['1', 'spin']
-
-        elif 'solodev_session' in hstring:
-            return ['1', 'sdev']
-
-        elif 'SC_ANALYTICS_GLOBAL_COOKIE' in hstring:
-            return ['1', 'score']
-
-        elif 'X-ServedBy: simplebo' in hstring or '_simplebo_tool_session' in hstring:
-            return ['1', 'spb']
-
-        elif 'X-Blog: Serendipity' in hstring or 'Set-Cookie: serendipity[' in hstring or 'Set-Cookie: s9y_' in hstring:
-            return ['1', 'spity']
-
-        elif 'Set-Cookie: SEAMLESS_IDENTIFIER' in hstring:
-            return ['1', 'slcms']
-
-        elif 'X-Powered-By: Roadiz CMS' in hstring:
-            return ['1', 'roadz']
-
-        elif 'X-Powered-By: pimcore' in hstring:
-            return ['1', 'pcore']
-
-        elif 'x-powered-by: PencilBlue' in hstring:
-            return ['1', 'pblue']
-
-        elif 'x-powered-by: Ophal' in hstring:
-            return ['1', 'ophal']
-
-        elif 'Server: OpenCms' in hstring:
-            return ['1', 'ocms']
-
-        elif 'X-Odoo-' in hstring:
-            return ['1', 'odoo']
-
-        elif 'X-SharePointHealthScore' in hstring or 'SPIisLatency' in hstring or 'SPRequestGuid' in hstring or 'MicrosoftSharePointTeamServices' in hstring or 'SPRequestDuration' in hstring:
-            return ['1', 'share']
-
-        elif 'october_session' in hstring:
-            return ['1', 'octcms']
-
-        elif 'Generator: Mura CMS' in hstring:
-            return ['1', 'mura']
-
-        elif 'X-Powered-By: MODX' in hstring:
-            return ['1', 'modx']
-
-        elif 'X-KoobooCMS-Version' in hstring:
-            return ['1', 'kbcms']
-
-        elif 'X-Jimdo-' in hstring:
-            return ['1', 'jimdo']
-
-        elif 'Set-Cookie: ndxz_' in hstring:
-            return ['1', 'ibit']
-
-        elif 'X-Jcms-Ajax-Id' in hstring:
-            return ['1', 'jcms']
-
-        elif 'Set-Cookie: grav-site-' in hstring:
-            return ['1', 'grav']
-
-        elif 'X-Powered-By: FlexCMP' in hstring or 'X-Flex-Tag:' in hstring or 'X-Flex-Lang:' in hstring or 'X-Flex-Lastmod:' in hstring or 'X-Flex-Community:' in hstring or 'X-Flex-Evstart' in hstring:
-            return ['1', 'flex']
-
-        elif 'X-Powered-By: eZ Publish' in hstring or 'Set-Cookie: eZSESSID' in hstring:
-            return ['1', 'ezpu']
-
-        elif 'Set-Cookie: exp_tracker' in hstring or 'Set-Cookie: exp_last_activity' in hstring or 'Set-Cookie: exp_last_visit' in hstring or 'Set-Cookie: exp_csrf_token=' in hstring:
-            return ['1', 'exen']
-
-        elif 'X-Powered-By: e107' in hstring or 'Set-Cookie: SESSE107COOKIE' in hstring:
-            return ['1', 'e107']
-
-        elif 'Set-Cookie: dnn_IsMobile' in hstring or 'DNNOutputCache' in hstring or 'DotNetNuke' in hstring:
-            return ['1', 'dnn']
-
-        elif 'X-Powered-By: CMS Danneo' in hstring:
-            return ['1', 'dncms']
-
-        elif 'X-Powered-By: Craft CMS' in hstring or 'Set-Cookie: CraftSessionId' in hstring:
-            return ['1', 'craft']
-
-        elif 'X-Powered-By: Dragonfly CMS' in hstring:
-            return ['1', 'dragon']
-
-        elif 'X-Generator: Orchard' in hstring:
-            return ['1', 'orchd']
-
-        elif 'X-Powered-By: ContentBox' in hstring or 'Set-Cookie: LIGHTBOXSESSION' in hstring:
-            return ['1', 'cbox']
-
-        elif 'Set-Cookie: CONCRETE5' in hstring:
-            return ['1', 'con5']
-
-        elif 'X-Discourse-Route' in hstring:
-            return ['1', 'dscrs']
-
-        elif 'Set-Cookie: flarum_session=' in hstring:
-            return ['1', 'flarum']
-
-        elif 'IPSSessionFront' in hstring or 'ipbWWLmodpids' in hstring or 'ipbWWLsession_id' in hstring:
-            return ['1', 'ipb']
-
-        elif 'X-Powered-By: NodeBB' in hstring:
-            return ['1', 'nodebb']
-
-        elif 'X-Garden-Version: Vanilla' in hstring or 'Maybe you should be reading this instead: https://www.vanillaforums.com/en/careers' in hstring:
-            return ['1', 'vanilla']
-
-        elif 'Set-Cookie: xf_session=' in hstring or 'Set-Cookie: xf_csrf=' in hstring:
-            return ['1', 'xf']
-
-        elif '[aefsid]' in hstring:
-            return ['1', 'aef']
-
-        elif 'Set-Cookie: fud_session_' in hstring:
-            return ['1', 'fudf']
-
-        elif 'Set-Cookie: phorum_session' in hstring:
-            return ['1', 'phorum']
-
-        elif 'Set-Cookie: yazdLastVisited=' in hstring:
-            return ['1', 'yazd']
-
-        elif 'Set-Cookie: ubbt_' in hstring:
-            return ['1', 'ubbt']
-
-        elif 'X-Powered-By: Afosto' in hstring or 'Link: <//afosto-cdn' in hstring:
-            return ['1', 'afsto']
-
-        elif 'X-Arastta' in hstring:
-            return ['1', 'arstta']
-
-        elif 'set-cookie: fornax_anonymousId=' in hstring:
-            # there's a strong chance that this is false positive
-            return ['1', 'bigc']
-
-        elif 'Set-Cookie: bigwareCsid' in hstring or 'Set-Cookie: bigWAdminID' in hstring:
-            return ['1', 'bigw']
-
+        hkeys = [
+        '/wp-json/:-wp',
+        'X-Drupal-||19 Nov 1978 05:-dru',
+        'Expires: Wed, 17 Aug 2005 00:00:00 GMT:-joom',
+        'X-Wix-:-wix',
+        'Set-Cookie: ushahidi:-ushahidi',
+        'X-Generated-By: UMI.CMS:-umi',
+        'x-generator: Sulu:-sulu',
+        'X-Powered-CMS: Subrion CMS:-subcms',
+        'Set-Cookie: SQ_SYSTEM_SESSION||squizedge.net:-sqm',
+        'spincms:-spin',
+        'solodev_session:-sdev',
+        'SC_ANALYTICS_GLOBAL_COOKIE:-score',
+        'X-ServedBy: simplebo||_simplebo_tool_session:-spb',
+        'X-Blog: Serendipity||Set-Cookie: serendipity[||Set-Cookie: s9y_:-spity',
+        'Set-Cookie: SEAMLESS_IDENTIFIER:-slcms',
+        'X-Powered-By: Roadiz CMS:-roadz',
+        'X-Powered-By: pimcore:-pcore',
+        'x-powered-by: PencilBlue:-pblue',
+        'x-powered-by: Ophal:-ophal',
+        'Server: OpenCms:-ocms',
+        'X-Odoo-:-odoo',
+        'X-SharePointHealthScore||SPIisLatency||SPRequestGuid||MicrosoftSharePointTeamServices||SPRequestDuration:-share',
+        'october_session:-octcms',
+        'Generator: Mura CMS:-mura',
+        'X-Powered-By: MODX:-modx',
+        'X-KoobooCMS-Version:-kbcms',
+        'X-Jimdo-:-jimdo',
+        'Set-Cookie: ndxz_:-ibit',
+        'X-Jcms-Ajax-Id:-jcms',
+        'Set-Cookie: grav-site-:-grav',
+        'X-Powered-By: FlexCMP||X-Flex-Tag:||X-Flex-Lang:||X-Flex-Lastmod:||X-Flex-Community:||X-Flex-Evstart:-flex',
+        'X-Powered-By: eZ Publish||Set-Cookie: eZSESSID:-ezpu',
+        'Set-Cookie: exp_tracker||Set-Cookie: exp_last_activity||Set-Cookie: exp_last_visit||Set-Cookie: exp_csrf_token=:-exen',
+        'X-Powered-By: e107||Set-Cookie: SESSE107COOKIE:-e107',
+        'Set-Cookie: dnn_IsMobile||DNNOutputCache||DotNetNuke:-dnn',
+        'X-Powered-By: CMS Danneo:-dncms',
+        'X-Powered-By: Craft CMS||Set-Cookie: CraftSessionId:-craft',
+        'X-Powered-By: Dragonfly CMS:-dragon',
+        'X-Generator: Orchard:-orchd',
+        'X-Powered-By: ContentBox||Set-Cookie: LIGHTBOXSESSION:-cbox',
+        'Set-Cookie: CONCRETE5:-con5',
+        'X-Discourse-Route:-dscrs',
+        'Set-Cookie: flarum_session=:-flarum',
+        'IPSSessionFront||ipbWWLmodpids||ipbWWLsession_id:-ipb',
+        'X-Powered-By: NodeBB:-nodebb',
+        'X-Garden-Version: Vanilla||Maybe you should be reading this instead: https://www.vanillaforums.com/en/careers:-vanilla',
+        'Set-Cookie: xf_session=||Set-Cookie: xf_csrf=:-xf',
+        '[aefsid]:-aef',
+        'Set-Cookie: fud_session_:-fudf',
+        'Set-Cookie: phorum_session:-phorum',
+        'Set-Cookie: yazdLastVisited=:-yazd',
+        'Set-Cookie: ubbt_:-ubbt',
+        'X-Powered-By: Afosto||Link: <//afosto-cdn:-afsto',
+        'X-Arastta:-arstta',
+        'set-cookie: fornax_anonymousId=:-bigc',
+        'Set-Cookie: bigwareCsid||Set-Cookie: bigWAdminID:-bigw'
+        ]
+        for keyl in hkeys:
+            if ':-' in keyl:
+                det = keyl.split(':-')
+                if '||' in det[0]:
+                    idkwhat = det[0]
+                    dets = idkwhat.split('||')
+                    for d in dets:
+                        if d in hstring:
+                            return ['1', det[1]]
+                else:
+                    if det[0] in hstring:
+                        return ['1', det[1]]
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

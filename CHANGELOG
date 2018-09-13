@@ -7,7 +7,7 @@ Version 1.1.1 []
     - Bigware
   - Version detection added for:
     - Magento
-  - Refactored code for detecting cms via source code
+  - Refactored code for detecting cms via source code and http headers
 Version 1.1.0 [28-08-2018]
   - Added new CMS:
     - Advanced Electron Forum
