@@ -2,6 +2,7 @@ Version 1.1.1 []
   - Added new CMS:
     - Afosto
     - Afterbuy
+    - Arastta
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code

@@ -843,3 +843,9 @@ abuy = {
     'vd':'0',
     'deeps':'0'
 }
+arstta = {
+    'name':'Arastta',
+    'url':'https://arastta.org/',
+    'vd':'0',
+    'deeps':'0'
+}

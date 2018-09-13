@@ -177,6 +177,9 @@ def check(h):
         elif 'X-Powered-By: Afosto' in hstring or 'Link: <//afosto-cdn' in hstring:
             return ['1', 'afsto']
 
+        elif 'X-Arastta' in hstring:
+            return ['1', 'arstta']
+
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #

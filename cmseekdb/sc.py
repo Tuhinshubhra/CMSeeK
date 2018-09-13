@@ -105,7 +105,8 @@ def check(s, site): ## Check if no generator meta tag available
         "/mvnplugin/mvnforum/:-mvnf",
         "aspnetforum.css\"||_AspNetForumContentPlaceHolder:-aspf",
         "jforum/templates/:-jf",
-        "This OnlineStore is brought to you by ViA-Online GmbH Afterbuy.:-abuy"
+        "This OnlineStore is brought to you by ViA-Online GmbH Afterbuy.:-abuy",
+        '/arastta.js:-arstta'
         ]
 
         for keyl in detkeys:
