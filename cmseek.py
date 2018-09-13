@@ -21,13 +21,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 parser = argparse.ArgumentParser(prog='cmseek.py',add_help=False)
 
 parser.add_argument('-h', '--help', action="store_true")
-parser.add_argument('-v', '--verbose', help="increase output verbosity", action="store_true")
-parser.add_argument("--version", help="Show CMSeeK version", action="store_true")
-parser.add_argument("--update", help="Update CMSeeK", action="store_true")
-parser.add_argument('-r', "--random-agent", help="Use a random user agent", action="store_true")
-parser.add_argument('--user-agent', help='Specify custom user agent')
-parser.add_argument('-u', '--url', help='Target Url')
-parser.add_argument('-l', '--list', help='path of the file containing list of sites for scan (comma separated)')
+parser.add_argument('-v', '--verbose', action="store_true")
+parser.add_argument("--version", action="store_true")
+parser.add_argument("--update", action="store_true")
+parser.add_argument('-r', "--random-agent", action="store_true")
+parser.add_argument('--user-agent')
+parser.add_argument('--googlebot', action="store_true")
+parser.add_argument('-u', '--url')
+parser.add_argument('-l', '--list')
 parser.add_argument('--clear-result', action='store_true')
 args = parser.parse_args()
 
@@ -49,6 +50,8 @@ elif args.random_agent is not None:
     cua = cmseek.randomua('random')
 else:
     cua = None
+if args.googlebot:
+    cua = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
 if args.url is not None:
     s = args.url
     target = cmseek.process_url(s)

@@ -880,7 +880,7 @@ cloudc = {
     'deeps':'0'
 }
 cmshop = {
-    'name':'ColormeShop',
+    'name':'ColorMeShop',
     'url':'https://shop-pro.jp/',
     'vd':'0',
     'deeps':'0'
