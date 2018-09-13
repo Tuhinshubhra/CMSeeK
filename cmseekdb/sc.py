@@ -107,7 +107,8 @@ def check(s, site): ## Check if no generator meta tag available
         "jforum/templates/:-jf",
         "This OnlineStore is brought to you by ViA-Online GmbH Afterbuy.:-abuy",
         '/arastta.js:-arstta',
-        '<script src=\'//bizweb.dktcdn.net:-bizw'
+        '<script src=\'//bizweb.dktcdn.net:-bizw',
+        'cloudcart","title:-cloudc'
         ]
 
         for keyl in detkeys:
@@ -161,6 +162,7 @@ def check(s, site): ## Check if no generator meta tag available
         '\<a href\=(.*?)main_bigware_(\d)\.php:-bigw',
         'var Bizweb \=(.*?)\</script\>:-bizw',
         'var clientexec \=(.*?)\</script\>||Powered by(.*?)http\://www\.clientexec\.com\?source\=poweredby(.*?)\</a\>:-cexec',
+        '\<meta name\=(.*?)author(.*?)CloudCart LLC(.*?)\>:-cloudc'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

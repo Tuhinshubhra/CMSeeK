@@ -873,3 +873,9 @@ cexec = {
     'vd':'0',
     'deeps':'0'
 }
+cloudc = {
+    'name':'CloudCart',
+    'url':'https://cloudcart.com/',
+    'vd':'0',
+    'deeps':'0'
+}
