@@ -106,7 +106,8 @@ def check(s, site): ## Check if no generator meta tag available
         "aspnetforum.css\"||_AspNetForumContentPlaceHolder:-aspf",
         "jforum/templates/:-jf",
         "This OnlineStore is brought to you by ViA-Online GmbH Afterbuy.:-abuy",
-        '/arastta.js:-arstta'
+        '/arastta.js:-arstta',
+        '<script src=\'//bizweb.dktcdn.net:-bizw'
         ]
 
         for keyl in detkeys:
@@ -146,7 +147,7 @@ def check(s, site): ## Check if no generator meta tag available
         '(powered by|http\://www\.miniBB\.net)(.*?)(miniBB|miniBB forum software):-minibb',
         'Powered by(.*?)FluxBB:-fluxbb',
         'invisioncommunity\.com(.*?)Powered by Invision Community:-ipb',
-        'ipb\.(vars|templates|lang)\[(.*?)=(.*?)</script\>:-ipb',
+        'ipb\.(vars|templates|lang)\[(.*?)=(.*?)\</script\>:-ipb',
         '(a href\="http\://www\.woltlab\.com"|Forum Software|Forensoftware)(.*?)Burning Board(.*?)\</strong\>:-bboard',
         'Discourse\.(.*?)\=(.*?)\</script\>:-dscrs',
         'ping\.src \= node\.href(.*?)\</script\>:-arc',
@@ -157,7 +158,8 @@ def check(s, site): ## Check if no generator meta tag available
         'Powered by(.*?)Cotonti:-coton',
         'CCM_(.*?)(_|)(MODE|URL|PATH|FILENAME|REL|CID):-con5',
         '\<link href\=(.*?)cdn(\d).bigcommerce\.com\/:-bigc',
-        '\<a href\=(.*?)main_bigware_(\d)\.php:-bigw'
+        '\<a href\=(.*?)main_bigware_(\d)\.php:-bigw',
+        'var Bizweb \=(.*?)\</script\>:-bizw'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

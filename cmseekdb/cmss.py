@@ -861,3 +861,9 @@ bigw = {
     'vd':'0',
     'deeps':'0'
 }
+bizw = {
+    'name':'Bizweb',
+    'url':'https://www.sapo.vn',
+    'vd':'0',
+    'deeps':'0'
+}

@@ -5,6 +5,7 @@ Version 1.1.1 []
     - Arastta
     - BigCommerce
     - Bigware
+    - Bizweb
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code and http headers
