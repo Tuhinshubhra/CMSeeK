@@ -72,6 +72,7 @@ SPECIFING TARGET:
 
 USER AGENT:
       -r, --random-agent           Use a random user agent
+      --googlebot                  Use Google bot user agent
       --user-agent USER_AGENT      Specify a custom user agent
 
 OUTPUT:
@@ -91,6 +92,7 @@ EXAMPLE USAGE:
       python3 cmseek.py -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
       python3 cmseek.py -u example.com --random-agent            # Scan example.com using a random user-Agent
       python3 cmseek.py -v -u example.com                        # enabling verbose output while scanning example.com
+
 ```
 
 ## Checking For Update:
