@@ -71,7 +71,8 @@ def check(h):
         'X-Powered-By: Afosto||Link: <//afosto-cdn:-afsto',
         'X-Arastta:-arstta',
         'set-cookie: fornax_anonymousId=:-bigc',
-        'Set-Cookie: bigwareCsid||Set-Cookie: bigWAdminID:-bigw'
+        'Set-Cookie: bigwareCsid||Set-Cookie: bigWAdminID:-bigw',
+        'X-ATG-Version:-oracle_atg'
         ]
         for keyl in hkeys:
             if ':-' in keyl:
