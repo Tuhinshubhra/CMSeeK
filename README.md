@@ -1,8 +1,10 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg?style=style=flat-square" alt="version">
-  <img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version">
-  <img src="https://img.shields.io/aur/license/yaourt.svg?style=style=flat-square" alt="License">
+  <a href="https://github.com/Tuhinshubhra/CMSeeK/releases/tag/v.1.1.0"><img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg?style=style=flat-square" alt="version"></a>
+  <a href="https://github.com/Tuhinshubhra/CMSeeK/"><img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version"></a>
+  <a href="https://github.com/Tuhinshubhra/CMSeeK/stargazers"><img src="https://img.shields.io/github/stars/Tuhinshubhra/CMSeeK.svg" alt="GitHub stars" /></a>
+  <a href="https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Tuhinshubhra/CMSeeK.svg" alt="GitHub license" /></a>
+  <a href="https://twitter.com/r3dhax0r"><img src="https://img.shields.io/twitter/url/https/github.com/Tuhinshubhra/CMSeeK.svg?style=social" alt="Twitter" /></a>
 </p>
 
 ## What is a CMS?
@@ -20,6 +22,7 @@
 [Changelog File](https://github.com/Tuhinshubhra/CMSeeK/blob/master/CHANGELOG)
 
 ## Functions Of CMSeek:
+
 - Basic CMS Detection of over 130 CMS
 - Drupal version detection
 - Advanced Wordpress Scans
@@ -41,9 +44,11 @@
   - Use pre made bruteforce modules or create your own and integrate with it
 
 ## Requirements and Compatibility:
+
 CMSeeK is built using **python3**, you will need python3 to run this tool and is compitable with **unix based systems** as of now. Windows support will be added later. CMSeeK relies on **git** for auto-update so make sure git is installed.
 
 ## Installation and Usage:
+
 It is fairly easy to use CMSeeK, just make sure you have python3 and git (just for cloning the repo) installed and use the following commands:
 
 - git clone `https://github.com/Tuhinshubhra/CMSeeK`
@@ -94,11 +99,13 @@ EXAMPLE USAGE:
 ```
 
 ## Checking For Update:
+
 You can check for update either from the main menu or use `python3 cmseek.py --update` to check for update and apply auto update.
 
 P.S: Please make sure you have `git` installed, CMSeeK uses git to apply auto update.
 
 ## Detection Methods:
+
 CMSeek detects CMS via the following:
 - HTTP Headers
 - Generator meta tag
@@ -106,6 +113,7 @@ CMSeek detects CMS via the following:
 - robots.txt
 
 ## Supported CMSs:
+
 CMSeeK currently can detect **133** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
@@ -118,6 +126,7 @@ All the cmss are stored in the following way:
 ```
 
 ## Scan Result:
+
 All of your scan results are stored in a json file named `cms.json`, you can find the logs inside the `Result\<Target Site>` directory, and as of the bruteforce results they're stored in a txt file under the site's result directory as well.
 
 Here is an example of the json report log:
@@ -125,6 +134,7 @@ Here is an example of the json report log:
 ![Json Log](https://i.imgur.com/5dA9jQg.png)
 
 ## Bruteforce Modules:
+
 CMSeek has a modular bruteforce system meaning you can add your custom made bruteforce modules to work with cmseek. A proper documentation for creating modules will be created shortly but in case you already figured out how to (pretty easy once you analyze the pre-made modules) all you need to do is this:
 
 1. Add a comment exactly like this `# <Name Of The CMS> Bruteforce module`. This will help CMSeeK to know the name of the CMS using regex
@@ -142,6 +152,7 @@ CMSeek has a modular bruteforce system meaning you can add your custom made brut
 </p>
 
 ## Need More Reasons To Use CMSeeK?
+
 If not anything you can always enjoy exiting CMSeeK *(please don't)*, it will bid you goodbye in a random goodbye message in various languages.
 
 Also you can try reading comments in the code those are pretty random and weird!!!
@@ -158,6 +169,7 @@ Also you can try reading comments in the code those are pretty random and weird!
 </p>
 
 ## Opening issue:
+
 Please make sure you have the following info attached when opening a new issue:
 - Target
 - Exact copy of error or screenshot of error
@@ -166,13 +178,17 @@ Please make sure you have the following info attached when opening a new issue:
 **Issues without these informations might not be answered!**
 
 ## Disclaimer:
+
 **Usage of CMSeeK for testing or exploiting websites without prior mutual consistency can be considered as an illegal activity. It is the final user's responsibility to obey all applicable local, state and federal laws. Authors assume no liability and are not responsible for any misuse or damage caused by this program.**
 
 ## License:
+
 CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE)
 
 ## Follow Me @r3dhax0r:
+
 [Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)   
 
 ## Team:
+
 [Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
