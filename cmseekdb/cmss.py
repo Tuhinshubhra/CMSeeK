@@ -889,6 +889,6 @@ cmshop = {
 oracle_atg = {
     'name': 'Oracle ATG Web Commerce',
     'url': 'http://www.oracle.com/us/products/applications/atg/web-commerce/web-commerce-search-330138.html',
-    'vd': '0',
+    'vd': '1',
     'deeps': '0'
 }
