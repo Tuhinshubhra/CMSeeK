@@ -110,7 +110,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<script src=\'//bizweb.dktcdn.net:-bizw',
         'cloudcart","title:-cloudc',
         'framework/colormekit.css:-cmshop',
-        '<meta name="keywords" content="moodle:-mdle'
+        '<meta name="keywords" content="moodle:-mdle',
+        '<meta property="ajaris:baseURL"||<meta property="ajaris:language"||<meta property="ajaris:ptoken":-orkis'
         ]
 
         for keyl in detkeys:

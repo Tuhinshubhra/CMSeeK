@@ -899,3 +899,10 @@ mdle = {
     'vd':'0',
     'deeps':'0'
 }
+
+orkis = {
+    'name':'ORKIS Ajaris Websuite',
+    'url':'http://www.orkis.com/',
+    'vd':'0',
+    'deeps':'0'
+}

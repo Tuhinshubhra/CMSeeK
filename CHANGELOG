@@ -10,6 +10,7 @@ Version 1.1.1 []
     - CloudCart
     - ColormeShop
     - Moodle
+    - ORKIS Ajaris Websuite
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code and http headers
