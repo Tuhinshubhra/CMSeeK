@@ -9,6 +9,7 @@ Version 1.1.1 []
     - Clientexec
     - CloudCart
     - ColormeShop
+    - Moodle
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code and http headers

@@ -109,7 +109,8 @@ def check(s, site): ## Check if no generator meta tag available
         '/arastta.js:-arstta',
         '<script src=\'//bizweb.dktcdn.net:-bizw',
         'cloudcart","title:-cloudc',
-        'framework/colormekit.css:-cmshop'
+        'framework/colormekit.css:-cmshop',
+        '<meta name="keywords" content="moodle:-mdle'
         ]
 
         for keyl in detkeys:

@@ -892,3 +892,10 @@ oracle_atg = {
     'vd': '0',
     'deeps': '0'
 }
+
+mdle = {
+    'name':'Moodle',
+    'url':'https://moodle.com/',
+    'vd':'0',
+    'deeps':'0'
+}

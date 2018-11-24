@@ -72,7 +72,8 @@ def check(h):
         'X-Arastta:-arstta',
         'set-cookie: fornax_anonymousId=:-bigc',
         'Set-Cookie: bigwareCsid||Set-Cookie: bigWAdminID:-bigw',
-        'X-ATG-Version:-oracle_atg'
+        'X-ATG-Version:-oracle_atg',
+        'Set-Cookie: MoodleSession||Set-Cookie: MOODLEID_:-mdle'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

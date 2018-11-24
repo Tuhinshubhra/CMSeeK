@@ -67,20 +67,24 @@ def main_proc(site,cua):
 
     cmseek.statement("Using headers to detect CMS (Stage 1 of 4)")
     header_detection = header.check(headers)
+
     if header_detection[0] == '1':
         detection_method = 'header'
         cms = header_detection[1]
         cms_detected = '1'
-    if cms_detected == '0' and ga == '1':
-        # cms detection via generator
-        cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 4)")
-        gen_detection = generator.scan(ga_content)
-        if gen_detection[0] == '1':
-            detection_method = 'generator'
-            cms = gen_detection[1]
-            cms_detected = '1'
-    else:
-        cmseek.statement('Skipping stage 2 of 4: No Generator meta tag found')
+
+    if cms_detected == '0':
+        if ga == '1':
+            # cms detection via generator
+            cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 4)")
+            gen_detection = generator.scan(ga_content)
+            if gen_detection[0] == '1':
+                detection_method = 'generator'
+                cms = gen_detection[1]
+                cms_detected = '1'
+        else:
+            cmseek.statement('Skipping stage 2 of 4: No Generator meta tag found')
+
     if cms_detected == '0':
         # Check cms using source code
         cmseek.statement("Using source code to detect CMS (Stage 3 of 4)")
@@ -89,6 +93,7 @@ def main_proc(site,cua):
             detection_method = 'source'
             cms = source_check[1]
             cms_detected = '1'
+            
     if cms_detected == '0':
         # Check cms using robots.txt
         cmseek.statement("Using robots.txt to detect CMS (Stage 4 of 4)")
