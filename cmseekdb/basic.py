@@ -23,6 +23,7 @@ from cmseekdb.config import *
 cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('/cmseekdb','')
 total_requests = 0
 cstart = time.time()
+redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not follow any redirect
 
 # all the color codes goes here
 white = "\033[97m"
@@ -82,6 +83,9 @@ SPECIFING TARGET:
       -u URL, --url URL            Target Url
       -l LIST, -list LIST          path of the file containing list of sites
                                    for multi-site scan (comma separated)
+RE-DIRECT:
+      --follow-redirect            Follows all/any redirect(s)
+      --no-redirect                Skips all redirects and tests the input target(s)
 
 USER AGENT:
       -r, --random-agent           Use a random user agent

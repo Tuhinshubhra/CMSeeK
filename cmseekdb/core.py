@@ -38,14 +38,24 @@ def main_proc(site,cua):
         scode = init_source[1]
         headers = init_source[2]
         if site != init_source[3] and site + '/' != init_source[3]:
-            cmseek.info('Target redirected to: ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
-            follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
-            if follow_redir.lower() == 'y':
+            if cmseek.redirect_conf == '0':
+                cmseek.info('Target redirected to: ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
+                follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
+                if follow_redir.lower() == 'y':
+                    site = init_source[3]
+                    cmseek.statement("Reinitiating Headers and Page Source for Analysis")
+                    tmp_req = cmseek.getsource(site, cua)
+                    scode = tmp_req[1]
+                    headers = tmp_req[2]
+            elif cmseek.redirect_conf == '1':
                 site = init_source[3]
+                cmseek.info("Followed redirect, New target: " + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
                 cmseek.statement("Reinitiating Headers and Page Source for Analysis")
                 tmp_req = cmseek.getsource(site, cua)
                 scode = tmp_req[1]
                 headers = tmp_req[2]
+            else:
+                cmseek.statement("Skipping redirect to " + cmseek.bold + cmseek.red + init_source[3] + cmseek.cln)
     if scode == '':
         # silly little check thought it'd come handy
         cmseek.error('Aborting detection, source code empty')
@@ -93,7 +103,7 @@ def main_proc(site,cua):
             detection_method = 'source'
             cms = source_check[1]
             cms_detected = '1'
-            
+
     if cms_detected == '0':
         # Check cms using robots.txt
         cmseek.statement("Using robots.txt to detect CMS (Stage 4 of 4)")

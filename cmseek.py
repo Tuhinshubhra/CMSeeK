@@ -30,26 +30,40 @@ parser.add_argument('--googlebot', action="store_true")
 parser.add_argument('-u', '--url')
 parser.add_argument('-l', '--list')
 parser.add_argument('--clear-result', action='store_true')
+parser.add_argument('--follow-redirect', action='store_true')
+parser.add_argument('--no-redirect', action='store_true')
 args = parser.parse_args()
 
 if args.clear_result:
     cmseek.clear_log()
+
 if args.help:
     cmseek.help()
+
 if args.verbose:
     cmseek.verbose = True
+
+if args.follow_redirect:
+    cmseek.redirect_conf = '1'
+
+if args.no_redirect:
+    cmseek.redirect_conf = '2'
+
 if args.update:
     cmseek.update()
+
 if args.version:
     print('\n\n')
     cmseek.info("CMSeeK Version: " + cmseek.cmseek_version)
     cmseek.bye()
+
 if args.user_agent is not None:
     cua = args.user_agent
 elif args.random_agent is not None:
     cua = cmseek.randomua('random')
 else:
     cua = None
+
 if args.googlebot:
     cua = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
 if args.url is not None:

@@ -15,6 +15,7 @@ Version 1.1.1 []
     - Magento
   - Refactored code for detecting cms via source code and http headers
   - Added `--googlebot` option to use googlebot user agent
+  - Added `--follow-redirect` and `--no-redirect` arguments
 Version 1.1.0 [28-08-2018]
   - Added new CMS:
     - Advanced Electron Forum
