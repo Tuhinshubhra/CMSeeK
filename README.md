@@ -74,6 +74,9 @@ SPECIFING TARGET:
       -u URL, --url URL            Target Url
       -l LIST, -list LIST          path of the file containing list of sites
                                    for multi-site scan (comma separated)
+RE-DIRECT:
+      --follow-redirect            Follows all/any redirect(s)
+      --no-redirect                Skips all redirects and tests the input target(s)
 
 USER AGENT:
       -r, --random-agent           Use a random user agent
