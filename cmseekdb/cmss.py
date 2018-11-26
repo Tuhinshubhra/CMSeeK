@@ -927,3 +927,10 @@ cosmos = {
     'vd':'0',
     'deeps':'0'
 }
+
+csc = {
+    'name':'CS Cart',
+    'url':'https://www.cs-cart.com/',
+    'vd':'0',
+    'deeps':'0'
+}

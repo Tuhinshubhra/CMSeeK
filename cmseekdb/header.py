@@ -94,41 +94,34 @@ def check(h):
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
-        ybb_regex = re.search(r'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=', hstring)
-        if ybb_regex != None:
-            return ['1', 'yabb']
-
-        xmb_regex = re.search(r'Set-Cookie: xmblv(a|b)=(\d.*?)\n',hstring)
-        if xmb_regex != None:
-            return ['1', 'xmb']
-
-        wind_regex = re.search(r'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=', hstring)
-        if wind_regex != None:
-            return ['1', 'pwind']
-
-        myb_regex = re.search(r'Set-Cookie: mybb\[(.*?)\]=', hstring)
-        if myb_regex != None:
-            return ['1', 'mybb']
-
-        bb_regex = re.search(r'Set-Cookie: wcf(.*?)_cookieHash=', hstring)
-        if bb_regex != None:
-            return ['1', 'bboard']
-
-        epis_regex = re.search(r'X-XRDS-Location: (.*?)EPiServerCommunity', hstring)
-        if epis_regex != None:
-            return ['1', 'epis']
-
-        lep_regex = re.search(r'lep(.*?)sessionid', hstring)
-        if lep_regex != None:
-            return ['1', 'lepton']
-
-        pb_regex = re.search(r'Set-Cookie: phpbb(.*?)=', hstring)
-        if pb_regex != None:
-            return ['1', 'phpbb']
-
-        ses_regex = re.search(r'Set-Cookie: ses(\d+)=', hstring)
-        if ses_regex != None:
-            return ['1', 'impage']
-
+        rgxkeys = [
+        'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=:-yabb',
+        'Set-Cookie: xmblv(a|b)=(\d.*?)\n:-xmb',
+        'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=:-pwind',
+        'Set-Cookie: mybb\[(.*?)\]=:-mybb',
+        'Set-Cookie: wcf(.*?)_cookieHash=:-bboard',
+        'X-XRDS-Location: (.*?)EPiServerCommunity:-epis',
+        'lep(.*?)sessionid:-lepton',
+        'Set-Cookie: phpbb(.*?)=:-phpbb',
+        'Set-Cookie: ses(\d+)=:-impage',
+        'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc'
+        ]
+        # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
+        # In the following lines you'll find some weird variable names, those are characters from hxh.
+        # Thank you for reading this utterly useless comment.. now let's get back to work!
+        for hxh in rgxkeys:
+            if ':-' in hxh:
+                hunter = hxh.split(':-')
+                if '||' in hunter[0]:
+                    gon = hunter[0].split('||')
+                    for killua in gon:
+                        natero = re.search(killua, hstring, re.DOTALL)
+                        if natero != None:
+                            return ['1', hunter[1]]
+                else:
+                    natero = re.search(hunter[0], hstring, re.DOTALL)
+                    if natero != None:
+                        return ['1', hunter[1]]
         else:
+            # Failure
             return ['0', 'na']
