@@ -934,3 +934,10 @@ csc = {
     'vd':'0',
     'deeps':'0'
 }
+
+cubec = {
+    'name':'CubeCart',
+    'url':'https://www.cubecart.com/',
+    'vd':'0',
+    'deeps':'0'
+}
