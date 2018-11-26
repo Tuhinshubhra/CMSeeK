@@ -229,3 +229,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.mg as mgverdetect
         mgver = mgverdetect.start(url, ua)
         return mgver
+    elif id == 'coms':
+        import VersionDetect.coms as comsverdetect
+        comsver = comsverdetect.start(url, ua)
+        return comsver

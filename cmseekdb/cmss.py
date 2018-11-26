@@ -913,3 +913,10 @@ cmdia = {
     'vd':'0',
     'deeps':'0'
 }
+
+coms = {
+    'name':'Commerce Server',
+    'url':'http://commerceserver.net',
+    'vd':'1',
+    'deeps':'0'
+}

@@ -12,8 +12,10 @@ Version 1.1.1 []
     - Moodle
     - ORKIS Ajaris Websuite
     - Comandia
+    - Commerce Server
   - Version detection added for:
     - Magento
+    - Commerce Server
   - Refactored code for detecting cms via source code and http headers
   - Added `--googlebot` option to use googlebot user agent
   - Added `--follow-redirect` and `--no-redirect` arguments
