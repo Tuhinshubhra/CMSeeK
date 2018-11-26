@@ -906,3 +906,10 @@ orkis = {
     'vd':'0',
     'deeps':'0'
 }
+
+cmdia = {
+    'name':'Comandia',
+    'url':'https://www.comandia.com/',
+    'vd':'0',
+    'deeps':'0'
+}

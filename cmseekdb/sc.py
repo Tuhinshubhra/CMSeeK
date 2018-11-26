@@ -111,7 +111,8 @@ def check(s, site): ## Check if no generator meta tag available
         'cloudcart","title:-cloudc',
         'framework/colormekit.css:-cmshop',
         '<meta name="keywords" content="moodle:-mdle',
-        '<meta property="ajaris:baseURL"||<meta property="ajaris:language"||<meta property="ajaris:ptoken":-orkis'
+        '<meta property="ajaris:baseURL"||<meta property="ajaris:language"||<meta property="ajaris:ptoken":-orkis',
+        'window.Comandia = JSON.parse||<script src="https://cdn.mycomandia.com/static/shop/common/js/functions.js"></script>:-cmdia'
         ]
 
         for keyl in detkeys:
@@ -166,7 +167,8 @@ def check(s, site): ## Check if no generator meta tag available
         'var Bizweb \=(.*?)\</script\>:-bizw',
         'var clientexec \=(.*?)\</script\>||Powered by(.*?)http\://www\.clientexec\.com\?source\=poweredby(.*?)\</a\>:-cexec',
         '\<meta name\=(.*?)author(.*?)CloudCart LLC(.*?)\>:-cloudc',
-        'var Colorme \=(.*?)\</script\>:-cmshop'
+        'var Colorme \=(.*?)\</script\>:-cmshop',
+        'https://cdn.mycomandia.com/uploads/comandia_(.*?)/r/(.*?)//js/(functions|main).js:-cmdia'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

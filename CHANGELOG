@@ -11,6 +11,7 @@ Version 1.1.1 []
     - ColormeShop
     - Moodle
     - ORKIS Ajaris Websuite
+    - Comandia
   - Version detection added for:
     - Magento
   - Refactored code for detecting cms via source code and http headers
