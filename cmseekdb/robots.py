@@ -17,7 +17,7 @@ def check(url, ua):
         hstring = robotstr # too lazy to rename variables from the copied part below '-'
         #### START DETECTION FROM HERE
         ## || <- if either of it matches cms detected
-        ## :::: <- all the strings has to match (implimented to decrease false positives)
+        ## :::: <- all the strings has to match (implemented to decrease false positives)
         hkeys = [
         'If the Joomla site is installed::::Disallow: /administrator/:-joom',
         'Allow: /core/*.css$||Disallow: /index.php/user/login/||Disallow: /web.config:-dru',
@@ -38,7 +38,8 @@ def check(url, ua):
         'Disallow: /auth/cas::::Disallow: /auth/cas/callback:-dscrs',
         'uc_client::::uc_server::::forum.php?mod=redirect*:-discuz',
         'Disallow: /AfterbuySrcProxy.aspx||Disallow: /afterbuy.asmx||Disallow: /afterbuySrc.asmx:-abuy',
-        'Disallow: /craft/:-craft'    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
+        'Disallow: /craft/:-craft',    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
+        'Disallow: /app/::::Disallow: /store_closed.html:-csc'
         ]
         for keyl in hkeys:
             if ':-' in keyl:
