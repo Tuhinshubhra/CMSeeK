@@ -405,84 +405,91 @@ mura = {
     'vd':'1',
     'deeps':'0'
 }
+
 moto = {
     'name':'Moto CMS',
     'url':'https://www.motocms.com/',
     'vd':'0',
     'deeps':'0'
 }
+
 mnet = {
     'name':'Mono.net',
     'url':'https://mono.net',
     'vd':'0',
     'deeps':'0'
 }
+
 modx = {
     'name':'MODX',
     'url':'https://modx.com/',
     'vd':'0',
     'deeps':'0'
 }
+
 methd = {
     'name':'Methode',
     'url':'https://www.eidosmedia.com',
     'vd':'0',
     'deeps':'0'
 }
+
 mambo = {
     'name':'Mambo',
     'url':'http://mambo-foundation.org',
     'vd':'0',
     'deeps':'0'
 }
+
 lscms = {
     'name':'LiveStreet CMS',
     'url':'http://livestreetcms.com/',
     'vd':'0',
     'deeps':'0'
 }
+
 lepton = {
     'name':'LEPTON CMS',
     'url':'https://lepton-cms.org/',
     'vd':'0',
     'deeps':'0'
 }
+
 kbcms = {
     'name':'Kooboo CMS',
     'url':'https://www.kooboo.com/',
     'vd':'1',
     'deeps':'0'
 }
+
 koken = {
     'name':'Koken',
     'url':'http://koken.me',
     'vd':'1',
     'deeps':'0'
 }
+
 jimdo = {
     'name':'Jimdo',
     'url':'https://www.jimdo.com/',
     'vd':'0',
     'deeps':'0'
 }
+
 ibit = {
     'name':'Indexhibit',
     'url':'http://www.indexhibit.org/',
     'vd':'0',
     'deeps':'0'
 }
+
 wflow = {
     'name':'Webflow CMS',
     'url':'https://webflow.com/',
     'vd':'0',
     'deeps':'0'
 }
-wflow = {
-    'name':'Webflow CMS',
-    'url':'https://webflow.com/',
-    'vd':'0',
-    'deeps':'0'
-}
+
 jcms = {
     'name':'Jalios JCMS',
     'url':'http://www.jalios.com/',
