@@ -168,7 +168,8 @@ def check(s, site): ## Check if no generator meta tag available
         'var clientexec \=(.*?)\</script\>||Powered by(.*?)http\://www\.clientexec\.com\?source\=poweredby(.*?)\</a\>:-cexec',
         '\<meta name\=(.*?)author(.*?)CloudCart LLC(.*?)\>:-cloudc',
         'var Colorme \=(.*?)\</script\>:-cmshop',
-        'https://cdn.mycomandia.com/uploads/comandia_(.*?)/r/(.*?)//js/(functions|main).js:-cmdia'
+        'https://cdn.mycomandia.com/uploads/comandia_(.*?)/r/(.*?)//js/(functions|main).js:-cmdia',
+        '<script(.*?)cosmoshop_functions.js(.*?)</script>:-cosmos'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

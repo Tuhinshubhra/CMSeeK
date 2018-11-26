@@ -920,3 +920,10 @@ coms = {
     'vd':'1',
     'deeps':'0'
 }
+
+cosmos = {
+    'name':'Cosmoshop',
+    'url':'https://www.cosmoshop.de/',
+    'vd':'0',
+    'deeps':'0'
+}

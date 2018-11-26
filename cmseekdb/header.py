@@ -74,7 +74,8 @@ def check(h):
         'Set-Cookie: bigwareCsid||Set-Cookie: bigWAdminID:-bigw',
         'X-ATG-Version:-oracle_atg',
         'Set-Cookie: MoodleSession||Set-Cookie: MOODLEID_:-mdle',
-        'COMMERCE-SERVER-SOFTWARE:||commerce-server-software::-coms'
+        'COMMERCE-SERVER-SOFTWARE:||commerce-server-software::-coms',
+        'Set-Cookie: COSMOSHOP_:-cosmos'
         ]
         for keyl in hkeys:
             if ':-' in keyl:
