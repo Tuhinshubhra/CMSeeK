@@ -14,67 +14,58 @@ def check(url, ua):
     if robots_source[0] == '1' and robots_source[1] != '':
         # Check begins here
         robotstr = robots_source[1]
-
-        if 'If the Joomla site is installed' in robotstr or 'Disallow: /administrator/' in robotstr:
-            return ['1', 'joom']
-
-        if 'Allow: /core/*.css$' in robotstr or 'Disallow: /index.php/user/login/' in robotstr or 'Disallow: /web.config' in robotstr:
-            return ['1', 'dru']
-
-        if 'Disallow: /wp-admin/' in robotstr or 'Allow: /wp-admin/admin-ajax.php' in robotstr:
-            return ['1', 'wp']
-
-        if 'Disallow: /kernel/' in robotstr and 'Disallow: /language/' in robotstr and 'Disallow: /templates_c/' in robotstr:
-            return ['1', 'xoops']
-
-        if 'Disallow: /textpattern' in robotstr:
-            return ['1', 'tpc']
-
-        if 'Disallow: /sitecore' in robotstr or 'Disallow: /sitecore_files' in robotstr or 'Disallow: /sitecore modules' in robotstr:
-            return ['1', 'score']
-
-        if 'Disallow: /phpcms' in robotstr or 'robots.txt for PHPCMS' in robotstr:
-            return ['1', 'phpc']
-
-        if 'Disallow: /*mt-content*' in robotstr or 'Disallow: /mt-includes/' in robotstr:
-            return ['1', 'moto']
-
-        if 'Disallow: /jcmsplugin/' in robotstr:
-            return ['1', 'jcms']
-
-        if 'Disallow: /ip_cms/' in robotstr or 'ip_backend_frames.php' in robotstr or 'ip_backend_worker.php' in robotstr:
-            return ['1', 'impage']
-
-        if 'Disallow: /flex/tmp/' in robotstr or 'flex/Logs/' in robotstr:
-            return ['1', 'flex']
-
-        if 'Disallow: /e107_admin/' in robotstr or 'e107_handlers' in robotstr or 'e107_files/cache' in robotstr:
-            return ['1', 'e107']
-
-        if 'Disallow: /plus/ad_js.php' in robotstr or 'Disallow: /plus/erraddsave.php' in robotstr or 'Disallow: /plus/posttocar.php' in robotstr or 'Disallow: /plus/disdls.php' in robotstr or 'Disallow: /plus/mytag_js.php' in robotstr or 'Disallow: /plus/stow.php' in robotstr:
-            return ['1', 'dede']
-
-        if 'modules/contentbox/themes/' in robotstr:
-            return ['1', 'cbox']
-
-        if 'Disallow: /contao/' in robotstr:
-            return ['1', 'contao']
-
-        if 'Disallow: /concrete' in robotstr:
-            return ['1', 'con5']
-
-        if 'Disallow: /auth/cas' in robotstr and 'Disallow: /auth/cas/callback' in robotstr:
-            return ['1', 'dscrs']
-
-        if 'uc_client' in robotstr and 'uc_server' in robotstr and 'forum.php?mod=redirect*' in robotstr:
-            return ['1', 'discuz']
-
-        if 'Disallow: /AfterbuySrcProxy.aspx' in robotstr or 'Disallow: /afterbuy.asmx' in robotstr or 'Disallow: /afterbuySrc.asmx' in robotstr:
-            return ['1', 'abuy']
-
-        if 'Disallow: /craft/' in robotstr:
-            # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
-            return ['1', 'craft']
+        hstring = robotstr # too lazy to rename variables from the copied part below '-'
+        #### START DETECTION FROM HERE
+        ## || <- if either of it matches cms detected
+        ## :::: <- all the strings has to match (implimented to decrease false positives)
+        hkeys = [
+        'If the Joomla site is installed::::Disallow: /administrator/:-joom',
+        'Allow: /core/*.css$||Disallow: /index.php/user/login/||Disallow: /web.config:-dru',
+        'Disallow: /wp-admin/||Allow: /wp-admin/admin-ajax.php:-wp',
+        'Disallow: /kernel/::::Disallow: /language/::::Disallow: /templates_c/:-xoops',
+        'Disallow: /textpattern:-tpc',
+        'Disallow: /sitecore||Disallow: /sitecore_files||Disallow: /sitecore modules:-score',
+        'Disallow: /phpcms||robots.txt for PHPCMS:-phpc',
+        'Disallow: /*mt-content*||Disallow: /mt-includes/:-moto',
+        'Disallow: /jcmsplugin/:-jcms',
+        'Disallow: /ip_cms/||ip_backend_frames.php||ip_backend_worker.php:-impage',
+        'Disallow: /flex/tmp/||flex/Logs/:-flex',
+        'Disallow: /e107_admin/||e107_handlers||e107_files/cache:-e107',
+        'Disallow: /plus/ad_js.php||Disallow: /plus/erraddsave.php||Disallow: /plus/posttocar.php||Disallow: /plus/disdls.php||Disallow: /plus/mytag_js.php||Disallow: /plus/stow.php:-dede',
+        'modules/contentbox/themes/:-cbox',
+        'Disallow: /contao/:-contao',
+        'Disallow: /concrete:-con5',
+        'Disallow: /auth/cas::::Disallow: /auth/cas/callback:-dscrs',
+        'uc_client::::uc_server::::forum.php?mod=redirect*:-discuz',
+        'Disallow: /AfterbuySrcProxy.aspx||Disallow: /afterbuy.asmx||Disallow: /afterbuySrc.asmx:-abuy',
+        'Disallow: /craft/:-craft'    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
+        ]
+        for keyl in hkeys:
+            if ':-' in keyl:
+                det = keyl.split(':-')
+                if '||' in det[0]:
+                    idkwhat = det[0]
+                    dets = idkwhat.split('||')
+                    for d in dets:
+                        if d in hstring:
+                            return ['1', det[1]]
+                elif '::::' in det[0]:
+                    # yet again i know there can be a better way of doing it and feel free to correct it :)
+                    and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
+                    chks = det[0].split('::::')
+                    for chk in chks:
+                        if and_chk == '0' or and_chk == '1':
+                            if chk in hstring:
+                                and_chk = '1'
+                            else:
+                                and_chk = '2'
+                        else:
+                            and_chk = '2'
+                    if and_chk == '1':
+                        return ['1', det[1]]
+                else:
+                    if det[0] in hstring:
+                        return ['1', det[1]]
 
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None:

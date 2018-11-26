@@ -18,7 +18,7 @@ Version 1.1.1 []
   - Version detection added for:
     - Magento
     - Commerce Server
-  - Refactored code for detecting cms via source code and http headers
+  - Refactored code for detecting cms via source code, http headers and robots.txt
   - Added `--googlebot` option to use googlebot user agent
   - Added `--follow-redirect` and `--no-redirect` arguments
 Version 1.1.0 [28-08-2018]
