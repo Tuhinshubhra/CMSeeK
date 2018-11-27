@@ -171,7 +171,8 @@ def check(s, site): ## Check if no generator meta tag available
         'https://cdn.mycomandia.com/uploads/comandia_(.*?)/r/(.*?)//js/(functions|main).js:-cmdia',
         '<script(.*?)cosmoshop_functions.js(.*?)</script>:-cosmos',
         '.cm-noscript(.*?)</script>:-csc',
-        '<link(.*?)cubecart.common.css(.*?)>:-cubec'
+        '<link(.*?)cubecart.common.css(.*?)>:-cubec',
+        '<a href(.*?)http://www.almubda.net(.*?)Powered by Al Mubda(.*?)</a>:-abda'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

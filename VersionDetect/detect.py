@@ -233,3 +233,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.coms as comsverdetect
         comsver = comsverdetect.start(url, ua)
         return comsver
+    elif id == 'abda':
+        import VersionDetect.abda as abdaverdetect
+        abdaver = abdaverdetect.start(source)
+        return abdaver

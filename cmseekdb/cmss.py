@@ -948,3 +948,10 @@ cubec = {
     'vd':'0',
     'deeps':'0'
 }
+
+abda = {
+    'name':'Al Mubda',
+    'url':'http://www.almubda.net/',
+    'vd':'1',
+    'deeps':'0'
+}
