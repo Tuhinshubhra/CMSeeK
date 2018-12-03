@@ -955,3 +955,10 @@ abda = {
     'vd':'1',
     'deeps':'0'
 }
+
+dweb = {
+    'name':'Dynamicweb',
+    'url':'https://www.dynamicweb.dk/',
+    'vd':'1',
+    'deeps':'0'
+}

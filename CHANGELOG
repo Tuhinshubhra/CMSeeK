@@ -17,9 +17,11 @@ Version 1.1.1 []
     - CS Cart
     - CubeCart
     - Al Mubda
+    - Dynamicweb
   - Version detection added for:
     - Magento
     - Commerce Server
+    - Dynamicweb
   - Refactored code for detecting cms
   - Added `--googlebot` option to use googlebot user agent
   - Added `--follow-redirect` and `--no-redirect` arguments

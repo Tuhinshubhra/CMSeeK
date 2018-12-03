@@ -237,3 +237,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.abda as abdaverdetect
         abdaver = abdaverdetect.start(source)
         return abdaver
+    elif id == 'dweb':
+        import VersionDetect.dweb as dwebverdetect
+        dwebver = dwebverdetect.start(ga_content)
+        return dwebver

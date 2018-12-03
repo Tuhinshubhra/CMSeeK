@@ -39,7 +39,8 @@ def check(url, ua):
         'uc_client::::uc_server::::forum.php?mod=redirect*:-discuz',
         'Disallow: /AfterbuySrcProxy.aspx||Disallow: /afterbuy.asmx||Disallow: /afterbuySrc.asmx:-abuy',
         'Disallow: /craft/:-craft',    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
-        'Disallow: /app/::::Disallow: /store_closed.html:-csc'
+        'Disallow: /app/::::Disallow: /store_closed.html:-csc',
+        'Disallow: /*?cartcmd=*:-dweb'
         ]
         for keyl in hkeys:
             if ':-' in keyl:
