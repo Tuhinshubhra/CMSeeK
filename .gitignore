@@ -3,3 +3,4 @@ __pycache__/
 *$py.class
 Result/**
 .idea/
+.scan_id
