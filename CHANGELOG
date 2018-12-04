@@ -20,6 +20,7 @@ Version 1.1.1 []
     - Dynamicweb
     - EC-CUBE
     - Elcodi
+    - ePages
   - Version detection added for:
     - Magento
     - Commerce Server

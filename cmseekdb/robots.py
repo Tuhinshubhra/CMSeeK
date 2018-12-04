@@ -40,7 +40,8 @@ def check(url, ua):
         'Disallow: /AfterbuySrcProxy.aspx||Disallow: /afterbuy.asmx||Disallow: /afterbuySrc.asmx:-abuy',
         'Disallow: /craft/:-craft',    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
         'Disallow: /app/::::Disallow: /store_closed.html:-csc',
-        'Disallow: /*?cartcmd=*:-dweb'
+        'Disallow: /*?cartcmd=*:-dweb',
+        'Disallow: /epages/Site.admin/||Disallow: /epages/*:-epgs'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

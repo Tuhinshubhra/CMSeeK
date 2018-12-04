@@ -976,3 +976,10 @@ elcd = {
     'vd':'0',
     'deeps':'0'
 }
+
+epgs = {
+    'name':'ePages',
+    'url':'https://epages.com',
+    'vd':'0',
+    'deeps':'0'
+}
