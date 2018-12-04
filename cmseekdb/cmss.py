@@ -983,3 +983,10 @@ epgs = {
     'vd':'0',
     'deeps':'0'
 }
+
+ezpub = {
+    'name':'eZ Publish',
+    'url':'https://ez.no/',
+    'vd':'0',
+    'deeps':'0'
+}

@@ -77,7 +77,8 @@ def check(h):
         'COMMERCE-SERVER-SOFTWARE:||commerce-server-software::-coms',
         'Set-Cookie: COSMOSHOP_:-cosmos',
         'Set-Cookie: Dynamicweb:-dweb',
-        'X-Elcodi::-elcd'
+        'X-Elcodi::-elcd',
+        'X-Powered-By: eZ Publish:-ezpub'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

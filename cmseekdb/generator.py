@@ -103,7 +103,8 @@ def scan(content):
                 'beehive forum:-bhf',
                 'ubb.threads:-ubbt',
                 'cubecart:-cubec',
-                'dynamicweb:-dweb'
+                'dynamicweb:-dweb',
+                'ez publish:-ezpub'
     ]
 
     for keyl in detkeys:

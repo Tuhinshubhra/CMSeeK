@@ -41,7 +41,8 @@ def check(url, ua):
         'Disallow: /craft/:-craft',    # Chances of it being a falsepositive are higher than the chances of me doing something good with my life ;__;
         'Disallow: /app/::::Disallow: /store_closed.html:-csc',
         'Disallow: /*?cartcmd=*:-dweb',
-        'Disallow: /epages/Site.admin/||Disallow: /epages/*:-epgs'
+        'Disallow: /epages/Site.admin/||Disallow: /epages/*:-epgs',
+        'Disallow: /Mediatheque/:-ezpub'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

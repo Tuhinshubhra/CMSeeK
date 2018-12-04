@@ -21,6 +21,7 @@ Version 1.1.1 []
     - EC-CUBE
     - Elcodi
     - ePages
+    - eZ Publish
   - Version detection added for:
     - Magento
     - Commerce Server
