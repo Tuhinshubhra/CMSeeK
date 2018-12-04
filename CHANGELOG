@@ -18,6 +18,7 @@ Version 1.1.1 []
     - CubeCart
     - Al Mubda
     - Dynamicweb
+    - EC-CUBE
   - Version detection added for:
     - Magento
     - Commerce Server

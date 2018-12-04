@@ -962,3 +962,10 @@ dweb = {
     'vd':'1',
     'deeps':'0'
 }
+
+ecc = {
+    'name':'EC-CUBE',
+    'url':'https://www.ec-cube.net/',
+    'vd':'0',
+    'deeps':'0'
+}

@@ -173,7 +173,8 @@ def check(s, site): ## Check if no generator meta tag available
         '.cm-noscript(.*?)</script>:-csc',
         '<link(.*?)cubecart.common.css(.*?)>:-cubec',
         '<a href(.*?)http://www.almubda.net(.*?)Powered by Al Mubda(.*?)</a>:-abda',
-        '<!--(.*?)Dynamicweb Software(.*?)-->:-dweb'
+        '<!--(.*?)Dynamicweb Software(.*?)-->:-dweb',
+        '<script(.*?)eccube.js(.*?)</script>||<script(.*?)win_op.js(.*?)</script>||<script(.*?)cube.site.js(.*?)</script>:-ecc'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.
