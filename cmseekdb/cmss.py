@@ -969,3 +969,10 @@ ecc = {
     'vd':'0',
     'deeps':'0'
 }
+
+elcd = {
+    'name':'Elcodi',
+    'url':'http://elcodi.io/',
+    'vd':'0',
+    'deeps':'0'
+}

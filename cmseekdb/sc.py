@@ -112,7 +112,8 @@ def check(s, site): ## Check if no generator meta tag available
         'framework/colormekit.css:-cmshop',
         '<meta name="keywords" content="moodle:-mdle',
         '<meta property="ajaris:baseURL"||<meta property="ajaris:language"||<meta property="ajaris:ptoken":-orkis',
-        'window.Comandia = JSON.parse||<script src="https://cdn.mycomandia.com/static/shop/common/js/functions.js"></script>:-cmdia'
+        'window.Comandia = JSON.parse||<script src="https://cdn.mycomandia.com/static/shop/common/js/functions.js"></script>:-cmdia',
+        '/bundles/elcodimetric/js/tracker.js:-elcd'
         ]
 
         for keyl in detkeys:
@@ -174,7 +175,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<link(.*?)cubecart.common.css(.*?)>:-cubec',
         '<a href(.*?)http://www.almubda.net(.*?)Powered by Al Mubda(.*?)</a>:-abda',
         '<!--(.*?)Dynamicweb Software(.*?)-->:-dweb',
-        '<script(.*?)eccube.js(.*?)</script>||<script(.*?)win_op.js(.*?)</script>||<script(.*?)cube.site.js(.*?)</script>:-ecc'
+        '<script(.*?)eccube.js(.*?)</script>||<script(.*?)win_op.js(.*?)</script>||<script(.*?)cube.site.js(.*?)</script>:-ecc',
+        '<script>(.*?)* Tracker generator for elcodi bamboo store(.*?)</script>:-elcd'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.
