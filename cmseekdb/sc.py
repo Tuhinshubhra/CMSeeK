@@ -114,7 +114,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<meta property="ajaris:baseURL"||<meta property="ajaris:language"||<meta property="ajaris:ptoken":-orkis',
         'window.Comandia = JSON.parse||<script src="https://cdn.mycomandia.com/static/shop/common/js/functions.js"></script>:-cmdia',
         '/bundles/elcodimetric/js/tracker.js:-elcd',
-        'de_epages.remotesearch.ui.suggest||require([[\'de_epages\':-epgs'
+        'de_epages.remotesearch.ui.suggest||require([[\'de_epages\':-epgs',
+        'href="https://www.fortune3.com/en/siterate/rate.css":-for3'
         ]
 
         for keyl in detkeys:
@@ -179,7 +180,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<script(.*?)eccube.js(.*?)</script>||<script(.*?)win_op.js(.*?)</script>||<script(.*?)cube.site.js(.*?)</script>:-ecc',
         '<script(.*?)Tracker generator for elcodi bamboo store(.*?)</script>:-elcd',
         'href=(.*?)/epages/(.*?).sf(.*?)</a>:-epgs',
-        '<script(.*?)/extension/iagutils/design/ezwebin/(.*?)</script>:-ezpub'
+        '<script(.*?)/extension/iagutils/design/ezwebin/(.*?)</script>:-ezpub',
+        'Powered by(.*?)Fortune3</a>:-for3'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

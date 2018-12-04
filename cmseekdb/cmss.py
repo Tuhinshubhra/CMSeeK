@@ -990,3 +990,10 @@ ezpub = {
     'vd':'0',
     'deeps':'0'
 }
+
+for3 = {
+    'name':'Fortune3',
+    'url':'https://www.fortune3.com/',
+    'vd':'0',
+    'deeps':'0'
+}
