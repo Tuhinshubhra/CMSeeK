@@ -78,7 +78,8 @@ def check(h):
         'Set-Cookie: COSMOSHOP_:-cosmos',
         'Set-Cookie: Dynamicweb:-dweb',
         'X-Elcodi::-elcd',
-        'X-Powered-By: eZ Publish:-ezpub'
+        'X-Powered-By: eZ Publish:-ezpub',
+        'Powered-By: PrestaShop||Set-Cookie: PrestaShop:-presta'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

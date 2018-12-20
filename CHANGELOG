@@ -23,6 +23,7 @@ Version 1.1.1 []
     - ePages
     - eZ Publish
     - Fortune3
+    - PrestaShop
   - Version detection added for:
     - Magento
     - Commerce Server

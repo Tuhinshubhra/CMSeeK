@@ -997,3 +997,10 @@ for3 = {
     'vd':'0',
     'deeps':'0'
 }
+
+presta = {
+    'name':'PrestaShop',
+    'url':'https://www.prestashop.com/',
+    'vd':'0',
+    'deeps':'0'
+}

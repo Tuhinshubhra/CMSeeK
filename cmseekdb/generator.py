@@ -104,7 +104,8 @@ def scan(content):
                 'ubb.threads:-ubbt',
                 'cubecart:-cubec',
                 'dynamicweb:-dweb',
-                'ez publish:-ezpub'
+                'ez publish:-ezpub',
+                'prestashop:-presta'
     ]
 
     for keyl in detkeys:
