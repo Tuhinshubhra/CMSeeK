@@ -76,7 +76,7 @@ Github: {4}
 Coded By:{1}{3} @r3dhax0r {2}
 
 USAGE:
-       python3 cmseek.py (for a guided scanning) OR
+       python3 cmseek.py (for guided scanning) OR
        python3 cmseek.py [OPTIONS] <Target Specification>
 
 SPECIFING TARGET:
