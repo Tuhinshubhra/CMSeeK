@@ -1,6 +1,6 @@
 <p align='center'>
   <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
-  <a href="https://github.com/Tuhinshubhra/CMSeeK/releases/tag/v.1.1.0"><img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg?style=style=flat-square" alt="version"></a>
+  <a href="https://github.com/Tuhinshubhra/CMSeeK/releases/tag/v.1.1.1"><img src="https://img.shields.io/badge/Version-1.1.1-brightgreen.svg?style=style=flat-square" alt="version"></a>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/"><img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version"></a>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/stargazers"><img src="https://img.shields.io/github/stars/Tuhinshubhra/CMSeeK.svg" alt="GitHub stars" /></a>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Tuhinshubhra/CMSeeK.svg" alt="GitHub license" /></a>
@@ -13,18 +13,18 @@
 
 ## Release History
 ```
+- Version 1.1.1 [01-02-2019]
 - Version 1.1.0 [28-08-2018]
 - Version 1.0.9 [21-08-2018]
 - Version 1.0.8 [14-08-2018]
 - Version 1.0.7 [07-08-2018]
-- Version 1.0.6 [23-07-2018]
 ...
 ```
 [Changelog File](https://github.com/Tuhinshubhra/CMSeeK/blob/master/CHANGELOG)
 
 ## Functions Of CMSeek:
 
-- Basic CMS Detection of over 130 CMS
+- Basic CMS Detection of over 155 CMS
 - Drupal version detection
 - Advanced Wordpress Scans
   - Detects Version
@@ -120,7 +120,7 @@ CMSeek detects CMS via the following:
 
 ## Supported CMSs:
 
-CMSeeK currently can detect **133** CMSs, you can find the list on [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **157** CMS. Check the list here: [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {
@@ -193,7 +193,7 @@ CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tu
 
 ## Follow Me @r3dhax0r:
 
-[Twitter](https://twitter.com/r3dhax0r)    ||    [Facebook](https://fb.com/r3dhax0r)    ||    [Instagram](https://instagram.com/r3dhax0r)   
+[Twitter](https://twitter.com/r3dhax0r)   
 
 ## Team:
 

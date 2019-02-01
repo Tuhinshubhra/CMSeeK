@@ -108,7 +108,7 @@ elif args.list is not None:
 ###      THE MAIN MENU       ###
 ################################
 cmseek.clearscreen()
-cmseek.banner("")
+cmseek.banner("Tip: You can use cmseek via arguments as well check the help menu for more information")
 print (" Input    Description")
 print ("=======  ==============================")
 print ("  [1]    CMS detection and Deep scan")

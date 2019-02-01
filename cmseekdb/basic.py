@@ -57,14 +57,14 @@ def banner (txt):
     print(bold + fgreen + """
 {1}_{5}___ _  _ {1}__{5}__ ____ {1}____{5} _  {1}_{5}
 |    |{1}\/{5}| {1}[{5}__  {1}|{5}___ |{1}___{5} |{1}_{5}/  {0}by {4}@r3dhax0r{5}
-{1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} ForumZ
-""".format(lblue, fgreen, yellow, cmseek_version, red, white))
+{1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} Emporium
+""".format(orange, orange, yellow, cmseek_version, red, white))
     if txt != "":
         print(whitebg + black + bold)
         print(" [+]  " + txt + "  [+] " + cln)
     else:
         print(cln + bold + lbluebg + black + " Author: " + cln + bold + " https://twitter.com/r3dhax0r" + blackbg + white + "\n GitHub: " + cln + bold + " https://github.com/Tuhinshubhra \n" + cln + '\n')
-    print(cln + "\n")
+    print(cln)
     return
 
 def help():
