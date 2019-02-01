@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # This is a part of CMSeeK, check the LICENSE file for more information
-# Copyright (c) 2018 Tuhinshubhra
+# Copyright (c) 2018 - 2019 Tuhinshubhra
 ### Joomla Bruteforce module
 ### Version 1.3
 ### This thing took a whole freaking night to build... apperently i was dealing with the cookies in a not so "Wise" manner!

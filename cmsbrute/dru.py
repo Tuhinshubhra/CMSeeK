@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # This is a part of CMSeeK, check the LICENSE file for more information
-# Copyright (c) 2018 Tuhinshubhra
+# Copyright (c) 2018 - 2019 Tuhinshubhra
 ### Drupal Bruteforce module
 ### Version 1.0
 ### Honestly this is kinda useless as drupal blocks an account for some time after 5 failed attempt (maybe this is one fix in the next version!)

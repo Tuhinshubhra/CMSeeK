@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # This is a part of CMSeeK, check the LICENSE file for more information
-# Copyright (c) 2018 Tuhinshubhra
+# Copyright (c) 2018 - 2019 Tuhinshubhra
 
 # This file contains all the methods of detecting cms via Source Code
 # Version: 1.0.0

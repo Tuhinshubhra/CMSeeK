@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # This is a part of CMSeeK, check the LICENSE file for more information
-# Copyright (c) 2018 Tuhinshubhra
+# Copyright (c) 2018 - 2019 Tuhinshubhra
 
 # This file contains the list of cmss supported by CMSeeK in the following structure
 # ExampleCMS = {
