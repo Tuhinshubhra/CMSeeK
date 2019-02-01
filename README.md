@@ -179,7 +179,7 @@ Also you can try reading comments in the code those are pretty random and weird!
 Please make sure you have the following info attached when opening a new issue:
 - Target
 - Exact copy of error or screenshot of error
-- Your operating system
+- Your operating system and python version
 
 **Issues without these informations might not be answered!**
 
