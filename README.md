@@ -174,7 +174,7 @@ Also you can try reading comments in the code those are pretty random and weird!
   <br><em>WordPress Scan Result</em><br>
 </p>
 
-## Opening issue:
+## Guidelines for opening an issue:
 
 Please make sure you have the following info attached when opening a new issue:
 - Target
