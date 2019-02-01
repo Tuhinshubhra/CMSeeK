@@ -115,7 +115,8 @@ def check(s, site): ## Check if no generator meta tag available
         'window.Comandia = JSON.parse||<script src="https://cdn.mycomandia.com/static/shop/common/js/functions.js"></script>:-cmdia',
         '/bundles/elcodimetric/js/tracker.js:-elcd',
         'de_epages.remotesearch.ui.suggest||require([[\'de_epages\':-epgs',
-        'href="https://www.fortune3.com/en/siterate/rate.css":-for3'
+        'href="https://www.fortune3.com/en/siterate/rate.css":-for3',
+        '<body class="gridlock shifter">::::<div class="shifter-page">:-btree'
         ]
 
         for keyl in detkeys:
@@ -127,6 +128,20 @@ def check(s, site): ## Check if no generator meta tag available
                     for d in dets:
                         if d in hstring:
                             return ['1', det[1]]
+                elif '::::' in det[0]:
+                    # yet again i know there can be a better way of doing it and feel free to correct it :)
+                    and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
+                    chks = det[0].split('::::')
+                    for chk in chks:
+                        if and_chk == '0' or and_chk == '1':
+                            if chk in hstring:
+                                and_chk = '1'
+                            else:
+                                and_chk = '2'
+                        else:
+                            and_chk = '2'
+                    if and_chk == '1':
+                        return ['1', det[1]]
                 else:
                     if det[0] in hstring:
                         return ['1', det[1]]
@@ -181,7 +196,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<script(.*?)Tracker generator for elcodi bamboo store(.*?)</script>:-elcd',
         'href=(.*?)/epages/(.*?).sf(.*?)</a>:-epgs',
         '<script(.*?)/extension/iagutils/design/ezwebin/(.*?)</script>:-ezpub',
-        'Powered by(.*?)Fortune3</a>:-for3'
+        'Powered by(.*?)Fortune3</a>:-for3',
+        'Built on(.*?)bigtreecms.org(.*?)BigTree CMS:-btree'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

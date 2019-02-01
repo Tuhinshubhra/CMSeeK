@@ -1004,3 +1004,10 @@ presta = {
     'vd':'0',
     'deeps':'0'
 }
+
+btree = {
+    'name':'BigTree CMS',
+    'url':'https://www.bigtreecms.org/',
+    'vd':'0',
+    'deeps':'0'
+}

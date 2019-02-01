@@ -24,6 +24,7 @@ Version 1.1.1 []
     - eZ Publish
     - Fortune3
     - PrestaShop
+    - BigTree CMS
   - Version detection added for:
     - Magento
     - Commerce Server
