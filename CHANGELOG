@@ -1,6 +1,9 @@
 Version 1.1.2 []
   - Added new CMS:
     - Proximis Omnichannel
+    - Quick.Cart
+  - Version detection added for:
+    - Quick.Cart
 Version 1.1.1 [01-02-2019]
   - Added new CMS:
     - Afosto

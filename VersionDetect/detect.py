@@ -241,3 +241,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.dweb as dwebverdetect
         dwebver = dwebverdetect.start(ga_content)
         return dwebver
+    elif id == 'qcart':
+        import VersionDetect.qcart as qcartverdetect
+        qcartver = qcartverdetect.start(ga_content)
+        return qcartver

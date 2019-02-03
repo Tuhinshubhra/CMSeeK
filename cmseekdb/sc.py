@@ -44,7 +44,7 @@ def check(s, site): ## Check if no generator meta tag available
         "Published by Seamless.CMS.WebUI:-slcms",
         "rock-config-trigger||rock-config-cancel-trigger:-rock",
         "/rcms-f-production.:-rcms",
-        "CMS by Quick.Cms||read license: www.opensolution.org/license.html:-quick",
+        "CMS by Quick.Cms:-quick",
         "\"pimcore_:-pcore",
         "xmlns:perc||cm/css/perc_decoration.css:-percms",
         "PencilBlueController||\"pencilblueApp\":-pblue",
@@ -198,7 +198,8 @@ def check(s, site): ## Check if no generator meta tag available
         'href=(.*?)/epages/(.*?).sf(.*?)</a>:-epgs',
         '<script(.*?)/extension/iagutils/design/ezwebin/(.*?)</script>:-ezpub',
         'Powered by(.*?)Fortune3</a>:-for3',
-        'Built on(.*?)bigtreecms.org(.*?)BigTree CMS:-btree'
+        'Built on(.*?)bigtreecms.org(.*?)BigTree CMS:-btree',
+        'powered(.*?)opensolution.org(.*?)Sklep internetowy'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

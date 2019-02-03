@@ -1018,3 +1018,10 @@ pmoc = {
     'vd':'0',
     'deeps':'0'
 }
+
+qcart = {
+    'name':'Quick.Cart',
+    'url':'https://opensolution.org/shopping-cart-quick-cart.html',
+    'vd':'1',
+    'deeps':'0'
+}

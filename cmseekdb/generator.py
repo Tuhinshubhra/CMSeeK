@@ -106,7 +106,8 @@ def scan(content):
                 'dynamicweb:-dweb',
                 'ez publish:-ezpub',
                 'prestashop:-presta',
-                'proximis omnichannel:-pmoc'
+                'proximis omnichannel:-pmoc',
+                'quick.cart:-qcart'
     ]
 
     for keyl in detkeys:
