@@ -105,7 +105,8 @@ def scan(content):
                 'cubecart:-cubec',
                 'dynamicweb:-dweb',
                 'ez publish:-ezpub',
-                'prestashop:-presta'
+                'prestashop:-presta',
+                'proximis omnichannel:-pmoc'
     ]
 
     for keyl in detkeys:

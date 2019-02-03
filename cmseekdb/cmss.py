@@ -1011,3 +1011,10 @@ btree = {
     'vd':'0',
     'deeps':'0'
 }
+
+pmoc = {
+    'name':'Proximis Omnichannel',
+    'url':'https://www.proximis.com',
+    'vd':'0',
+    'deeps':'0'
+}

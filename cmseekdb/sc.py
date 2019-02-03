@@ -116,7 +116,8 @@ def check(s, site): ## Check if no generator meta tag available
         '/bundles/elcodimetric/js/tracker.js:-elcd',
         'de_epages.remotesearch.ui.suggest||require([[\'de_epages\':-epgs',
         'href="https://www.fortune3.com/en/siterate/rate.css":-for3',
-        '<body class="gridlock shifter">::::<div class="shifter-page">:-btree'
+        '<body class="gridlock shifter">::::<div class="shifter-page">:-btree',
+        'list-unstyled::::editable-zone:-pmoc'
         ]
 
         for keyl in detkeys:
