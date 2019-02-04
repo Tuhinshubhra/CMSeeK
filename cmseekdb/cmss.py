@@ -1025,3 +1025,10 @@ qcart = {
     'vd':'1',
     'deeps':'0'
 }
+
+rbsc = {
+    'name':'RBS Change',
+    'url':'https://www.rbschange.fr/',
+    'vd':'1',
+    'deeps':'0'
+}

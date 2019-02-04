@@ -245,3 +245,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.qcart as qcartverdetect
         qcartver = qcartverdetect.start(ga_content)
         return qcartver
+    elif id == 'rbsc':
+        import VersionDetect.rbsc as rbscverdetect
+        rbscver = rbscverdetect.start(ga_content)
+        return rbscver
