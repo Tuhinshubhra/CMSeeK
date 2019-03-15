@@ -20,7 +20,7 @@ import re
 from cmseekdb.getsource import *
 from cmseekdb.config import *
 
-cmseek_dir = os.getcwd()
+cmseek_dir = os.os.path.dirname(os.path.abspath(__file__)).replace('/cmseekdb','')
 total_requests = 0
 cstart = time.time()
 redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not follow any redirect
@@ -214,7 +214,7 @@ def init_result_dir(url):
 
     ## check if the log directory exist
     global cmseek_dir
-    result_dir = cmseek_dir + "/Result/" + url
+    result_dir = os.getcwd() + "/Result/" + url
     json_log = result_dir + '/cms.json'
     if not os.path.isdir(result_dir):
         try:
