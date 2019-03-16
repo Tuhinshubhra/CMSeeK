@@ -214,7 +214,7 @@ def init_result_dir(url):
 
     ## check if the log directory exist
     global cmseek_dir
-    result_dir = cmseek_dir + "/Result/" + url
+    result_dir = os.getcwd() + "/Result/" + url
     json_log = result_dir + '/cms.json'
     if not os.path.isdir(result_dir):
         try:
