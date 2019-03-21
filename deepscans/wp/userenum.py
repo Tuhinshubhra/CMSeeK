@@ -62,13 +62,14 @@ def start(id, url, ua, ga, source):
 
     # the regular way of checking vua user Parameter -- For now just check upto 20 ids
     cmseek.info('Harvesting usernames from wordpress author Parameter')
+    global wpparamuser
+    wpparamuser = []
     usrrange = range(31) # ain't it Obvious
     threads = [threading.Thread(target=wpauthorenum, args=(ua,url,r)) for r in usrrange]
     for thread in threads:
         thread.start()
     for thread in threads:
         thread.join()
-    global wpparamuser
     # Combine all the usernames that we collected
     usernames = set(wpjsonuser+jpapiuser+wpparamuser)
     if len(usernames) > 0:
