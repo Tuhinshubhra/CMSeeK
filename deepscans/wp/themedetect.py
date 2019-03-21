@@ -11,7 +11,7 @@ def start(source,url,ua):
     ## plug_file = open('database/themes.json', 'r')
     ## plug_data = plug_file.read()
     ## plug_json = json.loads(plug_data)
-	plug_regex = re.compile('wp-content/themes/([^/]+)/.+ver=([0-9\.]+)')
+    plug_regex = re.compile('wp-content/themes/([^/]+)/.+ver=([0-9\.]+)')
     results = plug_regex.findall(source)
     themes = []
     found = 0
