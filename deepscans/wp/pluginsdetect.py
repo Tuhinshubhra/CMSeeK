@@ -9,7 +9,7 @@ import json
 
 def start(source):
     cmseek.info('Starting passive plugin enumeration')
-    plug_regex = re.compile('wp-content/plugins/(.*?)/.*?[css|js].*?ver=([0-9\.]*)')
+    plug_regex = re.compile('wp-content/plugins/([^/]+)/.+ver=([0-9\.]+)')
     results = plug_regex.findall(source)
     plugins = []
     found = 0
