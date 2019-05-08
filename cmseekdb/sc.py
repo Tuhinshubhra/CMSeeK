@@ -17,7 +17,7 @@ def check(s, site): ## Check if no generator meta tag available
         # harray = s.split("\n") ### Array conversion can use if needed later
 
         detkeys = [
-        "/wp-content/:-wp",
+        "/wp-content/||/wp-include/:-wp",
         "/skin/frontend/||x-magento-init:-mg",
         "https://www.blogger.com/static/:-blg",
         "ic.pics.livejournal.com:-lj",
