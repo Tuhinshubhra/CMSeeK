@@ -20,7 +20,6 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 parser = argparse.ArgumentParser(prog='cmseek.py',add_help=False)
-
 parser.add_argument('-h', '--help', action="store_true")
 parser.add_argument('-v', '--verbose', action="store_true")
 parser.add_argument("--version", action="store_true")
@@ -33,6 +32,7 @@ parser.add_argument('-l', '--list')
 parser.add_argument('--clear-result', action='store_true')
 parser.add_argument('--follow-redirect', action='store_true')
 parser.add_argument('--no-redirect', action='store_true')
+parser.add_argument('--batch', action="store_true")
 args = parser.parse_args()
 
 if args.clear_result:
@@ -52,6 +52,11 @@ if args.no_redirect:
 
 if args.update:
     cmseek.update()
+
+if args.batch:
+    print('Batch true')
+    cmseek.batch_mode = True
+    print(cmseek.batch_mode)
 
 if args.version:
     print('\n\n')
@@ -75,6 +80,7 @@ if args.url is not None:
             cua = cmseek.randomua()
         core.main_proc(target,cua)
         cmseek.handle_quit()
+
 elif args.list is not None:
     sites = args.list
     cmseek.clearscreen()
@@ -91,11 +97,13 @@ elif args.list is not None:
         if cua == None:
             cua = cmseek.randomua()
         for s in sites_list:
+            s = s.replace(' ', '')
             target = cmseek.process_url(s)
             if target != '0':
                 core.main_proc(target,cua)
                 cmseek.handle_quit(False)
-                input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
+                if not cmseek.batch_mode:
+                    input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
             else:
                 print('\n')
                 cmseek.warning('Invalid URL: ' + cmseek.bold + s + cmseek.cln + ' Skipping to next')
@@ -157,11 +165,13 @@ elif selone == '2':
         if cua == None:
             cua = cmseek.randomua()
         for s in sites_list:
+            s = s.replace(' ', '')
             target = cmseek.process_url(s)
             if target != '0':
                 core.main_proc(target,cua)
                 cmseek.handle_quit(False)
-                input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
+                if not cmseek.batch_mode:
+                    input('\n\n\tPress ' + cmseek.bold + cmseek.fgreen + '[ENTER]' + cmseek.cln + ' to continue') # maybe a fix? idk
             else:
                 print('\n')
                 cmseek.warning('Invalid URL: ' + cmseek.bold + s + cmseek.cln + ' Skipping to next')
