@@ -3,7 +3,7 @@
 # This is a part of CMSeeK, check the LICENSE file for more information
 # Copyright (c) 2018 - 2019 Tuhinshubhra
 
-def start(id, url, ua, ga, source, ga_content):
+def start(id, url, ua, ga, source, ga_content, headers):
     if id == "wp":
         # trust me more will be added soon
         import VersionDetect.wp as wpverdetect
@@ -249,3 +249,7 @@ def start(id, url, ua, ga, source, ga_content):
         import VersionDetect.rbsc as rbscverdetect
         rbscver = rbscverdetect.start(ga_content)
         return rbscver
+    elif id == 'oracle_atg':
+        import VersionDetect.atg as atgverdetect
+        atgver = atgverdetect.start(headers)
+        return atgver

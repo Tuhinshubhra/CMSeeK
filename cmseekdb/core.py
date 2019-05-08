@@ -126,7 +126,7 @@ def main_proc(site,cua):
         elif cms_info['vd'] == '1':
             cmseek.success('Starting version detection')
             cms_version = '0' # Failsafe measure
-            cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content)
+            cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content, headers)
             cmseek.clearscreen()
             cmseek.banner("CMS Scan Results")
             result.target(site)
