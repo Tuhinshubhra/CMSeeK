@@ -134,6 +134,7 @@ elif selone == 'u':
     cmseek.update()
 elif selone == '0':
     cmseek.bye()
+    
 elif selone == "1":
     # There goes the cms detection thingy
     cmseek.clearscreen()

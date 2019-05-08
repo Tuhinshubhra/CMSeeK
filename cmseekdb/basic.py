@@ -209,7 +209,7 @@ def init_result_dir(url):
         url = list(url)
         url[-1] = ""
         url = "".join(url)
-    tor = {'/','!','?','#','@','&','%','\\','*'}
+    tor = {'/','!','?','#','@','&','%','\\','*', ':'}
     for r in tor:
         url = url.replace(r, '_')
 
