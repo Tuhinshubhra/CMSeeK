@@ -15,14 +15,35 @@ import deepscans.wp.pathdisc as path_disclosure
 import deepscans.wp.check_reg as check_reg
 import cmseekdb.result as sresult
 import time
+import re
 
-def start(id, url, ua, ga, source): ## ({ID of the cms}, {url of target}, {User Agent}, {is Generator Meta tag available [0/1]}, {Source code})
+def start(id, url, ua, ga, source, detection_method): 
+    '''
+    id = ID of the cms
+    url = URL of target
+    ua = User Agent
+    ga = [0/1] is GENERATOR meta tag available
+    source = source code
+    '''   
+    
     ## Do shits later [update from later: i forgot what shit i had to do ;___;]
     if id == "wp":
         # referenced before assignment fix
         vulnss = version = wpvdbres = result = plugins_found = usernames = usernamesgen = '0'
 
         cmseek.statement('Starting WordPress DeepScan')
+
+        
+        # Check if site really is WordPress
+        if detection_method == 'source':
+            # well most of the wordpress false positives are from source detections.
+            cmseek.statement('Checking if the detection is false positive')
+            temp_domain = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\?\=]+)', url)[0]
+            wp_match_pattern = temp_domain + '\/wp-(content|include|admin)\/'
+            if not re.search(wp_match_pattern, source):
+                cmseek.error('Detection was false positive! CMSeeK is quitting')
+                cmseek.handle_quit()
+
         # Version detection
         version = wordpress_version_detect.start(id, url, ua, ga, source)
 
