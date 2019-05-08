@@ -81,7 +81,7 @@ USAGE:
 
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
-      -l LIST, -list LIST          path of the file containing list of sites
+      -l LIST, --list LIST          path of the file containing list of sites
                                    for multi-site scan (comma separated)
 RE-DIRECT:
       --follow-redirect            Follows all/any redirect(s)
