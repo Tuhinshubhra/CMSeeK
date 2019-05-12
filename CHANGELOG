@@ -5,6 +5,7 @@ Version 1.1.2 []
     - RBS Change
   - Version detection added for:
     - Quick.Cart
+    - Oracle ATG Web Commerce
     - RBS Change
   - Added `--batch` argument
   - Identify if WordPress detection via source code was false positive
