@@ -118,7 +118,8 @@ def check(s, site): ## Check if no generator meta tag available
         'href="https://www.fortune3.com/en/siterate/rate.css":-for3',
         '<body class="gridlock shifter">::::<div class="shifter-page">:-btree',
         'list-unstyled::::editable-zone:-pmoc',
-        '<!-- Demandware Analytics code||<!-- Demandware Apple Pay -->:-sfcc'
+        '<!-- Demandware Analytics code||<!-- Demandware Apple Pay -->:-sfcc',
+        'icons__icons___XoCGh||styles__empty___3WCoC||icons__icon-phone___22Eum:-sazito'
         ]
 
         for keyl in detkeys:

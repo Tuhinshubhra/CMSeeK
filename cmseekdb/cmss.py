@@ -1039,3 +1039,10 @@ sfcc = {
     'vd':'0',
     'deeps':'0'
 }
+
+sazito = {
+    'name':'Sazito',
+    'url':'https://sazito.com/',
+    'vd':'0',
+    'deeps':'0'
+}
