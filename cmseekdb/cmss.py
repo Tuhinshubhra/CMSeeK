@@ -1032,3 +1032,10 @@ rbsc = {
     'vd':'1',
     'deeps':'0'
 }
+
+sfcc = {
+    'name':'Salesforce Commerce Cloud',
+    'url':'https://demandware.com/',
+    'vd':'0',
+    'deeps':'0'
+}

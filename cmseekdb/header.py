@@ -79,7 +79,8 @@ def check(h):
         'Set-Cookie: Dynamicweb:-dweb',
         'X-Elcodi::-elcd',
         'X-Powered-By: eZ Publish:-ezpub',
-        'Powered-By: PrestaShop||Set-Cookie: PrestaShop:-presta'
+        'Powered-By: PrestaShop||Set-Cookie: PrestaShop:-presta',
+        'Demandware Secure Token||Demandware anonymous cookie||dwpersonalization_||dwanonymous_:-sfcc'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

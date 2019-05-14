@@ -117,7 +117,8 @@ def check(s, site): ## Check if no generator meta tag available
         'de_epages.remotesearch.ui.suggest||require([[\'de_epages\':-epgs',
         'href="https://www.fortune3.com/en/siterate/rate.css":-for3',
         '<body class="gridlock shifter">::::<div class="shifter-page">:-btree',
-        'list-unstyled::::editable-zone:-pmoc'
+        'list-unstyled::::editable-zone:-pmoc',
+        '<!-- Demandware Analytics code||<!-- Demandware Apple Pay -->:-sfcc'
         ]
 
         for keyl in detkeys:
@@ -199,7 +200,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<script(.*?)/extension/iagutils/design/ezwebin/(.*?)</script>:-ezpub',
         'Powered by(.*?)Fortune3</a>:-for3',
         'Built on(.*?)bigtreecms.org(.*?)BigTree CMS:-btree',
-        'powered(.*?)opensolution.org(.*?)Sklep internetowy'
+        'powered(.*?)opensolution.org(.*?)Sklep internetowy',
+        'href\=(.*?)on/demandware.static:-sfcc'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.
