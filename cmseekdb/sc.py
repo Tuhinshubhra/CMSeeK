@@ -119,7 +119,8 @@ def check(s, site): ## Check if no generator meta tag available
         '<body class="gridlock shifter">::::<div class="shifter-page">:-btree',
         'list-unstyled::::editable-zone:-pmoc',
         '<!-- Demandware Analytics code||<!-- Demandware Apple Pay -->:-sfcc',
-        'icons__icons___XoCGh||styles__empty___3WCoC||icons__icon-phone___22Eum:-sazito'
+        'icons__icons___XoCGh||styles__empty___3WCoC||icons__icon-phone___22Eum:-sazito',
+        'SHOPATRON-CRAWLER:-shopatron'
         ]
 
         for keyl in detkeys:
@@ -202,7 +203,8 @@ def check(s, site): ## Check if no generator meta tag available
         'Powered by(.*?)Fortune3</a>:-for3',
         'Built on(.*?)bigtreecms.org(.*?)BigTree CMS:-btree',
         'powered(.*?)opensolution.org(.*?)Sklep internetowy',
-        'href\=(.*?)on/demandware.static:-sfcc'
+        'href\=(.*?)on/demandware.static:-sfcc',
+        'href\=(.*?)mediacdn.shopatron.com||href\=(.*?)cdn.shptrn.com:-shopatron'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

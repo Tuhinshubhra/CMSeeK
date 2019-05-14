@@ -1046,3 +1046,10 @@ sazito = {
     'vd':'0',
     'deeps':'0'
 }
+
+shopatron = {
+    'name':'Shopatron',
+    'url':'https://www.shopatron.com',
+    'vd':'0',
+    'deeps':'0'
+}
