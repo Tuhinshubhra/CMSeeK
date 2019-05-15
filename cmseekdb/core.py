@@ -3,7 +3,7 @@
 # This is a part of CMSeeK, check the LICENSE file for more information
 # Copyright (c) 2018 - 2019 Tuhinshubhra
 
-## Core Rev 3, stable and strong
+## Core Rev 4, stable, strong and accurate
 
 import sys
 import os

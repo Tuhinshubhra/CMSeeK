@@ -33,6 +33,7 @@ parser.add_argument('--clear-result', action='store_true')
 parser.add_argument('--follow-redirect', action='store_true')
 parser.add_argument('--no-redirect', action='store_true')
 parser.add_argument('--batch', action="store_true")
+parser.add_argument('-i', '--ignore-cms')
 args = parser.parse_args()
 
 if args.clear_result:
@@ -62,6 +63,12 @@ if args.version:
     print('\n\n')
     cmseek.info("CMSeeK Version: " + cmseek.cmseek_version)
     cmseek.bye()
+
+if args.ignore_cms:
+    cmseek.ignore_cms = args.ignore_cms.split(',')
+    for acms in cmseek.ignore_cms:
+        cmseek.warning('Ignoring CMS: ' + acms)
+
 
 if args.user_agent is not None:
     cua = args.user_agent
@@ -134,7 +141,7 @@ elif selone == 'u':
     cmseek.update()
 elif selone == '0':
     cmseek.bye()
-    
+
 elif selone == "1":
     # There goes the cms detection thingy
     cmseek.clearscreen()

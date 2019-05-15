@@ -6,6 +6,7 @@
 # Precise and Hawt
 
 from html.parser import HTMLParser
+import cmseekdb.basic as cmseek
 
 ga = '0'
 ga_content = ''
@@ -119,10 +120,10 @@ def scan(content):
                 idkwhat = det[0]
                 dets = idkwhat.split('||')
                 for d in dets:
-                    if d in hstring:
+                    if d in hstring and det[1] not in cmseek.ignore_cms:
                         return ['1', det[1]]
             else:
-                if det[0] in hstring:
+                if det[0] in hstring and det[1] not in cmseek.ignore_cms:
                     return ['1', det[1]]
 
     return ['0', '']

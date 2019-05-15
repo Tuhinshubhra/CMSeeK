@@ -25,6 +25,7 @@ total_requests = 0
 cstart = time.time()
 redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not follow any redirect
 batch_mode = False # When set to true cmseek won't ask you to press enter after every site in a list is scanned
+ignore_cms = [] # add cms id that you want to skip
 
 # all the color codes goes here
 white = "\033[97m"
@@ -82,8 +83,13 @@ USAGE:
 
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
-      -l LIST, --list LIST          path of the file containing list of sites
+      -l LIST, --list LIST         Path of the file containing list of sites
                                    for multi-site scan (comma separated)
+
+AVOIDING FALSE POSITIVE:
+      -i cms, --ignore--cms URL    Specify which CMS IDs to skip in order to
+                                   avoid flase positive. separated by comma ","
+
 RE-DIRECT:
       --follow-redirect            Follows all/any redirect(s)
       --no-redirect                Skips all redirects and tests the input target(s)

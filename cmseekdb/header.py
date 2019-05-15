@@ -6,6 +6,8 @@
 # Version: 1.0.0
 # Return a list with ['1'/'0','ID of CMS'/'na'] 1 = detected 0 = not detected
 import re
+import cmseekdb.basic as cmseek
+
 def check(h):
     if h == "":
         return ['0', 'na']
@@ -89,10 +91,10 @@ def check(h):
                     idkwhat = det[0]
                     dets = idkwhat.split('||')
                     for d in dets:
-                        if d in hstring:
+                        if d in hstring and det[1] not in cmseek.ignore_cms:
                             return ['1', det[1]]
                 else:
-                    if det[0] in hstring:
+                    if det[0] in hstring and det[1] not in cmseek.ignore_cms:
                         return ['1', det[1]]
 
         ####################################################
@@ -121,11 +123,11 @@ def check(h):
                     gon = hunter[0].split('||')
                     for killua in gon:
                         natero = re.search(killua, hstring, re.DOTALL)
-                        if natero != None:
+                        if natero != None and hunter[1] not in cmseek.ignore_cms:
                             return ['1', hunter[1]]
                 else:
                     natero = re.search(hunter[0], hstring, re.DOTALL)
-                    if natero != None:
+                    if natero != None and hunter[1] not in cmseek.ignore_cms:
                         return ['1', hunter[1]]
         else:
             # Failure
