@@ -427,7 +427,11 @@ def savebrute(url,adminurl,username,password):
             success('New credentials stored at: ' + bold + brute_file + cln)
 
 
-def getsource(url, ua): ## (url, useragent) return type: ({0/1/2},{error/source code/error}, {empty/http headers/empty})
+def getsource(url, ua):
+    '''
+    (url, useragent)
+    return type: [(0/1/2), (error/source code/error), (empty/http headers/empty)]
+    '''
     raw_source = getrawsource(url, ua)
     global total_requests
     total_requests += 1
