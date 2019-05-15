@@ -121,7 +121,7 @@ def main_proc(site,cua):
         cms_info = getattr(cmsdb, cms)
         if cms_info['deeps'] == '1':
             # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
-            advanced.start(cms, site, cua, ga, scode, ga_content, detection_method)
+            advanced.start(cms, site, cua, ga, scode, ga_content, detection_method, headers)
             return
         elif cms_info['vd'] == '1':
             cmseek.success('Starting version detection')
