@@ -253,3 +253,7 @@ def start(id, url, ua, ga, source, ga_content, headers):
         import VersionDetect.atg as atgverdetect
         atgver = atgverdetect.start(headers)
         return atgver
+    elif id == 'umbraco':
+        import VersionDetect.umbraco as umbracoverdetect
+        umbracover = umbracoverdetect.start(headers, url, ua)
+        return umbracover

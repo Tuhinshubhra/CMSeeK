@@ -82,7 +82,8 @@ def check(h):
         'X-Elcodi::-elcd',
         'X-Powered-By: eZ Publish:-ezpub',
         'Powered-By: PrestaShop||Set-Cookie: PrestaShop:-presta',
-        'Demandware Secure Token||Demandware anonymous cookie||dwpersonalization_||dwanonymous_:-sfcc'
+        'Demandware Secure Token||Demandware anonymous cookie||dwpersonalization_||dwanonymous_:-sfcc',
+        'X-Umbraco-Version:-umbraco'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

@@ -6,10 +6,12 @@ Version 1.1.2 []
     - Salesforce Commerce Cloud
     - Sazito
     - Shopatron
+    - Umbraco
   - Version detection added for:
     - Quick.Cart
     - Oracle ATG Web Commerce
     - RBS Change
+    - Umbraco
   - Added `--batch` argument
   - Added `--ignore-cms` argument
   - Identify if WordPress detection via source code was false positive

@@ -1053,3 +1053,10 @@ shopatron = {
     'vd':'0',
     'deeps':'0'
 }
+
+umbraco = {
+    'name':'Umbraco',
+    'url':'https://umbraco.com',
+    'vd':'1',
+    'deeps':'1'
+}

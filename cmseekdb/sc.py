@@ -121,7 +121,8 @@ def check(s, site): ## Check if no generator meta tag available
         'list-unstyled::::editable-zone:-pmoc',
         '<!-- Demandware Analytics code||<!-- Demandware Apple Pay -->:-sfcc',
         'icons__icons___XoCGh||styles__empty___3WCoC||icons__icon-phone___22Eum:-sazito',
-        'SHOPATRON-CRAWLER:-shopatron'
+        'SHOPATRON-CRAWLER:-shopatron',
+        'Umbraco/||umbraco/:-umbraco'
         ]
 
         for keyl in detkeys:
