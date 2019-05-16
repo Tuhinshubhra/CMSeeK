@@ -1060,3 +1060,10 @@ umbraco = {
     'vd':'1',
     'deeps':'1'
 }
+
+shoper = {
+    'name':'Shoper',
+    'url':'https://www.shoper.pl',
+    'vd':'0',
+    'deeps':'0'
+}
