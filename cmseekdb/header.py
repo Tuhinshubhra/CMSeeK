@@ -83,7 +83,8 @@ def check(h):
         'X-Powered-By: eZ Publish:-ezpub',
         'Powered-By: PrestaShop||Set-Cookie: PrestaShop:-presta',
         'Demandware Secure Token||Demandware anonymous cookie||dwpersonalization_||dwanonymous_:-sfcc',
-        'X-Umbraco-Version:-umbraco'
+        'X-Umbraco-Version:-umbraco',
+        'X-Shopery||This E-commerce is built using Shopery:-shopery'
         ]
         for keyl in hkeys:
             if ':-' in keyl:
