@@ -135,7 +135,8 @@ def check(s, site): ## Check if no generator meta tag available
                     dets = idkwhat.split('||')
                     for d in dets:
                         if d in hstring and det[1] not in cmseek.ignore_cms: # ignore cms thingy
-                            return ['1', det[1]]
+                            if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                                return ['1', det[1]]
                 elif '::::' in det[0]:
                     # yet again i know there can be a better way of doing it and feel free to correct it :)
                     and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
@@ -149,10 +150,12 @@ def check(s, site): ## Check if no generator meta tag available
                         else:
                             and_chk = '2'
                     if and_chk == '1' and det[1] not in cmseek.ignore_cms:
-                        return ['1', det[1]]
+                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                            return ['1', det[1]]
                 else:
                     if det[0] in hstring and det[1] not in cmseek.ignore_cms:
-                        return ['1', det[1]]
+                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                            return ['1', det[1]]
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
@@ -223,11 +226,13 @@ def check(s, site): ## Check if no generator meta tag available
                     for killua in gon:
                         natero = re.search(killua, hstring, re.DOTALL)
                         if natero != None and hunter[1] not in cmseek.ignore_cms:
-                            return ['1', hunter[1]]
+                            if cmseek.strict_cms == [] or hunter[1] in cmseek.strict_cms:
+                                return ['1', hunter[1]]
                 else:
                     natero = re.search(hunter[0], hstring, re.DOTALL)
                     if natero != None and hunter[1] not in cmseek.ignore_cms:
-                        return ['1', hunter[1]]
+                        if cmseek.strict_cms == [] or hunter[1] in cmseek.strict_cms:
+                            return ['1', hunter[1]]
 
         else:
             # Failure

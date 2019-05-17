@@ -55,7 +55,8 @@ def check(url, ua):
                     dets = idkwhat.split('||')
                     for d in dets:
                         if d in hstring and det[1] not in cmseek.ignore_cms:
-                            return ['1', det[1]]
+                            if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                                return ['1', det[1]]
                 elif '::::' in det[0]:
                     # yet again i know there can be a better way of doing it and feel free to correct it :)
                     and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
@@ -69,14 +70,17 @@ def check(url, ua):
                         else:
                             and_chk = '2'
                     if and_chk == '1' and det[1] not in cmseek.ignore_cms:
-                        return ['1', det[1]]
+                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                            return ['1', det[1]]
                 else:
                     if det[0] in hstring and det[1] not in cmseek.ignore_cms:
-                        return ['1', det[1]]
+                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                            return ['1', det[1]]
 
         t3_regex = re.search(r'Sitemap: http(.*?)\?type=', robotstr)
         if t3_regex != None and 'tp3' not in cmseek.ignore_cms:
-            return ['1', 'tp3']
+            if cmseek.strict_cms == [] or 'tp3' in cmseek.strict_cms:
+                return ['1', 'tp3']
 
         return ['0','']
     else:

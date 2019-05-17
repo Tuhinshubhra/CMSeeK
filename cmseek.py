@@ -34,6 +34,7 @@ parser.add_argument('--follow-redirect', action='store_true')
 parser.add_argument('--no-redirect', action='store_true')
 parser.add_argument('--batch', action="store_true")
 parser.add_argument('-i', '--ignore-cms')
+parser.add_argument('--strict-cms')
 args = parser.parse_args()
 
 if args.clear_result:
@@ -69,6 +70,9 @@ if args.ignore_cms:
     for acms in cmseek.ignore_cms:
         cmseek.warning('Ignoring CMS: ' + acms)
 
+if args.strict_cms:
+    cmseek.strict_cms = args.strict_cms.split(',')
+    cmseek.warning('Checking target against CMSes: ' + args.strict_cms)
 
 if args.user_agent is not None:
     cua = args.user_agent
