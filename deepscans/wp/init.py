@@ -43,7 +43,8 @@ def start(id, url, ua, ga, source, detection_method):
             if not re.search(wp_match_pattern, source):
                 cmseek.error('Detection was false positive! CMSeeK is quitting!')
                 cmseek.success('Run CMSeeK with {0}{1}{2} argument next time'.format(cmseek.fgreen, '--ignore-cms wp', cmseek.cln))
-                cmseek.handle_quit()
+                #cmseek.handle_quit()
+                return
 
         # Version detection
         version = wordpress_version_detect.start(id, url, ua, ga, source)

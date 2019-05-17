@@ -14,7 +14,8 @@ import re
 def falsepositive():
     cmseek.error('Detection was false positive! CMSeeK is quitting!')
     cmseek.success('Run CMSeeK with {0}{1}{2} argument next time'.format(cmseek.fgreen, '--ignore-cms umbraco', cmseek.cln))
-    cmseek.handle_quit()
+    #cmseek.handle_quit()
+    return
 
 def start(id, url, ua, ga, source, detection_method, headers):
     if id == 'umbraco':
@@ -52,3 +53,4 @@ def start(id, url, ua, ga, source, detection_method, headers):
         if log_dir is not "":
             log_file = log_dir + "/cms.json"
         sresult.end(str(cmseek.total_requests), str(comptime), log_file)
+        return
