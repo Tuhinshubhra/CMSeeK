@@ -8,6 +8,7 @@ Version 1.1.2 []
     - Shopatron
     - Umbraco
     - Shoper
+    - Shopery
   - Version detection added for:
     - Quick.Cart
     - Oracle ATG Web Commerce
