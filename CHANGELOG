@@ -18,6 +18,7 @@ Version 1.1.2 []
   - Added `--ignore-cms` argument
   - Added `--strict-cms` argument
   - Identify if WordPress detection via source code was false positive
+  - Fixed an issue where cms name and cms url would not be added in the result json
 Version 1.1.1 [01-02-2019]
   - Added new CMS:
     - Afosto
