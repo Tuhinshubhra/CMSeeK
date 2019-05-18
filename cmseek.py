@@ -36,6 +36,7 @@ parser.add_argument('--no-redirect', action='store_true')
 parser.add_argument('--batch', action="store_true")
 parser.add_argument('-i', '--ignore-cms')
 parser.add_argument('--strict-cms')
+parser.add_argument('--skip-scanned', action="store_true")
 args = parser.parse_args()
 
 if args.clear_result:
@@ -47,6 +48,9 @@ if args.help:
 if args.verbose:
     cmseek.verbose = True
 
+if args.skip_scanned:
+    cmseek.skip_scanned = True
+
 if args.follow_redirect:
     cmseek.redirect_conf = '1'
 
@@ -57,7 +61,7 @@ if args.update:
     cmseek.update()
 
 if args.batch:
-    print('Batch true')
+    #print('Batch true')
     cmseek.batch_mode = True
     print(cmseek.batch_mode)
 
@@ -86,7 +90,10 @@ if args.googlebot:
     cua = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
 
 # Update report index
-createindex.init(cmseek.cmseek_dir)
+index_status = createindex.init(cmseek.cmseek_dir)
+if index_status[0] != '1':
+    # might be too extreme
+    cmseek.handle_quit()
 
 if args.url is not None:
     s = args.url

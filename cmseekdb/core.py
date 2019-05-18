@@ -25,6 +25,14 @@ import cmseekdb.generator as generator
 import cmseekdb.result as result
 
 def main_proc(site,cua):
+
+    # Check for skip_scanned
+    if cmseek.skip_scanned:
+        for csite in cmseek.report_index['results'][0]:
+            if site == csite and cmseek.report_index['results'][0][site]['cms_id'] != '':
+                cmseek.warning('Skipping {0} as it was previously scanned!'.format(cmseek.red + site + cmseek.cln))
+                return
+
     cmseek.clearscreen()
     cmseek.banner("CMS Detection And Deep Scan")
     cmseek.info("Scanning Site: " + site)

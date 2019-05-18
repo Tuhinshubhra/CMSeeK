@@ -27,7 +27,8 @@ redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not f
 batch_mode = False # When set to true cmseek won't ask you to press enter after every site in a list is scanned
 ignore_cms = [] # add cms id that you want to skip
 strict_cms = [] # add cms ids that you want to detect.. no other cmses will be detected when any id is provided.
-report_index = {}
+report_index = {} # Contains previous scan results
+skip_scanned = False # When set to true CMSeeK witll ignore target whose CMS had been previously detected!
 
 
 # all the color codes goes here
@@ -89,11 +90,14 @@ SPECIFING TARGET:
       -l LIST, --list LIST         Path of the file containing list of sites
                                    for multi-site scan (comma separated)
 
-SPECIFYING CMS:
+MANIPULATING SCAN:
       -i cms, --ignore--cms cms    Specify which CMS IDs to skip in order to
                                    avoid flase positive. separated by comma ","
+
       --strict-cms cms             Checks target against a list of provided
                                    CMS IDs. separated by comma ","
+
+      --skip-scanned               Skips target if it's CMS was previously detected.
 
 RE-DIRECT:
       --follow-redirect            Follows all/any redirect(s)
