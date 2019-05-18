@@ -68,13 +68,23 @@ Help menu from the program:
 
 ```
 USAGE:
-       python3 cmseek.py (for a guided scanning) OR
+       python3 cmseek.py (for guided scanning) OR
        python3 cmseek.py [OPTIONS] <Target Specification>
 
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
-      -l LIST, -list LIST          path of the file containing list of sites
+      -l LIST, --list LIST         Path of the file containing list of sites
                                    for multi-site scan (comma separated)
+
+MANIPULATING SCAN:
+      -i cms, --ignore--cms cms    Specify which CMS IDs to skip in order to
+                                   avoid flase positive. separated by comma ","
+
+      --strict-cms cms             Checks target against a list of provided
+                                   CMS IDs. separated by comma ","
+
+      --skip-scanned               Skips target if it's CMS was previously detected.
+
 RE-DIRECT:
       --follow-redirect            Follows all/any redirect(s)
       --no-redirect                Skips all redirects and tests the input target(s)
