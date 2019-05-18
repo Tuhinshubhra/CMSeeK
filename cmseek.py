@@ -16,6 +16,7 @@ import importlib
 
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
+import cmseekdb.createindex as createindex
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -83,6 +84,10 @@ else:
 
 if args.googlebot:
     cua = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
+
+# Update report index
+createindex.init(cmseek.cmseek_dir)
+
 if args.url is not None:
     s = args.url
     target = cmseek.process_url(s)

@@ -27,6 +27,8 @@ redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not f
 batch_mode = False # When set to true cmseek won't ask you to press enter after every site in a list is scanned
 ignore_cms = [] # add cms id that you want to skip
 strict_cms = [] # add cms ids that you want to detect.. no other cmses will be detected when any id is provided.
+report_index = {}
+
 
 # all the color codes goes here
 white = "\033[97m"
