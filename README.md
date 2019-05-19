@@ -160,12 +160,12 @@ CMSeek has a modular bruteforce system meaning you can add your custom made brut
 
 3. Copy and paste the module in the `brutecms` directory under CMSeeK's directory
 
-4. Open CMSeeK and Rebuild Cache using `U` as the input in the first menu.
+4. Open CMSeeK and Rebuild Cache using `R` as the input in the first menu.
 
 5. If everything is done right you'll see something like this (refer to screenshot below) and your module will be listed in bruteforce menu the next time you open CMSeeK.
 
 <p align='center'>
-  <img alt="Cache Rebuild Screenshot" width="400px" src="https://i.imgur.com/2Brl7pl.png" />
+  <img alt="Cache Rebuild Screenshot" width="600px" src="https://i.imgur.com/yhdzTYr.png" />
 </p>
 
 ## Need More Reasons To Use CMSeeK?
@@ -177,11 +177,11 @@ Also you can try reading comments in the code those are pretty random and weird!
 ## Screenshots:
 
 <p align="center">
-  <img alt="Main Menu" width="600px" src="https://s8.postimg.cc/ha6754v6t/cmseek_-v_068.png" />
+  <img alt="Main Menu" src="https://i.imgur.com/Eij6QvX.png" />
   <br><em>Main Menu</em><br>
-  <img alt="Scan Result" width="600px" src="https://s8.postimg.cc/f6vrxg0it/result.png" />
+  <img alt="Scan Result" src="https://i.imgur.com/u0iyLdB.png" />
   <br><em>Scan Result</em><br>
-  <img alt="WordPress Scan Result" width="600px" src="https://i.imgur.com/CK4O1Yd.png" />
+  <img alt="WordPress Scan Result" src="https://i.imgur.com/cOtCJLj.png" />
   <br><em>WordPress Scan Result</em><br>
 </p>
 
