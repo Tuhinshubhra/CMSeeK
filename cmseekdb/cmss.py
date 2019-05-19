@@ -1088,3 +1088,10 @@ shopify = {
     'vd':'0',
     'deeps':'0'
 }
+
+shoptet = {
+    'name':'Shoptet',
+    'url':'https://www.shoptet.cz/',
+    'vd':'0',
+    'deeps':'0'
+}
