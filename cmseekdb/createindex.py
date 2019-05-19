@@ -28,9 +28,9 @@ def init(cmseek_dir, report_dir=""):
             for result_dir in result_dirs:
                 scan_file = os.path.join(report_dir, result_dir, 'cms.json')
                 if os.path.isfile(scan_file):
-                    with open(scan_file, 'r', encoding='utf8') as sf:
-                        scan_content = json.loads(sf.read())
                     try:
+                        with open(scan_file, 'r', encoding='utf8') as sf:
+                            scan_content = json.loads(sf.read())
                         scan_url = scan_content['url']
                         result_index[scan_url] = {"cms_id": scan_content['cms_id'],"date": scan_content['last_scanned']}
                     except Exception as e:
@@ -52,4 +52,3 @@ def init(cmseek_dir, report_dir=""):
     else:
         cmseek.error('Invalid CMSeeK directory passed!')
         return [0, 'CMSeeK directory does not exist']
-
