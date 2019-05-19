@@ -93,7 +93,9 @@ if args.googlebot:
 index_status = createindex.init(cmseek.cmseek_dir)
 if index_status[0] != '1':
     # might be too extreme
-    cmseek.handle_quit()
+    # cmseek.handle_quit()
+    if not cmseek.batch_mode:
+        input('There was an error while creating result index! Some features might not work as intended. Press [ENTER] to continue:')
 
 if args.url is not None:
     s = args.url
