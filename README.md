@@ -131,7 +131,7 @@ CMSeek detects CMS via the following:
 
 ## Supported CMSs:
 
-CMSeeK currently can detect **157** CMS. Check the list here: [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
+CMSeeK currently can detect **170+** CMS. Check the list here: [cmss.py](https://github.com/Tuhinshubhra/CMSeeK/blob/master/cmseekdb/cmss.py) file which is present in the `cmseekdb` directory.
 All the cmss are stored in the following way:
 ```
  cmsID = {
