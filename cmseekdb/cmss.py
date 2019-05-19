@@ -1074,3 +1074,10 @@ shopery = {
     'vd':'0',
     'deeps':'0'
 }
+
+shopfa = {
+    'name':'ShopFA',
+    'url':'https://shopfa.com/',
+    'vd':'1',
+    'deeps':'0'
+}

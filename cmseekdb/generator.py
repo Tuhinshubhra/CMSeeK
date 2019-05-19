@@ -110,7 +110,8 @@ def scan(content):
                 'proximis omnichannel:-pmoc',
                 'quick.cart:-qcart',
                 'rbs change:-rbsc',
-                'sazito:-sazito'
+                'sazito:-sazito',
+                'shopfa:-shopfa'
     ]
 
     for keyl in detkeys:

@@ -9,11 +9,13 @@ Version 1.1.2 []
     - Umbraco
     - Shoper
     - Shopery
+    - ShopFA
   - Version detection added for:
     - Quick.Cart
     - Oracle ATG Web Commerce
     - RBS Change
     - Umbraco
+    - ShopFA
   - Added `--batch` argument
   - Added `--ignore-cms` argument
   - Added `--strict-cms` argument

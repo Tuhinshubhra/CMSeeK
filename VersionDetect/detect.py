@@ -257,3 +257,7 @@ def start(id, url, ua, ga, source, ga_content, headers):
         import VersionDetect.umbraco as umbracoverdetect
         umbracover = umbracoverdetect.start(headers, url, ua)
         return umbracover
+    elif id == 'shopfa':
+        import VersionDetect.shopfa as shopfaverdetect
+        shopfaver = shopfaverdetect.start(ga_content, headers)
+        return shopfaver
