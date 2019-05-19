@@ -85,8 +85,10 @@ def check(h):
         'Demandware Secure Token||Demandware anonymous cookie||dwpersonalization_||dwanonymous_:-sfcc',
         'X-Umbraco-Version:-umbraco',
         'X-Shopery||This E-commerce is built using Shopery:-shopery',
-        'X-Powered-By: ShopFA:-shopfa'
-        ]
+        'X-Powered-By: ShopFA:-shopfa',
+        'X-ShopId::::X-ShardId:-shopify',
+        'X-Shopify-Stage||set-cookie: _shopify||Set-Cookie: secure_customer_sig:-shopify'
+        ]        
         for keyl in hkeys:
             if ':-' in keyl:
                 det = keyl.split(':-')
@@ -94,9 +96,24 @@ def check(h):
                     idkwhat = det[0]
                     dets = idkwhat.split('||')
                     for d in dets:
-                        if d in hstring and det[1] not in cmseek.ignore_cms:
+                        if d in hstring and det[1] not in cmseek.ignore_cms: # ignore cms thingy
                             if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
                                 return ['1', det[1]]
+                elif '::::' in det[0]:
+                    # yet again i know there can be a better way of doing it and feel free to correct it :)
+                    and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
+                    chks = det[0].split('::::')
+                    for chk in chks:
+                        if and_chk == '0' or and_chk == '1':
+                            if chk in hstring:
+                                and_chk = '1'
+                            else:
+                                and_chk = '2'
+                        else:
+                            and_chk = '2'
+                    if and_chk == '1' and det[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
+                            return ['1', det[1]]
                 else:
                     if det[0] in hstring and det[1] not in cmseek.ignore_cms:
                         if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:

@@ -1081,3 +1081,10 @@ shopfa = {
     'vd':'1',
     'deeps':'0'
 }
+
+shopify = {
+    'name':'Shopify',
+    'url':'https://www.shopify.com/',
+    'vd':'0',
+    'deeps':'0'
+}
