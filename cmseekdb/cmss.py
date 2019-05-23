@@ -1095,3 +1095,10 @@ shoptet = {
     'vd':'0',
     'deeps':'0'
 }
+
+smartstore = {
+    'name':'Smartstore',
+    'url':'https://www.smartstore.com',
+    'vd':'0',
+    'deeps':'0'
+}

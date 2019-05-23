@@ -125,7 +125,8 @@ def check(s, site): ## Check if no generator meta tag available
         'Umbraco/||umbraco/:-umbraco',
         'Sklep internetowy Shoper.pl:-shoper',
         '//www.googletagmanager.com/ns.html?id=GTM-N2T2D3:-shopery',
-        'shopfa_license:-shopfa'
+        'shopfa_license:-shopfa',
+        '/smjslib.js||/smartstore.core.js:-smartstore'
         ]
 
         for keyl in detkeys:
@@ -217,7 +218,8 @@ def check(s, site): ## Check if no generator meta tag available
         '(cdn|font).shopery.com/:-shopery',
         'href\=(.*?)cdn.shopfa.com/||href\=(.*?)cdnfa.com/:-shopfa',
         'id=("|\')(shopify-digital-wallet|shopify-features)||href\=(.*?)cdn.shopify.com/:-shopify',
-        'href\=(.*?)cdn.myshoptet.com/||content="Shoptet.sk"||var shoptet=:-shoptet'
+        'href\=(.*?)cdn.myshoptet.com/||content="Shoptet.sk"||var shoptet=:-shoptet',
+        'css/smartstore.(core|theme|modules).css:-smartstore'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.
