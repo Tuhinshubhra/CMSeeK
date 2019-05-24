@@ -1102,3 +1102,10 @@ smartstore = {
     'vd':'0',
     'deeps':'0'
 }
+
+solusquare = {
+    'name':'Solusquare Commerce Cloud',
+    'url':'https://www.solusquare.com/',
+    'vd':'0',
+    'deeps':'0'
+}

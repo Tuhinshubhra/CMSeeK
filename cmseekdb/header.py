@@ -88,7 +88,8 @@ def check(h):
         'X-Powered-By: ShopFA:-shopfa',
         'X-ShopId::::X-ShardId:-shopify',
         'X-Shopify-Stage||set-cookie: _shopify||Set-Cookie: secure_customer_sig:-shopify',
-        'SRV_ID=shoptet:-shoptet'
+        'SRV_ID=shoptet:-shoptet',
+        'Set-Cookie: _SOLUSQUARE:-solusquare'
         ]        
         for keyl in hkeys:
             if ':-' in keyl:

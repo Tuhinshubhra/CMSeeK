@@ -111,7 +111,8 @@ def scan(content):
                 'quick.cart:-qcart',
                 'rbs change:-rbsc',
                 'sazito:-sazito',
-                'shopfa:-shopfa'
+                'shopfa:-shopfa',
+                'solusquare:-solusquare'
     ]
 
     for keyl in detkeys:

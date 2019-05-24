@@ -48,7 +48,8 @@ def check(url, ua):
         'robots.txt for Umbraco||Disallow: /umbraco||Disallow: /umbraco_client:-umbraco',
         'we use Shopify:-shopify',
         'diskuse::::wysiwyg::::dotaz::::hodnoceni:-shoptet',
-        'Disallow: /broker::::Disallow: /broker/orders:-smartstore'
+        'Disallow: /broker::::Disallow: /broker/orders:-smartstore',
+        'gestion_e_commerce:-solusquare'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

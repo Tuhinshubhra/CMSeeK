@@ -1,6 +1,7 @@
 Version 1.1.3 []
   - Added new CMS:
     - Smartstore
+    - Solusquare Commerce Cloud
 
 Version 1.1.2 [19-05-2019]
   - Added new CMS:
@@ -28,6 +29,7 @@ Version 1.1.2 [19-05-2019]
   - Added `--skip-scanned` argument
   - Identify if WordPress detection via source code was false positive
   - Fixed an issue where cms name and cms url would not be added in the result json
+
 Version 1.1.1 [01-02-2019]
   - Added new CMS:
     - Afosto
@@ -62,6 +64,7 @@ Version 1.1.1 [01-02-2019]
   - Refactored code for detecting cms
   - Added `--googlebot` option to use googlebot user agent
   - Added `--follow-redirect` and `--no-redirect` arguments
+
 Version 1.1.0 [28-08-2018]
   - Added new CMS:
     - Advanced Electron Forum
@@ -121,6 +124,7 @@ Version 1.1.0 [28-08-2018]
   - New detection methods added for:
     - phpwind
   - Fixed an issue with log (#28)
+
 Version 1.0.9 [21-08-2018]
   - Added new CMS:
     - PHP Nuke
@@ -154,6 +158,7 @@ Version 1.0.9 [21-08-2018]
   - Ignore certificate error (#20)
   - UA validation evasion added
   - UI Revamped
+
 Version 1.0.8 [14-08-2018]
   - Added new CMS:
     - SilverStripe
@@ -215,6 +220,7 @@ Version 1.0.8 [14-08-2018]
     - Jimdo
     - ImpressPages CMS
   - New browser validation bypass added
+
 Version 1.0.7 [07-08-2018]
   - Added new CMS:
     - TiddlyWiki
@@ -241,6 +247,7 @@ Version 1.0.7 [07-08-2018]
   - fixed some issues with directory
   - fixed bruteforce modules
   - fixed url handler function
+
 Version 1.0.6 [23-07-2018]
   - added new CMSs:
       - XOOPS
@@ -266,6 +273,7 @@ Version 1.0.6 [23-07-2018]
   - brutefocer now adds username to the list of passwords to try [issue #14]
   - added (-l, --list) argument for scanning sites from file
   - Other minor fixes and tweaks
+
 Version 1.0.5 [19-07-2018]
   - version detection for drupal added
   - fixed '/' error in url
@@ -273,13 +281,16 @@ Version 1.0.5 [19-07-2018]
   - Core updated to make it smaller and faster
   - removed multiprocessing with multithreading now cmseek runs on almost all devices
   - other minor fixes
+
 Version 1.0.4 [17-07-2018]
   - added joomla deep scan and version detection
   - minor core update
   - removed some junk code from wordpress deepscan
+
 Version 1.0.3 [06-07-2018]
   - clear-result argument added
   - fixed all bruteforce modules
+
 Version 1.0.2 [06-07-2018]
   - WordPress passive theme detection added
   - WordPress passive plugins enumeration added
@@ -287,9 +298,11 @@ Version 1.0.2 [06-07-2018]
   - Deep scan updated
   - Version detect updated
   - Minor code updates and bug fixes
+
 Version 1.0.1 [19-06-2018]
   - Added Update option
   - Added version switch
   - some minor updates
+  
 Version 1.0.0 [15-06-2018]
   - Initial Beta release
