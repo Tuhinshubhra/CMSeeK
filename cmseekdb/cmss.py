@@ -1109,3 +1109,10 @@ solusquare = {
     'vd':'0',
     'deeps':'0'
 }
+
+spree = {
+    'name':'Spree',
+    'url':'https://spreecommerce.org/',
+    'vd':'0',
+    'deeps':'0'
+}

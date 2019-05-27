@@ -49,7 +49,8 @@ def check(url, ua):
         'we use Shopify:-shopify',
         'diskuse::::wysiwyg::::dotaz::::hodnoceni:-shoptet',
         'Disallow: /broker::::Disallow: /broker/orders:-smartstore',
-        'gestion_e_commerce:-solusquare'
+        'gestion_e_commerce:-solusquare',
+        'spree/products/:-spree'
         ]
         for keyl in hkeys:
             if ':-' in keyl:

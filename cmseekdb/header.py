@@ -89,7 +89,8 @@ def check(h):
         'X-ShopId::::X-ShardId:-shopify',
         'X-Shopify-Stage||set-cookie: _shopify||Set-Cookie: secure_customer_sig:-shopify',
         'SRV_ID=shoptet:-shoptet',
-        'Set-Cookie: _SOLUSQUARE:-solusquare'
+        'Set-Cookie: _SOLUSQUARE:-solusquare',
+        'Set-Cookie: _spree_store_session:-spree'
         ]        
         for keyl in hkeys:
             if ':-' in keyl:
