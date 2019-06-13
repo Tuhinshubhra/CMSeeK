@@ -1116,3 +1116,10 @@ spree = {
     'vd':'0',
     'deeps':'0'
 }
+
+bitrix = {
+    'name':'Bitrix',
+    'url':'https://www.1c-bitrix.ru',
+    'vd':'0',
+    'deeps':'0'
+}
