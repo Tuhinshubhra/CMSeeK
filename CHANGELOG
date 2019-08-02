@@ -3,6 +3,7 @@ Version 1.1.3 []
     - Smartstore
     - Solusquare Commerce Cloud
     - Spree
+  - Added WordPress Bruteforce via XML-RPC
 
 Version 1.1.2 [19-05-2019]
   - Added new CMS:
