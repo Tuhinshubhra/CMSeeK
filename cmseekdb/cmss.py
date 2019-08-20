@@ -1123,3 +1123,10 @@ bitrix = {
     'vd':'0',
     'deeps':'0'
 }
+
+brightspot = {
+    'name':'Brightspot CMS',
+    'url':'https://www.brightspot.com/',
+    'vd':'0',
+    'deeps':'0'
+}

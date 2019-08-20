@@ -220,7 +220,8 @@ def check(s, site): ## Check if no generator meta tag available
         'id=("|\')(shopify-digital-wallet|shopify-features)||href\=(.*?)cdn.shopify.com/:-shopify',
         'href\=(.*?)cdn.myshoptet.com/||content="Shoptet.sk"||var shoptet=:-shoptet',
         'css/smartstore.(core|theme|modules).css:-smartstore',
-        'src=(.*?)spree/(products|brands)||Spree.(api_key|routes|translations):-spree'
+        'src=(.*?)spree/(products|brands)||Spree.(api_key|routes|translations):-spree',
+        'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot'
         ]
         # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from hxh.

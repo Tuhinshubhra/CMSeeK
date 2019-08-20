@@ -91,7 +91,9 @@ def check(h):
         'SRV_ID=shoptet:-shoptet',
         'Set-Cookie: _SOLUSQUARE:-solusquare',
         'Set-Cookie: _spree_store_session:-spree',
-        'X-Powered-CMS: Bitrix Site Manager:-bitrix'
+        'X-Powered-CMS: Bitrix Site Manager:-bitrix',
+        'X-Powered-By: Brightspot:-brightspot'
+        ''
         ]        
         for keyl in hkeys:
             if ':-' in keyl:
