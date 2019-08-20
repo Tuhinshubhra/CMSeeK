@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src="https://i.imgur.com/n2U6nVH.png" alt="Logo"> <br>
+  <img src="https://i.imgur.com/5VYs1m2.png" alt="Logo"> <br>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/releases/tag/v.1.1.2"><img src="https://img.shields.io/badge/Version-1.1.2-brightgreen.svg?style=style=flat-square" alt="version"></a>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/"><img src="https://img.shields.io/badge/python-3-orange.svg?style=style=flat-square" alt="Python Version"></a>
   <a href="https://github.com/Tuhinshubhra/CMSeeK/stargazers"><img src="https://img.shields.io/github/stars/Tuhinshubhra/CMSeeK.svg" alt="GitHub stars" /></a>
