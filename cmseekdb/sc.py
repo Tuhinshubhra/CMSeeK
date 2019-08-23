@@ -17,7 +17,7 @@ def check(s, site): ## Check if no generator meta tag available
         hstring = s
         # harray = s.split("\n") ### Array conversion can use if needed later
 
-        detkeys = [
+        page_source_detection_keys = [
         "/wp-content/||/wp-include/:-wp",
         "/skin/frontend/||x-magento-init:-mg",
         "https://www.blogger.com/static/:-blg",
@@ -129,41 +129,41 @@ def check(s, site): ## Check if no generator meta tag available
         '/smjslib.js||/smartstore.core.js:-smartstore'
         ]
 
-        for keyl in detkeys:
-            if ':-' in keyl:
-                det = keyl.split(':-')
-                if '||' in det[0]:
-                    idkwhat = det[0]
-                    dets = idkwhat.split('||')
-                    for d in dets:
-                        if d in hstring and det[1] not in cmseek.ignore_cms: # ignore cms thingy
-                            if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                                return ['1', det[1]]
-                elif '::::' in det[0]:
-                    # yet again i know there can be a better way of doing it and feel free to correct it :)
-                    and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
-                    chks = det[0].split('::::')
-                    for chk in chks:
-                        if and_chk == '0' or and_chk == '1':
-                            if chk in hstring:
-                                and_chk = '1'
+        for detection_key in page_source_detection_keys:
+            if ':-' in detection_key:
+                detection_array = detection_key.split(':-')
+                if '||' in detection_array[0]:
+                    idkwhat = detection_array[0]
+                    detection_strings = idkwhat.split('||')
+                    for detection_string in detection_strings:
+                        if detection_string in hstring and detection_array[1] not in cmseek.ignore_cms: # check if the cms_id is not in the ignore list
+                            if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                                return ['1', detection_array[1]]
+                elif '::::' in detection_array[0]:
+                    # :::: is used when we want to check if both detection strings are present in the source code. 
+                    match_status = '0' # 0 = neutral, 1 = passed, 2 = failed
+                    match_strings = detection_array[0].split('::::')
+                    for match_string in match_strings:
+                        if match_status == '0' or match_status == '1':
+                            if match_string in hstring:
+                                match_status = '1'
                             else:
-                                and_chk = '2'
+                                match_status = '2'
                         else:
-                            and_chk = '2'
-                    if and_chk == '1' and det[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', det[1]]
+                            match_status = '2'
+                    if match_status == '1' and detection_array[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                            return ['1', detection_array[1]]
                 else:
-                    if det[0] in hstring and det[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', det[1]]
+                    if detection_array[0] in hstring and detection_array[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                            return ['1', detection_array[1]]
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
-        rgxkeys = [
+        page_source_detection_regex_keys = [
         '(\'|")https\://afosto\-cdn(.*?)\.afosto\.com(.*?)(\'|"):-afsto',
         'Powered by(.*?)JForum(.*?)\</a\>:-jf',
         'Powered by(.*?)AspNetForum(.*?)(\</a\>|\</span\>):-aspf',
@@ -223,24 +223,21 @@ def check(s, site): ## Check if no generator meta tag available
         'src=(.*?)spree/(products|brands)||Spree.(api_key|routes|translations):-spree',
         'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot'
         ]
-        # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
-        # In the following lines you'll find some weird variable names, those are characters from hxh.
-        # Thank you for reading this utterly useless comment.. now let's get back to work!
-        for hxh in rgxkeys:
-            if ':-' in hxh:
-                hunter = hxh.split(':-')
-                if '||' in hunter[0]:
-                    gon = hunter[0].split('||')
-                    for killua in gon:
-                        natero = re.search(killua, hstring, re.DOTALL)
-                        if natero != None and hunter[1] not in cmseek.ignore_cms:
-                            if cmseek.strict_cms == [] or hunter[1] in cmseek.strict_cms:
-                                return ['1', hunter[1]]
+        for detection_key in page_source_detection_regex_keys:
+            if ':-' in detection_key:
+                detection_array = detection_key.split(':-')
+                if '||' in detection_array[0]:
+                    detection_regex_strings = detection_array[0].split('||')
+                    for detection_regex_string in detection_regex_strings:
+                        regex_match_status = re.search(detection_regex_string, hstring, re.DOTALL)
+                        if regex_match_status != None and detection_array[1] not in cmseek.ignore_cms:
+                            if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                                return ['1', detection_array[1]]
                 else:
-                    natero = re.search(hunter[0], hstring, re.DOTALL)
-                    if natero != None and hunter[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or hunter[1] in cmseek.strict_cms:
-                            return ['1', hunter[1]]
+                    regex_match_status = re.search(detection_array[0], hstring, re.DOTALL)
+                    if regex_match_status != None and detection_array[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                            return ['1', detection_array[1]]
 
         else:
             # Failure

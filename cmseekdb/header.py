@@ -8,16 +8,16 @@
 import re
 import cmseekdb.basic as cmseek
 
-def check(h):
-    if h == "":
+def check(hstring):
+    if hstring == "":
         return ['0', 'na']
     else:
-        hstring = h
+        #hstring = h
         # harray = h.split("\n") # will use whenever necessary
 
         #### START DETECTION FROM HERE
 
-        hkeys = [
+        header_detection_keys = [
         '/wp-json/:-wp',
         'X-Drupal-||19 Nov 1978 05:-dru',
         'Expires: Wed, 17 Aug 2005 00:00:00 GMT:-joom',
@@ -95,41 +95,41 @@ def check(h):
         'X-Powered-By: Brightspot:-brightspot'
         ''
         ]        
-        for keyl in hkeys:
-            if ':-' in keyl:
-                det = keyl.split(':-')
-                if '||' in det[0]:
-                    idkwhat = det[0]
-                    dets = idkwhat.split('||')
-                    for d in dets:
-                        if d in hstring and det[1] not in cmseek.ignore_cms: # ignore cms thingy
-                            if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                                return ['1', det[1]]
-                elif '::::' in det[0]:
-                    # yet again i know there can be a better way of doing it and feel free to correct it :)
-                    and_chk = '0' # 0 = neutral, 1 = passed, 2 = failed
-                    chks = det[0].split('::::')
-                    for chk in chks:
-                        if and_chk == '0' or and_chk == '1':
-                            if chk in hstring:
-                                and_chk = '1'
+        for header_key in header_detection_keys:
+            if ':-' in header_key:
+                detection_string = header_key.split(':-')
+                if '||' in detection_string[0]:
+                    # check if there are multiple detection strings
+                    detection_strings = detection_string[0].split('||')
+                    for d in detection_strings:
+                        if d in hstring and detection_string[1] not in cmseek.ignore_cms: # ignore cms thingy - what i mean is check if the cms_id is not in the ignore list
+                            if cmseek.strict_cms == [] or detection_string[1] in cmseek.strict_cms:
+                                return ['1', detection_string[1]]
+                elif '::::' in detection_string[0]:
+                    # :::: is used when we want to check if both detection strings are present in the header. 
+                    match_status = '0' # 0 = neutral, 1 = passed, 2 = failed
+                    keys_to_match = detection_string[0].split('::::')
+                    for check_key in keys_to_match:
+                        if match_status == '0' or match_status == '1':
+                            if check_key in hstring:
+                                match_status = '1'
                             else:
-                                and_chk = '2'
+                                match_status = '2'
                         else:
-                            and_chk = '2'
-                    if and_chk == '1' and det[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', det[1]]
+                            match_status = '2'
+                    if match_status == '1' and detection_string[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_string[1] in cmseek.strict_cms:
+                            return ['1', detection_string[1]]
                 else:
-                    if det[0] in hstring and det[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', det[1]]
+                    if detection_string[0] in hstring and detection_string[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_string[1] in cmseek.strict_cms:
+                            return ['1', detection_string[1]]
 
         ####################################################
         #         REGEX DETECTIONS STARTS FROM HERE        #
         ####################################################
 
-        rgxkeys = [
+        header_detection_keys_regex = [
         'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=:-yabb',
         'Set-Cookie: xmblv(a|b)=(\d.*?)\n:-xmb',
         'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=:-pwind',
@@ -141,24 +141,26 @@ def check(h):
         'Set-Cookie: ses(\d+)=:-impage',
         'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc'
         ]
-        # so here's the story, i've been watching hunter x hunter for last 2 weeks and i just finished it.
-        # In the following lines you'll find some weird variable names, those are characters from hxh.
+        # so here's the story, i've been watching regex_key x regex_key for last 2 weeks and i just finished it.
+        # In the following lines you'll find some weird variable names, those are characters from detection_key.
         # Thank you for reading this utterly useless comment.. now let's get back to work!
-        for hxh in rgxkeys:
-            if ':-' in hxh:
-                hunter = hxh.split(':-')
-                if '||' in hunter[0]:
-                    gon = hunter[0].split('||')
-                    for killua in gon:
-                        natero = re.search(killua, hstring, re.DOTALL)
-                        if natero != None and hunter[1] not in cmseek.ignore_cms:
-                            if cmseek.strict_cms == [] or hunter[1] in cmseek.strict_cms:
-                                return ['1', hunter[1]]
+
+        # Update 2019 - ^ That was a mistake time to fix this abomination
+        for detection_key in header_detection_keys_regex:
+            if ':-' in detection_key:
+                regex_key = detection_key.split(':-')
+                if '||' in regex_key[0]:
+                    match_strings = regex_key[0].split('||')
+                    for match_string in match_strings:
+                        regex_match_status = re.search(match_string, hstring, re.DOTALL)
+                        if regex_match_status != None and regex_key[1] not in cmseek.ignore_cms:
+                            if cmseek.strict_cms == [] or regex_key[1] in cmseek.strict_cms:
+                                return ['1', regex_key[1]]
                 else:
-                    natero = re.search(hunter[0], hstring, re.DOTALL)
-                    if natero != None and hunter[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', hunter[1]]
+                    regex_match_status = re.search(regex_key[0], hstring, re.DOTALL)
+                    if regex_match_status != None and regex_key[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or regex_key[1] in cmseek.strict_cms:
+                            return ['1', regex_key[1]]
         else:
             # Failure
             return ['0', 'na']
