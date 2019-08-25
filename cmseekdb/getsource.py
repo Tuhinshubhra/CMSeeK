@@ -29,15 +29,14 @@ def getrawsource(url, ua):
             scode = response.read().decode("utf-8", 'ignore')
             headers = str(response.info())
             rurl = response.geturl()
-            r = ['1', scode, headers, rurl] ## 'success code', 'source code', 'http headers', 'redirect url'
-            return r
+            return ['1', scode, headers, rurl] ## 'success code', 'source code', 'http headers', 'redirect url'
+            # return r
     except Exception as e:
-        ef = str(e)
         try:
             ecode = str(e.code)
             ehed = str(e.info())
-            r = ['2', ef, ecode, ehed] ## will come in handy evading good guys
-            return r
+            return ['2', str(e), ecode, ehed] ## will come in handy evading good guys
+            # return r
         except Exception as f:
-            r = ['2', ef, '', ''] ## 'error code', 'error message', 'empty'
-            return r
+            return ['2', str(e), '', ''] ## 'error code', 'error message', 'empty'
+            #return r

@@ -10,11 +10,11 @@
 import re
 import cmseekdb.basic as cmseek
 
-def check(s, site): ## Check if no generator meta tag available
-    if s == "": ## No source code provided kinda shitty check but oh well
+def check(page_source_code, site): ## Check if no generator meta tag available
+    if page_source_code == "": ## No source code provided kinda shitty check but oh well
         return ['2', 'na']
     else: ## The real shit begins here
-        hstring = s
+        # hstring = s
         # harray = s.split("\n") ### Array conversion can use if needed later
 
         page_source_detection_keys = [
@@ -136,7 +136,7 @@ def check(s, site): ## Check if no generator meta tag available
                     idkwhat = detection_array[0]
                     detection_strings = idkwhat.split('||')
                     for detection_string in detection_strings:
-                        if detection_string in hstring and detection_array[1] not in cmseek.ignore_cms: # check if the cms_id is not in the ignore list
+                        if detection_string in page_source_code and detection_array[1] not in cmseek.ignore_cms: # check if the cms_id is not in the ignore list
                             if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                                 return ['1', detection_array[1]]
                 elif '::::' in detection_array[0]:
@@ -145,7 +145,7 @@ def check(s, site): ## Check if no generator meta tag available
                     match_strings = detection_array[0].split('::::')
                     for match_string in match_strings:
                         if match_status == '0' or match_status == '1':
-                            if match_string in hstring:
+                            if match_string in page_source_code:
                                 match_status = '1'
                             else:
                                 match_status = '2'
@@ -155,7 +155,7 @@ def check(s, site): ## Check if no generator meta tag available
                         if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                             return ['1', detection_array[1]]
                 else:
-                    if detection_array[0] in hstring and detection_array[1] not in cmseek.ignore_cms:
+                    if detection_array[0] in page_source_code and detection_array[1] not in cmseek.ignore_cms:
                         if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                             return ['1', detection_array[1]]
 
@@ -229,12 +229,12 @@ def check(s, site): ## Check if no generator meta tag available
                 if '||' in detection_array[0]:
                     detection_regex_strings = detection_array[0].split('||')
                     for detection_regex_string in detection_regex_strings:
-                        regex_match_status = re.search(detection_regex_string, hstring, re.DOTALL)
+                        regex_match_status = re.search(detection_regex_string, page_source_code, re.DOTALL)
                         if regex_match_status != None and detection_array[1] not in cmseek.ignore_cms:
                             if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                                 return ['1', detection_array[1]]
                 else:
-                    regex_match_status = re.search(detection_array[0], hstring, re.DOTALL)
+                    regex_match_status = re.search(detection_array[0], page_source_code, re.DOTALL)
                     if regex_match_status != None and detection_array[1] not in cmseek.ignore_cms:
                         if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                             return ['1', detection_array[1]]

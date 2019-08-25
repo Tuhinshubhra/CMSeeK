@@ -36,7 +36,7 @@ def scan(content):
     if content == '':
         return ['0', '']
 
-    detkeys = ['wordpress:-wp',
+    generator_tag_detection_keys = ['wordpress:-wp',
                 'blogger:-blg',
                 'ghost:-ghost',
                 'asciidoc:-asciid',
@@ -115,19 +115,18 @@ def scan(content):
                 'solusquare:-solusquare'
     ]
 
-    for keyl in detkeys:
-        if ':-' in keyl:
-            det = keyl.split(':-')
-            if '||' in det[0]:
-                idkwhat = det[0]
-                dets = idkwhat.split('||')
-                for d in dets:
-                    if d in hstring and det[1] not in cmseek.ignore_cms:
-                        if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                            return ['1', det[1]]
+    for detection_key in generator_tag_detection_keys:
+        if ':-' in detection_key:
+            detection_array = detection_key.split(':-')
+            if '||' in detection_array[0]:
+                detection_strings = detection_array[0].split('||')
+                for detection_string in detection_strings:
+                    if detection_string in hstring and detection_array[1] not in cmseek.ignore_cms:
+                        if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                            return ['1', detection_array[1]]
             else:
-                if det[0] in hstring and det[1] not in cmseek.ignore_cms:
-                    if cmseek.strict_cms == [] or det[1] in cmseek.strict_cms:
-                        return ['1', det[1]]
+                if detection_array[0] in hstring and detection_array[1] not in cmseek.ignore_cms:
+                    if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
+                        return ['1', detection_array[1]]
 
     return ['0', '']
