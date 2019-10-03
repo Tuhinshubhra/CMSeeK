@@ -25,7 +25,7 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         "END: 3dcart stats:-tdc",
         "href=\"/apos-minified/:-apos",
         "href=\"/CatalystStyles/:-abc",
-        "src=\"/misc/drupal.js\":-dru",
+        "/misc/drupal.js:-dru",
         "css/joomla.css:-joom",
         "Powered By <a href=\"http://www.opencart.com\">OpenCart||\"catalog/view/javascript/jquery/swiper/css/opencart.css\"||index.php?route=:-oc",
         "/xoops.js||xoops_redirect:-xoops",
