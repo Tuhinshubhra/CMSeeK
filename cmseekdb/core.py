@@ -48,7 +48,10 @@ def main_proc(site,cua):
         if site != init_source[3] and site + '/' != init_source[3]:
             if cmseek.redirect_conf == '0':
                 cmseek.info('Target redirected to: ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
-                follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
+                if not cmseek.batch_mode:
+                    follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
+                else:
+                    follow_redir = 'y'
                 if follow_redir.lower() == 'y':
                     site = init_source[3]
                     cmseek.statement("Reinitiating Headers and Page Source for Analysis")
