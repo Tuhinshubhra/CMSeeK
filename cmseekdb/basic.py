@@ -20,7 +20,7 @@ import re
 from cmseekdb.getsource import *
 from cmseekdb.config import *
 
-cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('/cmseekdb','')
+cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('cmseekdb','')[:-1]
 total_requests = 0
 cstart = time.time()
 redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not follow any redirect
