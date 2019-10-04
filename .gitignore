@@ -5,3 +5,4 @@ Result/**
 .idea/
 .scan_id
 reports.json
+test.py
