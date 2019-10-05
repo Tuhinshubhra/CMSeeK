@@ -9,6 +9,7 @@ import cmseekdb.basic as cmseek ## Good old module
 import VersionDetect.umbraco as umbraco_version_detect
 import cmseekdb.result as sresult
 import time
+import os
 import re
 
 def falsepositive():
@@ -49,8 +50,6 @@ def start(id, url, ua, ga, source, detection_method, headers):
             cmseek.update_log('cms_version', cms_version) # update log
         cmseek.update_log('cms_url', 'https://umbraco.com') # update log
         comptime = round(time.time() - cmseek.cstart, 2)
-        log_dir = cmseek.log_dir
-        if log_dir is not "":
-            log_file = log_dir + "/cms.json"
+        log_file = os.path.join(cmseek.log_dir, 'cms.json')
         sresult.end(str(cmseek.total_requests), str(comptime), log_file)
         return

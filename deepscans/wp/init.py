@@ -16,6 +16,7 @@ import deepscans.wp.check_reg as check_reg
 import cmseekdb.result as sresult
 import time
 import re
+import os
 
 def start(id, url, ua, ga, source, detection_method):
     '''
@@ -128,9 +129,7 @@ def start(id, url, ua, ga, source, detection_method):
 
         ### Deep Scan Results comes here
         comptime = round(time.time() - cmseek.cstart, 2)
-        log_dir = cmseek.log_dir
-        if log_dir is not "":
-            log_file = log_dir + "/cms.json"
+        log_file = os.path.join(cmseek.log_dir, 'cms.json')
         cmseek.clearscreen()
         cmseek.banner("Deep Scan Results")
         sresult.target(url)

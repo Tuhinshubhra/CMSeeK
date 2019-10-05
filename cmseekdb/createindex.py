@@ -13,7 +13,7 @@ def init(cmseek_dir, report_dir=""):
     '''
     Creates/Updates result index
     Needed Parameters:
-    cmseek_dir = CMSeeK directory
+    cmseek_dir = CMSeeK directory / access_directory
     report_dir = path to report directory leave empty if default
     '''
     # Create a json list of all the sites scanned and save it to <cmseek_dir>/reports.json
@@ -32,7 +32,7 @@ def init(cmseek_dir, report_dir=""):
                         with open(scan_file, 'r', encoding='utf8') as sf:
                             scan_content = json.loads(sf.read())
                         scan_url = scan_content['url']
-                        result_index[scan_url] = {"cms_id": scan_content['cms_id'],"date": scan_content['last_scanned']}
+                        result_index[scan_url] = {"cms_id": scan_content['cms_id'],"date": scan_content['last_scanned'],"report":scan_file}
                     except Exception as e:
                         logging.error(traceback.format_exc())
                         cmseek.statement('Skipping invalid CMSeeK result: ' + scan_file)

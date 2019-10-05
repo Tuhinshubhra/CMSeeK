@@ -20,7 +20,7 @@ import re
 from cmseekdb.getsource import *
 from cmseekdb.config import *
 
-cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('cmseekdb','')[:-1]
+cmseek_dir = os.path.dirname(os.path.abspath(__file__)).replace('cmseekdb','')[:-1]    
 total_requests = 0
 cstart = time.time()
 redirect_conf = '0' # 0 = prompt for redirect, 1 = follow redirect, 2 = do not follow any redirect
@@ -29,7 +29,6 @@ ignore_cms = [] # add cms id that you want to skip
 strict_cms = [] # add cms ids that you want to detect.. no other cmses will be detected when any id is provided.
 report_index = {} # Contains previous scan results
 skip_scanned = False # When set to true CMSeeK witll ignore target whose CMS had been previously detected!
-
 
 # all the color codes goes here
 white = "\033[97m"
@@ -56,6 +55,28 @@ redbg = "\033[101m";
 grey = "\033[37m";
 cyan = "\033[36m";
 bold   = "\033[1m";
+
+# access_directory
+if access_directory == "" or not os.path.exists(access_directory):
+    # no custom path provided or the path provided is wrong!
+    # show a warning if the case is wrong path
+    if not os.path.exists(access_directory) and access_directory != "":
+        if verbose:
+            print(bold + yellow + "[!] " + cln + "Invalid access_directory! falling back to default")
+
+    if os.access(cmseek_dir, os.W_OK):
+        # use the parent CMSeeK directory if it is writeable
+        access_directory = cmseek_dir
+    else:
+        if cmseek_dir == os.getcwd():
+            # current directory and cmseek directory are same and write access not available. show error if --batch is not used
+            if not batch_mode:
+                input(bold + red + "[x] " + "No write access in current directory, Reports will not be saved! [ENTER to continue]" + cln)
+
+            access_directory = cmseek_dir
+        else:
+            # current directory is different
+            access_directory = os.getcwd()
 
 def banner (txt):
     # The sexy banner!!!
@@ -228,10 +249,12 @@ def init_result_dir(url):
     for r in tor:
         url = url.replace(r, '_')
 
+    
+    global access_directory
+    result_dir = os.path.join(access_directory, "Result", url)
+    json_log = os.path.join(result_dir, 'cms.json')
+
     ## check if the log directory exist
-    global cmseek_dir
-    result_dir = os.getcwd() + "/Result/" + url
-    json_log = result_dir + '/cms.json'
     if not os.path.isdir(result_dir):
         try:
             os.makedirs(result_dir)
@@ -275,8 +298,8 @@ def update_log(key,value):
 
 def clear_log():
     # Clear Result directory
-    global cmseek_dir
-    resdir = cmseek_dir + '/Result'
+    global access_directory
+    resdir = os.path.join(access_directory, 'Result')
     if os.path.isdir(resdir):
         shutil.rmtree(resdir)
         os.makedirs(resdir)
@@ -290,7 +313,7 @@ def handle_quit(end_prog = True):
     # in case of unwanted exit this function should take care of writing the json log
     global log_dir
     if log_dir is not "":
-        log_file = log_dir + "/cms.json"
+        log_file = os.path.join(log_dir, 'cms.json')
         # print(log_file)
         global log
         f = open(log_file,"w+")
@@ -310,8 +333,8 @@ def update_brute_cache():
     clearscreen()
     banner("Updating Bruteforce Cache")
     global cmseek_dir
-    brute_dir = cmseek_dir + "/cmsbrute"
-    brute_cache = brute_dir + '/cache.json'
+    brute_dir = os.path.join(cmseek_dir, "cmsbrute")
+    brute_cache = os.path.join(brute_dir, 'cache.json')
     cache_json = {}
     if not os.path.isdir(brute_dir):
         try:
@@ -327,7 +350,7 @@ def update_brute_cache():
     modulen = []
     for f in py_files:
         if f.endswith('.py') and f != '__init__.py':
-            fo = open(brute_dir + '/' + f, 'r')
+            fo = open(os.path.join(brute_dir, f), 'r')
             mod_cnt = fo.read()
             if 'cmseekbruteforcemodule' in mod_cnt and 'Bruteforce module' in mod_cnt:
                 n = []
@@ -384,7 +407,7 @@ def update():
                 succes = False
                 try:
                     global cmseek_dir
-                    lock_file = cmseek_dir + "/.git/index.lock"
+                    lock_file = os.path.join(cmseek_dir, "/.git/index.lock")
                     if os.path.isfile(lock_file):
                         statement("Removing index.lock file from .git directory")
                         # Solve the index.lock issue
@@ -417,8 +440,8 @@ def savebrute(url,adminurl,username,password):
     # write the results to a result file
     if url != "" and adminurl != "" and username != "" and password != "":
         global log_dir
-        brute_file = log_dir + '/bruteforce_result_' + username + '_.txt'
-        old_file = log_dir + '/bruteforce_result_' + username + '_.old.txt'
+        brute_file = os.path.join(log_dir, 'bruteforce_result_' + username + '_.txt')
+        old_file = os.path.join(log_dir, 'bruteforce_result_' + username + '_.old.txt')
         brute_result = "### CMSeeK Bruteforce Result\n\n\nSite: " + url + "\n\nLogin URL: " + adminurl + "\n\nUsername: " + username + "\n\nPassword: " + password
         print('\n\n') # Pretty sloppy move there ;-;
         if not os.path.isfile(brute_file):

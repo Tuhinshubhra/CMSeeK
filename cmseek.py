@@ -90,7 +90,7 @@ if args.googlebot:
     cua = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
 
 # Update report index
-index_status = createindex.init(cmseek.cmseek_dir)
+index_status = createindex.init(cmseek.access_directory)
 if index_status[0] != '1':
     # might be too extreme
     # cmseek.handle_quit()
@@ -211,8 +211,8 @@ elif selone == "3":
     cmseek.clearscreen()
     cmseek.banner("CMS Bruteforce Module")
     ## I think this is a modular approch
-    brute_dir = os.getcwd() + "/cmsbrute"
-    brute_cache = brute_dir + '/cache.json'
+    brute_dir = os.path.join(cmseek.cmseek_dir, 'cmsbrute')
+    brute_cache = os.path.join(brute_dir, 'cache.json')
     if not os.path.isdir(brute_dir):
         cmseek.error("bruteforce directory missing! did you mess up with it? Anyways CMSeek is exiting")
         cmseek.bye()
