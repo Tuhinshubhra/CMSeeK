@@ -139,6 +139,7 @@ VERSION & UPDATING:
 HELP & MISCELLANEOUS:
       -h, --help                   Show this help message and exit
       --clear-result               Delete all the scan result
+      --batch                      Never ask you to press enter after every site in a list is scanned
 
 EXAMPLE USAGE:
       python3 cmseek.py -u example.com                           # Scan example.com
