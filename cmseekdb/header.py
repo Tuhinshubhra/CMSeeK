@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # This is a part of CMSeeK, check the LICENSE file for more information
-# Copyright (c) 2018 - 2019 Tuhinshubhra
+# Copyright (c) 2018 - 2020 Tuhinshubhra
 # This file contains all the methods of detecting cms via http Headers
 # Version: 1.0.0
 # Return a list with ['1'/'0','ID of CMS'/'na'] 1 = detected 0 = not detected
