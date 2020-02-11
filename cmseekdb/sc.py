@@ -127,7 +127,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         '//www.googletagmanager.com/ns.html?id=GTM-N2T2D3:-shopery',
         'shopfa_license:-shopfa',
         '/smjslib.js||/smartstore.core.js:-smartstore',
-        '_W.configDomain||Weebly.footer:-weebly'
+        '_W.configDomain||Weebly.footer:-weebly',
+        'js/whmcs.js:-whmcs'
         ]
 
         for detection_key in page_source_detection_keys:

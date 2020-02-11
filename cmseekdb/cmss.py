@@ -1158,3 +1158,10 @@ godaddywb = {
     'vd':'1',
     'deeps':'0'
 }
+
+whmcs = {
+    'name':'WHMCS',
+    'url':'https://www.whmcs.com/',
+    'vd':'0',
+    'deeps':'0'
+}
