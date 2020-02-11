@@ -6,6 +6,7 @@ Version 1.1.3 []
     - Brightspot CMS
     - Amiro.CMS
     - Weebly
+    - ekmPowershop
   - Version detection added for:
     - Amiro.CMS
   - Added WordPress Bruteforce via XML-RPC

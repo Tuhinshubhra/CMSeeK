@@ -93,7 +93,6 @@ def check(hstring):
         'Set-Cookie: _spree_store_session:-spree',
         'X-Powered-CMS: Bitrix Site Manager:-bitrix',
         'X-Powered-By: Brightspot:-brightspot'
-        ''
         ]        
         for header_key in header_detection_keys:
             if ':-' in header_key:
@@ -140,7 +139,8 @@ def check(hstring):
         'Set-Cookie: phpbb(.*?)=:-phpbb',
         'Set-Cookie: ses(\d+)=:-impage',
         'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc',
-        'X-Host: (.*?)weebly.net:-weebly'
+        'X-Host: (.*?)weebly.net:-weebly',
+        'Set-Cookie: (ekmMsg|ekmpowershop|):-ekmps'
         ]
         # so here's the story, i've been watching regex_key x regex_key for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from detection_key.

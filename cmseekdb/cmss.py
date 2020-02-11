@@ -1144,3 +1144,10 @@ weebly = {
     'vd':'0',
     'deeps':'0'
 }
+
+ekmps = {
+    'name':'ekmPowershop',
+    'url':'https://www.ekm.com/',
+    'vd':'0',
+    'deeps':'0'
+}
