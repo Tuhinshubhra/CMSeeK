@@ -49,7 +49,8 @@ def check(url, ua):
         'diskuse::::wysiwyg::::dotaz::::hodnoceni:-shoptet',
         'Disallow: /broker::::Disallow: /broker/orders:-smartstore',
         'gestion_e_commerce:-solusquare',
-        'spree/products/:-spree'
+        'spree/products/:-spree',
+        '/admin::::/_admin::::offset=0::::_print_version:-amiro'
         ]
         for detection_key in robots_txt_detection_keys:
             if ':-' in detection_key:

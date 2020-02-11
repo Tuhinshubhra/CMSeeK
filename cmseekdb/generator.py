@@ -112,7 +112,8 @@ def scan(content):
                 'rbs change:-rbsc',
                 'sazito:-sazito',
                 'shopfa:-shopfa',
-                'solusquare:-solusquare'
+                'solusquare:-solusquare',
+                'amiro.cms||www.amiro.ru:-amiro'
     ]
 
     for detection_key in generator_tag_detection_keys:

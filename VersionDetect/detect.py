@@ -261,3 +261,7 @@ def start(id, url, ua, ga, source, ga_content, headers):
         import VersionDetect.shopfa as shopfaverdetect
         shopfaver = shopfaverdetect.start(ga_content, headers)
         return shopfaver
+    elif id == 'amiro':
+        import VersionDetect.amiro as amiroverdetect
+        amirover = amiroverdetect.start(source)
+        return amirover

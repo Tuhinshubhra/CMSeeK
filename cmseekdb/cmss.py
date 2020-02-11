@@ -1130,3 +1130,10 @@ brightspot = {
     'vd':'0',
     'deeps':'0'
 }
+
+amiro = {
+    'name':'Amiro.CMS',
+    'url':'https://www.amiro.ru',
+    'vd':'1',
+    'deeps':'0'
+}

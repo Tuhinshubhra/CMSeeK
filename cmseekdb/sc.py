@@ -221,7 +221,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'href\=(.*?)cdn.myshoptet.com/||content="Shoptet.sk"||var shoptet=:-shoptet',
         'css/smartstore.(core|theme|modules).css:-smartstore',
         'src=(.*?)spree/(products|brands)||Spree.(api_key|routes|translations):-spree',
-        'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot'
+        'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot',
+        'amiro_sys_(css|js).php:-amiro'
         ]
         for detection_key in page_source_detection_regex_keys:
             if ':-' in detection_key:
