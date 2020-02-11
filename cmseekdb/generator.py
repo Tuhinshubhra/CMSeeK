@@ -113,7 +113,8 @@ def scan(content):
                 'sazito:-sazito',
                 'shopfa:-shopfa',
                 'solusquare:-solusquare',
-                'amiro.cms||www.amiro.ru:-amiro'
+                'amiro.cms||www.amiro.ru:-amiro',
+                'starfield technologies; go daddy website builder:-godaddywb'
     ]
 
     for detection_key in generator_tag_detection_keys:

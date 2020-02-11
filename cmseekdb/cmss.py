@@ -1151,3 +1151,10 @@ ekmps = {
     'vd':'0',
     'deeps':'0'
 }
+
+godaddywb = {
+    'name':'GoDaddy Website Builder',
+    'url':'https://godaddy.com/websites/website-builder',
+    'vd':'1',
+    'deeps':'0'
+}

@@ -51,7 +51,8 @@ def check(url, ua):
         'gestion_e_commerce:-solusquare',
         'spree/products/:-spree',
         '/admin::::/_admin::::offset=0::::_print_version:-amiro',
-        'Disallow: /ajax::::Disallow: /apps:-weebly'
+        'Disallow: /ajax::::Disallow: /apps:-weebly',
+        'Disallow: /_backup/::::Disallow: /_mygallery/::::Disallow: /_temp/::::Disallow: /_tempalbums/::::Disallow: /_tmpfileop/::::Disallow: /dbboon/:-godaddywb'
         ]
         for detection_key in robots_txt_detection_keys:
             if ':-' in detection_key:

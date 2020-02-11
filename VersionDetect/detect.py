@@ -265,3 +265,7 @@ def start(id, url, ua, ga, source, ga_content, headers):
         import VersionDetect.amiro as amiroverdetect
         amirover = amiroverdetect.start(source)
         return amirover
+    elif id == 'godaddywb':
+        import VersionDetect.godaddywb as godaddywbverdetect
+        godaddywb_version = godaddywbverdetect.start(ga_content)
+        return godaddywb_version

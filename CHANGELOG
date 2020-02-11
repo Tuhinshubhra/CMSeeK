@@ -7,8 +7,10 @@ Version 1.1.3 []
     - Amiro.CMS
     - Weebly
     - ekmPowershop
+    - GoDaddy Website Builder
   - Version detection added for:
     - Amiro.CMS
+    - GoDaddy Website Builder
   - Added WordPress Bruteforce via XML-RPC
 
 Version 1.1.2 [19-05-2019]

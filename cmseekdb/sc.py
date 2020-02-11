@@ -225,7 +225,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot',
         'amiro_sys_(css|js).php:-amiro',
         'weebly-(footer|icon):-weebly',
-        '/ekmps/(scripts|css|assets|images|shops|designs)||globalstats.ekmsecure.com/hits/stats(-global).js:-ekmps'
+        '/ekmps/(scripts|css|assets|images|shops|designs)||globalstats.ekmsecure.com/hits/stats(-global).js:-ekmps',
+        'sf_(wrapper|footer|banner|subnavigation|pagetitle):-godaddywb'
         ]
         for detection_key in page_source_detection_regex_keys:
             if ':-' in detection_key:
