@@ -139,7 +139,8 @@ def check(hstring):
         'lep(.*?)sessionid:-lepton',
         'Set-Cookie: phpbb(.*?)=:-phpbb',
         'Set-Cookie: ses(\d+)=:-impage',
-        'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc'
+        'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc',
+        'X-Host: (.*?)weebly.net:-weebly'
         ]
         # so here's the story, i've been watching regex_key x regex_key for last 2 weeks and i just finished it.
         # In the following lines you'll find some weird variable names, those are characters from detection_key.

@@ -126,7 +126,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'Sklep internetowy Shoper.pl:-shoper',
         '//www.googletagmanager.com/ns.html?id=GTM-N2T2D3:-shopery',
         'shopfa_license:-shopfa',
-        '/smjslib.js||/smartstore.core.js:-smartstore'
+        '/smjslib.js||/smartstore.core.js:-smartstore',
+        '_W.configDomain||Weebly.footer:-weebly'
         ]
 
         for detection_key in page_source_detection_keys:
@@ -222,7 +223,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'css/smartstore.(core|theme|modules).css:-smartstore',
         'src=(.*?)spree/(products|brands)||Spree.(api_key|routes|translations):-spree',
         'meta name\=("|\')brightspot.(contentId|cached)||href=("|\')brightspotcdn:-brightspot',
-        'amiro_sys_(css|js).php:-amiro'
+        'amiro_sys_(css|js).php:-amiro',
+        'weebly-(footer|icon):-weebly'
         ]
         for detection_key in page_source_detection_regex_keys:
             if ':-' in detection_key:

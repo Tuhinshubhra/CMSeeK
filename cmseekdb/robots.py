@@ -50,7 +50,8 @@ def check(url, ua):
         'Disallow: /broker::::Disallow: /broker/orders:-smartstore',
         'gestion_e_commerce:-solusquare',
         'spree/products/:-spree',
-        '/admin::::/_admin::::offset=0::::_print_version:-amiro'
+        '/admin::::/_admin::::offset=0::::_print_version:-amiro',
+        'Disallow: /ajax::::Disallow: /apps:-weebly'
         ]
         for detection_key in robots_txt_detection_keys:
             if ':-' in detection_key:

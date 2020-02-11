@@ -1137,3 +1137,10 @@ amiro = {
     'vd':'1',
     'deeps':'0'
 }
+
+weebly = {
+    'name':'Weebly',
+    'url':'https://www.weebly.com/',
+    'vd':'0',
+    'deeps':'0'
+}

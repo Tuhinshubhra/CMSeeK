@@ -5,6 +5,7 @@ Version 1.1.3 []
     - Spree
     - Brightspot CMS
     - Amiro.CMS
+    - Weebly
   - Version detection added for:
     - Amiro.CMS
   - Added WordPress Bruteforce via XML-RPC
