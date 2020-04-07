@@ -115,7 +115,8 @@ def scan(content):
                 'solusquare:-solusquare',
                 'amiro.cms||www.amiro.ru:-amiro',
                 'starfield technologies; go daddy website builder:-godaddywb',
-                'opennemas:-opennemas'
+                'opennemas:-opennemas',
+                'zen-cart.com||zen cart:-zencart'
     ]
 
     for detection_key in generator_tag_detection_keys:

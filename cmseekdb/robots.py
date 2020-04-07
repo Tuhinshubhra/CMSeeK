@@ -53,7 +53,8 @@ def check(url, ua):
         '/admin::::/_admin::::offset=0::::_print_version:-amiro',
         'Disallow: /ajax::::Disallow: /apps:-weebly',
         'Disallow: /_backup/::::Disallow: /_mygallery/::::Disallow: /_temp/::::Disallow: /_tempalbums/::::Disallow: /_tmpfileop/::::Disallow: /dbboon/:-godaddywb',
-        'Disallow: /harming/humans::::Disallow: /ignoring/human/orders::::Disallow: /harm/to/self:-opennemas'
+        'Disallow: /harming/humans::::Disallow: /ignoring/human/orders::::Disallow: /harm/to/self:-opennemas',
+        'Zen Cart doesn\'t require any||Zen Cart installation||pzen_:-zencart'
         ]
         for detection_key in robots_txt_detection_keys:
             if ':-' in detection_key:

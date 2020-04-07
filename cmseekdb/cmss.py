@@ -1172,3 +1172,10 @@ opennemas = {
     'vd':'0',
     'deeps':'0'
 }
+
+zencart = {
+    'name':'Zen Cart CMS',
+    'url':'https://www.zen-cart.com/',
+    'vd':'0',
+    'deeps':'0'
+}
