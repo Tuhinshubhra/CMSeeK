@@ -290,11 +290,11 @@ def init_result_dir(url):
     update_log('last_scanned', str(datetime.now()))
 
 
-def update_log(key,value):
+def update_log(key, value, _isString=True):
     if key != "":
         global log
         a = json.loads(log)
-        a[key] = str(value)
+        a[key] = str(value) if _isString else value
         log = json.JSONEncoder().encode(a)
 
 def clear_log():

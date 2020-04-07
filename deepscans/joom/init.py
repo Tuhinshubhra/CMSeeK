@@ -20,6 +20,10 @@ import deepscans.joom.check_reg as user_registration
 
 def start(id, url, ua, ga, source):
 
+    # Remove / from url
+    if url.endswith("/"):
+        url = url[:-1]
+
     # init variables
     vuln_detection = '0'
     vuln_count = 0
@@ -119,11 +123,11 @@ def start(id, url, ua, ga, source):
     if backups[0] > 0:
         cmseek.result('Found potential backup file: ', str(backups[0]))
         cmseek.success('Backup URLs: ')
-        bkup_log = ''
+        bkup_log = []
         for backup in backups[1]:
-            bkup_log += url + '/' + backup + ','
+            bkup_log.append(url + '/' + backup)
             print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url + '/' + backup)
-        cmseek.update_log('joomla_backup_files', bkup_log)
+        cmseek.update_log('joomla_backup_files', bkup_log, False)
         print('\n')
 
     if configs[0] > 0:
@@ -138,14 +142,29 @@ def start(id, url, ua, ga, source):
 
     if vuln_detection == '1' and vuln_count > 0:
         cmseek.result('Total joomla core vulnerabilities: ', str(vuln_count))
+        cmseek.update_log("vulnerabilities_count", vuln_count)
+        joomla_vulns_to_log = []
         cmseek.info('Vulnerabilities found: \n')
         for vuln in joom_vulns:
+            # prepare the vuln details to be added to the log
+            _vulnName = vuln.split('\\n')[0]
+            _vulnRefs = []
+            # TODO: try not to use a for loop here.
+            for _index, _vr in enumerate(vuln.split('\\n')):
+                if _index != 0:
+                    _vulnRefs.append(_vr)
+            
+            joomla_vulns_to_log.append({"name": _vulnName, "references": _vulnRefs})
             vuln = vuln.replace('\\n', cmseek.cln + '\n    ')
             print(cmseek.bold + cmseek.red + '[v] ' + vuln)
             print('\n')
+        cmseek.update_log("vulnerabilities", joomla_vulns_to_log, False)
     elif vuln_detection == '2':
+        cmseek.update_log("vulnerabilities_count", 0)
         cmseek.warning('Couldn\'t find core vulnerabilities, No VERSION detected')
     elif vuln_detection == '3':
+        cmseek.update_log("vulnerabilities_count", 0)
         cmseek.error('Core vulnerability database not found!')
     else:
+        cmseek.update_log("vulnerabilities_count", 0)
         cmseek.warning('No core vulnerabilities detected!')
