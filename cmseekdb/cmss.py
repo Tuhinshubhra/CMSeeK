@@ -1165,3 +1165,10 @@ whmcs = {
     'vd':'0',
     'deeps':'0'
 }
+
+opennemas = {
+    'name':'OpenNemas CMS',
+    'url':'https://www.opennemas.com/',
+    'vd':'0',
+    'deeps':'0'
+}

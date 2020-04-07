@@ -93,7 +93,8 @@ def check(hstring):
         'Set-Cookie: _spree_store_session:-spree',
         'X-Powered-CMS: Bitrix Site Manager:-bitrix',
         'X-Powered-By: Brightspot:-brightspot',
-        'Set-Cookie: WHMCS:-whmcs'
+        'Set-Cookie: WHMCS:-whmcs',
+        'X-Powered-By: OpenNemas||Via: Opennemas Proxy Server:-opennemas'
         ]        
         for header_key in header_detection_keys:
             if ':-' in header_key:

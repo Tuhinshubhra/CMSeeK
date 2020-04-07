@@ -128,7 +128,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'shopfa_license:-shopfa',
         '/smjslib.js||/smartstore.core.js:-smartstore',
         '_W.configDomain||Weebly.footer:-weebly',
-        'js/whmcs.js:-whmcs'
+        'js/whmcs.js:-whmcs',
+        'OpenNeMaS CMS by Openhost||var u = "https://piwik.openhost.es/":-opennemas'
         ]
 
         for detection_key in page_source_detection_keys:
@@ -227,7 +228,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'amiro_sys_(css|js).php:-amiro',
         'weebly-(footer|icon):-weebly',
         '/ekmps/(scripts|css|assets|images|shops|designs)||globalstats.ekmsecure.com/hits/stats(-global).js:-ekmps',
-        'sf_(wrapper|footer|banner|subnavigation|pagetitle):-godaddywb'
+        'sf_(wrapper|footer|banner|subnavigation|pagetitle):-godaddywb',
+        'onm-(new|image|carousel|big|cropped):-opennemas'
         ]
         for detection_key in page_source_detection_regex_keys:
             if ':-' in detection_key:
