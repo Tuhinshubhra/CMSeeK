@@ -206,7 +206,3 @@ CMSeeK is licensed under [GNU General Public License v3.0](https://github.com/Tu
 ## Follow Me @r3dhax0r:
 
 [Twitter](https://twitter.com/r3dhax0r)   
-
-## Team:
-
-[Team : Virtually Unvoid Defensive (VUD)](https://twitter.com/virtuallyunvoid)
