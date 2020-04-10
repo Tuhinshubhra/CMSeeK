@@ -13,14 +13,15 @@ def start(version,ua):
         result = ""
         vfc = ""
     else: ## So we have a version let's scan for vulnerabilities
-        cmseek.info("Checking version vulnerabilities [props to wpvulndb for their awesome api ;)]")
+        cmseek.info("Checking version vulnerabilities using wpvulns.com")
         vfc = version.replace('.','') # NOT IMPORTANT: vfc = version for check well we have to kill all the .s in the version for looking it up on wpvulndb.. kinda weird if you ask me
-        ws = cmseek.getsource("https://wpvulndb.com/api/v2/wordpresses/" + vfc, ua)
-        print(ws[0])
+        #ws = cmseek.getsource("https://wpvulndb.com/api/v2/wordpresses/" + vfc, ua)
+        # print(ws[0])
+        ws = cmseek.getsource("https://wpvulns.com/version/{0}.json".format(version), ua)
         if ws[0] == "1":
             # wjson = json.loads(ws[1]) + vfd + "['release_date']"
             wpvdbres = '1' ## We have the wpvulndb results
-            result = json.loads(ws[1])[version]
+            result = json.loads(ws[1]) #[version]
         else:
             wpvdbres = '0'
             result = ""

@@ -17,6 +17,8 @@ Version 1.1.3 []
     - GoDaddy Website Builder
   - Added WordPress Bruteforce via XML-RPC
   - improved logging for joomla scans
+  - improved logging for WordPress deep scan
+  - Switched to wpvulns.com for wordpress vulnerabilities
 
 Version 1.1.2 [19-05-2019]
   - Added new CMS:
