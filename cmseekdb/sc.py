@@ -130,7 +130,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         '_W.configDomain||Weebly.footer:-weebly',
         'js/whmcs.js:-whmcs',
         'OpenNeMaS CMS by Openhost||var u = "https://piwik.openhost.es/":-opennemas',
-        'zenid=||Congratulations! You have successfully installed your Zen Cart||Google Code for ZenCart Google||Powered by ZenCart||sideboxpzen-cart||stylesheet_zen_lightbox.css:-zencart'
+        'zenid=||Congratulations! You have successfully installed your Zen Cart||Google Code for ZenCart Google||Powered by ZenCart||sideboxpzen-cart||stylesheet_zen_lightbox.css:-zencart',
+        'Redakční systém IPO||cdn.antee.cz/||ipo.min.js||:-ipo'
         ]
 
         for detection_key in page_source_detection_keys:
@@ -230,7 +231,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'weebly-(footer|icon):-weebly',
         '/ekmps/(scripts|css|assets|images|shops|designs)||globalstats.ekmsecure.com/hits/stats(-global).js:-ekmps',
         'sf_(wrapper|footer|banner|subnavigation|pagetitle):-godaddywb',
-        'onm-(new|image|carousel|big|cropped):-opennemas'
+        'onm-(new|image|carousel|big|cropped):-opennemas',
+        'ipo(pagetext|mainframe|footer|menuwrapper|copyright|header|main|menu|statistics):-ipo'
         ]
         for detection_key in page_source_detection_regex_keys:
             if ':-' in detection_key:

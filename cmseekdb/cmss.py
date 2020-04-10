@@ -1179,3 +1179,10 @@ zencart = {
     'vd':'0',
     'deeps':'0'
 }
+
+ipo = {
+    'name':'IPO CMS',
+    'url':'https://www.antee.cz/',
+    'vd':'0',
+    'deeps':'0'
+}
