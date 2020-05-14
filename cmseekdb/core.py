@@ -130,11 +130,13 @@ def main_proc(site,cua):
         cmseek.update_log('cms_id', cms) # update log
         cmseek.statement('Getting CMS info from database') # freaking typo
         cms_info = getattr(cmsdb, cms)
-        if cms_info['deeps'] == '1' and not cmseek.light_scan:
+        
+        if cms_info['deeps'] == '1' and not cmseek.light_scan and not cmseek.only_cms:
             # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
             advanced.start(cms, site, cua, ga, scode, ga_content, detection_method, headers)
             return
-        elif cms_info['vd'] == '1':
+        
+        elif cms_info['vd'] == '1' and not cmseek.only_cms:
             cmseek.success('Starting version detection')
             cms_version = '0' # Failsafe measure
             cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content, headers)

@@ -38,6 +38,7 @@ parser.add_argument('-i', '--ignore-cms')
 parser.add_argument('--strict-cms')
 parser.add_argument('--skip-scanned', action="store_true")
 parser.add_argument('--light-scan', action="store_true")
+parser.add_argument('-o', '--only-cms', action="store_true")
 args = parser.parse_args()
 
 if args.clear_result:
@@ -49,6 +50,10 @@ if args.help:
 if args.light_scan:
     # Suggestion #99
     cmseek.light_scan = True
+
+if args.only_cms:
+    # Suggestion #99
+    cmseek.only_cms = True
 
 if args.verbose:
     cmseek.verbose = True

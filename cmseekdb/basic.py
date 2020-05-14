@@ -29,7 +29,8 @@ ignore_cms = [] # add cms id that you want to skip
 strict_cms = [] # add cms ids that you want to detect.. no other cmses will be detected when any id is provided.
 report_index = {} # Contains previous scan results
 skip_scanned = False # When set to true CMSeeK witll ignore target whose CMS had been previously detected!
-light_scan = False # When enabled, we don't perform deep-scan.
+light_scan = False # When enabled, we don't perform deep-scan only detect CMS and version.
+only_cms = False # When enabled, we just detect the CMS no version or deepscan is performed.
 
 # all the color codes goes here
 white = "\033[97m"
@@ -120,8 +121,10 @@ MANIPULATING SCAN:
                                    CMS IDs. separated by comma ","
 
       --skip-scanned               Skips target if it's CMS was previously detected.
-
+      
       --light-scan                 Skips Deep Scan. Does CMS and version detection only.
+
+      -o, --only-cms               Only detect CMS, ignore deep scan and version detection.
 
 RE-DIRECT:
       --follow-redirect            Follows all/any redirect(s)
