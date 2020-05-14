@@ -19,6 +19,7 @@ Version 1.1.3 []
   - improved logging for joomla scans
   - improved logging for WordPress deep scan
   - Switched to wpvulns.com for wordpress vulnerabilities
+  - Added `--light-scan` argument
 
 Version 1.1.2 [19-05-2019]
   - Added new CMS:

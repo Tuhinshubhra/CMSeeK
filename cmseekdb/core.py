@@ -130,7 +130,7 @@ def main_proc(site,cua):
         cmseek.update_log('cms_id', cms) # update log
         cmseek.statement('Getting CMS info from database') # freaking typo
         cms_info = getattr(cmsdb, cms)
-        if cms_info['deeps'] == '1':
+        if cms_info['deeps'] == '1' and not cmseek.light_scan:
             # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
             advanced.start(cms, site, cua, ga, scode, ga_content, detection_method, headers)
             return
