@@ -121,7 +121,7 @@ MANIPULATING SCAN:
                                    CMS IDs. separated by comma ","
 
       --skip-scanned               Skips target if it's CMS was previously detected.
-      
+
       --light-scan                 Skips Deep Scan. Does CMS and version detection only.
 
       -o, --only-cms               Only detect CMS, ignore deep scan and version detection.
@@ -319,7 +319,7 @@ def clear_log():
 def handle_quit(end_prog = True):
     # in case of unwanted exit this function should take care of writing the json log
     global log_dir
-    if log_dir is not "":
+    if log_dir != "":
         log_file = os.path.join(log_dir, 'cms.json')
         # print(log_file)
         global log
