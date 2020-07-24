@@ -86,7 +86,7 @@ def banner (txt):
     print(bold + fgreen + """
 {1} {5}___ _  _ {1}__{5}__ ____ {1}____{5} _  {1}_{5}
 |    |{1}\/{5}| {1}[{5}__  {1}|{5}___ |{1}___{5} |{1}_{5}/  {0}by {4}@r3dhax0r{5}
-{1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} SHELDON
+{1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} K-RONA
 """.format(orange, lblue, yellow, cmseek_version, red, white))
     if txt != "":
         print(whitebg + black + bold)
