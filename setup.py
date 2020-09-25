@@ -12,7 +12,7 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'CMSeek'
+NAME = 'cmseek'
 DESCRIPTION = 'CMS Detection and Exploitation suite - Scan WordPress, Joomla, Drupal and over 180 other CMSs.'
 URL = 'https://github.com/Tuhinshubhra/CMSeeK'
 EMAIL = 'contactr3d@protonmail.com'
