@@ -81,6 +81,7 @@ def start():
                 passfound = '0'
                 print('\n')
                 cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
+                # for linux
                 t = __file__.split("/")
                 t.pop()
                 t.pop()
