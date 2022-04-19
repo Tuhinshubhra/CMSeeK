@@ -519,7 +519,8 @@ def check_url(url,ua):
     try:
         urllib.request.urlopen(request)
         return '1'
-    except urllib.request.HTTPError:
+    except Exception as e:
+        error(str(e))
         return '0'
 
 def wpbrutesrc(url, user, pwd):
