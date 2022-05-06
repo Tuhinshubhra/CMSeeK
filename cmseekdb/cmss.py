@@ -1186,3 +1186,10 @@ ipo = {
     'vd':'0',
     'deeps':'0'
 }
+
+hugo = {
+    'name':'Hugo',
+    'url':'https://gohugo.io/',
+    'vd':'1',
+    'deeps':'0'
+}

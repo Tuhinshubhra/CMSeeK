@@ -269,3 +269,6 @@ def start(id, url, ua, ga, source, ga_content, headers):
         import VersionDetect.godaddywb as godaddywbverdetect
         godaddywb_version = godaddywbverdetect.start(ga_content)
         return godaddywb_version
+    elif id == 'hugo':
+        import VersionDetect.hugo as hugodetect
+        return hugodetect.start(source)
