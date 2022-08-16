@@ -5,6 +5,11 @@
 
 import cmseekdb.basic as cmseek
 
+# For the enviroument that doesn't use utf8
+import sys
+import io
+sys.stdout = io.open(sys.stdout.fileno(), 'w', encoding='utf8')
+
 def target(target):
     ## initiate the result
     target = target.replace('https://','').replace('http://', '').split('/')
