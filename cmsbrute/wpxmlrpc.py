@@ -15,6 +15,7 @@ from functools import partial ## needed somewhere :/
 import sys
 import cmseekdb.generator as generator
 import requests
+import os
 
 def wpbrutexmlrpc(xmlrpcurl, user, password):
     postdata = '<methodCall><methodName>wp.getUsersBlogs</methodName><params><param><value>{}</value></param><param><value>{}</value></param></params></methodCall>'.format(user, password)
@@ -80,6 +81,11 @@ def start():
                 passfound = '0'
                 print('\n')
                 cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
+                # for linux
+                t = __file__.split("/")
+                t.pop()
+                t.pop()
+                os.chdir("/".join(t))
                 pwd_file = open("wordlist/passwords.txt", "r")
                 passwords = pwd_file.read().split('\n')
                 passwords.insert(0, user)
