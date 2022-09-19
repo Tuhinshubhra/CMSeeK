@@ -148,6 +148,7 @@ def main_proc(site,cua):
             if cms_version != '0' and cms_version != None:
                 cmseek.update_log('cms_version', cms_version) # update log
             cmseek.update_log('cms_url', cms_info['url']) # update log
+            cmseek.update_log('target_url', site) # update log
             comptime = round(time.time() - cmseek.cstart, 2)
             log_file = os.path.join(cmseek.log_dir, 'cms.json')
             result.end(str(cmseek.total_requests), str(comptime), log_file)

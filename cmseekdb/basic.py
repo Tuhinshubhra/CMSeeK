@@ -334,7 +334,7 @@ def handle_quit(end_prog = True):
     if end_prog == True:
         bye()
     else:
-        log = '{"url":"","last_scanned":"","detection_param":"","cms_id":"","cms_name":"","cms_url":""}'
+        log = '{"url":"","last_scanned":"","detection_param":"","cms_id":"","cms_name":"","cms_url":"","target_url":""}'
 
 def update_brute_cache():
     clearscreen()
