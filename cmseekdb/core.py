@@ -67,6 +67,7 @@ def main_proc(site,cua):
                 headers = tmp_req[2]
             else:
                 cmseek.statement("Skipping redirect to " + cmseek.bold + cmseek.red + init_source[3] + cmseek.cln)
+            cmseek.update_log('target_url', init_source[3].rstrip('/'))
     if scode == '':
         # silly little check thought it'd come handy
         cmseek.error('Aborting detection, source code empty')
