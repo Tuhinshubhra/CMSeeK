@@ -117,7 +117,8 @@ def scan(content):
                 'starfield technologies; go daddy website builder:-godaddywb',
                 'opennemas:-opennemas',
                 'zen-cart.com||zen cart:-zencart',
-                'hugo:-hugo'
+                'hugo:-hugo',
+                'squarespace:-squarespace'
     ]
 
     for detection_key in generator_tag_detection_keys:
