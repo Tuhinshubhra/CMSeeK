@@ -25,7 +25,7 @@
 
 ## Functions Of CMSeek:
 
-- Basic CMS Detection of over 170 CMS
+- Basic CMS Detection of over 180 CMS
 - Drupal version detection
 - Advanced Wordpress Scans
   - Detects Version

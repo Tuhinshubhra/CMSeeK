@@ -1193,3 +1193,10 @@ hugo = {
     'vd':'1',
     'deeps':'0'
 }
+
+squarespace = {
+    'name':'Squarespace',
+    'url':'https://www.squarespace.com/',
+    'vd':'0',
+    'deeps':'0'
+}
