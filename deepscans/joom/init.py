@@ -107,7 +107,7 @@ def start(id, url, ua, ga, source):
         for adm in admin[1]:
             admin_log += url + '/' + adm + ','
             # print(cmseek.bold + cmseek.fgreen + "   [B] " + cmseek.cln + url + '/' + adm)
-        cmseek.update_log('joomla_backup_files', admin_log)
+        cmseek.update_log('joomla_admin_url', admin_log)
         print('\n')
 
     if directories[0] > 0:
