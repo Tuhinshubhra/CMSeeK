@@ -48,8 +48,7 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         "/rcms-f-production.:-rcms",
         "CMS by Quick.Cms:-quick",
         "Powered by Quick.Cart:-quick",
-        "DataLife Engine:-dle",
-        "dle_js.js:-dle",
+        "DataLife Engine||dle_js.js:-dle",
         "Roundcube Webmail||rcube_webmail:-rcube",
         "bitrix||Bitrix:-bitrix", # your Captain Obvious
         "\"pimcore_:-pcore",
