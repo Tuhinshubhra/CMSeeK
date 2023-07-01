@@ -20,9 +20,7 @@ def check(url, ua):
                 ## || <- if either of it matches cms detected
                 ## :::: <- all the strings has to match (implemented to decrease false positives)
                 directory_detection_keys = [
-                'http://modx.com:-modx',
-                'MODX CMF Manager Login:-modx',
-                '/MODxRE/:-modx',
+                'http://modx.com||MODX CMF Manager Login||/MODxRE/:-modx',
                 'SilverStripe:-sst'
                 ]
                 for detection_key in directory_detection_keys:
