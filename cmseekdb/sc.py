@@ -40,7 +40,7 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         "content=\"sNews:-snews",
         "/api/sitecore/:-score",
         "simsite/:-sim",
-        "simplebo.net/ ||\"pswp__:-spb",
+        "simplebo.net/:-spb",
         "/silvatheme:-silva",
         "serendipityQuickSearchTermField ||\"serendipity_||serendipity[:-spity",
         "Published by Seamless.CMS.WebUI:-slcms",
@@ -50,9 +50,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         "Powered by Quick.Cart:-quick",
         "DataLife Engine:-dle",
         "dle_js.js:-dle",
-        "Roundcube Webmail:-rcube",
-        "rcube_webmail:-rcube",
-        "bitrix:-bitrix", # your Captain Obvious
+        "Roundcube Webmail||rcube_webmail:-rcube",
+        "bitrix||Bitrix:-bitrix", # your Captain Obvious
         "\"pimcore_:-pcore",
         "xmlns:perc||cm/css/perc_decoration.css:-percms",
         "PencilBlueController||\"pencilblueApp\":-pblue",

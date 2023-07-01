@@ -82,6 +82,8 @@ def main_proc(site,cua):
     detection_method = '' # ^
     ga = '0' # is generator available
     ga_content = '' # Generator content
+    
+    #print(scode)
 
     ## Parse generator meta tag
     parse_generator = generator.parse(scode)

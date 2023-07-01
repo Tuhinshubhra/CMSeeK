@@ -8,7 +8,7 @@
 import re
 import cmseekdb.basic as cmseek
 def check(url, ua):
-    directories = ["/manager/", "/admin/"]
+    directories = ["/manager/", "/admin/", "/about/"]
     # check for modules directory
     for directory in directories:
             directory = url.rstrip('/') + directory
@@ -21,7 +21,8 @@ def check(url, ua):
                 ## :::: <- all the strings has to match (implemented to decrease false positives)
                 directory_detection_keys = [
                 'http://modx.com||MODX CMF Manager Login||/MODxRE/:-modx',
-                'SilverStripe:-sst'
+                'SilverStripe:-sst',
+                'bitrix||Bitrix:-bitrix'
                 ]
                 for detection_key in directory_detection_keys:
                     if ':-' in detection_key:
