@@ -265,9 +265,8 @@ def init_result_dir(url):
     if not os.path.isdir(result_dir):
         try:
             os.makedirs(result_dir)
-            f = open(json_log,"w+")
-            f.write("")
-            f.close()
+            with open(json_log,"w+") as f:
+                f.write("")
             # print('directory created')
         except OSError as exc: # Guard against race condition
             if exc.errno != errno.EEXIST:
@@ -275,22 +274,20 @@ def init_result_dir(url):
     else:
         # Directory exists, check for json log
         if not os.path.isfile(json_log):
-            f = open(json_log,"w+")
-            f.write("")
-            f.close()
+            with open(json_log,"w+") as f:
+                f.write("")
         else:
             # read log and save it to a variable
-            f = open(json_log,"r")
-            log_cont = f.read()
+            with open(json_log,"r") as f:
+                log_cont = f.read()
             if log_cont != "":
                 try:
                     global log
                     log = log_cont
                 except ValueError:
                     # invalid json file... clear it i guess
-                    f = open(json_log,"w+")
-                    f.write("")
-                    f.close()
+                    with open(json_log,"w+") as f:
+                        f.write("")
     global log_dir
     log_dir = result_dir
     update_log('last_scanned', str(datetime.now()))
@@ -323,12 +320,11 @@ def handle_quit(end_prog = True):
         log_file = os.path.join(log_dir, 'cms.json')
         # print(log_file)
         global log
-        f = open(log_file,"w+")
-        json_l = json.loads(log)
-        log_to_write = json.dumps(json_l, sort_keys=True, indent=4)
-        f.write(log_to_write)
+        with open(log_file,"w+") as f:
+            json_l = json.loads(log)
+            log_to_write = json.dumps(json_l, sort_keys=True, indent=4)
+            f.write(log_to_write)
         # print('written: ' + log)
-        f.close()
         print('\n')
         # info('Log saved in: ' + fgreen + bold + log_file + cln)
     if end_prog == True:
@@ -357,8 +353,8 @@ def update_brute_cache():
     modulen = []
     for f in py_files:
         if f.endswith('.py') and f != '__init__.py':
-            fo = open(os.path.join(brute_dir, f), 'r')
-            mod_cnt = fo.read()
+            with open(os.path.join(brute_dir, f), 'r') as fo:
+                mod_cnt = fo.read()
             if 'cmseekbruteforcemodule' in mod_cnt and 'Bruteforce module' in mod_cnt:
                 n = []
                 n = re.findall(r'\# (.*?) Bruteforce module', mod_cnt)
@@ -370,9 +366,8 @@ def update_brute_cache():
         for index,module in enumerate(modules):
             module = module.replace('.py','')
             cache_json[module] = modulen[index]
-        tuh = open(brute_cache, 'w+')
-        tuh.write(json.dumps(cache_json))
-        tuh.close()
+        with open(brute_cache, 'w+') as tuh:
+            tuh.write(json.dumps(cache_json))
         success('The following modules has been added to the cache: \n')
         for ma in cache_json:
             print('> ' + bold + ma + '.py ' + cln + '--->   ' + bold + cache_json[ma] + cln + ' Bruteforce Module')
@@ -421,8 +416,8 @@ def update():
                         os.remove(lock_file)
                     subprocess.run(("git checkout . && git pull %s HEAD") % GIT_URL, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                     #os.system("git checkout . && git pull %s HEAD" % GIT_URL)
-                    vt = open('current_version', 'r')
-                    v_test = int(vt.read().replace('\n','').replace('.',''))
+                    with open('current_version', 'r') as vt:
+                        v_test = int(vt.read().replace('\n','').replace('.',''))
                     # print(v_test)
                     # print(serv_version)
                     if v_test == serv_version:
@@ -453,16 +448,14 @@ def savebrute(url,adminurl,username,password):
         print('\n\n') # Pretty sloppy move there ;-;
         if not os.path.isfile(brute_file):
             # No previous bruteforce result file Found
-            f = open(brute_file, 'w+')
-            f.write(brute_result)
-            f.close()
+            with open(brute_file, 'w+') as f:
+                f.write(brute_result)
             success('Credentials stored at: ' + bold + brute_file + cln)
         else:
             os.rename(brute_file, old_file)
             info("Old result file found and moved to: " + old_file)
-            f = open(brute_file, 'w+')
-            f.write(brute_result)
-            f.close()
+            with open(brute_file, 'w+') as f:
+                f.write(brute_result)
             success('New credentials stored at: ' + bold + brute_file + cln)
 
 

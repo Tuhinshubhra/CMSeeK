@@ -38,9 +38,8 @@ def init(cmseek_dir, report_dir=""):
                         cmseek.statement('Skipping invalid CMSeeK result: ' + scan_file)
             # Write index
             result_index = {"last_updated":str(datetime.datetime.now()), "results":[result_index]}
-            inf = open(index_file, 'w+')
-            inf.write(json.dumps(result_index, sort_keys=False, indent=4))
-            inf.close()
+            with open(index_file, 'w+') as inf:
+                inf.write(json.dumps(result_index, sort_keys=False, indent=4))
             cmseek.success('Report index updated successfully!')
             cmseek.report_index = result_index
             return ['1', 'Report index updated successfully!']

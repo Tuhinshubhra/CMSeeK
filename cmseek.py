@@ -122,8 +122,8 @@ elif args.list is not None:
     cmseek.banner("CMS Detection And Deep Scan")
     sites_list = []
     try:
-        ot = open(sites, 'r')
-        file_contents = ot.read().replace('\n','')
+        with open(sites, 'r') as ot:
+            file_contents = ot.read().replace('\n','')
         sites_list = file_contents.split(',')
     except FileNotFoundError:
         cmseek.error('Invalid path! CMSeeK is quitting')
@@ -188,8 +188,8 @@ elif selone == '2':
     if 'http' not in sites or '://' not in sites:
         cmseek.info('Treating input as path')
         try:
-            ot = open(sites, 'r')
-            file_contents = ot.read().replace('\n','')
+            with open(sites, 'r') as ot:
+                file_contents = ot.read().replace('\n','')
             sites_list = file_contents.split(',')
         except FileNotFoundError:
             cmseek.error('Invalid path! CMSeeK is quitting')
@@ -229,8 +229,8 @@ elif selone == "3":
     else:
         print ("[#] List of CMSs: \n")
         print (cmseek.bold)
-        read_cache = open(brute_cache, 'r')
-        b_cache = read_cache.read()
+        with open(brute_cache, 'r') as read_cache:
+            b_cache = read_cache.read()
         cache = json.loads(b_cache)
         brute_list = []
         for c in cache:

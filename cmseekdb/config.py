@@ -11,8 +11,8 @@ GIT_URL = 'https://github.com/Tuhinshubhra/CMSeeK'
 
 # Version thingy
 try:
-    rv = open('current_version', 'r')
-    cver = rv.read().replace('\n','')
+    with open('current_version', 'r') as rv:
+        cver = rv.read().replace('\n','')
     cmseek_version = cver
 except:
     cmseek_version = '1.1.3' # Failsafe measure i guess
