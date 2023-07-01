@@ -8,7 +8,7 @@
 import re
 import cmseekdb.basic as cmseek
 def check(url, ua):
-    robots = url + '/robots.txt'
+    robots = url.rstrip('/') + '/robots.txt'
     robots_source = cmseek.getsource(robots, ua)
     # print(robots_source[1])
     if robots_source[0] == '1' and robots_source[1] != '':
@@ -23,6 +23,8 @@ def check(url, ua):
         'Disallow: /wp-admin/||Allow: /wp-admin/admin-ajax.php:-wp',
         'Disallow: /kernel/::::Disallow: /language/::::Disallow: /templates_c/:-xoops',
         'Disallow: /textpattern:-tpc',
+        'Disallow: /adminzone/:-umi',
+        'Disallow: /tilda:-tilda',
         'Disallow: /sitecore||Disallow: /sitecore_files||Disallow: /sitecore modules:-score',
         'Disallow: /phpcms||robots.txt for PHPCMS:-phpc',
         'Disallow: /*mt-content*||Disallow: /mt-includes/:-moto',
@@ -33,6 +35,7 @@ def check(url, ua):
         'Disallow: /plus/ad_js.php||Disallow: /plus/erraddsave.php||Disallow: /plus/posttocar.php||Disallow: /plus/disdls.php||Disallow: /plus/mytag_js.php||Disallow: /plus/stow.php:-dede',
         'modules/contentbox/themes/:-cbox',
         'Disallow: /contao/:-contao',
+        "Disallow: /bitrix/:-bitrix"
         'Disallow: /concrete:-con5',
         'Disallow: /auth/cas::::Disallow: /auth/cas/callback:-dscrs',
         'uc_client::::uc_server::::forum.php?mod=redirect*:-discuz',

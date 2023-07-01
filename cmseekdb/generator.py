@@ -59,6 +59,7 @@ def scan(content):
                 'tiki wiki cms groupware||http://tiki.org:-tiki',
                 'snews:-snews',
                 'silverstripe:-sst',
+                'umi:-umi',
                 'silva:-silva',
                 'serendipity:-spity',
                 'seamless.cms.webgui:-slcms',
