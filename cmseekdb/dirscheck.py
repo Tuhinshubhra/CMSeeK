@@ -51,7 +51,6 @@ def check(url, ua):
                             if detection_array[0] in page_content and detection_array[1] not in cmseek.ignore_cms:
                                 if cmseek.strict_cms == [] or detection_array[1] in cmseek.strict_cms:
                                     return ['1', detection_array[1]]
-                return ['0','']
     else:
         cmseek.error('Unable to detect CMS even by directory (modules) checks!')
         return ['0','']
