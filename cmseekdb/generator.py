@@ -95,6 +95,7 @@ def scan(content):
                 'cotonti:-coton',
                 'orchard:-orchd',
                 'contentbox:-cbox',
+                'DataLife Engine:-dle',
                 'contensis cms:-cntsis',
                 'contenido:-cnido',
                 'contao:-contao',
