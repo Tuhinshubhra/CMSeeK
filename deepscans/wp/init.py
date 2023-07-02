@@ -39,9 +39,9 @@ def start(id, url, ua, ga, source, detection_method):
         if detection_method == 'source':
             # well most of the wordpress false positives are from source detections.
             cmseek.statement('Checking if the detection is false positive')
-            temp_domain = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\?\=]+)', url)[0]
-            wp_match_pattern = temp_domain + '\/wp-(content|include|admin)\/'
-            if not re.search(wp_match_pattern, source):
+            #temp_domain = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\?\=]+)', url)[0]
+            #wp_match_pattern = temp_domain + '\/wp-(content|include|admin)\/'  # False Negative, because usually '/wp-content' without domain in source
+            if not re.search('\/wp-(content|include|admin)\/', source):
                 cmseek.error('Detection was false positive! CMSeeK is quitting!')
                 cmseek.success('Run CMSeeK with {0}{1}{2} argument next time'.format(cmseek.fgreen, '--ignore-cms wp', cmseek.cln))
                 #cmseek.handle_quit()
