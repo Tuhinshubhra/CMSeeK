@@ -35,7 +35,7 @@ def check(url, ua):
         'Disallow: /plus/ad_js.php||Disallow: /plus/erraddsave.php||Disallow: /plus/posttocar.php||Disallow: /plus/disdls.php||Disallow: /plus/mytag_js.php||Disallow: /plus/stow.php:-dede',
         'modules/contentbox/themes/:-cbox',
         'Disallow: /contao/:-contao',
-        "Disallow: /bitrix/:-bitrix"
+        "Disallow: /bitrix/:-bitrix",
         'Disallow: /concrete:-con5',
         'Disallow: /auth/cas::::Disallow: /auth/cas/callback:-dscrs',
         'uc_client::::uc_server::::forum.php?mod=redirect*:-discuz',
