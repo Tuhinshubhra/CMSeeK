@@ -75,7 +75,7 @@ USAGE:
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
       -l LIST, --list LIST         Path of the file containing list of sites
-                                   for multi-site scan (comma separated)
+                                   for multi-site scan (comma separated or one-per-line)
 
 MANIPULATING SCAN:
       -i cms, --ignore--cms cms    Specify which CMS IDs to skip in order to
