@@ -83,8 +83,8 @@ def start():
                     passfound = '0'
                     print('\n')
                     cmseek.info("Bruteforcing User: " + cmseek.bold + user + cmseek.cln)
-                    pwd_file = open("wordlist/passwords.txt", "r")
-                    passwords = pwd_file.read().split('\n')
+                    with open("wordlist/passwords.txt", "r") as pwd_file:
+                        passwords = pwd_file.read().split('\n')
                     passwords.insert(0, user)
                     for password in passwords:
                         if password != '' and password != '\n':

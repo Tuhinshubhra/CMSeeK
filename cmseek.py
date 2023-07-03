@@ -122,9 +122,13 @@ elif args.list is not None:
     cmseek.banner("CMS Detection And Deep Scan")
     sites_list = []
     try:
-        ot = open(sites, 'r')
-        file_contents = ot.read().replace('\n','')
-        sites_list = file_contents.split(',')
+        with open(sites, 'r') as ot:
+            file_contents = ot.read()
+            if "," in file_contents:  # if comma separated URLs list
+                file_contents = file_contents.replace('\n','')
+                sites_list = file_contents.split(',')
+            else:  # if one per line URLs list
+                sites_list = file_contents.splitlines()
     except FileNotFoundError:
         cmseek.error('Invalid path! CMSeeK is quitting')
         cmseek.bye()
@@ -184,13 +188,17 @@ elif selone == '2':
     cmseek.clearscreen()
     cmseek.banner("CMS Detection And Deep Scan")
     sites_list = []
-    sites = input('Enter comma separated urls(http://1.com,https://2.org) or enter path of file containing URLs (comma separated): ')
-    if 'http' not in sites or '://' not in sites:
+    sites = input('Enter comma separated URLs without spaces (http://site1.com,https://site2.org)\nOr enter path of file containing URLs (comma separated or one-per-line):')
+    if ('http' not in sites or '://' not in sites) and "," not in sites:  # because if comma in Input() then its probably comma-separated list
         cmseek.info('Treating input as path')
         try:
-            ot = open(sites, 'r')
-            file_contents = ot.read().replace('\n','')
-            sites_list = file_contents.split(',')
+            with open(sites, 'r') as ot:
+                file_contents = ot.read()
+                if "," in file_contents:  # if comma separated URLs list
+                    file_contents = file_contents.replace('\n','')
+                    sites_list = file_contents.split(',')
+                else:  # if one per line URLs list
+                    sites_list = file_contents.splitlines()
         except FileNotFoundError:
             cmseek.error('Invalid path! CMSeeK is quitting')
             cmseek.bye()
@@ -229,8 +237,8 @@ elif selone == "3":
     else:
         print ("[#] List of CMSs: \n")
         print (cmseek.bold)
-        read_cache = open(brute_cache, 'r')
-        b_cache = read_cache.read()
+        with open(brute_cache, 'r') as read_cache:
+            b_cache = read_cache.read()
         cache = json.loads(b_cache)
         brute_list = []
         for c in cache:
