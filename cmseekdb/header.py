@@ -37,6 +37,7 @@ def check(hstring):
         'X-Powered-By: pimcore:-pcore',
         'x-powered-by: PencilBlue:-pblue',
         'x-powered-by: Ophal:-ophal',
+        'x-powered-by: Zyro.com:-zyro',
         'Server: OpenCms:-ocms',
         'X-Odoo-:-odoo',
         'X-SharePointHealthScore||SPIisLatency||SPRequestGuid||MicrosoftSharePointTeamServices||SPRequestDuration:-share',

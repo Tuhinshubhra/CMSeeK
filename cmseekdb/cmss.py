@@ -20,6 +20,13 @@ wp = {
     'deeps':'1'
 }
 
+tilda = {
+    'name':'Tilda CMS',
+    'url':'https://tilda.cc/',
+    'vd':'0',
+    'deeps':'0'
+}
+
 mg = {
     'name':'Magento',
     'url':'https://magento.com',
@@ -80,6 +87,13 @@ dru = {
     'name':'Drupal',
     'url':'https://drupal.org',
     'vd':'1',
+    'deeps':'0'
+}
+
+zyro = {
+    'name':'Zyro',
+    'url':'https://zyro.com/',
+    'vd':'0',
     'deeps':'0'
 }
 
@@ -285,10 +299,22 @@ silva = {
     'vd':'0',
     'deeps':'0'
 }
+dle = {
+    'name':'DataLife Engine',
+    'url':'https://dle-news.com',
+    'vd':'0',
+    'deeps':'0'
+}
 spity = {
     'name':'Serendipity',
     'url':'https://docs.s9y.org/',
     'vd':'1',
+    'deeps':'0'
+}
+rcube = {
+    'name':'RoundCube Webmail',
+    'url':'https://roundcube.net/',
+    'vd':'0',
     'deeps':'0'
 }
 slcms = {

@@ -20,6 +20,7 @@ import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.sc as source # Contains function to detect cms from source code
 import cmseekdb.header as header # Contains function to detect CMS from gathered http headers
 import cmseekdb.cmss as cmsdb # Contains basic info about the CMSs
+import cmseekdb.dirscheck as dirscheck # Containts function to detect CMS by directory checks
 import cmseekdb.robots as robots
 import cmseekdb.generator as generator
 import cmseekdb.result as result
@@ -81,13 +82,15 @@ def main_proc(site,cua):
     detection_method = '' # ^
     ga = '0' # is generator available
     ga_content = '' # Generator content
+    
+    #print(scode)
 
     ## Parse generator meta tag
     parse_generator = generator.parse(scode)
     ga = parse_generator[0]
     ga_content = parse_generator[1]
 
-    cmseek.statement("Using headers to detect CMS (Stage 1 of 4)")
+    cmseek.statement("Using headers to detect CMS (Stage 1 of 5)")
     header_detection = header.check(headers)
 
     if header_detection[0] == '1':
@@ -98,18 +101,18 @@ def main_proc(site,cua):
     if cms_detected == '0':
         if ga == '1':
             # cms detection via generator
-            cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 4)")
+            cmseek.statement("Using Generator meta tag to detect CMS (Stage 2 of 5)")
             gen_detection = generator.scan(ga_content)
             if gen_detection[0] == '1':
                 detection_method = 'generator'
                 cms = gen_detection[1]
                 cms_detected = '1'
         else:
-            cmseek.statement('Skipping stage 2 of 4: No Generator meta tag found')
+            cmseek.statement('Skipping stage 2 of 5: No Generator meta tag found')
 
     if cms_detected == '0':
         # Check cms using source code
-        cmseek.statement("Using source code to detect CMS (Stage 3 of 4)")
+        cmseek.statement("Using source code to detect CMS (Stage 3 of 5)")
         source_check = source.check(scode, site)
         if source_check[0] == '1':
             detection_method = 'source'
@@ -118,11 +121,20 @@ def main_proc(site,cua):
 
     if cms_detected == '0':
         # Check cms using robots.txt
-        cmseek.statement("Using robots.txt to detect CMS (Stage 4 of 4)")
+        cmseek.statement("Using robots.txt to detect CMS (Stage 4 of 5)")
         robots_check = robots.check(site, cua)
         if robots_check[0] == '1':
             detection_method = 'robots'
             cms = robots_check[1]
+            cms_detected = '1'
+            
+    if cms_detected == '0':
+        # Check cms using directory checks
+        cmseek.statement("Using directories to detect CMS (Stage 5 of 5)")
+        dirs_check = dirscheck.check(site, cua)
+        if dirs_check[0] == '1':
+            detection_method = 'dirscheck'
+            cms = dirs_check[1]
             cms_detected = '1'
 
     if cms_detected == '1':
