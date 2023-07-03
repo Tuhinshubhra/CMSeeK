@@ -129,6 +129,7 @@ CMSeek detects CMS via the following:
 - Generator meta tag
 - Page source code
 - robots.txt
+- Directory check
 
 ## Supported CMSs:
 
