@@ -1226,3 +1226,10 @@ squarespace = {
     'vd':'0',
     'deeps':'0'
 }
+
+notion = {
+    'name':'Notion',
+    'url':'https://notion.so',
+    'vd':'0',
+    'deeps':'0'
+}
