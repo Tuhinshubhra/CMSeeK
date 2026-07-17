@@ -120,7 +120,8 @@ def scan(content):
                 'opennemas:-opennemas',
                 'zen-cart.com||zen cart:-zencart',
                 'hugo:-hugo',
-                'squarespace:-squarespace'
+                'squarespace:-squarespace',
+                'siquando pro||siquando:-siquando'
     ]
 
     for detection_key in generator_tag_detection_keys:
