@@ -1240,3 +1240,10 @@ siquando = {
     'vd':'0',
     'deeps':'0'
 }
+
+freshpage = {
+    'name':'Freshpage',
+    'url':'https://www.freshpage.ch/',
+    'vd':'0',
+    'deeps':'0'
+}
