@@ -1233,3 +1233,17 @@ notion = {
     'vd':'0',
     'deeps':'0'
 }
+
+siquando = {
+    'name':'SIQUANDO',
+    'url':'https://www.siquando.de/',
+    'vd':'0',
+    'deeps':'0'
+}
+
+freshpage = {
+    'name':'Freshpage',
+    'url':'https://www.freshpage.ch/',
+    'vd':'0',
+    'deeps':'0'
+}
