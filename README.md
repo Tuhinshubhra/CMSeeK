@@ -98,6 +98,11 @@ USER AGENT:
 OUTPUT:
       -v, --verbose                Increase output verbosity
 
+API:
+      --api                        Start CMSeeK in API mode.
+      -p, --port PORT              Specify the port for API mode (defaults to: 8080)
+      -h, --host HOST              Specify the host for API mode (defaults to: 0.0.0.0 [all interfaces])
+
 VERSION & UPDATING:
       --update                     Update CMSeeK (Requires git)
       --version                    Show CMSeeK version and exit
@@ -169,6 +174,62 @@ CMSeek has a modular bruteforce system meaning you can add your custom made brut
 <p align='center'>
   <img alt="Cache Rebuild Screenshot" width="600px" src="https://i.imgur.com/yhdzTYr.png" />
 </p>
+
+
+## API Mode:
+
+CMSeeK can be run as a REST API service for programmatic access to scanning functionality. This allows you to integrate CMSeeK into your applications or automate scanning workflows.
+
+To start CMSeeK in API mode:
+
+- python3 cmseek.py --api                          # Starts API on default host 0.0.0.0 and port 8080
+- python3 cmseek.py --api -p 8000                  # Starts API on custom port 8000
+- python3 cmseek.py --api -h localhost -p 9000    # Starts API on localhost:9000
+
+### API Endpoints:
+
+**GET /**
+Returns service information and available endpoints
+
+**GET /health**
+Health check endpoint to verify the API is running
+
+Example response:
+```json
+{
+  "status": "healthy"
+}
+```
+
+**POST /scan**
+Scan a target URL and return detection results
+
+Request body:
+```json
+{
+  "url": "https://example.com",
+  "cua": "Mozilla/5.0 (optional custom user agent)"
+}
+```
+
+Parameters:
+- `url` (required): Target URL to scan
+- `cua` (optional): Custom User-Agent header. If not provided, a random User-Agent will be used
+
+Example response (success):
+```json
+{
+  "site": "https://example.com",
+  "target": "https://example.com",
+  "result": {
+    "cms_detected": true,
+    "cms_name": "WordPress",
+    "cms_version": "5.8.1",
+    ...
+  },
+  "status": "success"
+}
+```
 
 ## Need More Reasons To Use CMSeeK?
 

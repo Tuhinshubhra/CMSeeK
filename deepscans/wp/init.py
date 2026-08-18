@@ -18,7 +18,7 @@ import time
 import re
 import os
 
-def start(id, url, ua, ga, source, detection_method):
+def start(id, url, ua, ga, source, detection_method, should_return=False, silent=False):
     '''
     id = ID of the cms
     url = URL of target
@@ -26,12 +26,13 @@ def start(id, url, ua, ga, source, detection_method):
     ga = [0/1] is GENERATOR meta tag available
     source = source code
     '''
-
+    # Make sure that you dont use the normal results variable since its used for some reason :I
+    # If ur reading this have a good day and dont forget to smile :D
+    dresult = {}
     ## Do shits later [update from later: i forgot what shit i had to do ;___;]
     if id == "wp":
         # referenced before assignment fix
         vulnss = version = wpvdbres = result = plugins_found = usernames = usernamesgen = '0'
-
         cmseek.statement('Starting WordPress DeepScan')
 
 
@@ -45,6 +46,8 @@ def start(id, url, ua, ga, source, detection_method):
                 cmseek.error('Detection was false positive! CMSeeK is quitting!')
                 cmseek.success('Run CMSeeK with {0}{1}{2} argument next time'.format(cmseek.fgreen, '--ignore-cms wp', cmseek.cln))
                 #cmseek.handle_quit()
+                if should_return:
+                    return {"success": False, "error": "WordPress detection was false positive! CMSeeK is quitting!", "site": url}
                 return
 
         # Version detection
@@ -147,17 +150,20 @@ def start(id, url, ua, ga, source, detection_method):
         if readmefile == '1':
             sresult.init_item("Readme file found: " + cmseek.fgreen + url + '/readme.html' + cmseek.cln)
             cmseek.update_log('wp_readme_file',url + '/readme.html')
+            dresult['readme_url'] = f"{url}/readme.html"
             item_initiated = True
 
 
         if licfile == '1':
             cmseek.update_log('wp_license', url + '/license.txt')
+            dresult['license_url'] = f"{url}/license.txt"
             if item_initiated == False:
                 sresult.init_item("License file: " + cmseek.fgreen + url + '/license.txt' + cmseek.cln)
             else:
                 sresult.item("License file: " + cmseek.fgreen + url + '/license.txt' + cmseek.cln)
 
         if wpvdbres == '1':
+            dresult['changelog_url'] = f"https://wpvulndb.com/changelog/{version}"
             if item_initiated == False:
                 sresult.init_item('Changelog: ' + cmseek.fgreen + str(result['changelog_url']) + cmseek.cln)
             else:
@@ -165,6 +171,7 @@ def start(id, url, ua, ga, source, detection_method):
             cmseek.update_log('wp_changelog_file',str(result['changelog_url']))
 
         if wpupdir == '1':
+            dresult['uploads_url'] = f"{url}/wp-content/uploads"
             cmseek.update_log('wp_uploads_directory',url + '/wp-content/uploads')
             if item_initiated == False:
                 sresult.init_item("Uploads directory has listing enabled: " + cmseek.fgreen + url + '/wp-content/uploads' + cmseek.cln)
@@ -173,6 +180,7 @@ def start(id, url, ua, ga, source, detection_method):
 
 
         if xmlrpc == '1':
+            dresult['xmlrpc_url'] = f"{url}/xmlrpc.php"
             cmseek.update_log('xmlrpc', url + '/xmlrpc.php')
             if item_initiated == False:
                 sresult.init_item("XML-RPC interface: "+ cmseek.fgreen + url + '/xmlrpc.php' + cmseek.cln)
@@ -181,16 +189,19 @@ def start(id, url, ua, ga, source, detection_method):
 
 
         if reg_found == '1':
+            dresult['user_registration'] = reg_url
             sresult.item('User registration enabled: ' + cmseek.bold + cmseek.fgreen + reg_url + cmseek.cln)
             cmseek.update_log('user_registration', reg_url)
 
 
         if path != "":
+            dresult['path_disclosure'] = path
             sresult.item('Path disclosure: ' + cmseek.bold + cmseek.orange + path + cmseek.cln)
             cmseek.update_log('path', path)
 
 
         if plugins_found != 0:
+            dresult['plugins'] = list(plugins)
             plugs_count = len(plugins)
             sresult.init_item("Plugins Enumerated: " + cmseek.bold + cmseek.fgreen + str(plugs_count) + cmseek.cln)
             wpplugs = ""
@@ -215,6 +226,7 @@ def start(id, url, ua, ga, source, detection_method):
             sresult.empty_item()
 
         if themes_found != 0:
+            dresult['themes'] = list(themes)
             thms_count = len(themes)
             sresult.init_item("Themes Enumerated: " + cmseek.bold + cmseek.fgreen + str(thms_count) + cmseek.cln)
             wpthms = ""
@@ -246,6 +258,7 @@ def start(id, url, ua, ga, source, detection_method):
 
 
         if usernamesgen == '1':
+            dresult['usernames'] = list(usernames)
             user_count = len(usernames)
             sresult.init_item("Usernames harvested: " + cmseek.bold + cmseek.fgreen + str(user_count) + cmseek.cln)
             wpunames = ""
@@ -261,9 +274,11 @@ def start(id, url, ua, ga, source, detection_method):
             sresult.empty_item()
 
         if version != '0':
+            dresult['version'] = str(version)
             # cmseek.result("Version: ", version)
             cmseek.update_log('wp_version', version)
             if wpvdbres == '1':
+                dresult['vulnerabilities'] = result
                 sresult.end_item('Version vulnerabilities: ' + cmseek.bold + cmseek.fgreen + str(vulnss) + cmseek.cln)
                 cmseek.update_log('wp_vuln_count', str(vulnss))
                 cmseek.update_log("wp_vulns", result, False)
@@ -334,7 +349,10 @@ def start(id, url, ua, ga, source, detection_method):
 
                             sresult.end_subsub("Fixed In Version: " + cmseek.bold + cmseek.fgreen + str(vuln['fixed_in']) + cmseek.cln, False, True)
         sresult.end(str(cmseek.total_requests), str(comptime), log_file)
+        if should_return:
+            return {"success": True, "site": url, "deepscan": dresult}
         return
 
-
+    if should_return:
+        return {"success": False, "error": "CMS not supported for deep scan", "site": url}
     return

@@ -18,7 +18,7 @@ def falsepositive():
     #cmseek.handle_quit()
     return
 
-def start(id, url, ua, ga, source, detection_method, headers):
+def start(id, url, ua, ga, source, detection_method, headers, should_return=False, silent=False):
     if id == 'umbraco':
         cms_version = 0
         cmseek.statement('Starting Umbraco DeepScan')
@@ -34,8 +34,12 @@ def start(id, url, ua, ga, source, detection_method, headers):
                     # Let's get version
                     cms_version = umbraco_version_detect.start(headers, url, ua, test_src[1])
                 else:
+                    if should_return:
+                        return {"success": False, "site": url, "cms": "Umbraco", "version": None, "url": "https://umbraco.com"}
                     falsepositive()
             else:
+                if should_return:
+                    return {"success": False, "site": url, "cms": "Umbraco", "version": None, "url": "https://umbraco.com"}
                 falsepositive()
         else:
             # detection method was different so we are good and no need to check for false positive i guess
@@ -52,4 +56,7 @@ def start(id, url, ua, ga, source, detection_method, headers):
         comptime = round(time.time() - cmseek.cstart, 2)
         log_file = os.path.join(cmseek.log_dir, 'cms.json')
         sresult.end(str(cmseek.total_requests), str(comptime), log_file)
-        return
+        if should_return:
+            return {"success": True, "site": url, "cms": "Umbraco", "version": cms_version, "url": "https://umbraco.com"}
+        else:
+            return

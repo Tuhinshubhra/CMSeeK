@@ -16,6 +16,7 @@ import importlib
 
 import cmseekdb.basic as cmseek # All the basic functions
 import cmseekdb.core as core
+import cmseekdb.api as api
 import cmseekdb.createindex as createindex
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -37,6 +38,9 @@ parser.add_argument('--batch', action="store_true")
 parser.add_argument('-i', '--ignore-cms')
 parser.add_argument('--strict-cms')
 parser.add_argument('--skip-scanned', action="store_true")
+parser.add_argument('--api', action="store_true")
+parser.add_argument('-p', '--port')
+parser.add_argument('--host')
 parser.add_argument('--light-scan', action="store_true")
 parser.add_argument('-o', '--only-cms', action="store_true")
 args = parser.parse_args()
@@ -69,6 +73,16 @@ if args.no_redirect:
 
 if args.update:
     cmseek.update()
+
+# Initialize port to None to avoid errors
+cmseek.port = None
+if args.port is not None and args.port.isdigit():
+    cmseek.port = int(args.port)
+
+# Initialize host to None to avoid errors
+cmseek.host = None
+if args.host is not None:
+    cmseek.host = args.host
 
 if args.batch:
     #print('Batch true')
@@ -115,6 +129,20 @@ if args.url is not None:
             cua = cmseek.randomua()
         core.main_proc(target,cua)
         cmseek.handle_quit()
+
+if args.api:
+    cmseek.clearscreen()
+    cmseek.banner("CMS Detection And Deep Scan")
+    if not cmseek.port:
+        cmseek.port = 8080
+        print(cmseek.bold + cmseek.yellow + "No port specified, defaulting to 8080" + cmseek.cln)
+    if not cmseek.host:
+        cmseek.host = '0.0.0.0'
+        print(cmseek.bold + cmseek.yellow + "No host specified, defaulting to 0.0.0.0" + cmseek.cln)
+    if cmseek.verbose:
+        print(cmseek.bold + cmseek.red + "Verbose mode is enabled, more info will be printed to the console. Some features might not work as intended." + cmseek.cln)
+    print("")
+    api.start(cmseek.port, cmseek.host, verbose=cmseek.verbose)
 
 elif args.list is not None:
     sites = args.list
