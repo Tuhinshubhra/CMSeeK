@@ -175,7 +175,6 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 def clearscreen():
-    return
     if not silent:
         if os.name == 'nt':
             os.system('cls')
