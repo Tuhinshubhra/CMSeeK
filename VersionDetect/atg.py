@@ -16,7 +16,7 @@ def start(headers):
     try:
         encoded_version = re.search('X-ATG-Version: version=(.+)', headers).group(1)
         version = b64decode(encoded_version).decode('utf-8')
-        version = re.search('ATGPlatform\/([\d\.]+)', version).group(1)
+        version = re.search(r'ATGPlatform\/([\d\.]+)', version).group(1)
     except:
         version = None
 

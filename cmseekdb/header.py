@@ -133,15 +133,15 @@ def check(hstring):
         ####################################################
 
         header_detection_keys_regex = [
-        'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=:-yabb',
-        'Set-Cookie: xmblv(a|b)=(\d.*?)\n:-xmb',
+        r'Set-Cookie: (YaBBusername=|YaBBpassword=|YaBBSession|Y2User-(\d.*?)|Y2Pass-(\d.*?)|Y2Sess-(\d.*?))=:-yabb',
+        'Set-Cookie: xmblv(a|b)=(\\d.*?)\n:-xmb',
         'Set-Cookie: [a-zA-Z0-9]{5}_(lastpos|lastvisit)=:-pwind',
-        'Set-Cookie: mybb\[(.*?)\]=:-mybb',
+        r'Set-Cookie: mybb\[(.*?)\]=:-mybb',
         'Set-Cookie: wcf(.*?)_cookieHash=:-bboard',
         'X-XRDS-Location: (.*?)EPiServerCommunity:-epis',
         'lep(.*?)sessionid:-lepton',
         'Set-Cookie: phpbb(.*?)=:-phpbb',
-        'Set-Cookie: ses(\d+)=:-impage',
+        r'Set-Cookie: ses(\d+)=:-impage',
         'Set-Cookie: sid_customer_[a-zA-Z0-9]{5}=:-csc',
         'X-Host: (.*?)weebly.net:-weebly',
         'Set-Cookie: (ekmMsg|ekmpowershop):-ekmps'

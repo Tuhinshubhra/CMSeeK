@@ -83,7 +83,7 @@ if access_directory == "" or not os.path.exists(access_directory):
 def banner (txt):
     # The sexy banner!!!
     global cmseek_version
-    print(bold + fgreen + """
+    print(bold + fgreen + r"""
 {1} {5}___ _  _ {1}__{5}__ ____ {1}____{5} _  {1}_{5}
 |    |{1}\/{5}| {1}[{5}__  {1}|{5}___ |{1}___{5} |{1}_{5}/  {0}by {4}@r3dhax0r{5}
 {1}|{5}_{1}__{5} |  | ___{1}|{5} |{1}___{5} {1}|{5}___ {1}|{5} \{1}_{5} {2}Version {3}{1} K-RONA
