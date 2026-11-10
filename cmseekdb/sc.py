@@ -140,7 +140,8 @@ def check(page_source_code, site): ## Check if no generator meta tag available
         'Redakční systém IPO||cdn.antee.cz/||ipo.min.js:-ipo',
         'Built using HUGO:-hugo',
         'This is Squarespace||End of Squarespace Headers:-squarespace',
-        'Developed by Inware AG - www.inware.ch:-freshpage'
+        'Developed by Inware AG - www.inware.ch:-freshpage',
+        '<meta name="sf:page-type"::::<script type="application/json" id="sf-skeletons">::::<script type="module" src="/_sf/runtime.:-shopfast'
         ]
 
         for detection_key in page_source_detection_keys:
