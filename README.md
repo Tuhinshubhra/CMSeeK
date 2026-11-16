@@ -8,7 +8,7 @@
 </p>
 
 ## What is a CMS?
-> A content management system (CMS) manages the creation and modification of digital content. It typically supports multiple users in a collaborative environment. Some noteable examples are: *WordPress, Joomla, Drupal etc*.
+> A content management system (CMS) manages the creation and modification of digital content. It typically supports multiple users in a collaborative environment. Some notable examples are: *WordPress, Joomla, Drupal etc*.
 
 ## Release History
 ```
@@ -47,7 +47,7 @@
 
 ## Requirements and Compatibility:
 
-CMSeeK is built using **python3**, you will need python3 to run this tool and is compitable with **unix based systems** as of now. Windows support will be added later. CMSeeK relies on **git** for auto-update so make sure git is installed.
+CMSeeK is built using **python3**, you will need python3 to run this tool and is compatible with **unix based systems** as of now. Windows support will be added later. CMSeeK relies on **git** for auto-update so make sure git is installed.
 
 ## Installation and Usage:
 
@@ -72,14 +72,14 @@ USAGE:
        python3 cmseek.py (for guided scanning) OR
        python3 cmseek.py [OPTIONS] <Target Specification>
 
-SPECIFING TARGET:
+SPECIFYING TARGET:
       -u URL, --url URL            Target Url
       -l LIST, --list LIST         Path of the file containing list of sites
                                    for multi-site scan (comma separated or one-per-line)
 
 MANIPULATING SCAN:
       -i cms, --ignore--cms cms    Specify which CMS IDs to skip in order to
-                                   avoid flase positive. separated by comma ","
+                                   avoid false positive. separated by comma ","
 
       --strict-cms cms             Checks target against a list of provided
                                    CMS IDs. separated by comma ","
@@ -194,7 +194,7 @@ Please make sure you have the following info attached when opening a new issue:
 - Exact copy of error or screenshot of error
 - Your operating system and python version
 
-**Issues without these informations might not be answered!**
+**Issues without these information might not be answered!**
 
 ## Disclaimer:
 
