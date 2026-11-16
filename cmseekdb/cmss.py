@@ -1247,3 +1247,10 @@ freshpage = {
     'vd':'0',
     'deeps':'0'
 }
+
+shopfast = {
+    'name':'ShopFast',
+    'url':'https://shopfa.st',
+    'vd':'0',
+    'deeps':'0'
+}
