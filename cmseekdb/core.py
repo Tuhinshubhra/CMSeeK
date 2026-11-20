@@ -25,7 +25,11 @@ import cmseekdb.robots as robots
 import cmseekdb.generator as generator
 import cmseekdb.result as result
 
-def main_proc(site,cua):
+def main_proc(site,cua, silent=False, should_return=False):
+    # If silent flag is passed suppress cmseek printing functions
+    if silent:
+        cmseek.silent = True
+        result.silent = True
 
     # Check for skip_scanned
     if cmseek.skip_scanned:
@@ -33,7 +37,7 @@ def main_proc(site,cua):
             if site == csite and cmseek.report_index['results'][0][site]['cms_id'] != '':
                 cmseek.warning('Skipping {0} as it was previously scanned!'.format(cmseek.red + site + cmseek.cln))
                 return
-
+            
     cmseek.clearscreen()
     cmseek.banner("CMS Detection And Deep Scan")
     cmseek.info("Scanning Site: " + site)
@@ -42,6 +46,8 @@ def main_proc(site,cua):
     init_source = cmseek.getsource(site, cua)
     if init_source[0] != '1':
         cmseek.error("Aborting CMSeek! Couldn't connect to site \n    Error: %s" % init_source[1])
+        if should_return:
+            return {"success": False, "error": "Couldn't connect to site", "site": site, "error_details": init_source[1]}
         return
     else:
         scode = init_source[1]
@@ -49,8 +55,9 @@ def main_proc(site,cua):
         if site != init_source[3] and site + '/' != init_source[3]:
             if cmseek.redirect_conf == '0':
                 cmseek.info('Target redirected to: ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln)
-                if not cmseek.batch_mode:
-                    follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
+                if not silent:
+                    if not cmseek.batch_mode:
+                        follow_redir = input('[#] Set ' + cmseek.bold + cmseek.fgreen + init_source[3] + cmseek.cln + ' as target? (y/n): ')
                 else:
                     follow_redir = 'y'
                 if follow_redir.lower() == 'y':
@@ -72,6 +79,8 @@ def main_proc(site,cua):
     if scode == '':
         # silly little check thought it'd come handy
         cmseek.error('Aborting detection, source code empty')
+        if should_return:
+            return {"success": False, "error": "Source code empty", "site": site}
         return
 
     cmseek.statement("Detection Started")
@@ -146,7 +155,10 @@ def main_proc(site,cua):
         
         if cms_info['deeps'] == '1' and not cmseek.light_scan and not cmseek.only_cms:
             # cmseek.success('Starting ' + cmseek.bold + cms_info['name'] + ' deep scan' + cmseek.cln)
-            advanced.start(cms, site, cua, ga, scode, ga_content, detection_method, headers)
+            advres = advanced.start(cms, site, cua, ga, scode, ga_content, detection_method, headers, should_return=should_return, silent=silent)
+            # If its a deep scan use this result from the deep scan for the api, hopefully it has more info than the basic scan :fingerscrossed:
+            if should_return:
+                return advres
             return
         
         elif cms_info['vd'] == '1' and not cmseek.only_cms:
@@ -174,6 +186,8 @@ def main_proc(site,cua):
             cmseek.result("CMS URL: ", cms_info['url'])
             cmseek.update_log('cms_url', cms_info['url']) # update log
             '''
+            if should_return:
+                return {"success": True, "site": site, "cms_name": cms_info['name'], "cms_version": cms_version, "cms_url": cms_info['url'], "requests": str(cmseek.total_requests), "time": str(comptime)}
             return
         else:
             # nor version detect neither DeepScan available
@@ -193,20 +207,25 @@ def main_proc(site,cua):
             cmseek.result("CMS URL: ", cms_info['url'])
             cmseek.update_log('cms_url', cms_info['url']) # update log
             '''
+            if should_return:
+                return {"success": True, "site": site, "cms_name": cms_info['name'], "cms_version": '0', "cms_url": cms_info['url'], "requests": str(cmseek.total_requests), "time": str(comptime)}
             return
     else:
-        print('\n')
         cmseek.error('CMS Detection failed, if you know the cms please help me improve CMSeeK by reporting the cms along with the target by creating an issue')
-        print('''
-{2}Create issue:{3} https://github.com/Tuhinshubhra/CMSeeK/issues/new
+        if not silent:
+            print('\n')
+            print('''
+    {2}Create issue:{3} https://github.com/Tuhinshubhra/CMSeeK/issues/new
 
-{4}Title:{5} [SUGGESTION] CMS detction failed!
-{6}Content:{7}
-    - CMSeeK Version: {0}
-    - Target: {1}
-    - Probable CMS: <name and/or cms url>
+    {4}Title:{5} [SUGGESTION] CMS detction failed!
+    {6}Content:{7}
+        - CMSeeK Version: {0}
+        - Target: {1}
+        - Probable CMS: <name and/or cms url>
 
-N.B: Create issue only if you are sure, please avoid spamming!
-        '''.format(cmseek.cmseek_version, site, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln))
+    N.B: Create issue only if you are sure, please avoid spamming!
+            '''.format(cmseek.cmseek_version, site, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln, cmseek.bold, cmseek.cln))
+        if should_return:
+            return {"success": False, "error": "CMS Detection failed, no CMS detected", "site": site}
         return
     return

@@ -11,6 +11,7 @@ import random
 import shutil
 import signal
 import subprocess
+from urllib.parse import urlparse
 import urllib.request
 from http.cookiejar import CookieJar
 import json
@@ -31,6 +32,7 @@ report_index = {} # Contains previous scan results
 skip_scanned = False # When set to true CMSeeK witll ignore target whose CMS had been previously detected!
 light_scan = False # When enabled, we don't perform deep-scan only detect CMS and version.
 only_cms = False # When enabled, we just detect the CMS no version or deepscan is performed.
+silent = False # When enabled, CMSeeK will not print any output to the console
 
 # all the color codes goes here
 white = "\033[97m"
@@ -81,6 +83,10 @@ if access_directory == "" or not os.path.exists(access_directory):
             access_directory = os.getcwd()
 
 def banner (txt):
+    if silent:
+        # No sexy banner :(
+        return
+    
     # The sexy banner!!!
     global cmseek_version
     print(bold + fgreen + """
@@ -138,6 +144,11 @@ USER AGENT:
 OUTPUT:
       -v, --verbose                Increase output verbosity
 
+API:
+      --api                        Start CMSeeK in API mode.
+      -p, --port PORT              Specify the port for API mode (defaults to: 8080)
+      -h, --host HOST              Specify the host for API mode (defaults to: 0.0.0.0 [all interfaces])
+
 VERSION & UPDATING:
       --update                     Update CMSeeK (Requires git)
       --version                    Show CMSeeK version and exit
@@ -164,14 +175,15 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 def clearscreen():
-    if os.name == 'nt':
-        os.system('cls')
-    # for mac and linux(here, os.name is 'posix')
-    else:
-        os.system('clear')
+    if not silent:
+        if os.name == 'nt':
+            os.system('cls')
+        # for mac and linux(here, os.name is 'posix')
+        else:
+            os.system('clear')
 
 def bye():
-    bye_dict = ["adios","adieu","addio","adeus","aloha","arrivederci","auf Wiedersehen","au revoir","sayonara","shalom","totsiens","vale","zaijian","Aabar dekha hobey","Fir milenge","Annyeong", "Ja mata ne", "До Встречи"]
+    bye_dict = ["adios","adieu","addio","adeus","aloha","arrivederci","auf Wiedersehen","au revoir","sayonara","shalom","totsiens","vale","zaijian","Aabar dekha hobey","Fir milenge","Annyeong", "Ja mata ne", "До Встречи", "Tschüss"]
     this_time = random.choice(bye_dict)
     print('\n' + bold + red + ' CMSeeK says ~ ' + this_time + cln)
     quit()
@@ -179,25 +191,30 @@ def bye():
 def statement(msg):
     # Print only if verbose
     global verbose
-    if verbose == True:
+    if verbose == True and not silent:
         print("[+] "  + msg)
 
 def error(msg):
-    print(bold + red + "[x] " + msg + cln) # switched to x from ❌ ..
+    if not silent:
+        print(bold + red + "[x] " + msg + cln) # switched to x from ❌ ..
 
 def warning(msg):
-    print(bold + yellow + "[!] " + cln + msg)
+    if not silent:
+        print(bold + yellow + "[!] " + cln + msg)
 
 def info(msg):
-    print(bold + lblue + "[i] " + cln + msg)
+    if not silent:
+        print(bold + lblue + "[i] " + cln + msg)
 
 def success(msg):
-    print(bold + fgreen + "[*] " + cln + msg)
+    if not silent:
+        print(bold + fgreen + "[*] " + cln + msg)
 
 def result(stm, msg):
-    try: print(bold + fgreen + "[✔] " + stm + cln + msg)
-    except UnicodeEncodeError:
-        print(bold + fgreen + "[>] " + stm + cln + msg)
+    if not silent:
+        try: print(bold + fgreen + "[✔] " + stm + cln + msg)
+        except UnicodeEncodeError:
+            print(bold + fgreen + "[>] " + stm + cln + msg)
 
 def process_url(target):
     # Used to format the url for multiple site scan
@@ -552,3 +569,15 @@ def randomua(rnd = None): # Randomized or User defined useragent
         b = random.choice(a)
 
     return b
+
+def validate_url(url):
+    try:
+        result = urlparse(url)
+
+        return (
+            result.scheme in ("http", "https")
+            and bool(result.netloc)
+            and "." in result.hostname
+        )
+    except (ValueError, AttributeError):
+        return False
