@@ -33,7 +33,7 @@ def start(headers, url, ua, temp_src=''):
                 cmseek.error('Version detection failed!')
                 return '0'
 
-        new_regex = re.findall('"version"\: "(.*?)"', temp_src)
+        new_regex = re.findall(r'"version"\: "(.*?)"', temp_src)
 
         if new_regex != [] and new_regex[0] != "":
             # detection via headers successful
