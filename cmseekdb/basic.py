@@ -105,8 +105,8 @@ Github: {4}
 Coded By:{1}{3} @r3dhax0r {2}
 
 USAGE:
-       python3 cmseek.py (for guided scanning) OR
-       python3 cmseek.py [OPTIONS] <Target Specification>
+       cmseek (for guided scanning) OR
+       cmseek [OPTIONS] <Target Specification>
 
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
@@ -148,11 +148,11 @@ HELP & MISCELLANEOUS:
       --batch                      Never ask you to press enter after every site in a list is scanned
 
 EXAMPLE USAGE:
-      python3 cmseek.py -u example.com                           # Scan example.com
-      python3 cmseek.py -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
-      python3 cmseek.py -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
-      python3 cmseek.py -u example.com --random-agent            # Scan example.com using a random user-Agent
-      python3 cmseek.py -v -u example.com                        # enabling verbose output while scanning example.com
+      cmseek -u example.com                           # Scan example.com
+      cmseek -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
+      cmseek -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
+      cmseek -u example.com --random-agent            # Scan example.com using a random user-Agent
+      cmseek -v -u example.com                        # enabling verbose output while scanning example.com
 
     """.format(cmseek_version,red, cln, bold, GIT_URL))
     bye()

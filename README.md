@@ -51,26 +51,24 @@ CMSeeK is built using **python3**, you will need python3 to run this tool and is
 
 ## Installation and Usage:
 
-It is fairly easy to use CMSeeK, just make sure you have python3 and git (just for cloning the repo) installed and use the following commands:
+It is fairly easy to use CMSeeK, just make sure you have python3, pipx (or pip) and git (just for cloning the repo) installed and use the following commands:
 
-- git clone `https://github.com/Tuhinshubhra/CMSeeK`
-- cd CMSeeK
-- pip/pip3 install -r requirements.txt
+- pipx install `git+https://github.com/Tuhinshubhra/CMSeeK`
 
 For guided scanning:
 
-- python3 cmseek.py
+- cmseek
 
 Else:
 
-- python3 cmseek.py -u <target_url> [...]
+- cmseek -u <target_url> [...]
 
 Help menu from the program:
 
 ```
 USAGE:
-       python3 cmseek.py (for guided scanning) OR
-       python3 cmseek.py [OPTIONS] <Target Specification>
+       cmseek (for guided scanning) OR
+       cmseek [OPTIONS] <Target Specification>
 
 SPECIFING TARGET:
       -u URL, --url URL            Target Url
@@ -108,17 +106,17 @@ HELP & MISCELLANEOUS:
       --batch                      Never ask you to press enter after every site in a list is scanned
 
 EXAMPLE USAGE:
-      python3 cmseek.py -u example.com                           # Scan example.com
-      python3 cmseek.py -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
-      python3 cmseek.py -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
-      python3 cmseek.py -u example.com --random-agent            # Scan example.com using a random user-Agent
-      python3 cmseek.py -v -u example.com                        # enabling verbose output while scanning example.com
+      cmseek -u example.com                           # Scan example.com
+      cmseek -l /home/user/target.txt                 # Scan the sites specified in target.txt (comma separated)
+      cmseek -u example.com --user-agent Mozilla 5.0  # Scan example.com using custom user-Agent Mozilla is 5.0 used here
+      cmseek -u example.com --random-agent            # Scan example.com using a random user-Agent
+      cmseek -v -u example.com                        # enabling verbose output while scanning example.com
 
 ```
 
 ## Checking For Update:
 
-You can check for update either from the main menu or use `python3 cmseek.py --update` to check for update and apply auto update.
+You can check for update either from the main menu or use `cmseek --update` to check for update and apply auto update.
 
 P.S: Please make sure you have `git` installed, CMSeeK uses git to apply auto update.
 
