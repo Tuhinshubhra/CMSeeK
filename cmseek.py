@@ -129,9 +129,9 @@ elif args.list is not None:
                 sites_list = file_contents.split(',')
             else:  # if one per line URLs list
                 sites_list = file_contents.splitlines()
-    except FileNotFoundError:
+    except (OSError, UnicodeDecodeError):
         cmseek.error('Invalid path! CMSeeK is quitting')
-        cmseek.bye()
+        sys.exit(1)
     if sites_list != []:
         if cua == None:
             cua = cmseek.randomua()
@@ -199,9 +199,9 @@ elif selone == '2':
                     sites_list = file_contents.split(',')
                 else:  # if one per line URLs list
                     sites_list = file_contents.splitlines()
-        except FileNotFoundError:
+        except (OSError, UnicodeDecodeError):
             cmseek.error('Invalid path! CMSeeK is quitting')
-            cmseek.bye()
+            sys.exit(1)
     else:
         cmseek.info('Treating input as URL list')
         sites_list = sites.split(',')
